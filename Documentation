@@ -9,5 +9,8 @@ This Project requires the following Libraries:
 
  ImageJ can be downloaded from (https://imagej.nih.gov/ij/download.html)
 
+ Do not forget to put the .dll files in the Java/bin for opencv and SimpleElastix
+
 
  Under src/main/java/ImageJ you will find code of ImageJ classes and plugins that were modified for this project.
+
