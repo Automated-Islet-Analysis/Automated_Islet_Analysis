@@ -6,12 +6,12 @@ ImageJ/nifti_io/Nifti_writer.java
  ImageJ.nifti_io.Nifti_writer
 ImageJ/nifti_io/Nifti_Reader.java
  ImageJ.nifti_io.Nifti_Reader
-ImageJ/nifti_io/CoordinateMapper.java
- ImageJ.nifti_io.CoordinateMapper
-ImageJ/nifti_io/AffineCoors.java
- ImageJ.nifti_io.AffineCoors
 ImageJ/Stack_Splitter.java
  ImageJ.Stack_Splitter
+ImageJ/nifti_io/AffineCoors.java
+ ImageJ.nifti_io.AffineCoors
+ImageJ/nifti_io/CoordinateMapper.java
+ ImageJ.nifti_io.CoordinateMapper
 Main.java
  Main
 VideoProcessor.java

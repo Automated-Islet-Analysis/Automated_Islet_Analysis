@@ -17,18 +17,15 @@ public class Video {
     protected LinkedList<Image> frames = new LinkedList();
     protected LinkedList<Image> alignedFrames = new LinkedList();
     protected int numberOfFrames=0;
-    protected String name;
+    public String name;
     protected String dirName;
 
     // Constructors
-    public Video(){}
-
     public Video(String filename){
         this.filename=filename;
         File file = new File(filename);
         name = file.getName();
         dirName = file.getParent();
-
         readFrames();
     }
 
@@ -53,16 +50,20 @@ public class Video {
         ImagePlus vid = new ImagePlus();
         Opener opener = new Opener();
 
+        // Divide video into individual images
         vid = opener.openImage(filename);
         numberOfFrames = vid.getStackSize();
         Stack_Splitter stack_splitter = new Stack_Splitter();
         stack_splitter.run(vid);
 
+        // Load individual files in linked list
         for (int i = 1; i <= numberOfFrames; i++) {
             Image img1 = new Image();
             img1 = SimpleITK.readImage(System.getProperty("user.dir") + "/temp/img/" + String.valueOf(i) + ".tif");
             frames.add(img1);
         }
+
+        // Delete all temporary files
         File directory = new File(System.getProperty("user.dir") + "/temp/img");
         File[] files = directory.listFiles();
         for (File file : files) {
@@ -95,7 +96,7 @@ public class Video {
         alignedVid = folderOpener.open(System.getProperty("user.dir") + "/temp/img");
 
         FileSaver fileSaver2 = new FileSaver(alignedVid);
-        fileSaver2.saveAsTiff(System.getProperty("user.dir") + "/videos/" + name.lastIndexOf(".") + "_aligned_vid.tif");
+        fileSaver2.saveAsTiff(System.getProperty("user.dir") + "/videos/" + name.substring(0,name.lastIndexOf(".")) + "_aligned_vid.tif");
 
         // Remove all temporary files from img
         File directory = new File(System.getProperty("user.dir")+"/temp/img");

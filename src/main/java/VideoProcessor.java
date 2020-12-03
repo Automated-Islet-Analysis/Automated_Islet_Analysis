@@ -6,20 +6,14 @@ import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgproc.CLAHE;
 import org.opencv.imgproc.Imgproc;
-
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class VideoProcessor extends Video{
     public VideoProcessor(Video video){
-        this.filename=video.filename;
-        this.name = video.name;
-        this.dirName = video.dirName;
-        this.frames = video.frames;
+        super(video.filename);
         this.alignedFrames = video.alignedFrames;
-        this.numberOfFrames= video.numberOfFrames;
     }
 
     // Perform motion correction on frames
