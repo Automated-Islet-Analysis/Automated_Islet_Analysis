@@ -1,3 +1,5 @@
+package imageprocessing;
+
 import ImageJ.Stack_Splitter;
 import ImageJ.nifti_io.Nifti_Reader;
 import ij.ImagePlus;
@@ -14,11 +16,22 @@ import java.util.LinkedList;
 public class Video {
     static{ System.loadLibrary(Core.NATIVE_LIBRARY_NAME); }
     protected String filename;
-    protected LinkedList<Image> frames = new LinkedList();
-    protected LinkedList<Image> alignedFrames = new LinkedList();
-    protected int numberOfFrames=0;
     public String name;
     protected String dirName;
+
+    protected ImagePlus vid;
+    protected int numberOfFrames=0;
+    // Variable holds idx of frames without Z motion
+    protected LinkedList<Integer> idxFramesInFocus = new LinkedList();
+    // Frames loaded when the class is constructed for both SimpleElastix and ImageJ
+    protected LinkedList<Image> SEframes = new LinkedList();
+    protected LinkedList<ImagePlus> ijFrames = new LinkedList();
+
+    protected LinkedList<ImagePlus> ijFrames4Processing = new LinkedList();
+    protected LinkedList<Image> SEFrames4Processing = new LinkedList();
+
+    protected LinkedList<Image> alignedFrames = new LinkedList();
+
 
     // Constructors
     public Video(String filename){
@@ -47,7 +60,7 @@ public class Video {
     }
 
     private void readFrames() {
-        ImagePlus vid = new ImagePlus();
+        vid = new ImagePlus();
         Opener opener = new Opener();
 
         // Divide video into individual images
@@ -59,8 +72,12 @@ public class Video {
         // Load individual files in linked list
         for (int i = 1; i <= numberOfFrames; i++) {
             Image img1 = new Image();
+            ImagePlus imagePlus= new ImagePlus();
+
             img1 = SimpleITK.readImage(System.getProperty("user.dir") + "/temp/img/" + String.valueOf(i) + ".tif");
-            frames.add(img1);
+            SEframes.add(img1);
+            imagePlus = opener.openImage(System.getProperty("user.dir") + "/temp/img/" + String.valueOf(i) + ".tif");
+            ijFrames.add(imagePlus);
         }
 
         // Delete all temporary files

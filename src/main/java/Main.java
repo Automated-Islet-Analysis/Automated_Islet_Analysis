@@ -1,3 +1,5 @@
+import imageprocessing.Video;
+import imageprocessing.VideoProcessor;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,7 +9,7 @@ public class Main {
 
         // Apply processing on the video
         VideoProcessor videoProcessor = new VideoProcessor(vid);
-        videoProcessor.motionCorrect();
+        videoProcessor.run(0);
         // Save processed video
         vid.setAlignedFrames(videoProcessor.getAlignedFrames());
         vid.saveAlignedFrames();
