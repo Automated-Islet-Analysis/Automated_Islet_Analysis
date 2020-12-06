@@ -16,11 +16,20 @@ import java.util.Hashtable;
 public class TiffReader extends Frame {
     private static final long serialVersionUID = 1L;
     public TiffReader(final String filename) throws IOException {
-        //Dropdown menu
+
+        //Create Frame
+        JFrame frame = new JFrame("Interface");
+
+
+
+        //Dropdown menu 1
+        String Home[]={"Home","Upload"};
+        final JComboBox cb2=new JComboBox(Home);
+        //Dropdown menu 2
         String Data[]={"ROIs","Motion Corrected Video","Data"};
         final JComboBox cb1=new JComboBox(Data);
 
-
+        //Drop
 
         setLayout( null );
         setTitle( " TIFF Reader" );
@@ -42,18 +51,21 @@ public class TiffReader extends Frame {
         addPanel.setBounds( 100, 100, 800, 400 );
         add( addPanel );
         final ImageCanvas chqImgCanvas = new ImageCanvas( chqBufferedImg );
-        chqImgCanvas.setBounds( 0, 0, 800, 600 );
+        chqImgCanvas.setBounds( 50, 50, 800, 600 );
         final Graphics g = chqBufferedImg.createGraphics();
         final int imageW = addPanel.getWidth();
         final int imageH = addPanel.getHeight();
-        g.drawImage( chqBufferedImg, 0, 0, imageW, imageH, null, null );
+        g.drawImage( chqBufferedImg, 50, 50, imageW, imageH, null, null );
         addPanel.add( chqImgCanvas );
-        setSize( 1024, 768 );
+        setSize( 120, 120 );
         setUndecorated( true );
 
 
         cb1.setBounds(0,0,90,20);
-        addPanel.add(cb1);
+        frame.add(cb1);
+        frame.setSize(500,500);
+        frame.add(addPanel);
+        frame.setVisible(true);
     }
     public BufferedImage convertRenderedImgToBuffImg( final RenderedImage chqBufferedImg ) {
         if (chqBufferedImg instanceof BufferedImage) {
@@ -78,9 +90,9 @@ public class TiffReader extends Frame {
     public static void main( final String[] args ) {
         final String filename = "/Users/sachamaire/Desktop/130318_cg38_0R2L_afterIVinsulin-1.tif";
         try {
-            final TiffReader window = new TiffReader( filename );
-// window.pack();
-            window.show();
+            final TiffReader window= new TiffReader( filename );
+            // window.pack();
+            //window.show();
         } catch (final java.io.IOException ioe) {
             System.out.println( ioe );
         }
