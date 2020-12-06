@@ -1,11 +1,10 @@
 package imageprocessing;
 
 import ImageJ.Stack_Splitter;
-import ImageJ.nifti_io.Nifti_Reader;
 import ij.ImagePlus;
 import ij.io.FileSaver;
 import ij.io.Opener;
-import ij.plugin.FolderOpener;
+import ij.plugin.Concatenator;
 import org.itk.simple.Image;
 import org.itk.simple.SimpleITK;
 import org.opencv.core.Core;
@@ -19,7 +18,7 @@ public class Video {
     public String name;
     protected String dirName;
 
-    protected ImagePlus vid;
+    private ImagePlus vid;
     protected int numberOfFrames=0;
     // Variable holds idx of frames without Z motion
     protected LinkedList<Integer> idxFramesInFocus = new LinkedList();
@@ -27,11 +26,8 @@ public class Video {
     protected LinkedList<Image> SEframes = new LinkedList();
     protected LinkedList<ImagePlus> ijFrames = new LinkedList();
 
-    protected LinkedList<ImagePlus> ijFrames4Processing = new LinkedList();
     protected LinkedList<Image> SEFrames4Processing = new LinkedList();
-
-    protected LinkedList<Image> alignedFrames = new LinkedList();
-
+    protected LinkedList<ImagePlus> ijFrames4Processing = new LinkedList();
 
     // Constructors
     public Video(String filename){
@@ -42,21 +38,12 @@ public class Video {
         readFrames();
     }
 
-
     public String getFilename() {
         return filename;
     }
 
     public void setFilename(String filename) {
         this.filename = filename;
-    }
-
-    public void setAlignedFrames(LinkedList<Image> alignedFrames) {
-        this.alignedFrames = alignedFrames;
-    }
-
-    public LinkedList<Image> getAlignedFrames() {
-        return alignedFrames;
     }
 
     private void readFrames() {
@@ -92,35 +79,16 @@ public class Video {
     }
 
     public void saveAlignedFrames() {
-        for (int i = 1; i < numberOfFrames - 1; i++) {
-
-            // Save as nii format used by SimpleElastix
-            SimpleITK.writeImage(alignedFrames.get(i), "temp/temp.nii");
-
-            ImagePlus img = new ImagePlus();
-            File file = new File(System.getProperty("user.dir") + "/temp/temp.nii");
-            Nifti_Reader nifti_reader = new Nifti_Reader();
-            img = nifti_reader.run(file);
-
-            FileSaver fileSaver1 = new FileSaver(img);
-            fileSaver1.saveAsPng(System.getProperty("user.dir") + "/temp/img/aligned" + String.valueOf(i) + ".png");
-
+        int z ;
+        ImagePlus out = new ImagePlus();
+        Concatenator concatenator=new Concatenator();
+        out = ijFrames4Processing.get(0);
+        for (z = 1; z<this.ijFrames4Processing.size(); z++) {
+            out = concatenator.concatenate(out,ijFrames4Processing.get(z),true);
         }
 
-        // Combine all the .png into a stack to save it as a video(tiff format)
-        ImagePlus alignedVid = new ImagePlus();
-        FolderOpener folderOpener = new FolderOpener();
-        alignedVid = folderOpener.open(System.getProperty("user.dir") + "/temp/img");
-
-        FileSaver fileSaver2 = new FileSaver(alignedVid);
+        FileSaver fileSaver2 = new FileSaver(out);
         fileSaver2.saveAsTiff(System.getProperty("user.dir") + "/videos/" + name.substring(0,name.lastIndexOf(".")) + "_aligned_vid.tif");
-
-        // Remove all temporary files from img
-        File directory = new File(System.getProperty("user.dir")+"/temp/img");
-        File[] files = directory.listFiles();
-        for (File file : files){
-            if (!file.delete()){System.out.println("Failed to delete "+file);}
-        }
     }
 }
 

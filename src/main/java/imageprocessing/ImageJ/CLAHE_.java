@@ -72,6 +72,9 @@ public class CLAHE_ implements PlugIn
         return true;
     }
 
+
+
+
     final public void run( final String arg )
     {
         final ImagePlus imp = IJ.getImage();
