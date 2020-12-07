@@ -12,6 +12,7 @@ import imageprocessing.ImageJ.Thresholder;
 import org.itk.simple.*;
 import java.lang.Math;
 import java.io.File;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 import static ij.IJ.Roi;
@@ -27,6 +28,9 @@ public class VideoProcessor extends Video {
     }
 
     public void run(int arg){
+        // Clear all temporary files of past analysis
+        cleartemp();
+
         if (arg==1) {
             removeZMotion();
         } else {
@@ -35,12 +39,15 @@ public class VideoProcessor extends Video {
         }
         if(arg==1){
             motionCorrect();
+            // Save motion corrected video
+            saveAlignedFrames();
         }
+
 
         // Find cells
         findCells();
         analyseCells();
-        saveROI();
+        saveROIs();
     }
 
 
@@ -92,20 +99,25 @@ public class VideoProcessor extends Video {
         ElastixImageFilter fil = new ElastixImageFilter();
         fil.setFixedImage(this.SEFrames4Processing.get(0));
         fil.setParameterMap(parMapTrans);
+        fil.printParameterMap();
 
-        for (int i=1; i<SEFrames4Processing.size(); i++){ /***/
+        ijFrames4Processing.clear();
+        for (int i=0; i<SEFrames4Processing.size(); i++){ /***/
             fil.setMovingImage(SEFrames4Processing.get(i));
             fil.execute();
 
             Image out = new Image();
             out = fil.getResultImage();
-            SEFrames4Processing.set(i,out);
+//            SEFrames4Processing.set(i,out);
 
-            SimpleITK.writeImage(out, "temp/temp.nii");
-            File file = new File(System.getProperty("user.dir") + "/temp/temp.nii");
-            ImageJ.nifti_io.Nifti_Reader nifti_reader = new ImageJ.nifti_io.Nifti_Reader();
-            ijFrames4Processing.set(i,nifti_reader.run(file));
+            SimpleITK.writeImage(out,"temp/temp.tif");
+            ImagePlus img = new ImagePlus(System.getProperty("user.dir") + "/temp/temp.tif");
+
+            ijFrames4Processing.add(img);
         }
+        // Not needed anymore, better to delete it to reduce the risk of out of memory
+        SEFrames4Processing.clear();
+
     }
 
     public void findCells(){
@@ -114,23 +126,26 @@ public class VideoProcessor extends Video {
 
         // Create filter
         // Dim of circular filter with -2 in middle
-        double rMinustwo = 6.5;
-        double rZero = 7.5;
+        double rMinustwo = 7.5;
+        double rZero = 8.5;
         int sizeFilter = 31; // Needs to be uneven
         // init filter
         double[][] kernel = new double[sizeFilter][sizeFilter];
         // Create array with distances from origin(eg (16,16) for 31x31)
-        double[] dist = new double[sizeFilter*sizeFilter];
-        for (int i = (int) -Math.ceil(sizeFilter/2); i<Math.ceil(sizeFilter/2); i++){
-            for (int j = (int) -Math.ceil(sizeFilter/2); j<Math.ceil(sizeFilter/2); j++){
-                dist[(int) (sizeFilter*(i+Math.ceil(sizeFilter/2)) + j+Math.ceil(sizeFilter/2))]= Math.sqrt(i*i + j*j);
+        double[][] dist = new double[sizeFilter][sizeFilter];
+
+        for (int i = 0; i<sizeFilter; i++){
+            for (int j =0; j<sizeFilter; j++){
+                dist[i][j] = Math.sqrt(Math.pow(i-Math.ceil(sizeFilter/2),2) + Math.pow(j-Math.ceil(sizeFilter/2),2));
             }
         }
         // Find the distances within the circle of -2 and 0
-        for(int i=0; i<sizeFilter*sizeFilter;i++){
-            if (dist[i]<rMinustwo) kernel[Math.floorDiv(i,sizeFilter)][i%sizeFilter]=-2;
-            else if(dist[i]<rZero) kernel[Math.floorDiv(i,sizeFilter)][i%sizeFilter]=0;
-            else kernel[Math.floorDiv(i,sizeFilter)][i%sizeFilter]=1;
+        for (int i = 0; i<sizeFilter; i++){
+            for (int j = 0; j<sizeFilter; j++){
+                if (dist[i][j]<rMinustwo) kernel[i][j]=-2;
+                else if(dist[i][j]<rZero) kernel[i][j]=0;
+                else kernel[i][j]=1;
+            }
         }
 
         // Loop over each image and find the three highest peaks
@@ -174,57 +189,88 @@ public class VideoProcessor extends Video {
                 c[1]=yMax;
                 c[2]=i;
                 coor.add(c);
-                for (int p=-50;p<=50;p++){
-                    for (int q=-50;q<=50;q++){
-                        frame[yMax+p][xMax+q]=0;
+                for (int p=-30;p<=30;p++){
+                    for (int q=-30;q<=30;q++){
+                        if((yMax+p>0) &&(xMax+q>0) &&(xMax+q<width-sizeFilter) &&(yMax+p<height-sizeFilter))
+                                frame[yMax+p][xMax+q]=0;
                     }
                 }
             }
         }
         // Find a unique representation of all found maxima
         coorUnique.add(coor.get(0));
+        int[] a = new int[2];
+        a[0]=coor.get(0)[0];
+        a[1]=coor.get(0)[1];
+        RegionOfIntrest regionOfIntrest_ = new RegionOfIntrest(a,regionOfIntrests.size()+1,coor.get(0)[2],roi_size,kernel_size);
+        regionOfIntrests.add(regionOfIntrest_);
         for (int i=1;i<coor.size();i++){
-            double minDist=Math.sqrt(Math.pow(2,coor.get(i)[0]-coorUnique.get(0)[0]) + Math.pow(2,coor.get(i)[1]-coorUnique.get(0)[1]));
+            double minDist=Math.sqrt(Math.pow(coor.get(i)[0]-coorUnique.get(0)[0],2) + Math.pow(coor.get(i)[1]-coorUnique.get(0)[1],2));
             for(int j=1;j<coorUnique.size();j++){
-                double distance = Math.sqrt(Math.pow(2,coor.get(i)[0]-coorUnique.get(j)[0]) + Math.pow(2,coor.get(i)[1]-coorUnique.get(j)[1]));
+                double distance = Math.sqrt(Math.pow(coor.get(i)[0]-coorUnique.get(j)[0],2) + Math.pow(coor.get(i)[1]-coorUnique.get(j)[1],2));
                 if(distance<minDist) minDist=distance;
             }
             if(minDist>30){
-                int[] a = new int[2];
-                a[0]=coor.get(i)[0];
-                a[1]=coor.get(i)[1];
+                int[] a_ = new int[2];
+                a_[0]=coor.get(i)[0];
+                a_[1]=coor.get(i)[1];
                 coorUnique.add(coor.get(i));
-                regionOfIntrests.add(new RegionOfIntrest(a,regionOfIntrests.size()+1,coor.get(i)[2],roi_size));
+                RegionOfIntrest regionOfIntrest = new RegionOfIntrest(a_,regionOfIntrests.size()+1,coor.get(i)[2],roi_size,kernel_size);
+                regionOfIntrests.add(regionOfIntrest);
             }
         }
     }
 
     public void analyseCells(){
-        roi_size = 100; // needs to be even
-        kernel_size =5;
         // create video for each region around the identified cell
         System.out.println(regionOfIntrests.size());
         for(int i=0;i<regionOfIntrests.size();i++){
             regionOfIntrests.get(i).setRoiIntracellular(kernel_size,ijFrames4Processing);
-            regionOfIntrests.get(i).saveRois(ijFrames4Processing);
+            regionOfIntrests.get(i).saveRoi(ijFrames4Processing);
             regionOfIntrests.get(i).computeMeanIntensity();
         }
     }
 
-    public void saveROI(){
+    public void saveROIs(){
         ImagePlus img = ijFrames4Processing.get(0);
         ImageProcessor iP = img.getProcessor();
 
+        // change all the ROI to a black cube on the image
         for(int i=0;i<regionOfIntrests.size();i++){
             int[] coor = regionOfIntrests.get(i).getCoor();
-            for (int p=-10;p<=10;p++){
-                for (int q=-10;q<=10;q++){
-                    iP.setf(coor[0]+p,coor[1]+q,0);
+            for (int p=-7;p<=7;p++){
+                for (int q=-7;q<=7;q++){
+                    iP.setf(coor[0]+p+15,coor[1]+q+15,0);
                 }
             }
         }
         FileSaver fileSaver=new FileSaver(img);
         fileSaver.saveAsPng(System.getProperty("user.dir") + "/img/" + name.substring(0,name.lastIndexOf(".")) + "_ROI.png");
+    }
 
+    public void cleartemp(){
+        File dir = new File(System.getProperty("user.dir") + "/temp");
+        for(File file: dir.listFiles())
+            if (!file.isDirectory())
+                file.delete();
+            else {
+                for(File file1: file.listFiles())
+                    if (!file1.isDirectory())
+                        file1.delete();
+                    else{
+                        for(File file2: file1.listFiles())
+                            if (!file2.isDirectory())
+                                file2.delete();
+                            else{
+                                for(File file3: file2.listFiles())
+                                    if (!file3.isDirectory())
+                                        file3.delete();
+                            }
+                    }
+            }
+        File dir2 = new File(System.getProperty("user.dir") + "/img");
+        for(File file: dir.listFiles())
+            if (!file.isDirectory())
+                file.delete();
     }
 }

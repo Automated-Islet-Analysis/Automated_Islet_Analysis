@@ -12,28 +12,6 @@ imageprocessing/ImageJ/nifti_io/AffineCoors.java
  ImageJ.nifti_io.AffineCoors
 imageprocessing/ImageJ/Stack_Splitter.java
  ImageJ.Stack_Splitter
-imageprocessing/ImageJ/nifti_io/QuaternCoors.java
- ImageJ.nifti_io.QuaternCoors
-imageprocessing/ImageJ/CLAHE_.java
- ImageJ.CLAHE_
-imageprocessing/ImageJ/nifti_io/CoordinateMapper.java
- ImageJ.nifti_io.CoordinateMapper
-imageprocessing/ImageJ/CLAHE.java
- imageprocessing.ImageJ.CLAHE
-imageprocessing/ImageJ/nifti_io/NiftiHeader.java
- ImageJ.nifti_io.NiftiHeader
-imageprocessing/ImageJ/nifti_io/Nifti_Reader.java
- ImageJ.nifti_io.Nifti_Reader
-imageprocessing/Video.java
- imageprocessing.Video
-imageprocessing/Convolution.java
- imageprocessing.Convolution
-imageprocessing/RegionOfIntrest.java
- imageprocessing.RegionOfIntrest
-imageprocessing/VideoProcessor.java
- imageprocessing.VideoProcessor
-Main.java
- Main
 UserInterface.java
  UserInterface
  UserInterface$1
@@ -41,3 +19,25 @@ UserInterface.java
  UserInterface$3
  UserInterface$4
  UserInterface$5
+imageprocessing/ImageJ/CLAHE_.java
+ ImageJ.CLAHE_
+imageprocessing/ImageJ/nifti_io/CoordinateMapper.java
+ ImageJ.nifti_io.CoordinateMapper
+imageprocessing/RegionOfIntrest.java
+ imageprocessing.RegionOfIntrest
+imageprocessing/ImageJ/nifti_io/NiftiHeader.java
+ ImageJ.nifti_io.NiftiHeader
+imageprocessing/ImageJ/nifti_io/Nifti_Reader.java
+ ImageJ.nifti_io.Nifti_Reader
+imageprocessing/VideoProcessor.java
+ imageprocessing.VideoProcessor
+imageprocessing/ImageJ/CLAHE.java
+ imageprocessing.ImageJ.CLAHE
+imageprocessing/ImageJ/nifti_io/QuaternCoors.java
+ ImageJ.nifti_io.QuaternCoors
+imageprocessing/Convolution.java
+ imageprocessing.Convolution
+imageprocessing/Video.java
+ imageprocessing.Video
+Main.java
+ Main

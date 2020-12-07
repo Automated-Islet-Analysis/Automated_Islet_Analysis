@@ -5,6 +5,7 @@ import ij.ImagePlus;
 import ij.io.FileSaver;
 import ij.io.Opener;
 import ij.plugin.Concatenator;
+import ij.plugin.FolderOpener;
 import org.itk.simple.Image;
 import org.itk.simple.SimpleITK;
 import org.opencv.core.Core;
@@ -79,16 +80,22 @@ public class Video {
     }
 
     public void saveAlignedFrames() {
-        int z ;
-        ImagePlus out = new ImagePlus();
-        Concatenator concatenator=new Concatenator();
-        out = ijFrames4Processing.get(0);
-        for (z = 1; z<this.ijFrames4Processing.size(); z++) {
-            out = concatenator.concatenate(out,ijFrames4Processing.get(z),true);
+        for (int z = 0; z<this.ijFrames4Processing.size(); z++) {
+            ImagePlus img = ijFrames4Processing.get(z);
+            FileSaver fS = new FileSaver(img);
+            fS.saveAsPng(System.getProperty("user.dir") + "/temp/img/" + String.valueOf(z)+".png");
         }
+        ImagePlus vid=new ImagePlus();
+        FolderOpener folderOpener=new FolderOpener();
+        vid = folderOpener.open(System.getProperty("user.dir") + "/temp/img");
 
-        FileSaver fileSaver2 = new FileSaver(out);
-        fileSaver2.saveAsTiff(System.getProperty("user.dir") + "/videos/" + name.substring(0,name.lastIndexOf(".")) + "_aligned_vid.tif");
+        FileSaver fS = new FileSaver(vid);
+        fS.saveAsTiff(System.getProperty("user.dir") +"/videos/"+name.substring(0,name.lastIndexOf("."))+"_aligned_vid.tif");
+
+        File dir = new File(System.getProperty("user.dir") + "/temp/img");
+        for(File file: dir.listFiles())
+            if (!file.isDirectory())
+                file.delete();
     }
 }
 

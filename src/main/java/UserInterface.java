@@ -193,13 +193,6 @@ public class UserInterface extends javax.swing.JFrame{
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
 
-        Video vid = new Video(fileName);
-        // Apply processing on the video
-        VideoProcessor videoProcessor = new VideoProcessor(vid);
-        videoProcessor.motionCorrect();
-        // Save processed video
-        vid.setAlignedFrames(videoProcessor.getAlignedFrames());
-        vid.saveAlignedFrames();
     }
     //method called above to scale the image within the user interface
     public static BufferedImage scaleImage(int w, int h, BufferedImage img) throws Exception {

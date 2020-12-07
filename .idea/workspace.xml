@@ -23,9 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01e4016a-d0f0-45e1-aca9-bbe605a348cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/find_min_max_v1_00.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
@@ -34,23 +34,57 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/nifti_io.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/find_min_max_v1_00.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/find_min_max_v1_00.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/ij.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ij.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/libs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/libs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/libs1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/libs1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/simpleitk_2_0_0rc2_dev908_g8244e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/simpleitk_2_0_0rc2_dev908_g8244e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TransformParameters.0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TransformParameters.0.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ImageJ/CLAHE_.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ImageJ/CLAHE_.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransformParameters.1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TransformParameters.1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UserInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/RegionOfIntrest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/RegionOfIntrest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/Video.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/Video.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/VideoProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/VideoProcessor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/SimpleITKJava.exp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/SimpleITKJava.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/1_ROI.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/1_ROI.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/simpleitk-2.0.0rc2.dev908-g8244e.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/simpleitk-2.0.0rc2.dev908-g8244e.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/test.asv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/test.asv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/test.m" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/test.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/Convolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/Convolution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/Binary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/Binary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/CLAHE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/CLAHE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/CLAHE_.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/CLAHE_.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/FindMax_v1_00.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/FindMax_v1_00.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/ParticleAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/ParticleAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/Stack_Splitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/Stack_Splitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/Thresholder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/Thresholder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/nifti_io/AffineCoors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/nifti_io/AffineCoors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/nifti_io/CoordinateMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/nifti_io/CoordinateMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/nifti_io/NiftiHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/nifti_io/NiftiHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/nifti_io/Nifti_Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/nifti_io/Nifti_Reader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/nifti_io/Nifti_writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/nifti_io/Nifti_writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/nifti_io/QuaternCoors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/nifti_io/QuaternCoors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/RegionOfIntrest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/RegionOfIntrest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/Video.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/VideoProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/VideoProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/temp.nii" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,17 +108,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Image_treatment-" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Image_treatment-" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Image_treatment-" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -128,7 +151,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.30689654" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -186,6 +209,10 @@
       <workItem from="1607159961319" duration="9668000" />
       <workItem from="1607178205382" duration="33734000" />
       <workItem from="1607280253997" duration="1838000" />
+      <workItem from="1607293071226" duration="5152000" />
+      <workItem from="1607326045677" duration="5825000" />
+      <workItem from="1607331902281" duration="15720000" />
+      <workItem from="1607351755959" duration="570000" />
     </task>
     <servers />
   </component>
@@ -235,50 +262,51 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607251224356" />
-    <state width="1636" height="418" key="GridCell.Tab.0.bottom" timestamp="1607282094422">
+    <state width="1354" height="273" key="GridCell.Tab.0.bottom" timestamp="1607351818608">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
-    <state width="1492" height="348" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607274978009" />
-    <state width="1636" height="418" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607282094422" />
-    <state width="1636" height="418" key="GridCell.Tab.0.center" timestamp="1607282094422">
+    <state width="1492" height="24" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607341174285" />
+    <state width="1354" height="273" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607351818608" />
+    <state width="1354" height="273" key="GridCell.Tab.0.center" timestamp="1607351818608">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
-    <state width="1492" height="348" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607274978009" />
-    <state width="1636" height="418" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607282094422" />
-    <state width="1636" height="418" key="GridCell.Tab.0.left" timestamp="1607282094422">
+    <state width="1492" height="24" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607341174285" />
+    <state width="1354" height="273" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607351818608" />
+    <state width="1354" height="273" key="GridCell.Tab.0.left" timestamp="1607351818607">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
-    <state width="1492" height="348" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607274978009" />
-    <state width="1636" height="418" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607282094422" />
-    <state width="1636" height="418" key="GridCell.Tab.0.right" timestamp="1607282094422">
+    <state width="1492" height="24" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607341174285" />
+    <state width="1354" height="273" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607351818607" />
+    <state width="1354" height="273" key="GridCell.Tab.0.right" timestamp="1607351818608">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
-    <state width="1492" height="348" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607274978009" />
-    <state width="1636" height="418" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607282094422" />
-    <state width="1636" height="348" key="GridCell.Tab.1.bottom" timestamp="1607280201029">
+    <state width="1492" height="24" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607341174285" />
+    <state width="1354" height="273" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607351818608" />
+    <state width="1344" height="450" key="GridCell.Tab.1.bottom" timestamp="1607350572003">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
-    <state width="1492" height="348" key="GridCell.Tab.1.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607274978010" />
-    <state width="1636" height="348" key="GridCell.Tab.1.bottom/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607280201029" />
-    <state width="1636" height="348" key="GridCell.Tab.1.center" timestamp="1607280201028">
+    <state width="1492" height="24" key="GridCell.Tab.1.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607341174285" />
+    <state width="1344" height="450" key="GridCell.Tab.1.bottom/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607350572003" />
+    <state width="1344" height="450" key="GridCell.Tab.1.center" timestamp="1607350572003">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
-    <state width="1492" height="348" key="GridCell.Tab.1.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607274978010" />
-    <state width="1636" height="348" key="GridCell.Tab.1.center/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607280201028" />
-    <state width="1636" height="348" key="GridCell.Tab.1.left" timestamp="1607280201028">
+    <state width="1492" height="24" key="GridCell.Tab.1.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607341174285" />
+    <state width="1344" height="450" key="GridCell.Tab.1.center/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607350572003" />
+    <state width="1344" height="450" key="GridCell.Tab.1.left" timestamp="1607350572003">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
-    <state width="1492" height="348" key="GridCell.Tab.1.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607274978009" />
-    <state width="1636" height="348" key="GridCell.Tab.1.left/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607280201028" />
-    <state width="1636" height="348" key="GridCell.Tab.1.right" timestamp="1607280201028">
+    <state width="1492" height="24" key="GridCell.Tab.1.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607341174285" />
+    <state width="1344" height="450" key="GridCell.Tab.1.left/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607350572003" />
+    <state width="1344" height="450" key="GridCell.Tab.1.right" timestamp="1607350572003">
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
-    <state width="1492" height="348" key="GridCell.Tab.1.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607274978010" />
-    <state width="1636" height="348" key="GridCell.Tab.1.right/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607280201028" />
-    <state x="277" y="14" width="1229" height="850" key="SettingsEditor" timestamp="1607251227482">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="1492" height="24" key="GridCell.Tab.1.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607341174285" />
+    <state width="1344" height="450" key="GridCell.Tab.1.right/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607350572003" />
+    <state x="2223" y="17" width="1229" height="850" key="SettingsEditor" timestamp="1607293107882">
+      <screen x="1920" y="0" width="1680" height="1050" />
     </state>
     <state x="277" y="14" width="1229" height="850" key="SettingsEditor/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607251227482" />
+    <state x="2223" y="17" key="SettingsEditor/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607293107882" />
     <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606850626876">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -302,6 +330,11 @@
           <line>477</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/imageprocessing/VideoProcessor.java</url>
+          <line>206</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>jar://$PROJECT_DIR$/libs/ij.jar!/ij/plugin/filter/Binary.class</url>
           <line>144</line>
@@ -317,14 +350,6 @@
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/imageprocessing/Video.java</url>
-          <line>80</line>
-          <properties class="imageprocessing.Video" method="saveAlignedFrames">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

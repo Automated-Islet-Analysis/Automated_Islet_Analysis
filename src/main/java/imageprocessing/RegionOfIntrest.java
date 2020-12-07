@@ -5,12 +5,14 @@ import ij.ImagePlus;
 import ij.gui.Roi;
 import ij.io.FileSaver;
 import ij.plugin.Concatenator;
+import ij.plugin.FolderOpener;
 import ij.process.ImageProcessor;
 
+import java.io.File;
 import java.util.LinkedList;
 
 public class RegionOfIntrest {
-    private int[] coor = new int[2];
+    private int[] coor ;
     private int frameNum; // Number of the frame where the cell was detected
     private int roiNum;
     private double[] meanIntensity;
@@ -20,23 +22,19 @@ public class RegionOfIntrest {
     private int roi_size;
 
 
-    public RegionOfIntrest(int[] coor, int roiNum, int frameNum, int roi_size){
+    public RegionOfIntrest(int[] coor, int roiNum, int frameNum, int roi_size , int kernel_size){
         this.coor=coor;
         this.roiNum=roiNum;
         this.frameNum=frameNum;
         this.roi_size=roi_size;
-        this.roiExtracellular= new Roi(coor[0]-Math.floor(roi_size/2)+15,coor[1]-Math.floor(roi_size/2)+15,roi_size,roi_size);
+        this.roiExtracellular= new Roi(coor[0]-Math.floor(roi_size/2)+Math.round(kernel_size/2),coor[1]-Math.floor(roi_size/2)+Math.round(kernel_size/2),roi_size,roi_size);
     }
 
     public int[] getCoor() {
         return coor;
     }
 
-    public void setCoor(int[] coor) {
-        this.coor = coor;
-    }
-
-    public int getRoiNum() {
+        public int getRoiNum() {
         return roiNum;
     }
 
@@ -63,7 +61,9 @@ public class RegionOfIntrest {
         double[][] frame = new double[roi_size][roi_size];
         for(int j=0;j<roi_size;j++){
             for(int z=0;z<roi_size;z++){
-                frame[j][z] = iP.getf(z,j);
+                if((j>0) &&(z>0) &&(j<iP.getHeight()) &&(z<iP.getWidth()))
+                    frame[j][z] = iP.getf(z,j);
+                else frame[j][z] =0;
             }
         }
 
@@ -114,33 +114,32 @@ public class RegionOfIntrest {
         }
     }
 
-    public void saveRois(LinkedList<ImagePlus>ijFrames){
+    public void saveRoi(LinkedList<ImagePlus>ijFrames){
         ImagePlus videoCell = new ImagePlus();
         ImagePlus videoRoi = new ImagePlus();
         ImagePlus img = new ImagePlus();
 
-        videoCell = ijFrames.get(0);
-        videoCell.setRoi(roiExtracellular);
-        videoCell = videoCell.crop();
-        videoCell.setRoi(roiIntracellular);
-        videoRoi = videoCell.crop();
-        Concatenator concatenator = new Concatenator();
-        for(int j=1;j<ijFrames.size();j++){
+        // Crop the region of interest around the cell and in the cell
+        for(int j=0;j<ijFrames.size();j++){
             img = ijFrames.get(j);
             img.setRoi(roiExtracellular);
             img = img.crop();
-            videoCell = concatenator.concatenate(videoCell,img,true);
             img.setRoi(roiIntracellular);
+            FileSaver fileSaver = new FileSaver(img);
+            fileSaver.saveAsPng(System.getProperty("user.dir") + "/temp/video/cells/img/" + String.valueOf(j) + ".png");
             img = img.crop();
-            videoRoi = concatenator.concatenate(videoRoi,img,true);
+            FileSaver fileSaver1 = new FileSaver(img);
+            fileSaver1.saveAsPng(System.getProperty("user.dir") + "/temp/video/ROI/img/" + String.valueOf(j) + ".png");
         }
-        // Save square with greatest intensity
+        FolderOpener folderOpener = new FolderOpener();
+        videoCell = folderOpener.openFolder(System.getProperty("user.dir") + "/temp/video/cells/img");
+        videoRoi = folderOpener.openFolder(System.getProperty("user.dir") + "/temp/video/ROI/img");
+
         videoCell.setRoi(roiIntracellular);
+
         FileSaver fileSaver1 = new FileSaver(videoCell);
         FileSaver fileSaver2 = new FileSaver(videoRoi);
         fileSaver1.saveAsTiff(System.getProperty("user.dir") + "/temp/video/cells/" + String.valueOf(roiNum) + ".tif");
         fileSaver2.saveAsTiff(System.getProperty("user.dir") + "/temp/video/ROI/" + String.valueOf(roiNum) + ".tif");
     }
-
-
 }
