@@ -10,6 +10,12 @@ import ij.process.ImageProcessor;
 import imageprocessing.ImageJ.ParticleAnalyzer;
 import imageprocessing.ImageJ.Thresholder;
 import org.itk.simple.*;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.awt.image.ConvolveOp;
+import java.awt.image.Kernel;
+import java.io.IOException;
 import java.lang.Math;
 import java.io.File;
 import java.util.Arrays;
@@ -21,7 +27,7 @@ import static java.lang.Double.MAX_VALUE;
 public class VideoProcessor extends Video {
     private LinkedList<RegionOfIntrest> regionOfIntrests = new LinkedList();
     private int roi_size=100;
-    private int kernel_size =5;
+    private int kernel_size =10;
 
     public VideoProcessor(Video video){
         super(video.filename);
@@ -95,20 +101,10 @@ public class VideoProcessor extends Video {
 
     // Perform motion correction on frames
     public void motionCorrect(){
-        ParameterMap parMapTrans = SimpleITK.getDefaultParameterMap("translation");
-        ElastixImageFilter fil = new ElastixImageFilter();
-        fil.setFixedImage(this.SEFrames4Processing.get(0));
-        fil.setParameterMap(parMapTrans);
-        fil.printParameterMap();
-
         ijFrames4Processing.clear();
         for (int i=0; i<SEFrames4Processing.size(); i++){ /***/
-            fil.setMovingImage(SEFrames4Processing.get(i));
-            fil.execute();
-
             Image out = new Image();
-            out = fil.getResultImage();
-//            SEFrames4Processing.set(i,out);
+            out = SimpleITK.elastix(SEFrames4Processing.get(0),SEFrames4Processing.get(i),"translation");
 
             SimpleITK.writeImage(out,"temp/temp.tif");
             ImagePlus img = new ImagePlus(System.getProperty("user.dir") + "/temp/temp.tif");
@@ -120,7 +116,7 @@ public class VideoProcessor extends Video {
 
     }
 
-    public void findCells(){
+    public void findCells() {
         LinkedList<int[]> coor = new LinkedList();
         LinkedList<int[]> coorUnique = new LinkedList();
 
@@ -130,46 +126,49 @@ public class VideoProcessor extends Video {
         double rZero = 8.5;
         int sizeFilter = 31; // Needs to be uneven
         // init filter
-        double[][] kernel = new double[sizeFilter][sizeFilter];
+        float[] kernel = new float[sizeFilter*sizeFilter];
         // Create array with distances from origin(eg (16,16) for 31x31)
         double[][] dist = new double[sizeFilter][sizeFilter];
 
+        // Find the distances within the circle of -2 and 0
         for (int i = 0; i<sizeFilter; i++){
             for (int j =0; j<sizeFilter; j++){
                 dist[i][j] = Math.sqrt(Math.pow(i-Math.ceil(sizeFilter/2),2) + Math.pow(j-Math.ceil(sizeFilter/2),2));
             }
         }
-        // Find the distances within the circle of -2 and 0
+        // Give correct value depending on the distance to the center of the filter
+        int filt_sum = 0;
         for (int i = 0; i<sizeFilter; i++){
             for (int j = 0; j<sizeFilter; j++){
-                if (dist[i][j]<rMinustwo) kernel[i][j]=-2;
-                else if(dist[i][j]<rZero) kernel[i][j]=0;
-                else kernel[i][j]=1;
+                if (dist[i][j]<rMinustwo) kernel[i*sizeFilter + j]=-2.f;
+                else if(dist[i][j]<rZero) kernel[i*sizeFilter + j]=0.f;
+                else kernel[i*sizeFilter + j]=1.f ;
+                filt_sum = (int) (filt_sum +kernel[i*sizeFilter + j]);
+            }
+        }
+        // Normalise filter to avoid that convolution yields results over 256
+        for (int i = 0; i<sizeFilter; i++) {
+            for (int j = 0; j < sizeFilter; j++) {
+                kernel[i*sizeFilter + j] = kernel[i*sizeFilter + j]/filt_sum;
             }
         }
 
         // Loop over each image and find the three highest peaks
-        Convolution convolution = new Convolution();
-        for (int i=0;i<ijFrames4Processing.size();i++){
+        for (int i=0;i<ijFrames4Processing.size();i++){ //
             System.out.println(i);
-            // Convert Image to ImagePlus
-            ImagePlus img = new ImagePlus();
-            img = ijFrames4Processing.get(i);
-            ImageProcessor imgP;
-            imgP = img.getProcessor();
 
-            // Image to array for quicker conv2D
-            int width=img.getWidth();
-            int height=img.getHeight();
-            double[][] frame = new double[height][width];
-            for(int y = 0; y < height; ++y) {
-                for(int x = 0; x < width; ++x) {
-                    frame[y][x] = imgP.getf(x, y);
-                }
-            }
+            // Image to BufferImage for quicker conv2D
+            int width = ijFrames4Processing.get(i).getWidth();
+            int height = ijFrames4Processing.get(i).getHeight();
+            BufferedImage bI = new BufferedImage(width,height,BufferedImage.TYPE_BYTE_GRAY);;
+            bI = ijFrames4Processing.get(i).getBufferedImage();
+            BufferedImage bIOut=new BufferedImage(width,height,BufferedImage.TYPE_BYTE_GRAY);
 
             // Apply circular filter
-            frame = convolution.convolution2D(frame, height,width,kernel,sizeFilter,sizeFilter);
+            Kernel kernel1 = new Kernel(sizeFilter,sizeFilter,kernel);
+            ConvolveOp convolveOp = new ConvolveOp(kernel1, ConvolveOp.EDGE_NO_OP,null);
+            convolveOp.filter(bI,bIOut);
+
             // Find three maxima per frame
             for (int z=0;z<3;z++){ // Find the three maxima
                 double vPix_max = Double.NEGATIVE_INFINITY;
@@ -177,8 +176,8 @@ public class VideoProcessor extends Video {
                 int yMax = 0;
                 for(int y = 0; y < height-sizeFilter; ++y) {
                     for(int x = 0; x < width-sizeFilter; ++x) {
-                        if (frame[y][x] > vPix_max) {
-                            vPix_max = frame[y][x];
+                        if (bIOut.getRGB(x,y) > vPix_max) {
+                            vPix_max = bIOut.getRGB(x,y);
                             xMax = x;
                             yMax = y;
                         }
@@ -192,7 +191,7 @@ public class VideoProcessor extends Video {
                 for (int p=-30;p<=30;p++){
                     for (int q=-30;q<=30;q++){
                         if((yMax+p>0) &&(xMax+q>0) &&(xMax+q<width-sizeFilter) &&(yMax+p<height-sizeFilter))
-                                frame[yMax+p][xMax+q]=0;
+                                bIOut.setRGB(xMax+q,yMax+p,0);
                     }
                 }
             }
@@ -202,7 +201,7 @@ public class VideoProcessor extends Video {
         int[] a = new int[2];
         a[0]=coor.get(0)[0];
         a[1]=coor.get(0)[1];
-        RegionOfIntrest regionOfIntrest_ = new RegionOfIntrest(a,regionOfIntrests.size()+1,coor.get(0)[2],roi_size,kernel_size);
+        RegionOfIntrest regionOfIntrest_ = new RegionOfIntrest(a,regionOfIntrests.size()+1,coor.get(0)[2],roi_size);
         regionOfIntrests.add(regionOfIntrest_);
         for (int i=1;i<coor.size();i++){
             double minDist=Math.sqrt(Math.pow(coor.get(i)[0]-coorUnique.get(0)[0],2) + Math.pow(coor.get(i)[1]-coorUnique.get(0)[1],2));
@@ -215,7 +214,7 @@ public class VideoProcessor extends Video {
                 a_[0]=coor.get(i)[0];
                 a_[1]=coor.get(i)[1];
                 coorUnique.add(coor.get(i));
-                RegionOfIntrest regionOfIntrest = new RegionOfIntrest(a_,regionOfIntrests.size()+1,coor.get(i)[2],roi_size,kernel_size);
+                RegionOfIntrest regionOfIntrest = new RegionOfIntrest(a_,regionOfIntrests.size()+1,coor.get(i)[2],roi_size);
                 regionOfIntrests.add(regionOfIntrest);
             }
         }
@@ -228,6 +227,7 @@ public class VideoProcessor extends Video {
             regionOfIntrests.get(i).setRoiIntracellular(kernel_size,ijFrames4Processing);
             regionOfIntrests.get(i).saveRoi(ijFrames4Processing);
             regionOfIntrests.get(i).computeMeanIntensity();
+            regionOfIntrests.get(i).saveMeanIntensity();
         }
     }
 
@@ -240,7 +240,7 @@ public class VideoProcessor extends Video {
             int[] coor = regionOfIntrests.get(i).getCoor();
             for (int p=-7;p<=7;p++){
                 for (int q=-7;q<=7;q++){
-                    iP.setf(coor[0]+p+15,coor[1]+q+15,0);
+                    iP.setf(coor[0]+p,coor[1]+q,0);
                 }
             }
         }
@@ -269,7 +269,7 @@ public class VideoProcessor extends Video {
                     }
             }
         File dir2 = new File(System.getProperty("user.dir") + "/img");
-        for(File file: dir.listFiles())
+        for(File file: dir2.listFiles())
             if (!file.isDirectory())
                 file.delete();
     }

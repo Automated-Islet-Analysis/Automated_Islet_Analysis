@@ -9,7 +9,7 @@ public class Main {
 
         // Apply processing on the video
         VideoProcessor videoProcessor = new VideoProcessor(vid);
-        videoProcessor.run(1);
+        videoProcessor.run(2);
 
     }
 }

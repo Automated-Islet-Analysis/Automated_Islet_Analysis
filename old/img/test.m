@@ -1,12 +1,12 @@
 
-mov = ('1.tif');
+mov = ('2_aligned_vid.tif');
 for i=1:148
     vid{i} = (imread(mov,i));
 end
 
 %% Filter
-dminus = 13;
-dzero=15;
+dminus = 15;
+dzero=17;
 size_filter=31; % should be odd
 
 
@@ -15,7 +15,7 @@ vec = (-floor(size_filter/2) : floor(size_filter/2)).^2;
 dist = sqrt(vec + vec');
 filt(dist<dzero/2)=0;
 filt(dist<dminus/2)=-2;
-
+filt = filt/sum(filt(:));
 %% Search
 filteredImage = zeros(size(vid{1}));
 coo=[];
@@ -63,3 +63,16 @@ figure
 imshow(vid{1})
 hold on
 scatter(coo_uniq(:,2),coo_uniq(:,1),'linewidth',4)
+
+
+%% Plot Mean intensity results
+MI=[];
+for i=1:23
+    filename = "MI_data/"+num2str(i)+".csv";
+    Array=csvread(filename);
+    MI = [MI;Array(1,:)];
+end
+plot(MI')
+    
+    
+

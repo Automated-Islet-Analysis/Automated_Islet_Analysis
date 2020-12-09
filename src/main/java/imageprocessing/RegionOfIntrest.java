@@ -8,7 +8,10 @@ import ij.plugin.Concatenator;
 import ij.plugin.FolderOpener;
 import ij.process.ImageProcessor;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.LinkedList;
 
 public class RegionOfIntrest {
@@ -22,12 +25,12 @@ public class RegionOfIntrest {
     private int roi_size;
 
 
-    public RegionOfIntrest(int[] coor, int roiNum, int frameNum, int roi_size , int kernel_size){
+    public RegionOfIntrest(int[] coor, int roiNum, int frameNum, int roi_size ){
         this.coor=coor;
         this.roiNum=roiNum;
         this.frameNum=frameNum;
         this.roi_size=roi_size;
-        this.roiExtracellular= new Roi(coor[0]-Math.floor(roi_size/2)+Math.round(kernel_size/2),coor[1]-Math.floor(roi_size/2)+Math.round(kernel_size/2),roi_size,roi_size);
+        this.roiExtracellular= new Roi(coor[0]-Math.floor(roi_size/2),coor[1]-Math.floor(roi_size/2),roi_size,roi_size);
     }
 
     public int[] getCoor() {
@@ -87,16 +90,15 @@ public class RegionOfIntrest {
 
     public void computeMeanIntensity(){
         ImagePlus vid = new ImagePlus(System.getProperty("user.dir")+"/temp/video/ROI/"+String.valueOf(roiNum) + ".tif");
-        meanIntensity = new double[vid.getNFrames()];
+        meanIntensity = new double[vid.getNSlices()];
 
         // Find intensity foe each frame
-        for(int i=0;i<vid.getNFrames();i++){
+        for(int i=0;i<vid.getNSlices();i++){
             // Get i-th frame
             ImagePlus frame = new ImagePlus();
             vid.setSlice(i);
             ImageProcessor ip = vid.getProcessor(); // ***
-            ImageProcessor newip = ip.createProcessor(ip.getWidth(),
-                    ip.getHeight());
+            ImageProcessor newip = ip.createProcessor(ip.getWidth(), ip.getHeight());
             newip.setPixels(ip.getPixelsCopy());
             String sImLabel = String.valueOf(i);
             ImagePlus im = new ImagePlus(sImLabel, newip);
@@ -110,6 +112,35 @@ public class RegionOfIntrest {
                 for(int z=0;z<vid.getHeight();z++){
                     meanIntensity[i] = meanIntensity[i] + imageProcessor.getf(j,z)/(vid.getHeight()*vid.getWidth());
                 }
+            }
+        }
+    }
+
+    public void saveMeanIntensity(){
+        if(meanIntensity.length==0){
+            System.out.println("ERROR : mean intensity is not computed yet");
+        }
+        else{
+            BufferedWriter br = null;
+            try {
+                br = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "/temp/MI_data/"+ String.valueOf(roiNum)+".csv"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            StringBuilder sb = new StringBuilder();
+
+            // Append strings from array
+            sb.append(String.valueOf(meanIntensity[0]));
+            for (int i=1;i<meanIntensity.length;i++) {
+                sb.append(",");
+                sb.append(String.valueOf(meanIntensity[i]));
+            }
+
+            try {
+                br.write(sb.toString());
+                br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
