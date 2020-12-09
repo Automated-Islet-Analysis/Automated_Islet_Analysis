@@ -431,7 +431,7 @@ To avoid such a mistake, we have to implement an algorithm that, firstly,
 describes every rectangle by a square, then counts the farthest coordinates
 turned up to be outside of the frame and, finally, pads the source image by
 borders (e.g. single-colored) with the size counted. It will be safe to take
-square ROIs for the facial landmarks detector after that frame adjustment.
+square DataTab.ROIs for the facial landmarks detector after that frame adjustment.
 
 ### Research for the best parameters (used in GaussianBlur() or unsharpMask(), etc.)
 

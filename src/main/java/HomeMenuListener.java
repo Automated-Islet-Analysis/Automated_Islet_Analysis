@@ -1,11 +1,16 @@
+import javax.swing.*;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 class HomeMenuListener implements MenuListener {
 
     @Override
     public void menuSelected(MenuEvent e) {
-        System.out.println("menuSelected");
+        Controller.display = "home";
+        Controller.setDisplay();
     }
 
     @Override
