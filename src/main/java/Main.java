@@ -4,41 +4,27 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+
 public class Main extends Frame {
 
     public static void main( final String[] args ) {
         //Create Frame
         JFrame interframe = new JFrame("Interface");
-        interframe.setSize(500,500);
+        interframe.setSize(600,600);
         interframe.setVisible(true);
 
-        //Dropdown menu 1
-        String Home[]={"Home","Upload"};
-        final JComboBox cb2=new JComboBox(Home);
-        //Dropdown menu 2
-        String Data[]={"ROIs","Motion Corrected Video","Data"};
-        final JComboBox cb1=new JComboBox(Data);
-
-        //Dropdown menu 3
-        String Save[]={"Save ROIs","Save Data", "Save Analysed Video", "Save All"};
-        final JComboBox cb3=new JComboBox(Save);
+        MainMenu mainMenu = new MainMenu();
+        interframe.setJMenuBar(mainMenu);
 
         //Welcome Message
         final JLabel welcomeM=new JLabel();
         welcomeM.setHorizontalAlignment(JLabel.CENTER);
         welcomeM.setSize(400,100);
-        String WelcomeMessage = "Welcome on your image analysis interface";
+        String WelcomeMessage = "Welcome on your image anaylsis interface";
         welcomeM.setText(WelcomeMessage);
 
-        //Set the Drop down menus
-        cb2.setBounds(0,0,90,20);
-        cb1.setBounds(90,0,90,20);
-        cb3.setBounds(180,0,90,20);
-        interframe.setSize(500,500);
-        interframe.add(cb1);
-        interframe.add(cb2);
-        interframe.add(cb3);
 
+        /*
         //Call corresponding class on dropdown menu
         cb2.addActionListener(new ActionListener() {
             @Override
@@ -55,6 +41,7 @@ public class Main extends Frame {
                     if (f == null) {
                         return;
                     }
+
                     //from file choose, open TiffReader to display it 
                     try {
                         final TiffReader window= new TiffReader( filename );
@@ -66,7 +53,7 @@ public class Main extends Frame {
 
                 }
             }
-        });
+        });*/
 
     }
 
