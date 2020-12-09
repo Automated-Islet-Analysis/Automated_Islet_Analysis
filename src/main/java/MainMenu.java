@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -26,7 +28,7 @@ public class MainMenu extends JMenuBar implements ActionListener {
         saveData = new JMenuItem("Save data");
         saveAll = new JMenuItem("Save all");
 
-        menuHome.addActionListener(this);
+        menuHome.addMenuListener(new HomeMenuListener());
 
         dataROI.addActionListener(this);
         dataMCVid.addActionListener(this);
@@ -54,6 +56,8 @@ public class MainMenu extends JMenuBar implements ActionListener {
     // be called whenever any menu item is selected, but the ActionEvent
     // command will be the text of the menu item selected
     public void actionPerformed(ActionEvent e) {
+
         System.out.println(e.getActionCommand());
     }
 }
+
