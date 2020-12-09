@@ -35,9 +35,9 @@ imageprocessing/Convolution.java
  imageprocessing.Convolution
 imageprocessing/ImageJ/nifti_io/QuaternCoors.java
  ImageJ.nifti_io.QuaternCoors
+Main.java
+ Main
 imageprocessing/RegionOfIntrest.java
  imageprocessing.RegionOfIntrest
 imageprocessing/VideoProcessor.java
  imageprocessing.VideoProcessor
-Main.java
- Main

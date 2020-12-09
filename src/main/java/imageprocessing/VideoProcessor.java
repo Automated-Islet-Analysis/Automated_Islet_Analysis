@@ -169,8 +169,10 @@ public class VideoProcessor extends Video {
             ConvolveOp convolveOp = new ConvolveOp(kernel1, ConvolveOp.EDGE_NO_OP,null);
             convolveOp.filter(bI,bIOut);
 
+
+
             // Find three maxima per frame
-            for (int z=0;z<3;z++){ // Find the three maxima
+            for (int z=0;z<5;z++){ // Find the three maxima
                 double vPix_max = Double.NEGATIVE_INFINITY;
                 int xMax = 0;
                 int yMax = 0;

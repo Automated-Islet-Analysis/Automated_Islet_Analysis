@@ -8,6 +8,10 @@ import ij.plugin.Concatenator;
 import ij.plugin.FolderOpener;
 import ij.process.ImageProcessor;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.awt.image.ConvolveOp;
+import java.awt.image.Kernel;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -50,42 +54,43 @@ public class RegionOfIntrest {
     }
 
     public void setRoiIntracellular(int kernel_size, LinkedList<ImagePlus>ijFrames4Processing) {
-        // Find square with greatest intensity
-        // Filter
-        double[][] kernel = new double[kernel_size][kernel_size];
-        for (int j = 0;j<kernel_size*kernel_size;j++) kernel[Math.floorDiv(j,kernel_size)][j % kernel_size] = 1;
-        // Find frame when cell was found
+        // Crop image to ROI
         ImagePlus frame_ = new ImagePlus();
-        Convolution convolution = new Convolution();
         frame_ = ijFrames4Processing.get(frameNum);
         frame_.setRoi(roiExtracellular);
         frame_ = frame_.crop();
-        ImageProcessor iP = frame_.getProcessor();
-        double[][] frame = new double[roi_size][roi_size];
-        for(int j=0;j<roi_size;j++){
-            for(int z=0;z<roi_size;z++){
-                if((j>0) &&(z>0) &&(j<iP.getHeight()) &&(z<iP.getWidth()))
-                    frame[j][z] = iP.getf(z,j);
-                else frame[j][z] =0;
-            }
-        }
 
-        // Filter
-        frame = convolution.convolution2D(frame, roi_size,roi_size,kernel,kernel_size,kernel_size);
+        // Find square with greatest intensity
+        // Create kernel
+        float[] kernel = new float[kernel_size*kernel_size];
+        for (int j = 0;j<kernel_size*kernel_size;j++) kernel[j] = 1.f /(kernel_size*kernel_size);
+        // Image to BufferImage for quicker conv2D
+        int width = frame_.getWidth();
+        int height = frame_.getHeight();
+        BufferedImage bI = new BufferedImage(width,height,BufferedImage.TYPE_BYTE_GRAY);;
+        bI = frame_.getBufferedImage();
+        BufferedImage bIOut=new BufferedImage(width,height,BufferedImage.TYPE_BYTE_GRAY);
+
+        // Apply average filter
+        Kernel kernel1 = new Kernel(kernel_size,kernel_size,kernel);
+        ConvolveOp convolveOp = new ConvolveOp(kernel1, ConvolveOp.EDGE_ZERO_FILL,null);
+        convolveOp.filter(bI,bIOut);
+
         // Find max
         double vPix_max = Double.NEGATIVE_INFINITY;
         int xMax = 0;
         int yMax = 0;
         for(int y = 0; y < roi_size-kernel_size; ++y) {
             for(int x = 0; x < roi_size-kernel_size; ++x) {
-                if (frame[y][x] > vPix_max) {
-                    vPix_max = frame[y][x];
+                if (bIOut.getRGB(x,y) > vPix_max) {
+                    vPix_max = bIOut.getRGB(x,y);
                     xMax = x;
                     yMax = y;
                 }
             }
         }
-        roiIntracellular = IJ.Roi(xMax+Math.floor(kernel_size/2),yMax+Math.floor(kernel_size/2),kernel_size,kernel_size); // needs some recentering due to conv()
+        //Create ROI at the square with greatest intensity
+        roiIntracellular = IJ.Roi(xMax-Math.floor(kernel_size/2),yMax-Math.floor(kernel_size/2),kernel_size,kernel_size); // needs some recentering due to conv()
     }
 
     public void computeMeanIntensity(){
