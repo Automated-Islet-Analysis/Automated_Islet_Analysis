@@ -1,32 +1,18 @@
+import DataTab.*;
+import SaveTab.*;
+import DataTab.ROIs;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.File;
 
 
 public class Main extends Frame {
 
     public static void main( final String[] args ) {
-        //Create Frame
-        JFrame interframe = new JFrame("Interface");
-        interframe.setSize(600,600);
+        Controller controller = new Controller();
+        controller.setVisible(true);
 
-        interframe.addWindowListener(new WindowAdapter() {// Closes the program if close window clicked
-            public void windowClosing(WindowEvent e) { interframe.dispose();
-            } });
-
-        MainMenu mainMenu = new MainMenu();
-        interframe.setJMenuBar(mainMenu);
-
-        interframe.setLayout(new GridLayout(1,1));
-
-        Home home = new Home();
-        interframe.add(home);
-
-        interframe.setVisible(true);
         /*
         //Call corresponding class on dropdown menu
         cb2.addActionListener(new ActionListener() {
@@ -57,6 +43,7 @@ public class Main extends Frame {
                 }
             }
         });*/
+
 
     }
 

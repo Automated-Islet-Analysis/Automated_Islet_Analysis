@@ -165,7 +165,7 @@ one input cv::GMat and produces one output cv::GMat.
 
 In this sample we use a pre-trained SSD-based network and its output
 needs to be parsed to an array of detections (object regions of
-interest, ROIs). It is done by a custom operation `custom::PostProc`,
+interest, DataTab.ROIs). It is done by a custom operation `custom::PostProc`,
 which returns an array of rectangles (of type `cv::GArray<cv::Rect>`)
 back to the pipeline. This operation also filters out results by a
 confidence threshold -- and these details are hidden in the kernel
