@@ -3,7 +3,7 @@ plugins {
     id 'application'
 }
 application{
-    mainClassName='FileInfo_Test'
+    mainClassName='Main'
 }
 version '1.0-SNAPSHOT'
 group 'org.example'
