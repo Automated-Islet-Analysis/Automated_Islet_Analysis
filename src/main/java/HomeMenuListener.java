@@ -9,6 +9,7 @@ class HomeMenuListener implements MenuListener {
 
     @Override
     public void menuSelected(MenuEvent e) {
+        // Change view to Home page
         Controller.display = "home";
         Controller.setDisplay();
     }

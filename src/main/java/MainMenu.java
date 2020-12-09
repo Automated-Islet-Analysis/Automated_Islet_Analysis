@@ -1,7 +1,4 @@
-
 import javax.swing.*;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,17 +19,20 @@ public class MainMenu extends JMenuBar implements ActionListener {
     public MainMenu() {
         menuHome = new JMenu("Home");
 
+        // Data dropdown
         menuData = new JMenu("Data");
         dataROI = new JMenuItem("ROIs");
         dataMCVid = new JMenuItem("Motion corrected video");
         dataData = new JMenuItem("Data");
 
+        // Save dropdown
         menuSave = new JMenu("Save");
         saveROI = new JMenuItem("Save ROIs");
         saveMCVid = new JMenuItem("Save motion corrected video");
         saveData = new JMenuItem("Save data");
         saveAll = new JMenuItem("Save all");
 
+        // Action Listeners
         menuHome.addMenuListener(new HomeMenuListener());
 
         dataROI.addActionListener(this);
@@ -44,11 +44,13 @@ public class MainMenu extends JMenuBar implements ActionListener {
         saveData.addActionListener(this);
         saveAll.addActionListener(this);
 
-        add(menuHome); // Add menus to the JMenuBar
+        // Add menus to the JMenuBar
+        add(menuHome);
         add(menuData);
         add(menuSave);
 
-        menuData.add(dataROI); // Add the menu items to each menu
+        // Add the menu items to each menu
+        menuData.add(dataROI);
         menuData.add(dataMCVid);
         menuData.add(dataData);
 
@@ -63,8 +65,7 @@ public class MainMenu extends JMenuBar implements ActionListener {
     // This method will be called whenever any menu item is selected
     // The ActionEvent command will be the text of the menu item selected
     public void actionPerformed(ActionEvent e) {
-        // It's creating a new frame, but I want it to change the past one
-        // I don't know how to access the function without a controller object
+        // Changes display according to clicked menu item
         if (e.getActionCommand() == "ROIs"){
             Controller.display = "ROIs";
             Controller.setDisplay();

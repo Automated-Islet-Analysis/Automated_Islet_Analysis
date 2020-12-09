@@ -23,7 +23,7 @@ public class TiffReader extends Frame {
 
 
         //Dropdown menu 1
-        String Home[]={"Home","Upload"};
+        String Home[]={"HomeTab","Upload"};
         final JComboBox cb2=new JComboBox(Home);
         //Dropdown menu 2
         String Data[]={"DataTab.ROIs","Motion Corrected Video","Data"};
