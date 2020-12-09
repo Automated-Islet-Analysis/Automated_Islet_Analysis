@@ -9,6 +9,8 @@ public class Main extends Frame {
     public static void main( final String[] args ) {
         //Create Frame
         JFrame interframe = new JFrame("Interface");
+        interframe.setSize(500,500);
+        interframe.setVisible(true);
 
         //Dropdown menu 1
         String Home[]={"Home","Upload"};
@@ -25,7 +27,7 @@ public class Main extends Frame {
         final JLabel welcomeM=new JLabel();
         welcomeM.setHorizontalAlignment(JLabel.CENTER);
         welcomeM.setSize(400,100);
-        String WelcomeMessage = "Welcome on your image anaylsis interface";
+        String WelcomeMessage = "Welcome on your image analysis interface";
         welcomeM.setText(WelcomeMessage);
 
         //Set the Drop down menus
