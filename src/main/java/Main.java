@@ -8,20 +8,20 @@ import java.io.File;
 public class Main extends Frame {
 
     public static void main( final String[] args ) {
+
         //Create Frame
         JFrame interframe = new JFrame("Interface");
         interframe.setSize(600,600);
-        interframe.setVisible(true);
 
         MainMenu mainMenu = new MainMenu();
         interframe.setJMenuBar(mainMenu);
 
-        //Welcome Message
-        final JLabel welcomeM=new JLabel();
-        welcomeM.setHorizontalAlignment(JLabel.CENTER);
-        welcomeM.setSize(400,100);
-        String WelcomeMessage = "Welcome on your image anaylsis interface";
-        welcomeM.setText(WelcomeMessage);
+        interframe.setVisible(true);
+
+
+
+
+
 
 
         /*

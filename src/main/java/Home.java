@@ -3,22 +3,35 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 
-abstract public class Home implements ActionListener, ItemListener {
+abstract public class Home extends JPanel implements ActionListener, ItemListener {
     // upload button and welcome message
 
     //Variable declaration
-    private javax.swing.JFrame home_frame;
-    private javax.swing.JButton jb_upload;
+    private javax.swing.JPanel homePanel;
+    private javax.swing.JButton jbUpload;
     private javax.swing.JTextField jtext_welcome;
 
-    //home_frame.setSize(500,500);
-    //home_frame.setVisible(true);
+
 
     public Home(){
+        homePanel = new JPanel();
+        jbUpload = new JButton();
         init_home();
     }
 
     private void init_home(){
-        //jb_upload;
+        homePanel.setLayout(new GridLayout(4,1));
+        homePanel.add(jbUpload);
+
+        //Welcome Message
+        final JLabel welcomeM=new JLabel();
+        welcomeM.setHorizontalAlignment(JLabel.CENTER);
+        welcomeM.setSize(400,100);
+        String WelcomeMessage = "Welcome to your image analysis interface";
+        welcomeM.setText(WelcomeMessage);
+    }
+
+    public JPanel getHomePanel() {
+        return homePanel;
     }
 }
