@@ -2,8 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
+import javax.swing.event.MenuListener;
+import java.awt.event.ActionListener;
 
-abstract public class Home extends JPanel implements ActionListener, ItemListener {
+public class Home extends JPanel {
     // upload button and welcome message
 
     //Variable declaration
@@ -31,7 +33,7 @@ abstract public class Home extends JPanel implements ActionListener, ItemListene
         welcomeM.setText(WelcomeMessage);
     }
 
-    public JPanel getHomePanel() {
+    /*public JPanel getHomePanel() {
         return homePanel;
-    }
+    }*/
 }
