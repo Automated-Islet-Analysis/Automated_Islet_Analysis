@@ -42,17 +42,6 @@ public class TestVideo{
             Assert.assertEquals(SEframes.get(i),img1);
             Assert.assertEquals(ijFrames.get(i),imagePlus);
         }
-        for (int i=1; i<=ijFrames.size(); i++) {
-            BufferedImage img1=null;
-            BufferedImage ijImg=null;
-            BufferedImage seImg=null;
-
-            File file1=new File(System.getProperty("user.dir") + "/img/Unit_testing/" + String.valueOf(i) + ".tif");
-            img1=ImageIO.read(file1);
-
-
-
-        }
 
     }
 }
