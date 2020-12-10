@@ -22,49 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01e4016a-d0f0-45e1-aca9-bbe605a348cd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ImageJ/CLAHE_.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ImageJ/CLAHE_.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ImageJ/Stack_Splitter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ImageJ/Stack_Splitter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ImageJ/nifti_io/AffineCoors.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ImageJ/nifti_io/AffineCoors.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ImageJ/nifti_io/CoordinateMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ImageJ/nifti_io/CoordinateMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ImageJ/nifti_io/NiftiHeader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ImageJ/nifti_io/NiftiHeader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ImageJ/nifti_io/Nifti_Reader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ImageJ/nifti_io/Nifti_Reader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ImageJ/nifti_io/Nifti_writer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ImageJ/nifti_io/Nifti_writer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ImageJ/nifti_io/QuaternCoors.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ImageJ/nifti_io/QuaternCoors.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UserInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UserInterface$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UserInterface$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UserInterface$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UserInterface$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UserInterface$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UserInterface$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UserInterface$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UserInterface$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UserInterface$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UserInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/Convolution.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/Convolution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/ImageJ/Binary.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/ImageJ/Binary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/ImageJ/CLAHE.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/ImageJ/CLAHE.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/ImageJ/FindMax_v1_00.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/ImageJ/FindMax_v1_00.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/ImageJ/ParticleAnalyzer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/ImageJ/ParticleAnalyzer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/ImageJ/Thresholder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/ImageJ/Thresholder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/RegionOfIntrest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/RegionOfIntrest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/Video.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/Video.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/VideoProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/VideoProcessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/Video.java" afterDir="false" />
-    </list>
+    <list default="true" id="01e4016a-d0f0-45e1-aca9-bbe605a348cd" name="Default Changelist" comment="Unit testing for class Video added" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -236,6 +194,14 @@
       <workItem from="1607351755959" duration="1869000" />
       <workItem from="1607506609832" duration="12458000" />
     </task>
+    <task id="LOCAL-00001" summary="Unit testing for class Video added">
+      <created>1607606734588</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607606734588</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,6 +218,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Unit testing for class Video added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unit testing for class Video added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="249" y="7" key="#Project_Structure" timestamp="1606805197230">
@@ -284,30 +254,30 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607251224356" />
-    <state width="1307" height="290" key="GridCell.Tab.0.bottom" timestamp="1607606282231">
+    <state width="1307" height="290" key="GridCell.Tab.0.bottom" timestamp="1607606630416">
       <screen x="1280" y="23" width="1881" height="1057" />
     </state>
     <state width="1492" height="341" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607519086070" />
     <state width="1636" height="341" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607518643844" />
-    <state width="1307" height="290" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1607606282231" />
-    <state width="1307" height="290" key="GridCell.Tab.0.center" timestamp="1607606282229">
+    <state width="1307" height="290" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1607606630416" />
+    <state width="1307" height="290" key="GridCell.Tab.0.center" timestamp="1607606630414">
       <screen x="1280" y="23" width="1881" height="1057" />
     </state>
     <state width="1492" height="341" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607519086070" />
     <state width="1636" height="341" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607518643844" />
-    <state width="1307" height="290" key="GridCell.Tab.0.center/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1607606282229" />
-    <state width="1307" height="290" key="GridCell.Tab.0.left" timestamp="1607606282228">
+    <state width="1307" height="290" key="GridCell.Tab.0.center/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1607606630414" />
+    <state width="1307" height="290" key="GridCell.Tab.0.left" timestamp="1607606630413">
       <screen x="1280" y="23" width="1881" height="1057" />
     </state>
     <state width="1492" height="341" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607519086069" />
     <state width="1636" height="341" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607518643844" />
-    <state width="1307" height="290" key="GridCell.Tab.0.left/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1607606282228" />
-    <state width="1307" height="290" key="GridCell.Tab.0.right" timestamp="1607606282230">
+    <state width="1307" height="290" key="GridCell.Tab.0.left/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1607606630413" />
+    <state width="1307" height="290" key="GridCell.Tab.0.right" timestamp="1607606630415">
       <screen x="1280" y="23" width="1881" height="1057" />
     </state>
     <state width="1492" height="341" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607519086070" />
     <state width="1636" height="341" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607518643844" />
-    <state width="1307" height="290" key="GridCell.Tab.0.right/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1607606282230" />
+    <state width="1307" height="290" key="GridCell.Tab.0.right/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1607606630415" />
     <state width="1492" height="261" key="GridCell.Tab.1.bottom" timestamp="1607518996883">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -333,6 +303,10 @@
     </state>
     <state x="277" y="14" width="1229" height="850" key="SettingsEditor/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607251227482" />
     <state x="2223" y="17" key="SettingsEditor/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607293107882" />
+    <state x="1982" y="295" key="Vcs.Push.Dialog.v2" timestamp="1607606756981">
+      <screen x="1280" y="23" width="1881" height="1057" />
+    </state>
+    <state x="1982" y="295" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1607606756981" />
     <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606850626876">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
