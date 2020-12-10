@@ -4,14 +4,18 @@ import imageprocessing.Video;
 import org.itk.simple.SimpleITK;
 import org.junit.Assert;
 import org.junit.Test;
+import javax.imageio.ImageIO;
 
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
 import org.itk.simple.Image;
 
 public class TestVideo{
     @Test
-    public void testReadingFrames(){
+    public void testReadingFrames() throws IOException {
         String filename=System.getProperty("user.dir")+"/videos/1.tif";
         Video video=new Video(filename);
         String expectedName="1.tif";
@@ -38,5 +42,17 @@ public class TestVideo{
             Assert.assertEquals(SEframes.get(i),img1);
             Assert.assertEquals(ijFrames.get(i),imagePlus);
         }
+        for (int i=1; i<=ijFrames.size(); i++) {
+            BufferedImage img1=null;
+            BufferedImage ijImg=null;
+            BufferedImage seImg=null;
+
+            File file1=new File(System.getProperty("user.dir") + "/img/Unit_testing/" + String.valueOf(i) + ".tif");
+            img1=ImageIO.read(file1);
+
+
+
+        }
+
     }
 }
