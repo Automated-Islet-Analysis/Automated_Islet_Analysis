@@ -4,7 +4,7 @@ import ImageJ.Stack_Splitter;
 import ij.ImagePlus;
 import ij.io.FileSaver;
 import ij.io.Opener;
-import ij.plugin.Concatenator;
+//import ij.plugin.Concatenator;
 import ij.plugin.FolderOpener;
 import org.itk.simple.Image;
 import org.itk.simple.SimpleITK;
@@ -17,7 +17,7 @@ public class Video {
     static{ System.loadLibrary(Core.NATIVE_LIBRARY_NAME); }
     protected String filename;
     public String name;
-    protected String dirName;
+    private String dirName;
 
     private ImagePlus vid;
     protected int numberOfFrames=0;
@@ -42,10 +42,10 @@ public class Video {
     public String getFilename() {
         return filename;
     }
+    public String getName() {return name;}
+    public String getDirName() {return dirName;}
 
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
+//    public void setFilename(String filename) {this.filename = filename;}
 
     private void readFrames() {
         vid = new ImagePlus();
@@ -60,13 +60,14 @@ public class Video {
         // Load individual files in linked list
         for (int i = 1; i <= numberOfFrames; i++) {
             Image img1 = new Image();
-            ImagePlus imagePlus= new ImagePlus();
+            ImagePlus imagePlus = new ImagePlus();
 
             img1 = SimpleITK.readImage(System.getProperty("user.dir") + "/temp/img/" + String.valueOf(i) + ".tif");
             SEframes.add(img1);
             imagePlus = opener.openImage(System.getProperty("user.dir") + "/temp/img/" + String.valueOf(i) + ".tif");
             ijFrames.add(imagePlus);
         }
+
 
         // Delete all temporary files
         File directory = new File(System.getProperty("user.dir") + "/temp/img");
@@ -76,8 +77,11 @@ public class Video {
                 System.out.println("Failed to delete " + file);
             }
         }
-
     }
+
+    public LinkedList<Image> getSEframes() {return SEframes;}
+    public LinkedList<ImagePlus> getijframes() {return ijFrames;}
+
 
     public void saveAlignedFrames() {
         for (int z = 0; z<this.ijFrames4Processing.size(); z++) {
