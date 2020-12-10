@@ -11,6 +11,7 @@ import org.itk.simple.SimpleITK;
 import org.opencv.core.Core;
 import java.io.File;
 import java.util.LinkedList;
+import java.io.IOException; 
 
 
 public class Video {
@@ -52,7 +53,12 @@ public class Video {
         Opener opener = new Opener();
 
         // Divide video into individual images
+        try{
         vid = opener.openImage(filename);
+        }
+        catch (IOException e){
+            System.out.println(e); 
+        }
         numberOfFrames = vid.getStackSize();
         Stack_Splitter stack_splitter = new Stack_Splitter();
         stack_splitter.run(vid);
