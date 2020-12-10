@@ -1,15 +1,10 @@
 import ij.ImagePlus;
 import ij.io.Opener;
+import ij.process.ImageProcessor;
 import imageprocessing.Video;
 import org.itk.simple.SimpleITK;
 import org.junit.Assert;
 import org.junit.Test;
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-
-
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
 import org.itk.simple.Image;
@@ -32,39 +27,25 @@ public class TestVideo{
         SEframes=video.getSEframes();
         ijFrames=video.getijframes();
 
-
-
-//        Opener opener=new Opener();
-//        for (int i=1; i<=ijFrames.size(); i++){
-//            Image img1=new Image();
-//            ImagePlus imagePlus=new ImagePlus();
-//            img1 = SimpleITK.readImage( System.getProperty("user.dir") + "/img/Unit_testing/" + String.valueOf(i) + ".tif");
-//            imagePlus=opener.openImage(System.getProperty("user.dir") + "/img/Unit_testing/" + String.valueOf(i) + ".tif");
-//            Assert.assertEquals(SEframes.get(i),img1);
-//            Assert.assertEquals(ijFrames.get(i),imagePlus);
-//        }
-
-
-        BufferedImage img1=null;
-        BufferedImage imgij=null;
-        BufferedImage imgSE=null;
         long differenceSE=0;
         long differenceij=0;
-        for (int i=1; i<=ijFrames.size(); i++) {
-            File fileImg = new File(System.getProperty("user.dir") + "/img/Unit_testing/" + String.valueOf(i) + ".tif");
-            img1 = ImageIO.read(fileImg);
+        for (int i=0; i<ijFrames.size(); i++) {
+            ImagePlus img1 = new ImagePlus(System.getProperty("user.dir") + "/img/Unit_testing/" + String.valueOf(i+1) + ".tif");
+            ImageProcessor imageProcessor = img1.getProcessor();
+            SimpleITK.writeImage(SEframes.get(i), System.getProperty("user.dir") + "/temp/img/" + String.valueOf(i+1) + ".tif");
+            ImagePlus imgSE = new ImagePlus(System.getProperty("user.dir") + "/temp/img/" + String.valueOf(i+1) + ".tif");
+            ImageProcessor imageProcessorSE = imgSE.getProcessor();
+            ImageProcessor imageProcessorij = ijFrames.get(i).getProcessor();
 
-            imgSE=ImageIO.read((ImageInputStream) SEframes.get(i));
-            imgij=ImageIO.read((ImageInputStream) ijFrames.get(i));
 
-            int width=imgSE.getWidth();
-            int height=imgSE.getHeight();
+            int width= img1.getWidth();
+            int height=img1.getHeight();
 
             for(int y=0; y<height;y++) {
                 for(int x=0;x<width;x++) {
-                    int grayImg1=img1.getRGB(x,y)&0xFF;
-                    int grayImgSE=imgSE.getRGB(x,y)&0xFF;
-                    int grayImgij=imgij.getRGB(x,y)&0xFF;
+                    int grayImg1= (int) imageProcessor.getf(x,y);
+                    int grayImgSE= (int) imageProcessorSE.getf(x,y);
+                    int grayImgij=(int) imageProcessorij.getf(x,y);
                     differenceSE+=Math.abs(grayImg1-grayImgSE);
                     differenceij+=Math.abs(grayImg1-grayImgij);
                 }
@@ -73,6 +54,5 @@ public class TestVideo{
         if (differenceij!=0||differenceSE!=0) {
             Assert.fail();
         }
-
     }
 }

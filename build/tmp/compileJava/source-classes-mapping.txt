@@ -31,13 +31,13 @@ imageprocessing/ImageJ/nifti_io/Nifti_Reader.java
  ImageJ.nifti_io.Nifti_Reader
 imageprocessing/VideoProcessor.java
  imageprocessing.VideoProcessor
-imageprocessing/ImageJ/CLAHE.java
- imageprocessing.ImageJ.CLAHE
+Main.java
+ Main
 imageprocessing/ImageJ/nifti_io/QuaternCoors.java
  ImageJ.nifti_io.QuaternCoors
 imageprocessing/Convolution.java
  imageprocessing.Convolution
 imageprocessing/Video.java
  imageprocessing.Video
-Main.java
- Main
+imageprocessing/ImageJ/CLAHE.java
+ imageprocessing.ImageJ.CLAHE

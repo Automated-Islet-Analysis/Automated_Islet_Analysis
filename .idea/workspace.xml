@@ -111,19 +111,6 @@
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RunManager" selected="Gradle.TestVideo">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Image_treatment- [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -183,6 +170,7 @@
       <updated>1607612286910</updated>
       <workItem from="1607612290993" duration="1044000" />
       <workItem from="1607613350758" duration="1087000" />
+      <workItem from="1607622927094" duration="840000" />
     </task>
     <task id="LOCAL-00001" summary="check if file is uncorrupted">
       <created>1607617782153</created>
@@ -233,22 +221,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="473" y="174" key="FileChooserDialogImpl/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607613211747" />
-    <state width="1492" height="357" key="GridCell.Tab.0.bottom" timestamp="1607622809651">
+    <state width="1492" height="2" key="GridCell.Tab.0.bottom" timestamp="1607623767070">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="357" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607622809651" />
-    <state width="1492" height="357" key="GridCell.Tab.0.center" timestamp="1607622809651">
+    <state width="1492" height="2" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607623767070" />
+    <state width="1492" height="2" key="GridCell.Tab.0.center" timestamp="1607623767069">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="357" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607622809651" />
-    <state width="1492" height="357" key="GridCell.Tab.0.left" timestamp="1607622809651">
+    <state width="1492" height="2" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607623767069" />
+    <state width="1492" height="2" key="GridCell.Tab.0.left" timestamp="1607623767069">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="357" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607622809651" />
-    <state width="1492" height="357" key="GridCell.Tab.0.right" timestamp="1607622809651">
+    <state width="1492" height="2" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607623767069" />
+    <state width="1492" height="2" key="GridCell.Tab.0.right" timestamp="1607623767070">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="357" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607622809651" />
+    <state width="1492" height="2" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607623767070" />
     <state width="1492" height="277" key="GridCell.Tab.1.bottom" timestamp="1607613335692">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
