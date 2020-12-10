@@ -9,8 +9,12 @@ import ij.plugin.FolderOpener;
 import org.itk.simple.Image;
 import org.itk.simple.SimpleITK;
 import org.opencv.core.Core;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.LinkedList;
+import java.io.IOException; 
 
 
 public class Video {
@@ -36,12 +40,23 @@ public class Video {
         File file = new File(filename);
         name = file.getName();
         dirName = file.getParent();
+        checkUncorrupted();
         readFrames();
     }
 
-    public String getFilename() {
-        return filename;
+    public void checkUncorrupted(){
+        BufferedImage img=null;
+        try{
+            File file=new File(filename);
+
+            img=ImageIO.read(file);
+        }
+        catch (IOException e){
+            System.out.println(e);
+        }
     }
+
+    public String getFilename() {return filename;}
     public String getName() {return name;}
     public String getDirName() {return dirName;}
 
