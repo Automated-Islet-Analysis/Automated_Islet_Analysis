@@ -484,7 +484,7 @@ Style x:Key="SkipBackAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{Static
     </Style>
     <Style x:Key="HomeAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="HomeAppBarButton"/>
-        <Setter Property="AutomationProperties.Name" Value="Home"/>
+        <Setter Property="AutomationProperties.Name" Value="HomeTab.HomeTab"/>
         <Setter Property="Content" Value="&#xE10F;"/>
     </Style>
     <Style x:Key="OutAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
