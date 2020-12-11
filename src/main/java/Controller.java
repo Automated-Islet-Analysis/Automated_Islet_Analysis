@@ -41,6 +41,7 @@ public class Controller extends Frame {
         setDisplay();
     }
 
+    // Displays the Frame dependently of chosen Menu Item
     static void setDisplay(){
         if(display == "home"){
             interframe.setContentPane(home);

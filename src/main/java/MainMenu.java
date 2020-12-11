@@ -6,11 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainMenu extends JMenuBar implements ActionListener {
-    JMenu menuHome; // One menu
+    JMenu menuHome; // Menus
     JMenu menuData;
     JMenu menuSave;
 
-    JMenuItem dataROI; // Which has one item
+    JMenuItem dataROI; // Which have items
     JMenuItem dataMCVid;
     JMenuItem dataData;
 
@@ -24,14 +24,14 @@ public class MainMenu extends JMenuBar implements ActionListener {
 
         menuData = new JMenu("Data");
         dataROI = new JMenuItem("ROIs");
-        dataMCVid = new JMenuItem("Motion corrected video");
+        dataMCVid = new JMenuItem("Motion Corrected Video");
         dataData = new JMenuItem("Data");
 
         menuSave = new JMenu("Save");
         saveROI = new JMenuItem("Save ROIs");
-        saveMCVid = new JMenuItem("Save motion corrected video");
-        saveData = new JMenuItem("Save data");
-        saveAll = new JMenuItem("Save all");
+        saveMCVid = new JMenuItem("Save Motion Corrected Video");
+        saveData = new JMenuItem("Save Data");
+        saveAll = new JMenuItem("Save All");
 
         menuHome.addMenuListener(new HomeMenuListener());
 

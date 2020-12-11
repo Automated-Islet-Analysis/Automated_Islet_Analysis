@@ -10,8 +10,10 @@ import java.awt.event.WindowEvent;
 public class Main extends Frame {
 
     public static void main( final String[] args ) {
-        Controller controller = new Controller();
-        controller.setVisible(true);
+        Controller controller = new Controller(); // Initialise object of Controller class (is a Frame)
+        controller.setVisible(true); // set it to visible
+
+
 
         /*
         //Call corresponding class on dropdown menu
