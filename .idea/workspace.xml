@@ -23,8 +23,68 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1b7bfc9-d019-46eb-ad00-9d8cfbcac099" name="Default Changelist" comment="check if file is uncorrupted">
+      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestVideo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestVideo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransformParameters.0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TransformParameters.0.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/RegionOfIntrest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/RegionOfIntrest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/VideoProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/VideoProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/1.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/10.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/11.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/12.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/13.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/14.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/15.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/16.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/17.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/18.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/19.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/2.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/20.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/21.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/22.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/23.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/24.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/25.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/26.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/27.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/28.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/29.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/3.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/30.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/31.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/32.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/33.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/34.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/35.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/36.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/37.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/38.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/39.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/4.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/40.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/41.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/42.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/43.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/44.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/45.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/46.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/47.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/48.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/49.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/5.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/50.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/51.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/52.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/53.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/54.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/55.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/56.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/6.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/7.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/8.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/img/9.tif" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +170,18 @@
     <property name="project.structure.side.proportion" value="0.30689654" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
-  <component name="RunManager" selected="Gradle.TestVideo">
+  <component name="RunManager" selected="Gradle.Image_treatment- [run]">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Image_treatment- [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -155,8 +226,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.TestVideo" />
         <item itemvalue="Gradle.Image_treatment- [run]" />
+        <item itemvalue="Gradle.TestVideo" />
       </list>
     </recent_temporary>
   </component>
@@ -171,6 +242,7 @@
       <workItem from="1607612290993" duration="1044000" />
       <workItem from="1607613350758" duration="1087000" />
       <workItem from="1607622927094" duration="840000" />
+      <workItem from="1607680854275" duration="10517000" />
     </task>
     <task id="LOCAL-00001" summary="check if file is uncorrupted">
       <created>1607617782153</created>
@@ -217,26 +289,34 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="93" y="93" width="1350" height="678" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607613735309" />
+    <state x="574" y="133" key="#com.intellij.ide.util.MemberChooser" timestamp="1607707650398">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="574" y="133" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607707650398" />
     <state x="473" y="174" key="FileChooserDialogImpl" timestamp="1607613211747">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="473" y="174" key="FileChooserDialogImpl/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607613211747" />
-    <state width="1492" height="2" key="GridCell.Tab.0.bottom" timestamp="1607623767070">
+    <state width="1492" height="248" key="GridCell.Tab.0.bottom" timestamp="1607771532926">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="2" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607623767070" />
-    <state width="1492" height="2" key="GridCell.Tab.0.center" timestamp="1607623767069">
+    <state width="1492" height="248" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607771532926" />
+    <state width="1636" height="379" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607681151080" />
+    <state width="1492" height="248" key="GridCell.Tab.0.center" timestamp="1607771532926">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="2" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607623767069" />
-    <state width="1492" height="2" key="GridCell.Tab.0.left" timestamp="1607623767069">
+    <state width="1492" height="248" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607771532926" />
+    <state width="1636" height="379" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607681151080" />
+    <state width="1492" height="248" key="GridCell.Tab.0.left" timestamp="1607771532926">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="2" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607623767069" />
-    <state width="1492" height="2" key="GridCell.Tab.0.right" timestamp="1607623767070">
+    <state width="1492" height="248" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607771532926" />
+    <state width="1636" height="379" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607681151080" />
+    <state width="1492" height="248" key="GridCell.Tab.0.right" timestamp="1607771532926">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="2" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607623767070" />
+    <state width="1492" height="248" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607771532926" />
+    <state width="1636" height="379" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607681151080" />
     <state width="1492" height="277" key="GridCell.Tab.1.bottom" timestamp="1607613335692">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -261,5 +341,24 @@
       <screen x="1280" y="23" width="1881" height="1057" />
     </state>
     <state x="1833" y="291" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1607617823598" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/imageprocessing/VideoProcessor.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/imageprocessing/VideoProcessor.java</url>
+          <line>37</line>
+          <properties class="imageprocessing.VideoProcessor" method="run">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

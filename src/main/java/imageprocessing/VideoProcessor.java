@@ -10,8 +10,10 @@ import ij.process.ImageProcessor;
 import imageprocessing.ImageJ.ParticleAnalyzer;
 import imageprocessing.ImageJ.Thresholder;
 import org.itk.simple.*;
+import org.itk.simple.Image;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ConvolveOp;
 import java.awt.image.Kernel;
@@ -37,11 +39,12 @@ public class VideoProcessor extends Video {
         // Clear all temporary files of past analysis
         cleartemp();
 
-        if (arg==1) {
+        if (arg==2) {
             removeZMotion();
         } else {
             ijFrames4Processing = ijFrames;
             SEFrames4Processing = SEframes;
+            for(int i=0;i<ijFrames.size();i++)idxFramesInFocus.add(i);
         }
         if(arg==1){
             motionCorrect();
@@ -49,13 +52,11 @@ public class VideoProcessor extends Video {
             saveAlignedFrames();
         }
 
-
         // Find cells
         findCells();
         analyseCells();
         saveROIs();
     }
-
 
     // Identify and remove for processing frames that have a varying position in the Z direction
     public void removeZMotion(){
@@ -98,7 +99,6 @@ public class VideoProcessor extends Video {
         }
     }
 
-
     // Perform motion correction on frames
     public void motionCorrect(){
         ijFrames4Processing.clear();
@@ -111,21 +111,28 @@ public class VideoProcessor extends Video {
 
             ijFrames4Processing.add(img);
         }
-        // Not needed anymore, better to delete it to reduce the risk of out of memory
+        // Not needed anymore, better to delete it to reduce the risk of running out of memory
         SEFrames4Processing.clear();
 
     }
 
     public void findCells() {
+        // Variables for maxima after filtering
+        int nPeaksPerIslet = 15;
+        int disBtwPeaksIslet = 30;
+        int distBtwPeaks = 50;
+        // Variables for circular kernel
+        double rMinustwo = 7.5; // radius of the inner circle that has value -2
+        double rZero = 8.5;     // outer radius of disk that has value = 0
+        int sizeFilter = 31;    // side of square filter, needs to be uneven
+
+
         LinkedList<int[]> coor = new LinkedList();
         LinkedList<int[]> coorUnique = new LinkedList();
 
-        // Create filter
-        // Dim of circular filter with -2 in middle
-        double rMinustwo = 7.5;
-        double rZero = 8.5;
-        int sizeFilter = 31; // Needs to be uneven
-        // init filter
+        // Create kernel
+        // Dim of circular filter with -2 circle in middle, then a disk with value 0 around that and 1 for all other values of the kernel
+        // init kernel
         float[] kernel = new float[sizeFilter*sizeFilter];
         // Create array with distances from origin(eg (16,16) for 31x31)
         double[][] dist = new double[sizeFilter][sizeFilter];
@@ -172,7 +179,7 @@ public class VideoProcessor extends Video {
 
 
             // Find three maxima per frame
-            for (int z=0;z<5;z++){ // Find the three maxima
+            for (int z=0;z<nPeaksPerIslet;z++){ // Find the three maxima
                 double vPix_max = Double.NEGATIVE_INFINITY;
                 int xMax = 0;
                 int yMax = 0;
@@ -190,8 +197,8 @@ public class VideoProcessor extends Video {
                 c[1]=yMax;
                 c[2]=i;
                 coor.add(c);
-                for (int p=-30;p<=30;p++){
-                    for (int q=-30;q<=30;q++){
+                for (int p=-disBtwPeaksIslet;p<=disBtwPeaksIslet;p++){
+                    for (int q=-disBtwPeaksIslet;q<=disBtwPeaksIslet;q++){
                         if((yMax+p>0) &&(xMax+q>0) &&(xMax+q<width-sizeFilter) &&(yMax+p<height-sizeFilter))
                                 bIOut.setRGB(xMax+q,yMax+p,0);
                     }
@@ -211,7 +218,7 @@ public class VideoProcessor extends Video {
                 double distance = Math.sqrt(Math.pow(coor.get(i)[0]-coorUnique.get(j)[0],2) + Math.pow(coor.get(i)[1]-coorUnique.get(j)[1],2));
                 if(distance<minDist) minDist=distance;
             }
-            if(minDist>30){
+            if(minDist>distBtwPeaks){
                 int[] a_ = new int[2];
                 a_[0]=coor.get(i)[0];
                 a_[1]=coor.get(i)[1];
@@ -229,7 +236,7 @@ public class VideoProcessor extends Video {
             regionOfIntrests.get(i).setRoiIntracellular(kernel_size,ijFrames4Processing);
             regionOfIntrests.get(i).saveRoi(ijFrames4Processing);
             regionOfIntrests.get(i).computeMeanIntensity();
-            regionOfIntrests.get(i).saveMeanIntensity();
+            regionOfIntrests.get(i).saveMeanIntensity(idxFramesInFocus);
         }
     }
 
@@ -240,11 +247,9 @@ public class VideoProcessor extends Video {
         // change all the ROI to a black cube on the image
         for(int i=0;i<regionOfIntrests.size();i++){
             int[] coor = regionOfIntrests.get(i).getCoor();
-            for (int p=-7;p<=7;p++){
-                for (int q=-7;q<=7;q++){
-                    iP.setf(coor[0]+p,coor[1]+q,0);
-                }
-            }
+            iP.setColor(Color.BLACK);
+            iP.setFontSize(18);
+            iP.drawString(Integer.toString(regionOfIntrests.get(i).getRoiNum()),coor[0]-5,coor[1]+10);
         }
         FileSaver fileSaver=new FileSaver(img);
         fileSaver.saveAsPng(System.getProperty("user.dir") + "/img/" + name.substring(0,name.lastIndexOf(".")) + "_ROI.png");

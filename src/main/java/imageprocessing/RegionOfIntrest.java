@@ -41,7 +41,7 @@ public class RegionOfIntrest {
         return coor;
     }
 
-        public int getRoiNum() {
+    public int getRoiNum() {
         return roiNum;
     }
 
@@ -121,7 +121,7 @@ public class RegionOfIntrest {
         }
     }
 
-    public void saveMeanIntensity(){
+    public void saveMeanIntensity(LinkedList<Integer> idxFramesInFocus){
         if(meanIntensity.length==0){
             System.out.println("ERROR : mean intensity is not computed yet");
         }
@@ -133,12 +133,17 @@ public class RegionOfIntrest {
                 e.printStackTrace();
             }
             StringBuilder sb = new StringBuilder();
-
+            sb.append("Frame number");
+            sb.append(",");
+            sb.append("Mean intensity");
+            sb.append("\n");
             // Append strings from array
-            sb.append(String.valueOf(meanIntensity[0]));
-            for (int i=1;i<meanIntensity.length;i++) {
+//            sb.append(String.valueOf(meanIntensity[0]));
+            for (int i=0;i<meanIntensity.length;i++) {
+                sb.append(idxFramesInFocus.get(i));
                 sb.append(",");
                 sb.append(String.valueOf(meanIntensity[i]));
+                sb.append("\n");
             }
 
             try {
