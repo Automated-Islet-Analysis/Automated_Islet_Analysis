@@ -1,6 +1,6 @@
 (Transform "TranslationTransform")
 (NumberOfParameters 2)
-(TransformParameters -0.036283 1.453452)
+(TransformParameters 0.115237 -0.028854)
 (InitialTransformParametersFileName "NoInitialTransform")
 (UseBinaryFormatForTransformationParameters "false")
 (HowToCombineTransforms "Compose")
@@ -24,6 +24,6 @@
 // Resampler specific
 (Resampler "DefaultResampler")
 (DefaultPixelValue 0.000000)
-(ResultImageFormat "tif")
+(ResultImageFormat "nii")
 (ResultImagePixelType "float")
 (CompressResultImage "false")
