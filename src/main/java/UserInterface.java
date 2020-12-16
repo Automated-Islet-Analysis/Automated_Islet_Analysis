@@ -1,6 +1,3 @@
-import imageprocessing.VideoProcessor;
-import imageprocessing.Video;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;

@@ -6,6 +6,7 @@ import ij.gui.Roi;
 import ij.io.FileSaver;
 import ij.plugin.Concatenator;
 import ij.plugin.FolderOpener;
+import ij.plugin.filter.Convolver;
 import ij.process.ImageProcessor;
 
 import javax.imageio.ImageIO;
@@ -25,7 +26,6 @@ public class RegionOfIntrest {
     private double[] meanIntensity;
     private Roi roiExtracellular;
     private Roi roiIntracellular;
-    private int kernel_size;
     private int roi_size;
 
 
@@ -80,8 +80,9 @@ public class RegionOfIntrest {
         double vPix_max = Double.NEGATIVE_INFINITY;
         int xMax = 0;
         int yMax = 0;
-        for(int y = 0; y < roi_size-kernel_size; ++y) {
-            for(int x = 0; x < roi_size-kernel_size; ++x) {
+
+        for(int y = 0; y < bIOut.getHeight(); ++y) {
+            for(int x = 0; x < bIOut.getWidth(); ++x) {
                 if (bIOut.getRGB(x,y) > vPix_max) {
                     vPix_max = bIOut.getRGB(x,y);
                     xMax = x;
@@ -93,9 +94,14 @@ public class RegionOfIntrest {
         roiIntracellular = IJ.Roi(xMax-Math.floor(kernel_size/2),yMax-Math.floor(kernel_size/2),kernel_size,kernel_size); // needs some recentering due to conv()
     }
 
-    public void computeMeanIntensity(){
+    public void computeMeanIntensity(boolean smooth){
         ImagePlus vid = new ImagePlus(System.getProperty("user.dir")+"/temp/video/ROI/"+String.valueOf(roiNum) + ".tif");
         meanIntensity = new double[vid.getNSlices()];
+
+        // For smoothing
+        float[] kernel = new float[9];
+        for (int j = 0;j<9;j++) kernel[j] = 1.f /(9);
+
 
         // Find intensity foe each frame
         for(int i=0;i<vid.getNSlices();i++){
@@ -111,11 +117,17 @@ public class RegionOfIntrest {
             ImageProcessor imageProcessor;
             imageProcessor = im.getProcessor();
 
+            int width = vid.getWidth();
+            int height = vid.getHeight();
+            if(smooth==true) {
+                Convolver convolver = new Convolver();
+                convolver.convolve(imageProcessor, kernel, width, height);
+            }
             // Find mean intensity
             meanIntensity[i]=0;
-            for(int j=0;j<vid.getWidth();j++){
-                for(int z=0;z<vid.getHeight();z++){
-                    meanIntensity[i] = meanIntensity[i] + imageProcessor.getf(j,z)/(vid.getHeight()*vid.getWidth());
+            for(int j=0;j<vid.getWidth();j++) {
+                for (int z = 0; z < vid.getHeight(); z++) {
+                    meanIntensity[i] = meanIntensity[i] + imageProcessor.getf(j, z) / (width * height);
                 }
             }
         }
@@ -138,7 +150,6 @@ public class RegionOfIntrest {
             sb.append("Mean intensity");
             sb.append("\n");
             // Append strings from array
-//            sb.append(String.valueOf(meanIntensity[0]));
             for (int i=0;i<meanIntensity.length;i++) {
                 sb.append(idxFramesInFocus.get(i));
                 sb.append(",");

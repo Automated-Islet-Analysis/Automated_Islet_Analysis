@@ -37,7 +37,52 @@
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/img/test.asv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransformParameters.0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TransformParameters.0.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ImageJ/Stack_Splitter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UserInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UserInterface$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UserInterface$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UserInterface$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UserInterface$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UserInterface$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UserInterface$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UserInterface$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UserInterface$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UserInterface$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UserInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/RegionOfIntrest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/RegionOfIntrest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/Video.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/Video.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/VideoProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/imageprocessing/VideoProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/TestVideo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/TestVideo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/10.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/11.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/11.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/12.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/12.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/13.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/13.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/14.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/14.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/15.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/15.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/16.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/16.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/17.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/17.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/18.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/18.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/19.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/19.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/20.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/20.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/21.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/21.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/22.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/22.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/23.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/23.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/6.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/7.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/8.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/8.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/9.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/test.m" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/test.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/Stack_Splitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/ImageJ/Stack_Splitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/RegionOfIntrest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/RegionOfIntrest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/Video.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/imageprocessing/VideoProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/imageprocessing/VideoProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestVideo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestVideo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/temp.tif" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,26 +156,28 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/simpleitk-2.0.0rc2.dev908-g8244e.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Image_treatment--Windows" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.30689654" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RunManager" selected="Gradle.Image_treatment- [run]">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -195,7 +242,8 @@
       <workItem from="1607612290993" duration="1044000" />
       <workItem from="1607613350758" duration="1087000" />
       <workItem from="1607622927094" duration="840000" />
-      <workItem from="1607680854275" duration="11717000" />
+      <workItem from="1607680854275" duration="12535000" />
+      <workItem from="1608107548141" duration="8045000" />
     </task>
     <task id="LOCAL-00001" summary="check if file is uncorrupted">
       <created>1607617782153</created>
@@ -246,50 +294,54 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="574" y="133" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607707650398" />
-    <state x="473" y="174" key="FileChooserDialogImpl" timestamp="1607613211747">
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608109692255">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="473" y="174" key="FileChooserDialogImpl/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607613211747" />
-    <state width="1492" height="248" key="GridCell.Tab.0.bottom" timestamp="1607771532926">
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608109692255" />
+    <state x="473" y="174" key="FileChooserDialogImpl" timestamp="1608108424334">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="248" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607771532926" />
+    <state x="473" y="174" key="FileChooserDialogImpl/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608108424334" />
+    <state width="1492" height="223" key="GridCell.Tab.0.bottom" timestamp="1608116653960">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608116653960" />
     <state width="1636" height="379" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607681151080" />
-    <state width="1492" height="248" key="GridCell.Tab.0.center" timestamp="1607771532926">
+    <state width="1492" height="223" key="GridCell.Tab.0.center" timestamp="1608116653960">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="248" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607771532926" />
+    <state width="1492" height="223" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608116653960" />
     <state width="1636" height="379" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607681151080" />
-    <state width="1492" height="248" key="GridCell.Tab.0.left" timestamp="1607771532926">
+    <state width="1492" height="223" key="GridCell.Tab.0.left" timestamp="1608116653960">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="248" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607771532926" />
+    <state width="1492" height="223" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608116653960" />
     <state width="1636" height="379" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607681151080" />
-    <state width="1492" height="248" key="GridCell.Tab.0.right" timestamp="1607771532926">
+    <state width="1492" height="223" key="GridCell.Tab.0.right" timestamp="1608116653960">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="248" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607771532926" />
+    <state width="1492" height="223" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608116653960" />
     <state width="1636" height="379" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1607681151080" />
-    <state width="1492" height="277" key="GridCell.Tab.1.bottom" timestamp="1607613335692">
+    <state width="1492" height="277" key="GridCell.Tab.1.bottom" timestamp="1608116305499">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="277" key="GridCell.Tab.1.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607613335692" />
-    <state width="1492" height="277" key="GridCell.Tab.1.center" timestamp="1607613335692">
+    <state width="1492" height="277" key="GridCell.Tab.1.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608116305499" />
+    <state width="1492" height="277" key="GridCell.Tab.1.center" timestamp="1608116305499">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="277" key="GridCell.Tab.1.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607613335692" />
-    <state width="1492" height="277" key="GridCell.Tab.1.left" timestamp="1607613335692">
+    <state width="1492" height="277" key="GridCell.Tab.1.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608116305499" />
+    <state width="1492" height="277" key="GridCell.Tab.1.left" timestamp="1608116305499">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="277" key="GridCell.Tab.1.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607613335692" />
-    <state width="1492" height="277" key="GridCell.Tab.1.right" timestamp="1607613335692">
+    <state width="1492" height="277" key="GridCell.Tab.1.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608116305499" />
+    <state width="1492" height="277" key="GridCell.Tab.1.right" timestamp="1608116305499">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="277" key="GridCell.Tab.1.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607613335692" />
-    <state x="249" y="7" key="SettingsEditor" timestamp="1607613179610">
+    <state width="1492" height="277" key="GridCell.Tab.1.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608116305499" />
+    <state x="249" y="7" key="SettingsEditor" timestamp="1608108366258">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="249" y="7" key="SettingsEditor/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607613179610" />
+    <state x="249" y="7" key="SettingsEditor/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608108366258" />
     <state x="1833" y="291" key="Vcs.Push.Dialog.v2" timestamp="1607617823598">
       <screen x="1280" y="23" width="1881" height="1057" />
     </state>
@@ -300,8 +352,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/imageprocessing/VideoProcessor.java</url>
-          <line>62</line>
+          <line>68</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/imageprocessing/VideoProcessor.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/imageprocessing/VideoProcessor.java</url>

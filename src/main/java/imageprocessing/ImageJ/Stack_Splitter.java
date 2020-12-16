@@ -1,11 +1,13 @@
-package ImageJ;
+package imageprocessing.ImageJ;
 
-import ij.*;
+//import ij.*;
+import ij.ImagePlus;
+import ij.IJ;
+import ij.ImageStack;
 import ij.io.FileSaver;
 import ij.process.*;
 import ij.plugin.*;
 import java.lang.*;
-import java.awt.*;
 import java.awt.image.*;
 import java.text.DecimalFormat;
 

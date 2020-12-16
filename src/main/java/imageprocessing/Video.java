@@ -1,6 +1,6 @@
 package imageprocessing;
 
-import ImageJ.Stack_Splitter;
+import imageprocessing.ImageJ.Stack_Splitter;
 import ij.ImagePlus;
 import ij.io.FileSaver;
 import ij.io.Opener;

@@ -1,5 +1,4 @@
 import ij.ImagePlus;
-import ij.io.Opener;
 import ij.process.ImageProcessor;
 import imageprocessing.Video;
 import org.itk.simple.SimpleITK;

@@ -39,6 +39,12 @@ public class VideoProcessor extends Video {
         // Clear all temporary files of past analysis
         cleartemp();
 
+        if(ijFrames.get(0).getWidth()<=roi_size || ijFrames.get(0).getHeight()<=roi_size ){
+            if(ijFrames.get(0).getWidth()<ijFrames.get(0).getHeight()) roi_size =ijFrames.get(0).getWidth()-2;
+            else if(ijFrames.get(0).getWidth()>ijFrames.get(0).getHeight()) roi_size =ijFrames.get(0).getHeight()-2;
+        }
+
+
         if (arg==2) {
             removeZMotion();
         } else {
@@ -235,7 +241,7 @@ public class VideoProcessor extends Video {
         for(int i=0;i<regionOfIntrests.size();i++){
             regionOfIntrests.get(i).setRoiIntracellular(kernel_size,ijFrames4Processing);
             regionOfIntrests.get(i).saveRoi(ijFrames4Processing);
-            regionOfIntrests.get(i).computeMeanIntensity();
+            regionOfIntrests.get(i).computeMeanIntensity(true);
             regionOfIntrests.get(i).saveMeanIntensity(idxFramesInFocus);
         }
     }
