@@ -1,20 +1,12 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 public class MainMenu extends JMenuBar implements ActionListener {
-    JMenu menuHome; // One menu
-    JMenu menuData;
-    JMenu menuSave;
-
-    JMenuItem dataROI; // Which has one item
-    JMenuItem dataMCVid;
-    JMenuItem dataData;
-
-    JMenuItem saveROI;
-    JMenuItem saveMCVid;
-    JMenuItem saveData;
-    JMenuItem saveAll;
+    JMenu menuHome, menuData, menuSave, subMenuMCVid;
+    JMenuItem dataROI, dataData, MCVidPlanar, MCVidDepth;
+    JMenuItem saveROI,saveMCVid, saveData, saveAll;
 
     public MainMenu() {
         menuHome = new JMenu("Home");
@@ -22,7 +14,9 @@ public class MainMenu extends JMenuBar implements ActionListener {
         // Data dropdown
         menuData = new JMenu("Data");
         dataROI = new JMenuItem("ROIs");
-        dataMCVid = new JMenuItem("Motion corrected video");
+        subMenuMCVid = new JMenu("Motion corrected video");
+        MCVidPlanar = new JMenuItem("Planar motion");
+        MCVidDepth = new JMenuItem("Depth motion");
         dataData = new JMenuItem("Data");
 
         // Save dropdown
@@ -36,7 +30,8 @@ public class MainMenu extends JMenuBar implements ActionListener {
         menuHome.addMenuListener(new HomeMenuListener());
 
         dataROI.addActionListener(this);
-        dataMCVid.addActionListener(this);
+        MCVidPlanar.addActionListener(this);
+        MCVidDepth.addActionListener(this);
         dataData.addActionListener(this);
 
         saveROI.addActionListener(this);
@@ -51,7 +46,9 @@ public class MainMenu extends JMenuBar implements ActionListener {
 
         // Add the menu items to each menu
         menuData.add(dataROI);
-        menuData.add(dataMCVid);
+        menuData.add(subMenuMCVid);
+            subMenuMCVid.add(MCVidPlanar);
+            subMenuMCVid.add(MCVidDepth);
         menuData.add(dataData);
 
         menuSave.add(saveROI);
@@ -59,6 +56,9 @@ public class MainMenu extends JMenuBar implements ActionListener {
         menuSave.add(saveData);
         menuSave.add(saveAll);
 
+        // Add keystroke as an alternative way to save all
+        saveAll.setAccelerator(KeyStroke.getKeyStroke(
+                KeyEvent.VK_S, ActionEvent.CTRL_MASK));
     }
 
     @Override
