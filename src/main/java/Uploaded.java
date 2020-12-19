@@ -4,9 +4,8 @@ import java.awt.*;
 public class Uploaded extends JPanel {
     static JLabel picture;
     static JLabel filename;
-    JLabel empty;
     JButton btnUpload, btnAnalyse;
-    JPanel subPanel, subVPanel, subHPanel;
+    JPanel subHPanel;
 
     public Uploaded(){
         // Label for the image
