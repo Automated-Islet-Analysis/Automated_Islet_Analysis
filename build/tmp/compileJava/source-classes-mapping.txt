@@ -12,13 +12,6 @@ imageprocessing/ImageJ/nifti_io/AffineCoors.java
  ImageJ.nifti_io.AffineCoors
 imageprocessing/ImageJ/Stack_Splitter.java
  imageprocessing.ImageJ.Stack_Splitter
-UserInterface.java
- UserInterface
- UserInterface$1
- UserInterface$2
- UserInterface$3
- UserInterface$4
- UserInterface$5
 imageprocessing/ImageJ/CLAHE_.java
  ImageJ.CLAHE_
 imageprocessing/ImageJ/nifti_io/CoordinateMapper.java
@@ -29,15 +22,17 @@ imageprocessing/ImageJ/nifti_io/NiftiHeader.java
  ImageJ.nifti_io.NiftiHeader
 imageprocessing/ImageJ/nifti_io/Nifti_Reader.java
  ImageJ.nifti_io.Nifti_Reader
-imageprocessing/Video.java
- imageprocessing.Video
+imageprocessing/Combiner.java
+ imageprocessing.Combiner
 imageprocessing/Convolution.java
  imageprocessing.Convolution
 imageprocessing/ImageJ/nifti_io/QuaternCoors.java
  ImageJ.nifti_io.QuaternCoors
-Main.java
- Main
 imageprocessing/RegionOfIntrest.java
  imageprocessing.RegionOfIntrest
+imageprocessing/Video.java
+ imageprocessing.Video
 imageprocessing/VideoProcessor.java
  imageprocessing.VideoProcessor
+Main.java
+ Main

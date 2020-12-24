@@ -1,2 +1,2 @@
-TestVideo.java
- TestVideo
+imageprocessing/VideoTest.java
+ imageprocessing.VideoTest

@@ -1,10 +1,8 @@
 package imageprocessing;
 
 import ij.ImagePlus;
-import ij.gui.Roi;
 import ij.io.FileSaver;
 import ij.measure.ResultsTable;
-import ij.plugin.Concatenator;
 import ij.plugin.filter.Binary;
 import ij.process.ImageProcessor;
 import imageprocessing.ImageJ.ParticleAnalyzer;
@@ -12,56 +10,109 @@ import imageprocessing.ImageJ.Thresholder;
 import org.itk.simple.*;
 import org.itk.simple.Image;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ConvolveOp;
 import java.awt.image.Kernel;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.Math;
 import java.io.File;
-import java.util.Arrays;
 import java.util.LinkedList;
 
-import static ij.IJ.Roi;
 import static java.lang.Double.MAX_VALUE;
 
 public class VideoProcessor extends Video {
     private LinkedList<RegionOfIntrest> regionOfIntrests = new LinkedList();
-    private int roi_size=100;
+    private int roi_size=50;
     private int kernel_size =10;
+    private double thresholdArea=10; // Change in area(%) tolerated
 
     public VideoProcessor(Video video){
         super(video.filename);
     }
 
-    public void run(int arg){
-        // Clear all temporary files of past analysis
-        cleartemp();
+    public void process(int thresholdArea,boolean planarMotionCorrect, boolean depthMotionCorrect,boolean findROIs){
+        this.thresholdArea = thresholdArea;
 
+        // Clear all temporary files of past analysis
+        clearTemp();
+
+        // Check if videos are larger than 100 by 100 pixels
         if(ijFrames.get(0).getWidth()<=roi_size || ijFrames.get(0).getHeight()<=roi_size ){
             if(ijFrames.get(0).getWidth()<ijFrames.get(0).getHeight()) roi_size =ijFrames.get(0).getWidth()-2;
             else if(ijFrames.get(0).getWidth()>ijFrames.get(0).getHeight()) roi_size =ijFrames.get(0).getHeight()-2;
         }
 
+        // Perform planar motion correction (if needed)
+        if(planarMotionCorrect){
+            System.out.println("Planar Motion correction in progress");
+            motionCorrect();
+            // Save planar motion corrected video
+            saveFrames("Planar_aligned");
 
-        if (arg==2) {
+            System.out.println("Done");
+        }else{
+            saveFrames("Planar_aligned"); // Was not aligned but show that was not aligned on gui
+            SEframes.clear(); // Avoid running out of memory
+        }
+
+        // Perform depth motion correction (if needed)
+        if (depthMotionCorrect) {
+            System.out.println("Depth Motion correction in progress");
             removeZMotion();
+            // Save depth motion corrected vid
+            saveFrames("Depth_aligned");
+            System.out.println("Done");
         } else {
-            ijFrames4Processing = ijFrames;
-            SEFrames4Processing = SEframes;
+            saveFrames("Depth_aligned");
             for(int i=0;i<ijFrames.size();i++)idxFramesInFocus.add(i);
         }
-        if(arg==1){
-            motionCorrect();
-            // Save motion corrected video
-            saveAlignedFrames();
-        }
 
-        // Find cells
-        findCells();
-        analyseCells();
+        // Perform automatic detection of Beta-cells (if needed)
+        if(findROIs){
+            System.out.println("Searching for Beta-cells");
+            //Find cells
+            findCells();
+            System.out.println("Done, found "+regionOfIntrests.size()+" cells");
+        }
         saveROIs();
+    }
+
+    // Finds region of highest intensity in each cell and measure and save the mean intensity of it
+    public void analyseCells(){
+        System.out.println("Analysis Beta-cells");
+        // create video for each region around the identified cell
+        for(int i=0;i<regionOfIntrests.size();i++){
+            regionOfIntrests.get(i).setRoiIntracellular(kernel_size,ijFrames);
+            regionOfIntrests.get(i).saveRoi(ijFrames,idxFramesInFocus);
+            regionOfIntrests.get(i).computeMeanIntensity(true);
+            regionOfIntrests.get(i).saveMeanIntensity(idxFramesInFocus);
+        }
+        System.out.println("Done");
+    }
+
+    // Perform motion correction on frames
+    public void motionCorrect(){
+        ijFrames.clear();
+        for (int i=0; i<SEframes.size(); i++){ /***/
+            Image out = new Image();
+            out = SimpleITK.elastix(SEframes.get(0),SEframes.get(i),"translation");
+
+            SimpleITK.writeImage(out, "temp/temp.nii");
+            File file = new File(System.getProperty("user.dir") + "/temp/temp.nii");
+            ImageJ.nifti_io.Nifti_Reader nifti_reader = new ImageJ.nifti_io.Nifti_Reader();
+            ijFrames.add(nifti_reader.run(file));
+
+
+//            SimpleITK.writeImage(out,"temp/temp.tif");
+//            ImagePlus img = new ImagePlus(System.getProperty("user.dir") + "/temp/temp.tif");
+//
+//            ijFrames.add(img);
+        }
+        // Not needed anymore, better to delete it to reduce the risk of running out of memory
+        SEframes.clear();
     }
 
     // Identify and remove for processing frames that have a varying position in the Z direction
@@ -71,8 +122,17 @@ public class VideoProcessor extends Video {
         for (int i=0;i<numberOfFrames;i++) {
             ImagePlus forProcessing = new ImagePlus();
 
+            // Create copy without pointer
+            ImageProcessor ip = ijFrames.get(i).getProcessor(); // ***
+            ImageProcessor newip = ip.createProcessor(ip.getWidth(), ip.getHeight());
+            newip.setPixels(ip.getPixelsCopy());
+            String sImLabel = String.valueOf(i);
+            ImagePlus forProcessing1 = new ImagePlus(sImLabel, newip);
+            forProcessing1.setCalibration(ijFrames.get(i).getCalibration());
+
+
             // Threshold the image, output is binary stack
-            Thresholder thresholder = new Thresholder( this.ijFrames.get(i));
+            Thresholder thresholder = new Thresholder( forProcessing1);
             thresholder.run(new String("mask"));
             forProcessing = thresholder.getImagePlus();
 
@@ -95,38 +155,25 @@ public class VideoProcessor extends Video {
 
             if (i==0){
                 area0 = area;
+                this.idxFramesInFocus.add(i);
+//                ijFrames4Processing.add(ijFrames.get(i));
+//                SEFrames4Processing.add(SEframes.get(i));
             } else{
-                if(((area0-area)/area0)*((area0-area)/area0) < 0.01){ // if difference in area is smaller than 10% keep frame else disregard
+                if(((area0-area)/area0)*((area0-area)/area0) < (thresholdArea/100)*(thresholdArea/100)){ // if difference in area is smaller than 10% keep frame else disregard
                     this.idxFramesInFocus.add(i);
-                    ijFrames4Processing.add(ijFrames.get(i));
-                    SEFrames4Processing.add(SEframes.get(i));
+//                    ijFrames4Processing.add(ijFrames.get(i));
+//                    SEFrames4Processing.add(SEframes.get(i));
                 }
             }
         }
     }
 
-    // Perform motion correction on frames
-    public void motionCorrect(){
-        ijFrames4Processing.clear();
-        for (int i=0; i<SEFrames4Processing.size(); i++){ /***/
-            Image out = new Image();
-            out = SimpleITK.elastix(SEFrames4Processing.get(0),SEFrames4Processing.get(i),"translation");
-
-            SimpleITK.writeImage(out,"temp/temp.tif");
-            ImagePlus img = new ImagePlus(System.getProperty("user.dir") + "/temp/temp.tif");
-
-            ijFrames4Processing.add(img);
-        }
-        // Not needed anymore, better to delete it to reduce the risk of running out of memory
-        SEFrames4Processing.clear();
-
-    }
-
+    // Automatic selection of individual Beta-cells
     public void findCells() {
         // Variables for maxima after filtering
         int nPeaksPerIslet = 15;
-        int disBtwPeaksIslet = 30;
-        int distBtwPeaks = 50;
+        int disBtwPeaksIslet = 50;
+        int distBtwPeaks = 30;
         // Variables for circular kernel
         double rMinustwo = 7.5; // radius of the inner circle that has value -2
         double rZero = 8.5;     // outer radius of disk that has value = 0
@@ -167,14 +214,12 @@ public class VideoProcessor extends Video {
         }
 
         // Loop over each image and find the three highest peaks
-        for (int i=0;i<ijFrames4Processing.size();i++){ //
-            System.out.println(i);
-
+        for (int i:idxFramesInFocus){ //
             // Image to BufferImage for quicker conv2D
-            int width = ijFrames4Processing.get(i).getWidth();
-            int height = ijFrames4Processing.get(i).getHeight();
+            int width = ijFrames.get(i).getWidth();
+            int height = ijFrames.get(i).getHeight();
             BufferedImage bI = new BufferedImage(width,height,BufferedImage.TYPE_BYTE_GRAY);;
-            bI = ijFrames4Processing.get(i).getBufferedImage();
+            bI = ijFrames.get(i).getBufferedImage();
             BufferedImage bIOut=new BufferedImage(width,height,BufferedImage.TYPE_BYTE_GRAY);
 
             // Apply circular filter
@@ -182,9 +227,7 @@ public class VideoProcessor extends Video {
             ConvolveOp convolveOp = new ConvolveOp(kernel1, ConvolveOp.EDGE_NO_OP,null);
             convolveOp.filter(bI,bIOut);
 
-
-
-            // Find three maxima per frame
+            // Find nPeaksPerIslet maxima per frame
             for (int z=0;z<nPeaksPerIslet;z++){ // Find the three maxima
                 double vPix_max = Double.NEGATIVE_INFINITY;
                 int xMax = 0;
@@ -216,8 +259,7 @@ public class VideoProcessor extends Video {
         int[] a = new int[2];
         a[0]=coor.get(0)[0];
         a[1]=coor.get(0)[1];
-        RegionOfIntrest regionOfIntrest_ = new RegionOfIntrest(a,regionOfIntrests.size()+1,coor.get(0)[2],roi_size);
-        regionOfIntrests.add(regionOfIntrest_);
+        addCells(a,coor.get(0)[2]);
         for (int i=1;i<coor.size();i++){
             double minDist=Math.sqrt(Math.pow(coor.get(i)[0]-coorUnique.get(0)[0],2) + Math.pow(coor.get(i)[1]-coorUnique.get(0)[1],2));
             for(int j=1;j<coorUnique.size();j++){
@@ -229,39 +271,92 @@ public class VideoProcessor extends Video {
                 a_[0]=coor.get(i)[0];
                 a_[1]=coor.get(i)[1];
                 coorUnique.add(coor.get(i));
-                RegionOfIntrest regionOfIntrest = new RegionOfIntrest(a_,regionOfIntrests.size()+1,coor.get(i)[2],roi_size);
-                regionOfIntrests.add(regionOfIntrest);
+                addCells(a_,coor.get(i)[2]);
             }
         }
     }
 
-    public void analyseCells(){
-        // create video for each region around the identified cell
-        System.out.println(regionOfIntrests.size());
-        for(int i=0;i<regionOfIntrests.size();i++){
-            regionOfIntrests.get(i).setRoiIntracellular(kernel_size,ijFrames4Processing);
-            regionOfIntrests.get(i).saveRoi(ijFrames4Processing);
-            regionOfIntrests.get(i).computeMeanIntensity(true);
-            regionOfIntrests.get(i).saveMeanIntensity(idxFramesInFocus);
+    public void addCells(int[] coorNewCell,int frameNum){
+        RegionOfIntrest regionOfIntrest_ = new RegionOfIntrest(coorNewCell,regionOfIntrests.size()+1,frameNum,roi_size);
+        regionOfIntrests.add(regionOfIntrest_);
+    }
+
+    // Used to add ROI for manual selection of ROI
+    public void addCells(LinkedList<int[]> coorNewCells){
+        for(int i=0;i<coorNewCells.size();i++){
+            RegionOfIntrest regionOfIntrest_ = new RegionOfIntrest(coorNewCells.get(i),regionOfIntrests.size()+1,0,roi_size);
+            regionOfIntrests.add(regionOfIntrest_);
         }
     }
 
+    // Save image with Roi shown as numbers on first frame
     public void saveROIs(){
-        ImagePlus img = ijFrames4Processing.get(0);
-        ImageProcessor iP = img.getProcessor();
+        ImagePlus img = ijFrames.get(0);
+        ImageProcessor ip = img.getProcessor();
+
+        ImageProcessor newip = ip.createProcessor(ip.getWidth(), ip.getHeight());
+        newip.setPixels(ip.getPixelsCopy());
+        String sImLabel = "ROIs";
+        ImagePlus forProcessing = new ImagePlus(sImLabel, newip);
+
 
         // change all the ROI to a black cube on the image
         for(int i=0;i<regionOfIntrests.size();i++){
             int[] coor = regionOfIntrests.get(i).getCoor();
-            iP.setColor(Color.BLACK);
-            iP.setFontSize(18);
-            iP.drawString(Integer.toString(regionOfIntrests.get(i).getRoiNum()),coor[0]-5,coor[1]+10);
+            newip.setColor(Color.BLACK);
+            newip.setFontSize(18);
+            newip.drawString(Integer.toString(regionOfIntrests.get(i).getRoiNum()),coor[0]-5,coor[1]+10);
         }
-        FileSaver fileSaver=new FileSaver(img);
-        fileSaver.saveAsPng(System.getProperty("user.dir") + "/img/" + name.substring(0,name.lastIndexOf(".")) + "_ROI.png");
+        FileSaver fileSaver=new FileSaver(forProcessing);
+        fileSaver.saveAsJpeg(System.getProperty("user.dir") + "/temp/" + name.substring(0,name.lastIndexOf(".")) + "_ROI.jpg");
     }
 
-    public void cleartemp(){
+    public void saveSummary(){
+        BufferedWriter br = null;
+        try {
+            br = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "/temp/Analysis_recap.csv"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // Headers and number of frames without depth motion
+        StringBuilder sb = new StringBuilder();
+        sb.append("ROI number");
+        sb.append(",");
+        sb.append("x coordinate(width)");
+        sb.append(",");
+        sb.append("y coordinate(height)");
+        sb.append(",");
+        sb.append(",");
+        sb.append(",");
+        sb.append("Number of frames without depth motions");
+        sb.append(",");
+        sb.append(Integer.toString(idxFramesInFocus.size()));
+        sb.append(",ROI size");
+        sb.append(",");
+        sb.append(Integer.toString(kernel_size)+"x"+Integer.toString(kernel_size));
+        sb.append("\n");
+
+        for (RegionOfIntrest ROI : regionOfIntrests){
+            int[] coorROI = ROI.getCoorRoi();
+
+            sb.append(Integer.toString(ROI.getRoiNum()));
+            sb.append(",");
+            sb.append(Integer.toString(coorROI[0]));
+            sb.append(",");
+            sb.append(Integer.toString(coorROI[1]));
+            sb.append("\n");
+        }
+
+        try {
+            br.write(sb.toString());
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Clear all temporary files
+    public void clearTemp(){
         File dir = new File(System.getProperty("user.dir") + "/temp");
         for(File file: dir.listFiles())
             if (!file.isDirectory())
