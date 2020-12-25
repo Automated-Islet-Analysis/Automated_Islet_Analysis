@@ -36,6 +36,8 @@ public class VideoProcessor{
     // Constructor
     public VideoProcessor(Video video){
         this.video = video;
+        // Create/check if all temporary needed for processing are present
+        makeTemp();
     }
 
     // Process video depending on input values
@@ -410,4 +412,23 @@ public class VideoProcessor{
             if (!file.isDirectory())
                 file.delete();
     }
+
+    // Make sure that all necessary folders in temp are present for temporary files during processing
+    private void makeTemp(){
+        LinkedList<File>folders = new LinkedList<>();
+        folders.add(new File(System.getProperty("user.dir")+"/temp/Combiner"));
+        folders.add(new File(System.getProperty("user.dir")+"/temp/img"));
+        folders.add(new File(System.getProperty("user.dir")+"/temp/video"));
+        folders.add(new File(System.getProperty("user.dir")+"/temp/video/cells"));
+        folders.add(new File(System.getProperty("user.dir")+"/temp/video/ROI"));
+
+        for(File folder:folders){
+            try{
+                folder.mkdir();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
