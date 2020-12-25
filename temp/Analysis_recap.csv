@@ -1,4 +1,4 @@
-ROI number,x coordinate(width),y coordinate(height),,,Number of frames without depth motions,150ROI size,10x10
+ROI number,x coordinate(width),y coordinate(height),,,Number of frames without depth motions,145,ROI size,10x10
 1,235,410
 2,514,659
 3,383,665

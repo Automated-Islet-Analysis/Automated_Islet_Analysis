@@ -66,27 +66,13 @@ scatter(coo_uniq(:,2),coo_uniq(:,1),'linewidth',4)
 
 
 %% Plot Mean intensity results
-close all
-figure
-n=5;
-step = 1;
 MI=[];
-for i=(1:step:n*step) 
+for i=1:23
     filename = "MI_data/"+num2str(i)+".csv";
     Array=csvread(filename);
-    MI = [MI;detrend(Array(:,2)')]; 
+    MI = [MI;Array(1,:)];
 end
-MIP = MI - mean(MI,2);
-MIP = 0.5*MIP./max(abs(MIP),[],2);
-MIP = MIP + (1:n)';
-
-time_ax = (0:size(MI,2)-1)' *0.2;
-plot(time_ax,MIP')
-hold on
-plot(time_ax,repmat(1:n,size(MI,2),1),"--k")
-xlabel("time(s)")
-yticks([1:n])
-ylabel("Mean intensity(AU)")
+plot(MI')
     
     
 

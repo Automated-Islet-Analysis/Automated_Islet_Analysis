@@ -1,38 +1,32 @@
-imageprocessing/ImageJ/Binary.java
- imageprocessing.ImageJ.Binary
-imageprocessing/ImageJ/ParticleAnalyzer.java
- imageprocessing.ImageJ.ParticleAnalyzer
-imageprocessing/ImageJ/FindMax_v1_00.java
- imageprocessing.ImageJ.FindMax_v1_00
-imageprocessing/ImageJ/nifti_io/Nifti_writer.java
- ImageJ.nifti_io.Nifti_writer
-imageprocessing/ImageJ/Thresholder.java
- imageprocessing.ImageJ.Thresholder
-imageprocessing/ImageJ/nifti_io/AffineCoors.java
+videoprocessing/ImageJ/nifti_io/AffineCoors.java
  ImageJ.nifti_io.AffineCoors
-imageprocessing/ImageJ/Stack_Splitter.java
- imageprocessing.ImageJ.Stack_Splitter
-imageprocessing/ImageJ/CLAHE_.java
- ImageJ.CLAHE_
-imageprocessing/ImageJ/nifti_io/CoordinateMapper.java
- ImageJ.nifti_io.CoordinateMapper
-imageprocessing/ImageJ/CLAHE.java
- imageprocessing.ImageJ.CLAHE
-imageprocessing/ImageJ/nifti_io/NiftiHeader.java
- ImageJ.nifti_io.NiftiHeader
-imageprocessing/ImageJ/nifti_io/Nifti_Reader.java
- ImageJ.nifti_io.Nifti_Reader
-imageprocessing/Combiner.java
- imageprocessing.Combiner
-imageprocessing/Convolution.java
- imageprocessing.Convolution
-imageprocessing/ImageJ/nifti_io/QuaternCoors.java
+videoprocessing/ImageJ/nifti_io/QuaternCoors.java
  ImageJ.nifti_io.QuaternCoors
-imageprocessing/RegionOfIntrest.java
- imageprocessing.RegionOfIntrest
-imageprocessing/Video.java
- imageprocessing.Video
-imageprocessing/VideoProcessor.java
- imageprocessing.VideoProcessor
+videoprocessing/ImageJ/nifti_io/Nifti_Reader.java
+ ImageJ.nifti_io.Nifti_Reader
+videoprocessing/ImageJ/nifti_io/CoordinateMapper.java
+ ImageJ.nifti_io.CoordinateMapper
+videoprocessing/ImageJ/nifti_io/NiftiHeader.java
+ ImageJ.nifti_io.NiftiHeader
+videoprocessing/ImageJ/Thresholder.java
+ videoprocessing.ImageJ.Thresholder
 Main.java
  Main
+videoprocessing/Combiner.java
+ videoprocessing.Combiner
+videoprocessing/VideoProcessor.java
+ videoprocessing.VideoProcessor
+videoprocessing/ImageJ/Stack_Splitter.java
+ videoprocessing.ImageJ.Stack_Splitter
+videoprocessing/Video.java
+ videoprocessing.Video
+videoprocessing/ImageJ/nifti_io/Nifti_writer.java
+ ImageJ.nifti_io.Nifti_writer
+videoprocessing/ImageJ/Binary.java
+ videoprocessing.ImageJ.Binary
+videoprocessing/Convolution.java
+ videoprocessing.Convolution
+videoprocessing/ImageJ/ParticleAnalyzer.java
+ videoprocessing.ImageJ.ParticleAnalyzer
+videoprocessing/Cell.java
+ videoprocessing.Cell

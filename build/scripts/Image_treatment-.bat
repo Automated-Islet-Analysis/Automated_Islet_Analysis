@@ -82,7 +82,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\Image_treatment--1.0-SNAPSHOT.jar;%APP_HOME%\lib\find_min_max_v1_00.jar;%APP_HOME%\lib\ij.jar;%APP_HOME%\lib\nifti_io.jar;%APP_HOME%\lib\opencv-450.jar;%APP_HOME%\lib\simpleitk-2.0.0rc2.dev908-g8244e.jar
+set CLASSPATH=%APP_HOME%\lib\Image_treatment--1.0-SNAPSHOT.jar;%APP_HOME%\lib\ij.jar;%APP_HOME%\lib\nifti_io.jar;%APP_HOME%\lib\simpleitk-2.0.0rc2.dev908-g8244e.jar
 
 
 @rem Execute Image_treatment-
