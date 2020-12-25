@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="jmf-2.1.1e">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/Libs/jmf-2.1.1e.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jmf-2.1.1e.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

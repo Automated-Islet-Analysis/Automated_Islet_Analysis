@@ -18,7 +18,7 @@ public class TiffReader extends Frame {
     private static final long serialVersionUID = 1L;
     public TiffReader(final String filename) throws IOException {
 
-        //Create Frame
+        /*//Create Frame
         JFrame frame = new JFrame("Interface");
 
 
@@ -66,7 +66,7 @@ public class TiffReader extends Frame {
         frame.add(cb1);
         frame.setSize(500,500);
         frame.add(addPanel);
-        frame.setVisible(true);
+        frame.setVisible(true);*/
     }
     public BufferedImage convertRenderedImgToBuffImg( final RenderedImage chqBufferedImg ) {
         if (chqBufferedImg instanceof BufferedImage) {

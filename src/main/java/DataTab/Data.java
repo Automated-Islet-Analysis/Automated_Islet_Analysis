@@ -48,9 +48,11 @@ public class Data extends JPanel{
         // Add elements to main JPanel
         setLayout(new FlowLayout(FlowLayout.LEFT, 20, 30));
         add(measureBtn);
-        add(Box.createHorizontalStrut(200));
+        add(Box.createHorizontalStrut(400));
         add(panDisc);
+        add(Box.createHorizontalStrut(400));
         add(panROI);
+        add(Box.createHorizontalStrut(400));
         add(panInt);
     }
 }

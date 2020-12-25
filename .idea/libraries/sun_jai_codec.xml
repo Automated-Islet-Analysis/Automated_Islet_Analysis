@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="sun-jai_codec">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/Libs/sun-jai_codec.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/sun-jai_codec.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
