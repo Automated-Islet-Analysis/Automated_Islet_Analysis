@@ -27,14 +27,14 @@ Download git repository on your pc by downloading it as a zip, git command on th
 
 This software was coded with the Java Development Kit(JDK) - 15.0.1.
 
-Download jdk-15.0.1 from: https://www.oracle.com/java/technologies/javase-jdk15-downloads.html
+#### Download jdk-15.0.1 from: https://www.oracle.com/java/technologies/javase-jdk15-downloads.html
   - Select Windows x64 Installer
   - Accept the License Agreement
   - Press green 'Download jdk-15.0.1_windows-x64_bin.exe' button
 
-Run the executable (jdk-15.0.1_windows-x64_bin.exe) by double-clicking on it and follow the instructions
+#### Run the executable (jdk-15.0.1_windows-x64_bin.exe) by double-clicking on it and follow the instructions
 
-Add java bin folder to the PATH Environment Variable
+#### Add java bin folder to the PATH Environment Variable
   - Open 'Edit the system environment variables' (windows key and type environment variables)
   - Select 'Environment Variables...' in the bottom right corner
   - Double-click the 'Path' variable in 'System variables'
@@ -48,11 +48,11 @@ IntelliJ Ultimate is not free however you can get free Educational licenses if a
 IntelliJ Community is free on the other hand. 
 Both are compatible with this project.
 
-Download IntelliJ from: https://www.jetbrains.com/idea/download/#section=windows
+#### Download IntelliJ from: https://www.jetbrains.com/idea/download/#section=windows
   - Select the Ultimate or Community version to your preference.
   - Download .exe file by clicking the download button
 
-Run the just downloaded executable by double-clicking it and follow the instructions without changing the default settings 
+#### Run the just downloaded executable by double-clicking it and follow the instructions without changing the default settings 
 
 A full description of the installation process can be found at: https://www.jetbrains.com/help/idea/installation-guide.html#silent
 
@@ -60,19 +60,19 @@ A full description of the installation process can be found at: https://www.jetb
 
 SimpleElastix requires compiling the C++ SimpleElastix project and needs therefore Visual Studio and CMake. Out software is compatible with Visual Studio 2019 and CMake-3.19. 
 
-Download SimpleElastix from github at: https://github.com/SuperElastix/SimpleElastix
+#### Download SimpleElastix from github at: https://github.com/SuperElastix/SimpleElastix
 
-Download CMake-3.19 from: https://cmake.org/download/
+#### Download CMake-3.19 from: https://cmake.org/download/
   - Download Windows win64-x64 ZIP
   - Unzip to your path of preference
 
-Download Visual Studio 2019 from: https://visualstudio.microsoft.com/downloads/
+#### Download Visual Studio 2019 from: https://visualstudio.microsoft.com/downloads/
   - Select version of preference and an installer will automatically download
   - Run the executable
   - Make sure to select the downloading of Desktop development with C++
   - Launch install and downloading
   
-Build SimpleElastix project
+#### Build SimpleElastix project
   - Open CMake GUI from the bin folder where you extracted CMake
   - Create a 'build' directory for CMake. Make sure the path the that directory is short, eg. a directory called 'build_SimpleElastix' at the root of your harddrive.  
   - Add the path of the SuperBuild directory of downloaded SimpleElastix folder to 'Where is the source code:'
@@ -88,11 +88,11 @@ A full description of the installation process can be found at: https://simpleel
 
 ### Setting up dependencies
 
-Setting up SimpleElastix library
+#### Setting up SimpleElastix library
   - Add .jar file of SimpleElastix to the libs folder of the git repository of this project. The file is called 'simpleitk-2.0.0rc2.dev908-g8244e.jar' and is located under .../buildSimpleElastix/SimpleITK-build/Wrapping/Java
   - Add the .dll file of SimpleElastix to the bin folder of your JDK installation. The file is called 'SimpleITKJava.dll' and is located under .../buildSimpleElastix/SimpleITK-build/Wrapping/Java/lib/Release
   
-Setting up ImageJ library(needed?)
+#### Setting up ImageJ library(needed?)
 
 
 ---
