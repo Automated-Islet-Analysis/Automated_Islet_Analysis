@@ -19,6 +19,15 @@ min 2GB of free RAM, Min 4GB of RAM per core?
 
 (min 3GB of frre disk space + size of file + size of cmake + SimpleElastix)
 
+### 1. Download git
+Git command is needed when CMake is used.
+
+Download git from: https://git-scm.com/download/win
+
+Run downloaded executable file by double-clicking on it.
+
+
+
 ### 1. Download git repository, main branch
 
 Download git repository on your pc by downloading it as a zip, git command on the command prompt, or any git GUI Clients.
@@ -30,7 +39,8 @@ This software was coded with the Java Development Kit(JDK) - 15.0.1.
 #### Download jdk-15.0.1 from: https://www.oracle.com/java/technologies/javase-jdk15-downloads.html
   - Select Windows x64 Installer
   - Accept the License Agreement
-  - Press green 'Download jdk-15.0.1_windows-x64_bin.exe' button
+  - Press green 'Download jdk-15.0.1_windows-x64_bin.exe' button and follow the instructions without changing default configurations
+
 
 #### Run the executable (jdk-15.0.1_windows-x64_bin.exe) by double-clicking on it and follow the instructions
 
@@ -42,7 +52,7 @@ This software was coded with the Java Development Kit(JDK) - 15.0.1.
 
 A full description of the installation process can be found at https://bit.ly/2L0bHaY
 
-### 3. Install intelliJ
+### 3. Install IntelliJ
 
 IntelliJ Ultimate is not free however you can get free Educational licenses if applicable. 
 IntelliJ Community is free on the other hand. 
@@ -74,7 +84,7 @@ SimpleElastix requires compiling the C++ SimpleElastix project and needs therefo
   
 #### Build SimpleElastix project
   - Open CMake GUI from the bin folder where you extracted CMake
-  - Create a 'build' directory for CMake. Make sure the path the that directory is short, eg. a directory called 'build_SimpleElastix' at the root of your harddrive.  
+  - Create a 'build' directory for CMake. Make sure the path the that directory is short, eg. a directory called 'buildSimpleElastix' at the root of your harddrive.  
   - Add the path of the SuperBuild directory of downloaded SimpleElastix folder to 'Where is the source code:'
   - Add the path to the directory created for CMake, eg 'C:/buildSimpleElastix' to 'Where to build the binaries'
   - Press 'Configure' button, a pop-up should open and display 'Visual Studio xx 2019' for 'Specify the generator for this project' and 'Use default native compilers' should be selected. Press 'Finish'.
@@ -86,7 +96,7 @@ SimpleElastix requires compiling the C++ SimpleElastix project and needs therefo
 
 A full description of the installation process can be found at: https://simpleelastix.readthedocs.io/GettingStarted.html 
 
-### Setting up dependencies
+### 5. Setting up dependencies
 
 #### Setting up SimpleElastix library
   - Add .jar file of SimpleElastix to the libs folder of the git repository of this project. The file is called 'simpleitk-2.0.0rc2.dev908-g8244e.jar' and is located under .../buildSimpleElastix/SimpleITK-build/Wrapping/Java
@@ -97,6 +107,12 @@ A full description of the installation process can be found at: https://simpleel
 
 ---
 ## Demo
+
+### Launch GUI
+- Open IntelliJ
+- Open this project with File > Open and then select this project
+- 
+
 
 ---
 ### Contributors
