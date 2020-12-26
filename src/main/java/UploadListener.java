@@ -33,7 +33,7 @@ class UploadListener implements ActionListener {
 
         NewTiffReader tiffReader =  new NewTiffReader(filePath);
         Uploaded.imgPanel.removeAll(); // If updating, remove previous image
-        Uploaded.imgPanel.add(tiffReader.getImgPanel());
+        Uploaded.imgPanel.add(tiffReader.getImgLabel());
 
         // Refresh the frame display
         Controller.display = "Upload";

@@ -22,7 +22,7 @@ public class Controller extends Frame {
 
         // Set up the frame
         interframe = new JFrame("ROI detection");
-        interframe.setSize(800, 800);
+        interframe.setSize(700, 700);
 
         interframe.addWindowListener(new WindowAdapter() {// Closes the program if close window clicked
             public void windowClosing(WindowEvent e) {
