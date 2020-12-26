@@ -26,9 +26,9 @@ Download git from: https://git-scm.com/download/win
 
 Run downloaded executable file by double-clicking on it.
 
-### 2. Download git repository, main branch
+### 2. Download this git repository, main branch
 
-Download git repository on your pc by downloading it as a zip, git command on the command prompt, or any git GUI Clients.
+Download git repository on your pc by downloading it as a zip and extracting it, using the just doanloaded git command from the command line, or any git GUI Clients.
 
 ### 3. Install java
 
