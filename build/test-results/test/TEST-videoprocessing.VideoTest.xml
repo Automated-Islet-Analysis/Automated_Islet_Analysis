@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="videoprocessing.VideoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-25T21:36:22" hostname="DESKTOP-HF1TTVU" time="2.642">
+  <properties/>
+  <testcase name="testReadingFrames" classname="videoprocessing.VideoTest" time="2.642"/>
+  <system-out><![CDATA[C:\Users\olivi\OneDrive - Imperial College London\Year 3\Programming 3\Project\Image_treatment-\videos\Unit_testing
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
