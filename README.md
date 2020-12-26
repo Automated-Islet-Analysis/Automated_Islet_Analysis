@@ -109,14 +109,14 @@ A full description of the installation process can be found at: https://simpleel
 ---
 ## Demo
 
-### Launch GUI
+### Launching user interface
   - Open IntelliJ
   - Open this project with File > Open and then select this project
   - Set the Project SDK with File > Project Structure > Project, set 15, check that 15's path corresponds to the JDK that was installed earlier. You can see the path by clicking on edit.
   - Build project by clicking on gradle on the top right of in IntelliJ then selecting Tasks > build > build
   - Run project by clicking on gradle on the top right of in IntelliJ then selecting Tasks > application > run
 
-### GUI
+### Using user interface
   - Load Video_for_Demo that is located in the video folder of the project by pressing load button
   - Analyse demo video by pressing the analyse button and chooseing the configuration and the actions to be performed
   - Visualise the result of the analysis in the data tab. Under data > ROIs, you can also add ROIs manually
