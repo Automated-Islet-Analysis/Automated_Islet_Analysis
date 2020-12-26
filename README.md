@@ -12,7 +12,7 @@ To achieve this, we provide 5 tools, Planar motion correction performed with the
 The ouput files that can be saved for further anaylis are the motion corrected videos for both planar and depth motion, an image of the Islet with all the identified cells are shown, a .cvs with all the coordinates of cells and a .cvs file with mean intensity measurements of a region of intrest (ROI) for each cell.
 
 ---
-## Installation - Windows
+## Installation
 This is a java based software that can be build and run through IntelliJ and relies on the java ImageJ library and SimpleElastix toolkit on top of common java libraries.
 
 ### Requirements
