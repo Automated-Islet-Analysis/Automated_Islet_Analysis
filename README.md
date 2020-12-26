@@ -95,6 +95,8 @@ SimpleElastix requires compiling the C++ SimpleElastix project and needs therefo
   - Open Visual Studio, select File -> Open Project/Solution -> Open and choose SuperBuildSimpleITK.sln which is located in the folder where the binary files where created with CMake, eg. C:/buildSimpleElastix
   - Build the ALL_BUILD project after checking that "Release" build type is selected and x64 is selected too. Building the project might take a few hours(around 2 hours).
 
+For more accurate results remove interpolation during planar motion correction of SimplElastix. To do this you need to open file ../buildSimpleElastix/Elastix/Core/Main/elxParametersObject.cxx with Visual studio and change line 417 from `parameterMap[ "FinalBSplineInterpolationOrder" ] = ParameterValueVectorType( 1, "3" );` to `parameterMap[ "FinalBSplineInterpolationOrder" ] = ParameterValueVectorType( 1, "0" );` and then rebuild the project. 
+
 A full description of the installation process can be found at: https://simpleelastix.readthedocs.io/GettingStarted.html 
 
 ### 6. Setting up dependencies
