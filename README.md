@@ -12,18 +12,18 @@ Ouput files are savind motion corrected video, frame with ROI shown, .cvs with a
 ## Installation
 This is a java based software that can be build and run through IntelliJ and relies on the java ImageJ library and SimpleElastix toolkit on top of common java libraries.
 
-#### Requirements
+### Requirements
 Windows 64-bit version
 
 min 2GB of free RAM, Min 4GB of RAM per core?
 
 (min 3GB of frre disk space + size of file + size of cmake + SimpleElastix)
 
-#### 1. Download git repository, main branch
+### 1. Download git repository, main branch
 
 Download git repository on your pc by downloading it as a zip, git command on the command prompt, or any git GUI Clients.
 
-#### 2. Install java
+### 2. Install java
 
 This software was coded with the Java Development Kit(JDK) - 15.0.1.
 
@@ -42,7 +42,7 @@ Add java bin folder to the PATH Environment Variable
 
 A full description of the installation process can be found at https://bit.ly/2L0bHaY
 
-#### 3. Install intelliJ
+### 3. Install intelliJ
 
 IntelliJ Ultimate is not free however you can get free Educational licenses if applicable. 
 IntelliJ Community is free on the other hand. 
@@ -56,7 +56,7 @@ Run the just downloaded executable by double-clicking it and follow the instruct
 
 A full description of the installation process can be found at: https://www.jetbrains.com/help/idea/installation-guide.html#silent
 
-#### 4. Install SimpleElastix
+### 4. Install SimpleElastix
 
 SimpleElastix requires compiling the C++ SimpleElastix project and needs therefore Visual Studio and CMake. Out software is compatible with Visual Studio 2019 and CMake-3.19. 
 
@@ -86,7 +86,7 @@ Build SimpleElastix project
 
 A full description of the installation process can be found at: https://simpleelastix.readthedocs.io/GettingStarted.html 
 
-#### Setting up dependencies
+### Setting up dependencies
 
 Setting up SimpleElastix library
   - Add .jar file of SimpleElastix to the libs folder of the git repository of this project. The file is called 'simpleitk-2.0.0rc2.dev908-g8244e.jar' and is located under .../buildSimpleElastix/SimpleITK-build/Wrapping/Java
