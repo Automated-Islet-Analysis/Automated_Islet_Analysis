@@ -23,7 +23,7 @@ min 2GB of free RAM, Min 4GB of RAM per core?
 (min 3GB of frre disk space + size of file + size of cmake + SimpleElastix)
 
 ### 1. Download git
-Git command is **needed** when CMake is used.
+Git command is **required** when CMake is used.
 
 Download git from: https://git-scm.com/download/win
 
