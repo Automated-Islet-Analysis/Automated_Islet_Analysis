@@ -1,11 +1,10 @@
-import com.sun.media.ui.Scroll;
-
 import java.awt.image.RenderedImage;
 import java.awt.image.renderable.ParameterBlock;
+
+
 import javax.media.jai.JAI;
 import javax.media.jai.RenderedOp;
 import javax.media.jai.widget.ScrollingImagePanel;
-import javax.swing.*;
 
 public class NewTiffReader {
     RenderedOp rescaledImage;
@@ -24,7 +23,7 @@ public class NewTiffReader {
         RenderedOp op = JAI.create("extrema", pb);
 
         // Extract values to calculate re-scaling params
-        // We want to extend the range of gray values to occupy the full 2¹⁶ range
+        // We want to extend the range of gray values to occupy the full 2^16 range
         double[][] extrema = (double[][])op.getProperty("extrema"); // get the min and max gray values
 
         double minGrayValue = extrema[1][0];
