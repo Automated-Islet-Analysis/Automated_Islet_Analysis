@@ -46,10 +46,19 @@ public class NewTiffReader {
         // Use parameters to create the image
         rescaledImage = JAI.create("rescale", rescalingPB);
         bufImage = rescaledImage.getAsBufferedImage();
-        bufImage = resizeImage(bufImage, 500,450);
+        bufImage = scaleImage(bufImage);
     }
 
-    private BufferedImage resizeImage(BufferedImage imgIn,int w,int h){
+    private BufferedImage scaleImage(BufferedImage imgIn){
+        int w = imgIn.getWidth();
+        int h = imgIn.getHeight();
+
+        // Scale to fit in frame
+        int scaleCoef = w/400;
+        w = w/scaleCoef;
+        h = h/scaleCoef;
+
+        // Create resized img
         BufferedImage resizedImg = new BufferedImage(w,h,BufferedImage.TYPE_BYTE_GRAY);
         Graphics2D g2 = resizedImg.createGraphics();
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
