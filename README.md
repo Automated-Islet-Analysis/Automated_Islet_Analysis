@@ -26,13 +26,11 @@ Download git from: https://git-scm.com/download/win
 
 Run downloaded executable file by double-clicking on it.
 
-
-
-### 1. Download git repository, main branch
+### 2. Download git repository, main branch
 
 Download git repository on your pc by downloading it as a zip, git command on the command prompt, or any git GUI Clients.
 
-### 2. Install java
+### 3. Install java
 
 This software was coded with the Java Development Kit(JDK) - 15.0.1.
 
@@ -52,7 +50,7 @@ This software was coded with the Java Development Kit(JDK) - 15.0.1.
 
 A full description of the installation process can be found at https://bit.ly/2L0bHaY
 
-### 3. Install IntelliJ
+### 4. Install IntelliJ
 
 IntelliJ Ultimate is not free however you can get free Educational licenses if applicable. 
 IntelliJ Community is free on the other hand. 
@@ -66,7 +64,7 @@ Both are compatible with this project.
 
 A full description of the installation process can be found at: https://www.jetbrains.com/help/idea/installation-guide.html#silent
 
-### 4. Install SimpleElastix
+### 5. Install SimpleElastix
 
 SimpleElastix requires compiling the C++ SimpleElastix project and needs therefore Visual Studio and CMake. Out software is compatible with Visual Studio 2019 and CMake-3.19. 
 
@@ -96,7 +94,7 @@ SimpleElastix requires compiling the C++ SimpleElastix project and needs therefo
 
 A full description of the installation process can be found at: https://simpleelastix.readthedocs.io/GettingStarted.html 
 
-### 5. Setting up dependencies
+### 6. Setting up dependencies
 
 #### Setting up SimpleElastix library
   - Add .jar file of SimpleElastix to the libs folder of the git repository of this project. The file is called 'simpleitk-2.0.0rc2.dev908-g8244e.jar' and is located under .../buildSimpleElastix/SimpleITK-build/Wrapping/Java
