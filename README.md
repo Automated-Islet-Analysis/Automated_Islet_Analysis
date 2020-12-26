@@ -1,12 +1,15 @@
-# Image_treatment-
+# Automated analysis of islet in eye
 **Version 0.1**
 
-Description of project(similar to presentation):
-Project relevance
+Diabetes affects 1 out of 8 adults in our modern society. Diabetes is caused by a deficit in Insulin secretion of pancreatic Beta-cells.
 
-5 tools provided, Planar motion correction, depth motion correction, automated search of beta cells, manual selection of beta cells, measurements of mean intensity
+Understanding the electrical coupling of Beta-cells could help understand the causes of insulin deficits in diabetic patients and help cure diabetes.
 
-Ouput files are savind motion corrected video, frame with ROI shown, .cvs with all the coordinates of cells, mean intensity measurements as .cvs file for each cell
+This project automates the measurement of the electrical activity of Beta-cells from fluorescence microscopy recordings. It is a java desktop app that relies on image processing techniques such as registration, filtering, and thresholding to identify Beta-cells and measure their electrical activity (mean intensity in recordings) through time.
+
+To achieve this, we provide 5 tools, Planar motion correction performed with the SimpleElastix registration toolkit, depth motion correction, automated search of beta cells, manual selection of beta cells and measurements of mean intensity.
+
+The ouput files that can be saved for further anaylis are the motion corrected videos for both planar and depth motion, an image of the Islet with all the identified cells are shown, a .cvs with all the coordinates of cells and a .cvs file with mean intensity measurements of a region of intrest (ROI) for each cell.
 
 ---
 ## Installation
@@ -85,11 +88,11 @@ SimpleElastix requires compiling the C++ SimpleElastix project and needs therefo
   - Create a 'build' directory for CMake. Make sure the path the that directory is short, eg. a directory called 'buildSimpleElastix' at the root of your harddrive.  
   - Add the path of the SuperBuild directory of downloaded SimpleElastix folder to 'Where is the source code:'
   - Add the path to the directory created for CMake, eg 'C:/buildSimpleElastix' to 'Where to build the binaries'
-  - Press 'Configure' button, a pop-up should open and display 'Visual Studio xx 2019' for 'Specify the generator for this project' and 'Use default native compilers' should be selected. Press 'Finish'.
+  - Press 'Configure' button, a pop-up should open and display 'Visual Studio xx 2019' for 'Specify the generator for this project' and 'Use default native compilers' should be selected. Press 'Finish'. This process can output warning but they can be disregarded.
   - Unselect all the files except 'WRAP_JAVA'. This will shorthen the compilation time.
   - Press the Generate button
   
-  - Open Visual Studio, select File -> Open Project/Solution -> Open and choose SuperBuildSimpleITK which is located in the folder where the binary files where created with CMake, eg. C:/buildSimpleElastix
+  - Open Visual Studio, select File -> Open Project/Solution -> Open and choose SuperBuildSimpleITK.sln which is located in the folder where the binary files where created with CMake, eg. C:/buildSimpleElastix
   - Build the ALL_BUILD project after checking that "Release" build type is selected and x64 is selected too. Building the project might take a few hours(around 2 hours).
 
 A full description of the installation process can be found at: https://simpleelastix.readthedocs.io/GettingStarted.html 
@@ -107,9 +110,18 @@ A full description of the installation process can be found at: https://simpleel
 ## Demo
 
 ### Launch GUI
-- Open IntelliJ
-- Open this project with File > Open and then select this project
-- 
+  - Open IntelliJ
+  - Open this project with File > Open and then select this project
+  - Set the Project SDK with File > Project Structure > Project, set 15, check that 15's path corresponds to the JDK that was installed earlier. You can see the path by clicking on edit.
+  - Build project by clicking on gradle on the top right of in IntelliJ then selecting Tasks > build > build
+  - Run project by clicking on gradle on the top right of in IntelliJ then selecting Tasks > application > run
+
+### GUI
+  - Load Video_for_Demo that is located in the video folder of the project by pressing load button
+  - Analyse demo video by pressing the analyse button and chooseing the configuration and the actions to be performed
+  - Visualise the result of the analysis in the data tab. Under data > ROIs, you can also add ROIs manually
+  - Compute the mean intensity of the ROIs in Data > Results
+  - Save the results from the different analysis and the mean intensity measurements
 
 
 ---
