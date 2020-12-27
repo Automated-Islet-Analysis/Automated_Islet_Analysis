@@ -4,7 +4,6 @@ import ij.ImageStack;
 import ij.io.FileSaver;
 import videoprocessing.ImageJ.*;
 
-
 import ij.ImagePlus;
 import ij.io.Opener;
 import org.itk.simple.Image;

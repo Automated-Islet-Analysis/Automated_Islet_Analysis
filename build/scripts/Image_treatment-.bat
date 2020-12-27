@@ -82,7 +82,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\Image_treatment--1.0-SNAPSHOT.jar;%APP_HOME%\lib\ij.jar;%APP_HOME%\lib\nifti_io.jar;%APP_HOME%\lib\simpleitk-2.0.0rc2.dev908-g8244e.jar
+set CLASSPATH=%APP_HOME%\lib\Image_treatment--1.0-SNAPSHOT.jar;%APP_HOME%\lib\Create_jar.main.jar;%APP_HOME%\lib\ij.jar;%APP_HOME%\lib\nifti_io.jar;%APP_HOME%\lib\SimpleITKJava.dll
 
 
 @rem Execute Image_treatment-

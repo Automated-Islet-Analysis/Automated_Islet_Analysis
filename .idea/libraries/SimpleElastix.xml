@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SimpleElastix">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/SimpleElastix.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/libs/SimpleElastix.jar!/SimpleElastix" />
+    </SOURCES>
+  </library>
+</component>
