@@ -1,21 +1,48 @@
 package DataTab;
 
+
+
+
+//import com.sun.media.controls.VFlowLayout;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class ROIs extends JPanel {
-    JLabel header, body;
+    JButton addROI;
+    JPanel subPanel;
+    JLabel text, image;
+    ImageIcon imgIcon;
 
     public ROIs(){
-        // Layout when there has been no video uploaded
-        header = new JLabel("No video has been uploaded yet");
-        header.setFont(new Font(header.getFont().getName(), Font.PLAIN, 30));
-        header.setHorizontalAlignment(SwingConstants.CENTER);
+        // Create elements
+        addROI = new JButton("Add ROIs");
+        addROI.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//                int numROI = number of already present ROI on image
+//                BufferedImage image =  ImageIO.read(path to image);
+//                ManualROISelection select = new ManualROISelection(image,numROI);
+//                select.run();
+            }
+        });
+        text = new JLabel("Number of ROIs:           ");
 
-        body = new JLabel("Please go back to the Home tab and upload the desired video.");
+        // imgIcon = new ImageIcon(path to image)
+        // image = new JLabel(imgIcon);
+        subPanel = new JPanel(new GridLayout(1,2));
 
-        setLayout(new FlowLayout(FlowLayout.CENTER, 500, 200));
-        add(header);
-        add(body);
+        // Add elements to main panel
+        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 50));
+        //add(image);
+        add(Box.createHorizontalStrut(500)); // Spacing
+        subPanel.add(text);
+        subPanel.add(addROI);
+        add(subPanel);
     }
 }

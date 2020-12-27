@@ -2,11 +2,11 @@ package DataTab;
 
 import javax.swing.*;
 
-public class MCVideo extends JPanel {
+public class MCVideoDepth extends JPanel {
     JLabel welcome;
 
-    public MCVideo(){
-        welcome = new JLabel("This is the Motion corrected video");
+    public MCVideoDepth(){
+        welcome = new JLabel("This is the depth motion corrected video");
         welcome.setHorizontalAlignment(JLabel.CENTER);
         welcome.setSize(400,100);
         add(welcome);

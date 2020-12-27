@@ -1,4 +1,5 @@
 import com.sun.media.jai.codec.*;
+import sun.awt.image.ImageDecoder;
 
 import javax.media.jai.NullOpImage;
 import javax.media.jai.OpImage;
@@ -17,7 +18,7 @@ public class TiffReader extends Frame {
     private static final long serialVersionUID = 1L;
     public TiffReader(final String filename) throws IOException {
 
-        //Create Frame
+        /*//Create Frame
         JFrame frame = new JFrame("Interface");
 
 
@@ -36,7 +37,7 @@ public class TiffReader extends Frame {
         final File file = new File( filename );
         final SeekableStream stream = new FileSeekableStream( file );
         final TIFFDecodeParam param = null;
-        final ImageDecoder dec = ImageCodec.createImageDecoder( "tiff", stream, param );
+        final ImageDecoder dec = (ImageDecoder) ImageCodec.createImageDecoder( "tiff", stream, param );
         // Which of the multiple images in the TIFF file do we want to load
         // 0 refers to the first, 1 to the second and so on.
         final int imageToLoad = 2;
@@ -65,7 +66,7 @@ public class TiffReader extends Frame {
         frame.add(cb1);
         frame.setSize(500,500);
         frame.add(addPanel);
-        frame.setVisible(true);
+        frame.setVisible(true);*/
     }
     public BufferedImage convertRenderedImgToBuffImg( final RenderedImage chqBufferedImg ) {
         if (chqBufferedImg instanceof BufferedImage) {

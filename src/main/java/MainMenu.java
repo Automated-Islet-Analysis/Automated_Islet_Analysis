@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -9,10 +10,13 @@ public class MainMenu extends JMenuBar implements ActionListener {
     JMenuItem saveROI,saveMCVid, saveData, saveAll;
 
     public MainMenu() {
-        menuHome = new JMenu("Home");
+        menuHome = new JMenu("Home          ");
+        menuHome.setFont(new Font(menuHome.getFont().getName(), Font.BOLD, 15));
 
         // Data dropdown
-        menuData = new JMenu("Data");
+        menuData = new JMenu("Data          ");
+        menuData.setFont(new Font(menuData.getFont().getName(), Font.BOLD, 15));
+
         dataROI = new JMenuItem("ROIs");
         subMenuMCVid = new JMenu("Motion corrected video");
         MCVidPlanar = new JMenuItem("Planar motion");
@@ -20,7 +24,9 @@ public class MainMenu extends JMenuBar implements ActionListener {
         dataData = new JMenuItem("Data");
 
         // Save dropdown
-        menuSave = new JMenu("Save");
+        menuSave = new JMenu("Save          ");
+        menuSave.setFont(new Font(menuSave.getFont().getName(), Font.BOLD, 15));
+
         saveROI = new JMenuItem("Save ROIs");
         saveMCVid = new JMenuItem("Save motion corrected video");
         saveData = new JMenuItem("Save data");

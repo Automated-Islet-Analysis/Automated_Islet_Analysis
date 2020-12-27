@@ -1,17 +1,16 @@
+import javax.media.jai.widget.ScrollingImagePanel;
 import javax.swing.*;
 import java.awt.*;
 
 public class Uploaded extends JPanel {
-    static JLabel picture;
     static JLabel filename;
+    static JPanel imgPanel;
     JButton btnUpload, btnAnalyse;
     JPanel subHPanel;
 
     public Uploaded(){
-        // Label for the image
-        picture = new JLabel("");
-        picture.setHorizontalAlignment(SwingConstants.CENTER);
-
+        // Empty img panel
+        imgPanel = new JPanel();
         // Label for the text
         filename = new JLabel("filename");
         filename.setFont(new Font(filename.getFont().getName(), Font.PLAIN, 30));
@@ -25,7 +24,7 @@ public class Uploaded extends JPanel {
 
         // Set layout
         setLayout(new FlowLayout(FlowLayout.CENTER, 200, 30));
-        add(picture);
+        add(imgPanel);
         add(filename);
 
         // Place buttons side by side
