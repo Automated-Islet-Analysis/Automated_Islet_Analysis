@@ -4,12 +4,12 @@
 package videoprocessing.ImageJ;
 
 import ij.*;
-import ij.io.FileSaver;
 import ij.process.*;
 import ij.plugin.*;
 import java.lang.*;
 import java.awt.image.*;
 import java.text.DecimalFormat;
+import java.util.LinkedList;
 
 /** Splits a stack into multiple substacks. The number of such
  substacks is user specified. Each substack may contain only a single
@@ -27,47 +27,37 @@ import java.text.DecimalFormat;
 
 public class Stack_Splitter implements PlugIn {
 
+    LinkedList<ImagePlus> images = new LinkedList<>();
     // --------------------------------------------------
     /** Splits the stack. */
     @Override
     public void run(String s) {}
 
-    public void run(ImagePlus vid) {
+    public LinkedList<ImagePlus> run(ImagePlus vid) {
 
         ImagePlus imp = vid;
 
         if(imp==null) {
             IJ.noImage();
-            return ;
+            return null ;
         }
 
         // Make sure we have a stack.
         if(imp.getStackSize()==1) {
             IJ.error("SplitStack: Must call this plugin on image stack.");
-            return;
+            return null;
         }
 
         // Prompt user to enter the number of stacks
         int numStacks = imp.getStackSize();
 
-        //String sPrompt = "Number of substacks (divisor of "
-        //        +numStacks+"):";
         // Note, default is to break stack into separate images.
         int numSubStacks = numStacks;
-        //if(numSubStacks==IJ.CANCELED) return;
-
-        // Make sure user entered a valid number.
-//        if(numOK(numSubStacks,numStacks)==false) {
-//            String sError = "number of substacks must divide: "
-//                    +numStacks+".";
-//            IJ.error("SplitStack: "+sError);
-//        }
-//        else {
         if(!imp.lock())
-            return;    // exit if in use
+            return null;    // exit if in use
         processStack(imp,numSubStacks);
         imp.unlock();
-//        }
+        return images;
     }
 
     // --------------------------------------------------
@@ -132,11 +122,10 @@ public class Stack_Splitter implements PlugIn {
             im.setCalibration(imp.getCalibration());
 
             /** Code changed to save image instead of showing image*/
-            FileSaver fileSaver = new FileSaver(im);
-            fileSaver.saveAsTiff(System.getProperty("user.dir")+"/temp/img/"+String.valueOf(n)+".tif");
-            // Show this image.
-//            im.show();
+            images.add(im);
+
         }
+
         // Reset original stack state.
         imp.setSlice(currentSlice); // ***
         if(imp.isProcessor()) {

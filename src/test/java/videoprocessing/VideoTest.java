@@ -8,15 +8,16 @@ import org.itk.simple.SimpleITK;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.File;
 import java.util.LinkedList;
 
 public class VideoTest extends TestCase {
     @Test
     public void testReadingFrames(){
-        String filename=System.getProperty("user.dir")+"/videos/Unit_testing/1.tif";
+        String filename=System.getProperty("user.dir")+"/videos/Unit_testing/Video_for_Demo.tif";
         Video video=new Video(filename);
 
-        String expectedName="1.tif";
+        String expectedName="Video_for_Demo.tif";
         String expectedDirName=System.getProperty("user.dir")+"\\videos\\Unit_testing";
 
         Assert.assertEquals(video.getFilename(),filename);
@@ -34,8 +35,8 @@ public class VideoTest extends TestCase {
         for (int i=0; i<ijFrames.size(); i++) {
             ImagePlus img1 = new ImagePlus(System.getProperty("user.dir") + "/img/Unit_testing/" +(i+1) + ".tif");
             ImageProcessor imageProcessor = img1.getProcessor();
-            SimpleITK.writeImage(SEFrames.get(i), System.getProperty("user.dir") + "/temp/img/" + (i+1) + ".tif");
-            ImagePlus imgSE = new ImagePlus(System.getProperty("user.dir") + "/temp/img/" + (i+1) + ".tif");
+            SimpleITK.writeImage(SEFrames.get(i), System.getProperty("user.dir") + "/temp.tif");
+            ImagePlus imgSE = new ImagePlus(System.getProperty("user.dir") + "/temp.tif");
             ImageProcessor imageProcessorSE = imgSE.getProcessor();
             ImageProcessor imageProcessorij = ijFrames.get(i).getProcessor();
 
@@ -53,6 +54,8 @@ public class VideoTest extends TestCase {
                 }
             }
         }
+        File file = new File(System.getProperty("user.dir") + "/temp.tif");
+        file.delete();
         if (differenceij!=0||differenceSE!=0) {
             Assert.fail();
         }

@@ -1,13 +1,12 @@
 package videoprocessing;
 
+import ij.ImageStack;
+import ij.io.FileSaver;
 import videoprocessing.ImageJ.*;
 
 
 import ij.ImagePlus;
-import ij.io.FileSaver;
 import ij.io.Opener;
-import ij.plugin.FolderOpener;
-import ij.process.ImageProcessor;
 import org.itk.simple.Image;
 import org.itk.simple.SimpleITK;
 
@@ -22,6 +21,7 @@ public class Video {
     private final String filename;
     private final String name;
     private final String dirName;
+
     // original file in ImagePlus format
     private ImagePlus vid;
     // Video width
@@ -61,6 +61,7 @@ public class Video {
     public int getNumberOfFrames() {return numberOfFrames;}
     public LinkedList<Cell> getCells() {return cells;}
     public LinkedList<Image> getSEFrames() {return SEFrames;}
+    public ImagePlus getVid() { return vid; }
     public int getWidth() { return width; }
 
     //Setters
@@ -89,93 +90,26 @@ public class Video {
 
         // Divide video into individual images
         Stack_Splitter stack_splitter = new Stack_Splitter();
-        stack_splitter.run(vid);
+        ijFrames = stack_splitter.run(vid);
 
         // Load individual files in linked list
         for (int i = 1; i <= numberOfFrames; i++) {
+            FileSaver fileSaver = new FileSaver(ijFrames.get(i-1));
+            fileSaver.saveAsTiff(System.getProperty("user.dir") + "/temp.tif");
             Image image;
-            ImagePlus imagePlus;
-
-            image = SimpleITK.readImage(System.getProperty("user.dir") + "/temp/img/" + (i) + ".tif");
+            image = SimpleITK.readImage(System.getProperty("user.dir") + "/temp.tif");
             SEFrames.add(image);
-            imagePlus = opener.openImage(System.getProperty("user.dir") + "/temp/img/" + (i) + ".tif");
-            ijFrames.add(imagePlus);
-        }
 
-        // Delete all temporary files
-        File directory = new File(System.getProperty("user.dir") + "/temp/img");
-        File[] files = directory.listFiles();
-        for (File file : files) {
-            if (!file.delete()) {
-                System.out.println("Failed to delete " + file);
-            }
         }
+        File file = new File(System.getProperty("user.dir") + "/temp.tif");
+        file.delete();
     }
 
-    // Save Motion corrected frames into a video for display in GUI
-    public void saveFrames(String outFilename) {
-        // Variable for image on left of video
-        ImagePlus leftVid;
-
-        // Check if you need to add black frames(for Depth motion correction)
-        if(idxFramesInFocus.size()==0){
-            // No black frames, left image is the input video, right is motion corrected for planar motion
-            leftVid = vid;
-            for (int z = 0; z<numberOfFrames; z++) {
-                ImagePlus img = ijFrames.get(z);
-                FileSaver fS = new FileSaver(img);
-                fS.saveAsPng(System.getProperty("user.dir") + "/temp/img/" + (z)+".png");
-            }
-        }
-        else{
-            // Black frames needed, left is motion corrected for planar motion(if planar motion corrected), right black frames for depth movement
-            // Check if planar motion was performed and initialise left video accordingly
-            File file = new File(System.getProperty("user.dir") +"/temp/video/Planar_aligned_single.tif");
-            if(file.exists()) leftVid = new ImagePlus(file.getPath());
-            else leftVid = vid;
-
-            int p=0;
-            for (int z = 0; z<numberOfFrames; z++) {
-                // Add frame if no depth motion
-                if(idxFramesInFocus.get(p)==z){
-                    ImagePlus img = ijFrames.get(z);
-                    FileSaver fS = new FileSaver(img);
-                    fS.saveAsPng(System.getProperty("user.dir") + "/temp/img/" + (z)+".png");
-                    p++;
-                }
-                // Add black frame when depth motion
-                else{
-                    ImageProcessor ip = ijFrames.get(0).getProcessor();
-                    ImageProcessor newIp = ip.createProcessor(ip.getWidth(), ip.getHeight());
-                    String sImLabel = String.valueOf(z);
-                    ImagePlus im = new ImagePlus(sImLabel, newIp);
-                    FileSaver fS = new FileSaver(im);
-                    fS.saveAsPng(System.getProperty("user.dir") + "/temp/img/" + (z)+".png");
-                }
-            }
-        }
-        // Combine frames of right video into a video
-        ImagePlus processedVid;
-        FolderOpener folderOpener=new FolderOpener();
-        processedVid = folderOpener.open(System.getProperty("user.dir") + "/temp/img");
-
-        // Save video without combining for comparison
-        FileSaver fS1 = new FileSaver(processedVid);
-        fS1.saveAsTiff(System.getProperty("user.dir") +"/temp/video/"+outFilename+"_single.tif");
-
-        // Combine left video and right video into one
-        Combiner combiner = new Combiner();
-        ImagePlus combinedVid = combiner.combine(leftVid,processedVid);
-
-        // Save combined video
-        FileSaver fS = new FileSaver(combinedVid);
-        fS.saveAsTiff(System.getProperty("user.dir") +"/temp/video/"+outFilename+".tif");
-
-        // Clear temporary files used
-        File dir = new File(System.getProperty("user.dir") + "/temp/img");
-        for(File file: dir.listFiles())
-            if (!file.isDirectory())
-                file.delete();
+    public ImagePlus framesToImagePlus(){
+        ImageStack stackOut = new ImageStack();
+        for(ImagePlus imagePlus:ijFrames)
+            stackOut.addSlice(imagePlus.getProcessor());
+        return new ImagePlus("out",stackOut);
     }
 
     // Check if input file is corrupted

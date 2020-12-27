@@ -22,11 +22,561 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01e4016a-d0f0-45e1-aca9-bbe605a348cd" name="Default Changelist" comment="" />
+    <list default="true" id="c1b7bfc9-d019-46eb-ad00-9d8cfbcac099" name="Default Changelist" comment="check if file is uncorrupted">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/Combiner.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/Combiner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/ImageJ/Stack_Splitter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/ImageJ/Stack_Splitter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/Video.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/Video.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/VideoProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/VideoProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/VideoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/VideoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/Image_treatment--1.0-SNAPSHOT.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/Image_treatment--1.0-SNAPSHOT.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/Image_treatment--1.0-SNAPSHOT.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/Image_treatment--1.0-SNAPSHOT.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/Image_treatment--1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Image_treatment--1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/videoprocessing.VideoTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/videoprocessing.VideoTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/videoprocessing.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/videoprocessing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-videoprocessing.VideoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-videoprocessing.VideoTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DisplayTif.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FileInfo_Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ij/io/FileInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ij/io/FileOpener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/videoprocessing/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoprocessing/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/videoprocessing/Combiner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoprocessing/Combiner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/videoprocessing/ImageJ/Stack_Splitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoprocessing/ImageJ/Stack_Splitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/videoprocessing/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoprocessing/Video.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/videoprocessing/VideoProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoprocessing/VideoProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/videoprocessing/VideoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/videoprocessing/VideoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/2_ROIs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/Analysis_recap.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/Analysis_recap.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/10.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/11.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/11.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/12.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/12.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/13.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/13.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/14.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/14.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/15.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/15.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/16.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/16.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/17.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/17.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/18.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/18.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/19.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/19.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/20.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/20.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/21.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/21.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/22.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/22.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/23.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/23.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/24.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/24.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/25.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/25.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/26.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/26.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/27.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/27.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/28.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/28.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/29.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/29.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/30.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/30.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/31.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/31.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/32.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/32.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/33.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/33.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/34.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/34.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/35.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/35.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/36.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/36.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/37.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/37.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/38.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/38.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/39.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/39.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/40.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/40.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/41.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/41.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/42.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/42.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/43.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/43.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/44.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/44.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/45.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/45.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/46.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/46.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/47.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/47.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/48.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/48.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/49.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/49.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/50.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/50.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/51.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/51.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/52.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/52.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/53.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/53.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/54.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/54.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/55.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/55.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/56.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/56.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/57.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/57.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/58.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/58.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/59.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/59.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/6.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/60.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/60.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/61.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/61.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/62.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/62.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/63.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/63.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/64.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/64.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/65.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/65.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/66.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/66.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/67.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/67.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/7.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/8.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/8.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp/MI_data/9.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/1.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/10.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/11.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/12.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/13.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/14.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/15.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/16.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/17.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/18.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/19.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/2.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/20.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/21.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/22.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/23.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/24.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/25.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/26.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/27.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/28.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/29.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/3.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/30.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/31.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/32.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/33.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/34.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/35.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/36.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/37.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/38.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/39.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/4.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/40.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/41.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/42.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/43.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/44.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/45.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/46.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/47.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/48.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/49.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/5.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/50.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/51.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/52.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/53.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/54.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/55.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/56.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/57.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/58.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/59.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/6.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/60.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/61.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/62.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/63.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/64.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/65.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/66.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/67.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/7.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/8.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/9.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/101.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/103.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/104.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/105.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/106.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/107.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/108.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/109.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/110.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/111.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/112.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/113.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/114.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/115.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/116.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/117.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/118.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/119.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/121.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/122.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/123.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/124.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/125.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/126.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/127.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/129.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/130.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/131.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/132.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/133.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/134.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/135.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/139.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/140.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/141.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/142.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/143.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/145.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/146.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/147.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/148.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/149.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/36.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/37.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/38.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/39.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/41.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/42.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/43.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/44.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/45.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/46.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/47.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/49.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/51.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/52.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/53.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/54.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/55.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/56.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/57.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/58.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/59.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/61.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/62.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/63.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/65.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/66.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/67.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/68.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/69.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/71.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/72.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/73.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/74.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/75.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/76.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/77.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/78.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/79.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/80.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/81.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/82.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/83.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/84.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/85.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/86.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/87.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/88.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/89.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/90.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/91.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/92.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/93.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/94.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/95.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/97.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/98.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/ROI/img/99.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/1.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/10.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/11.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/12.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/13.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/14.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/15.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/16.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/17.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/18.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/19.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/2.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/20.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/21.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/22.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/23.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/24.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/25.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/26.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/27.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/28.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/29.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/3.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/30.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/31.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/32.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/33.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/34.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/35.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/36.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/37.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/38.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/39.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/4.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/40.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/41.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/42.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/43.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/44.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/45.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/46.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/47.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/48.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/49.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/5.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/50.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/51.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/52.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/53.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/54.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/55.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/56.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/57.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/58.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/59.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/6.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/60.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/61.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/62.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/63.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/64.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/65.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/66.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/67.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/7.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/8.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/9.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/101.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/103.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/104.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/105.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/106.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/107.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/108.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/109.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/110.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/111.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/112.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/113.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/114.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/115.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/116.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/117.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/118.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/119.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/121.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/122.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/123.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/124.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/125.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/126.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/127.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/129.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/130.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/131.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/132.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/133.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/134.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/135.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/139.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/140.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/141.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/142.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/143.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/145.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/146.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/147.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/148.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/149.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/36.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/37.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/38.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/39.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/41.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/42.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/43.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/44.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/45.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/46.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/47.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/49.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/51.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/52.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/53.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/54.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/55.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/56.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/57.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/58.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/59.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/61.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/62.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/63.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/65.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/66.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/67.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/68.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/69.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/71.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/72.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/73.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/74.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/75.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/76.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/77.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/78.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/79.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/80.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/81.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/82.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/83.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/84.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/85.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/86.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/87.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/88.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/89.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/90.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/91.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/92.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/93.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/94.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/95.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/97.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/98.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/video/cells/img/99.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -44,22 +594,22 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CLAHE" type="f1a62948:ProjectNode" />
+                <item name="Image_treatment-" type="f1a62948:ProjectNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CLAHE" type="f1a62948:ProjectNode" />
+                <item name="Image_treatment-" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CLAHE" type="f1a62948:ProjectNode" />
+                <item name="Image_treatment-" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="application" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CLAHE" type="f1a62948:ProjectNode" />
+                <item name="Image_treatment-" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
               </path>
@@ -73,11 +623,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit3 Test Class" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -87,7 +643,10 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1l2pg1hF7VahjxJCok4UNnjIDm3" />
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1lTDeke4iy8RvWkBtZIfWBPu4is" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -97,35 +656,39 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/nifti_io.jar" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.30689654" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\olivi\OneDrive - Imperial College London\Year 3\Programming 3\Project\Image_treatment-\src\main\java\ImageJ" />
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="videoprocessing" />
+      <recent name="imageprocessing" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\olivi\OneDrive - Imperial College London\Year 3\Programming 3\Project\Image_treatment-\src\main\java\ImageJ" />
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Gradle.Image_treatment- [run]">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -144,32 +707,142 @@
             <option value="run" />
           </list>
         </option>
-        <option name="vmOptions" value="" />
+        <option name="vmOptions" />
       </ExternalSystemSettings>
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="Image_treatment--Windows [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestVideo.testReadingFrames" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;imageprocessing.TestVideo.testReadingFrames&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="VideoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;imageprocessing.VideoTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="VideoTest.testReadingFrames" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;videoprocessing.VideoTest.testReadingFrames&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.Image_treatment- [run]" />
+      <item itemvalue="Gradle.Image_treatment--Windows [build]" />
+      <item itemvalue="Gradle.TestVideo.testReadingFrames" />
+      <item itemvalue="Gradle.VideoTest" />
+      <item itemvalue="Gradle.VideoTest.testReadingFrames" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Image_treatment- [run]" />
+        <item itemvalue="Gradle.VideoTest.testReadingFrames" />
+        <item itemvalue="Gradle.Image_treatment--Windows [build]" />
+        <item itemvalue="Gradle.TestVideo.testReadingFrames" />
+        <item itemvalue="Gradle.VideoTest.testReadingFrames" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="01e4016a-d0f0-45e1-aca9-bbe605a348cd" name="Default Changelist" comment="" />
-      <created>1606805151439</created>
+      <changelist id="c1b7bfc9-d019-46eb-ad00-9d8cfbcac099" name="Default Changelist" comment="" />
+      <created>1607612286910</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1606805151439</updated>
-      <workItem from="1606805155780" duration="1769000" />
-      <workItem from="1606833663749" duration="18247000" />
-      <workItem from="1606907156343" duration="35146000" />
+      <updated>1607612286910</updated>
+      <workItem from="1607612290993" duration="1044000" />
+      <workItem from="1607613350758" duration="1087000" />
+      <workItem from="1607622927094" duration="840000" />
+      <workItem from="1607680854275" duration="9079000" />
+      <workItem from="1607770930764" duration="4131000" />
+      <workItem from="1608108427791" duration="2224000" />
+      <workItem from="1608139250841" duration="1690000" />
+      <workItem from="1608658255133" duration="2564000" />
+      <workItem from="1608720927405" duration="609000" />
+      <workItem from="1608750180868" duration="1753000" />
+      <workItem from="1608795857885" duration="1119000" />
+      <workItem from="1608806387959" duration="26431000" />
+      <workItem from="1608974527277" duration="12781000" />
+      <workItem from="1609079166667" duration="15726000" />
     </task>
+    <task id="LOCAL-00001" summary="check if file is uncorrupted">
+      <created>1607617782153</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607617782153</updated>
+    </task>
+    <task id="LOCAL-00002" summary="check if file is uncorrupted">
+      <created>1607617813206</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607617813206</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,87 +860,114 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="check if file is uncorrupted" />
+    <option name="LAST_COMMIT_MESSAGE" value="check if file is uncorrupted" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="249" y="7" key="#Project_Structure" timestamp="1606805197230">
+    <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607613274483">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="249" y="7" key="#Project_Structure/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606805197230" />
-    <state x="127" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606913560864">
+    <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607613274483" />
+    <state x="93" y="93" width="1350" height="678" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1607613735309">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="127" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606913560864" />
-    <state x="511" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606990775723">
+    <state x="93" y="93" width="1350" height="678" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607613735309" />
+    <state x="1046" y="469" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608661263318">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="511" y="234" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606990775723" />
-    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1606981528140">
+    <state x="1046" y="469" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1608661263318" />
+    <state x="574" y="133" key="#com.intellij.ide.util.MemberChooser" timestamp="1609091008665">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606981528140" />
-    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1606922215906">
+    <state x="574" y="133" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607707650398" />
+    <state x="574" y="133" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1609091008665" />
+    <state x="226" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1608833153114">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606922215906" />
-    <state width="1492" height="224" key="GridCell.Tab.0.bottom" timestamp="1608997964840">
+    <state x="226" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1608833153114" />
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608835812545">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="270" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606992397280" />
-    <state width="1492" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1608997964840" />
-    <state width="1492" height="224" key="GridCell.Tab.0.center" timestamp="1608997964839">
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1608835812545" />
+    <state x="473" y="174" key="FileChooserDialogImpl" timestamp="1608992812756">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="270" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606992397280" />
-    <state width="1492" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1608997964839" />
-    <state width="1492" height="224" key="GridCell.Tab.0.left" timestamp="1608997964838">
+    <state x="473" y="174" key="FileChooserDialogImpl/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607613211747" />
+    <state x="473" y="174" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1608992812756" />
+    <state width="1487" height="150" key="GridCell.Tab.0.bottom" timestamp="1609094341375">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="270" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606992397280" />
-    <state width="1492" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1608997964838" />
-    <state width="1492" height="224" key="GridCell.Tab.0.right" timestamp="1608997964839">
+    <state width="1492" height="222" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608195367028" />
+    <state width="1636" height="222" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1608139662388" />
+    <state width="1487" height="150" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1609094341375" />
+    <state width="1487" height="150" key="GridCell.Tab.0.center" timestamp="1609094341374">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="270" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606992397280" />
-    <state width="1492" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1608997964839" />
-    <state width="1492" height="300" key="GridCell.Tab.1.bottom" timestamp="1606925350054">
+    <state width="1492" height="222" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608195367028" />
+    <state width="1636" height="222" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1608139662387" />
+    <state width="1487" height="150" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1609094341374" />
+    <state width="1487" height="150" key="GridCell.Tab.0.left" timestamp="1609094341374">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="300" key="GridCell.Tab.1.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606925350054" />
-    <state width="1492" height="300" key="GridCell.Tab.1.center" timestamp="1606925350054">
+    <state width="1492" height="222" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608195367028" />
+    <state width="1636" height="222" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1608139662387" />
+    <state width="1487" height="150" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1609094341374" />
+    <state width="1487" height="150" key="GridCell.Tab.0.right" timestamp="1609094341375">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="300" key="GridCell.Tab.1.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606925350054" />
-    <state width="1492" height="300" key="GridCell.Tab.1.left" timestamp="1606925350054">
+    <state width="1492" height="222" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608195367028" />
+    <state width="1636" height="222" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1680.1050@1920.0.1680.1050" timestamp="1608139662387" />
+    <state width="1487" height="150" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1609094341375" />
+    <state width="1487" height="119" key="GridCell.Tab.1.bottom" timestamp="1609093835149">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="300" key="GridCell.Tab.1.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606925350054" />
-    <state width="1492" height="300" key="GridCell.Tab.1.right" timestamp="1606925350054">
+    <state width="1492" height="277" key="GridCell.Tab.1.bottom/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608127399588" />
+    <state width="1487" height="119" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1609093835149" />
+    <state width="1487" height="119" key="GridCell.Tab.1.center" timestamp="1609093835149">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="300" key="GridCell.Tab.1.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606925350054" />
-    <state x="277" y="14" width="1229" height="850" key="SettingsEditor" timestamp="1606989185621">
+    <state width="1492" height="277" key="GridCell.Tab.1.center/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608127399587" />
+    <state width="1487" height="119" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1609093835149" />
+    <state width="1487" height="119" key="GridCell.Tab.1.left" timestamp="1609093835149">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="14" width="1229" height="850" key="SettingsEditor/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606989185621" />
-    <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606850626876">
+    <state width="1492" height="277" key="GridCell.Tab.1.left/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608127399587" />
+    <state width="1487" height="119" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1609093835149" />
+    <state width="1487" height="119" key="GridCell.Tab.1.right" timestamp="1609093835149">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606850626876" />
-    <state x="425" y="197" key="run.anything.popup" timestamp="1606923304603">
+    <state width="1492" height="277" key="GridCell.Tab.1.right/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1608127399588" />
+    <state width="1487" height="119" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1609093835149" />
+    <state x="498" y="14" key="SettingsEditor" timestamp="1608996728281">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="425" y="197" key="run.anything.popup/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606923304603" />
-    <state x="430" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1606913551012">
+    <state x="249" y="7" key="SettingsEditor/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1607776697350" />
+    <state x="498" y="14" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1608996728281" />
+    <state x="1833" y="291" key="Vcs.Push.Dialog.v2" timestamp="1607617823598">
+      <screen x="1280" y="23" width="1881" height="1057" />
+    </state>
+    <state x="1833" y="291" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1607617823598" />
+    <state x="584" y="210" key="chooseDestDirectoryDialog" timestamp="1608823943599">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="430" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864/1920.0.1680.1050@0.0.1536.864" timestamp="1606913551012" />
+    <state x="584" y="210" key="chooseDestDirectoryDialog/0.0.1536.864@0.0.1536.864" timestamp="1608823943599" />
+    <state x="540" y="182" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1608927785923">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="540" y="182" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.864@0.0.1536.864" timestamp="1608927785923" />
+    <state x="209" y="43" key="new project wizard" timestamp="1608658641348">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="209" y="43" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1608658641348" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/libs/ij.jar!/ij/io/FileSaver.class</url>
-          <line>477</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/main/java/videoprocessing/process/CellFinder.java</url>
+          <line>137</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

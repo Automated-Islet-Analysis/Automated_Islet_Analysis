@@ -1,12 +1,9 @@
 package videoprocessing;
 
 import ij.ImagePlus;
-import ij.io.FileSaver;
-import ij.plugin.FolderOpener;
-import ij.process.ImageConverter;
+import ij.ImageStack;
 import ij.process.ImageProcessor;
 
-import java.io.File;
 
 public class Combiner {
     // Constructor
@@ -15,11 +12,12 @@ public class Combiner {
     // Combines two ImagePlus and combines them horizontally
     // Two ImagePlus need to have the same number of slices
     public ImagePlus combine(ImagePlus imgLeft,ImagePlus imgRight) {
+        ImageStack imageStack = new ImageStack();
         if (imgLeft.getNSlices() == imgRight.getNSlices()) {
             // Required for project because video to be analysed can have 16-bit pixels while output always 8-bit
             // and want to make sure both images have same data type for pixels
-            ImageConverter imageConverterLeft = new ImageConverter(imgLeft);
-            imageConverterLeft.convertToGray8();
+//            ImageConverter imageConverterLeft = new ImageConverter(imgLeft);
+//            imageConverterLeft.convertToGray8();
 
             // Get processors for processing
             ImageProcessor ipLeft = imgLeft.getProcessor();
@@ -34,13 +32,13 @@ public class Combiner {
                 height = ipRight.getHeight();
             }
 
-            // Image for temporary processing
-            ImageProcessor combinedImgIp = ipLeft.createProcessor(width, height);
-            String sImLabel = "Combined ImagePlus";
-            ImagePlus combinedImg = new ImagePlus(sImLabel, combinedImgIp);
-
             // Combine all slices
             for (int i = 0; i < imgLeft.getNSlices(); i++) {
+                // Image for temporary processing
+                ImageProcessor combinedImgIp = ipLeft.createProcessor(width, height);
+                String sImLabel = "Combined ImagePlus";
+                ImagePlus combinedImg = new ImagePlus(sImLabel, combinedImgIp);
+
                 imgLeft.setSlice(i);
                 imgRight.setSlice(i);
 
@@ -57,20 +55,9 @@ public class Combiner {
                     }
                 }
                 // Save combined frame
-                FileSaver fileSaver = new FileSaver(combinedImg);
-                fileSaver.saveAsPng(System.getProperty("user.dir") +"/temp/Combiner/"+Integer.toString(i)+".png");
+                imageStack.addSlice(combinedImgIp);
             }
-
-            // Make from individual frames a video
-            FolderOpener folderOpener = new FolderOpener();
-            ImagePlus combinedVid = folderOpener.openFolder(System.getProperty("user.dir") + "/temp/Combiner");
-
-            // Delete temporary files
-            File dir = new File(System.getProperty("user.dir") + "/temp/Combiner");
-            for(File file: dir.listFiles())
-                if (!file.isDirectory())
-                    file.delete();
-
+            ImagePlus combinedVid = new ImagePlus("out",imageStack);
             return combinedVid;
         } else {
             System.out.println("ERROR: the videos must have the same number of slices!");

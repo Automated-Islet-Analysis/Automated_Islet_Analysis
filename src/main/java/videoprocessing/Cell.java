@@ -3,11 +3,9 @@ package videoprocessing;
 import ij.IJ;
 import ij.ImagePlus;
 import ij.gui.Roi;
-import ij.io.FileSaver;
-import ij.plugin.FolderOpener;
-import ij.plugin.filter.Convolver;
 import ij.process.ImageProcessor;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ConvolveOp;
 import java.awt.image.Kernel;
@@ -15,6 +13,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.stream.DoubleStream;
 
 public class Cell {
     // Coordinate in pixels of the middle of the cell
@@ -33,6 +32,8 @@ public class Cell {
     private Roi roiIntracellular;
     // Cell size, equivalent of cellSize in VideoProcessor class, (cellSize x cellSize)
     private final int cellSize;
+    //
+    private LinkedList<double[]> pixROI = new LinkedList<>();
 
     // Constructor
     public Cell(int[] coorCell, int cellNum, int frameNum, int cellSize ){
@@ -104,90 +105,40 @@ public class Cell {
     }
 
     // Save ROI as video so that it can be used later on to compute the mean intensity
-    public void saveRoiVideo(LinkedList<ImagePlus>ijFrames, LinkedList<Integer> idxFramesInFocus){
-        // Video of cell through time
-        ImagePlus videoCell;
-        // Video of ROI through time
-        ImagePlus videoRoi;
-
-
+    public void setPixROI(LinkedList<ImagePlus>ijFrames, LinkedList<Integer> idxFramesInFocus){
         // Crop cell and ROI from full frames
         // Variable for temporary processing
         ImagePlus img;
         // Loop over valid frames for processing
+        Rectangle rectangle = roiIntracellular.getBounds();
         for(int j : idxFramesInFocus){
+            double[] pix = new double[rectangle.width*rectangle.height];
             img = ijFrames.get(j);
             // crop cell in frame
             img.setRoi(roiExtracellular);
             img = img.crop();
             // Set ROI in cell
             img.setRoi(roiIntracellular);
-            // Save frame of Cell with ROI
-            FileSaver fileSaver = new FileSaver(img);
-            fileSaver.saveAsPng(System.getProperty("user.dir") + "/temp/video/cells/img/" + j + ".png");
-            // Crop and save frame of ROI
             img = img.crop();
-            FileSaver fileSaver1 = new FileSaver(img);
-            fileSaver1.saveAsPng(System.getProperty("user.dir") + "/temp/video/ROI/img/" + j + ".png");
+            ImageProcessor iP = img.getProcessor();
+            for(int x=0;x<rectangle.width;x++)
+                for(int y=0;y<rectangle.height;y++)
+                    pix[y*x + y] = iP.getf(x,y);
+            pixROI.add(pix);
         }
-        // Combine the frames individual frames to video
-        FolderOpener folderOpener = new FolderOpener();
-        videoCell = folderOpener.openFolder(System.getProperty("user.dir") + "/temp/video/cells/img");
-        videoRoi = folderOpener.openFolder(System.getProperty("user.dir") + "/temp/video/ROI/img");
-
-        // Set ROI on cell video for display
-        videoCell.setRoi(roiIntracellular);
-
-        // Save videos
-        FileSaver fileSaver1 = new FileSaver(videoCell);
-        FileSaver fileSaver2 = new FileSaver(videoRoi);
-        fileSaver1.saveAsTiff(System.getProperty("user.dir") + "/temp/video/cells/" + cellNum + ".tif");
-        fileSaver2.saveAsTiff(System.getProperty("user.dir") + "/temp/video/ROI/" + cellNum+ ".tif");
     }
 
     // Compute mean intensity of ROI from saved video
     public void computeMeanIntensity(boolean smooth){
-        // Load ROI video
-        ImagePlus vid = new ImagePlus(System.getProperty("user.dir")+"/temp/video/ROI/"+cellNum + ".tif");
-        // Initialise array that holds values of mean intensity
-        meanIntensity = new double[vid.getNSlices()];
-
-        // Kernel used for smoothing to remove noise
-        float[] kernel = new float[9];
-        for (int j = 0;j<9;j++) kernel[j] = 1.f /(9);
-
+        int nPix = pixROI.get(0).length;
+        meanIntensity = new double[pixROI.size()];
         // Find mean intensity of each frame
-        for(int i=0;i<vid.getNSlices();i++){
-            // Get i-th frame
-            vid.setSlice(i);
-            ImageProcessor ip = vid.getProcessor();
-            // Create copy of frame to prevent modifying original ijFrames LinkedList
-            ImageProcessor imageProcessor = ip.createProcessor(ip.getWidth(), ip.getHeight());
-            imageProcessor.setPixels(ip.getPixelsCopy());
-            String sImLabel = String.valueOf(i);
-            ImagePlus im = new ImagePlus(sImLabel, imageProcessor);
-            im.setCalibration(vid.getCalibration());
-
-            // Perform smoothing if necessary
-            int width = vid.getWidth();
-            int height = vid.getHeight();
-            if(smooth) {
-                Convolver convolver = new Convolver();
-                convolver.convolve(imageProcessor, kernel, width, height);
-            }
-
-            // Find mean intensity
-            meanIntensity[i]=0;
-            for(int j=0;j<vid.getWidth();j++) {
-                for (int z = 0; z < vid.getHeight(); z++) {
-                    meanIntensity[i] = meanIntensity[i] + imageProcessor.getf(j, z) / (width * height);
-                }
-            }
-        }
+        for(int i=0;i< pixROI.size();i++)
+            meanIntensity[i]= DoubleStream.of(pixROI.get(i)).sum() /nPix ;
     }
 
     // Save mean intensity measurements to .cvs file
-    public void saveMeanIntensity(LinkedList<Integer> idxFramesInFocus){
+    public void saveMeanIntensityFile(LinkedList<Integer> idxFramesInFocus,String pathToDir){
         // Only save measurements if it was compute beforehand
         if(meanIntensity.length==0){
             System.out.println("ERROR : mean intensity is not computed yet");
@@ -196,7 +147,7 @@ public class Cell {
             // Make sure that file can be written
             BufferedWriter br = null;
             try {
-                br = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "/temp/MI_data/"+ cellNum+".csv"));
+                br = new BufferedWriter(new FileWriter(pathToDir+"/"+ cellNum+".csv"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
