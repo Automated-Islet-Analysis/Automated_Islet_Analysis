@@ -1,3 +1,6 @@
+import videoprocessing.Video;
+import videoprocessing.VideoProcessor;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,6 +14,9 @@ class AnalyseListener implements ActionListener {
     JCheckBox checkPlanar = new JCheckBox("Planar motion correction");
     JCheckBox checkDepth = new JCheckBox("Depth motion correction");
     JCheckBox checkROI = new JCheckBox("Find ROIs");
+
+    public String filePath= UploadListener.getFile();
+
 
     Object[] options = {"Ok", "Help", "Cancel"};
 
@@ -27,5 +33,19 @@ class AnalyseListener implements ActionListener {
         JOptionPane.showOptionDialog(null, mainPanel, "Customise analysis",
                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null,
                 options, null);
+
+
+        //Call the video processor
+        VideoProcessor videoProcessor= new VideoProcessor(new Video(filePath));
+        videoProcessor.process(10,true,true,true);
+        Controller.setVideoProcessor(videoProcessor);
+
+
+
+        // Apply processing on the video
+        videoProcessor.process(10,true,true,true);
+        videoProcessor.analyseCells();
+        videoProcessor.saveSummary();
     }
+
 }

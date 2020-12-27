@@ -7,8 +7,7 @@ import ij.plugin.filter.Binary;
 import ij.process.ImageProcessor;
 import videoprocessing.ImageJ.ParticleAnalyzer;
 import videoprocessing.ImageJ.Thresholder;
-import org.itk.simple.*;
-import org.itk.simple.Image;
+
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

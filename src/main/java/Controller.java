@@ -1,6 +1,7 @@
 import DataTab.MCVideo;
 import DataTab.ROIs;
 import DataTab.Data;
+import videoprocessing.VideoProcessor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +17,17 @@ public class Controller extends Frame {
     static MCVideo mcvid;
     static Data data;
     static Uploaded upload;
+
+    public static VideoProcessor getVideoProcessor() {
+        return videoProcessor;
+    }
+
+    public static void setVideoProcessor(VideoProcessor videoProcessor) {
+        Controller.videoProcessor = videoProcessor;
+    }
+
+    private static VideoProcessor videoProcessor;
+
 
     public Controller() {
         display = "home";
