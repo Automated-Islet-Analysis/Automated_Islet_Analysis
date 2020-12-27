@@ -1,6 +1,3 @@
-import videoprocessing.Video;
-import videoprocessing.VideoProcessor;
-
 import javax.imageio.ImageIO;
 import javax.media.jai.RenderedOp;
 import javax.media.jai.widget.ScrollingImagePanel;
@@ -14,10 +11,6 @@ import java.io.File;
 
 
 class UploadListener implements ActionListener {
-
-    public static String filePath;
-
-
     @Override
 
     public void actionPerformed(ActionEvent e) {
@@ -30,33 +23,20 @@ class UploadListener implements ActionListener {
         chooser.setFileFilter(filter);
         chooser.showOpenDialog(null);
 
-
         // Display the name of the file
         Uploaded.filename.setText(chooser.getSelectedFile().getName());
         Uploaded.filename.setFont(new Font(Uploaded.filename.getFont().getName(), Font.PLAIN, 20));
 
         // Save the path of the file
         File file = chooser.getSelectedFile();
-        filePath = file.getAbsolutePath();
-
+        String filePath = file.getAbsolutePath();
 
         NewTiffReader tiffReader =  new NewTiffReader(filePath);
         Uploaded.imgPanel.removeAll(); // If updating, remove previous image
-        Uploaded.imgPanel.add(tiffReader.getImgPanel());
+        Uploaded.imgPanel.add(tiffReader.getImgLabel());
 
         // Refresh the frame display
         Controller.display = "Upload";
         Controller.setDisplay();
-
-
-
     }
-    public static String getFile(){
-        return filePath;
-    }
-
-
-
-
-
 }

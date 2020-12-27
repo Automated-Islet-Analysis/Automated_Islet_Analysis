@@ -1,7 +1,9 @@
-import com.sun.media.ui.Scroll;
-
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.awt.image.renderable.ParameterBlock;
+
+
 import javax.media.jai.JAI;
 import javax.media.jai.RenderedOp;
 import javax.media.jai.widget.ScrollingImagePanel;
@@ -9,8 +11,9 @@ import javax.swing.*;
 
 public class NewTiffReader {
     RenderedOp rescaledImage;
-    ScrollingImagePanel imagePanel;
+    JLabel imageLabel;
     RenderedImage src;
+    BufferedImage bufImage;
 
     public NewTiffReader(String filename) {
         src = (RenderedImage) JAI.create("fileload", filename);
@@ -24,7 +27,7 @@ public class NewTiffReader {
         RenderedOp op = JAI.create("extrema", pb);
 
         // Extract values to calculate re-scaling params
-        // We want to extend the range of gray values to occupy the full 2¹⁶ range
+        // We want to extend the range of gray values to occupy the full 2^16 range
         double[][] extrema = (double[][])op.getProperty("extrema"); // get the min and max gray values
 
         double minGrayValue = extrema[1][0];
@@ -42,11 +45,32 @@ public class NewTiffReader {
         rescalingPB.add(offsets);
         // Use parameters to create the image
         rescaledImage = JAI.create("rescale", rescalingPB);
+        bufImage = rescaledImage.getAsBufferedImage();
+        bufImage = scaleImage(bufImage);
     }
 
-    public ScrollingImagePanel getImgPanel () {
-        imagePanel = new ScrollingImagePanel(rescaledImage, 700, 550);
-        return imagePanel;
+    private BufferedImage scaleImage(BufferedImage imgIn){
+        int w = imgIn.getWidth();
+        int h = imgIn.getHeight();
+
+        // Scale to fit in frame
+        int scaleCoef = w/400;
+        w = w/scaleCoef;
+        h = h/scaleCoef;
+
+        // Create resized img
+        BufferedImage resizedImg = new BufferedImage(w,h,BufferedImage.TYPE_BYTE_GRAY);
+        Graphics2D g2 = resizedImg.createGraphics();
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(imgIn, 0, 0, w,h, null);
+        g2.dispose();
+        return resizedImg;
+    }
+
+    public JLabel getImgLabel () {
+        ImageIcon imgIcon = new ImageIcon(bufImage);
+        imageLabel = new JLabel(imgIcon);
+        return imageLabel;
     }
 
 }

@@ -1,2 +1,0 @@
-videoprocessing/VideoTest.java
- videoprocessing.VideoTest

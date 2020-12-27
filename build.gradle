@@ -1,38 +1,24 @@
 plugins {
     id 'java'
     id 'application'
-
 }
 application{
     mainClassName='Main'
 }
 version '1.0-SNAPSHOT'
 group 'org.example'
-
-
-
-application{
-    mainClassName='Main'
-}
-
-
 sourceCompatibility = 1.8
-
-group 'org.example'
-
-version '1.0-SNAPSHOT'
-
-
 
 repositories {
     mavenCentral()
+    maven{
+        url "http://repository.springsource.com/maven/bundles/external"
+    }
 }
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile group: 'junit', name: 'junit', version: '4.12'
-
+    compile group:'javax.media.jai', name: 'com.springsource.javax.media.jai.core' , version: '1.1.3'
 
 }
-
-
-

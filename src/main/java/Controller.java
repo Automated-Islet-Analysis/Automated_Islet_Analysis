@@ -1,7 +1,7 @@
-import DataTab.MCVideo;
+import DataTab.MCVideoDepth;
+import DataTab.MCVideoPlanar;
 import DataTab.ROIs;
 import DataTab.Data;
-import videoprocessing.VideoProcessor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,27 +14,20 @@ public class Controller extends Frame {
 
     static Home home;
     static ROIs rois;
-    static MCVideo mcvid;
+    static MCVideoPlanar mcvidPlanar;
+    static MCVideoDepth mcvidDepth;
     static Data data;
     static Uploaded upload;
 
-    public static VideoProcessor getVideoProcessor() {
-        return videoProcessor;
-    }
-
-    public static void setVideoProcessor(VideoProcessor videoProcessor) {
-        Controller.videoProcessor = videoProcessor;
-    }
-
-    private static VideoProcessor videoProcessor;
-
+    static public boolean analysedImg;
 
     public Controller() {
         display = "home";
+        analysedImg = false;
 
         // Set up the frame
         interframe = new JFrame("ROI detection");
-        interframe.setSize(800, 800);
+        interframe.setSize(600, 600);
 
         interframe.addWindowListener(new WindowAdapter() {// Closes the program if close window clicked
             public void windowClosing(WindowEvent e) {
@@ -49,7 +42,8 @@ public class Controller extends Frame {
         // Create all the panel views
         home = new Home();
         rois = new ROIs();
-        mcvid = new MCVideo();
+        mcvidPlanar = new MCVideoPlanar();
+        mcvidDepth = new MCVideoDepth();
         data = new Data();
         upload = new Uploaded();
 
@@ -70,19 +64,49 @@ public class Controller extends Frame {
             interframe.validate();
         }
         else if(display == "ROIs"){
-            interframe.setContentPane(rois);
-            interframe.invalidate();
-            interframe.validate();
+            if (analysedImg == true){
+                interframe.setContentPane(rois);
+                interframe.invalidate();
+                interframe.validate();
+            } else{
+                popupNoFile();
+            }
         }
-        else if(display == "MCVideo"){
-            interframe.setContentPane(mcvid);
-            interframe.invalidate();
-            interframe.validate();
+        else if(display == "MCVideoPlanar"){
+            if (analysedImg == true) {
+                interframe.setContentPane(mcvidPlanar);
+                interframe.invalidate();
+                interframe.validate();
+            } else{
+                popupNoFile();
+            }
+        }
+        else if(display == "MCVideoDepth"){
+            if (analysedImg == true) {
+                interframe.setContentPane(mcvidDepth);
+                interframe.invalidate();
+                interframe.validate();
+            } else{
+                popupNoFile();
+            }
         }
         else if(display == "Data"){
-            interframe.setContentPane(data);
-            interframe.invalidate();
-            interframe.validate();
+            if (analysedImg == true) {
+                interframe.setContentPane(data);
+                interframe.invalidate();
+                interframe.validate();
+            } else{
+                popupNoFile();
+            }
         }
+    }
+
+    private static void popupNoFile(){
+        // Popup that tells the user that no file has been uploaded
+        JOptionPane.showMessageDialog(null,
+                "No file has been analysed yet. \n" +
+                        "Please choose a file for upload and \n" +
+                        "click on the 'Analyse' button",
+                "alert", JOptionPane.ERROR_MESSAGE);
     }
 }
