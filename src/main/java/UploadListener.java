@@ -11,6 +11,18 @@ import java.io.File;
 
 
 class UploadListener implements ActionListener {
+
+    public static String getFilePath() {
+        return filePath;
+    }
+
+    public static void setFilePath(String filePath) {
+        UploadListener.filePath = filePath;
+    }
+
+    //create a static object of type string that will carry the path of the video
+    public static String filePath;
+
     @Override
 
     public void actionPerformed(ActionEvent e) {
@@ -29,7 +41,7 @@ class UploadListener implements ActionListener {
 
         // Save the path of the file
         File file = chooser.getSelectedFile();
-        String filePath = file.getAbsolutePath();
+        filePath = file.getAbsolutePath();
 
         NewTiffReader tiffReader =  new NewTiffReader(filePath);
         Uploaded.imgPanel.removeAll(); // If updating, remove previous image

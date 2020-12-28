@@ -1,3 +1,6 @@
+import videoprocessing.Video;
+import videoprocessing.VideoProcessor;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -23,9 +26,32 @@ class AnalyseListener implements ActionListener {
         mainPanel.add(checkROI);
         mainPanel.add(checkDepth);
 
+
         // Popup.
         JOptionPane.showOptionDialog(null, mainPanel, "Customise analysis",
                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null,
                 options, null);
+
+
+        // Convert the inputs to int or booleans to be used by function videoProcessor
+        int errorAllowed= Integer.parseInt(String.valueOf(perError));
+        boolean planarSelected= checkPlanar.isSelected();
+        boolean ROISelected= checkROI.isSelected();
+        boolean depthSelected= checkDepth.isSelected();
+
+        //get the path of the video
+        String filePath= UploadListener.getFilePath();
+
+
+        //VideoProcessor videoProcessor=Main.getVideoProcessor();
+
+
+        //Create a videoprocessor object and initiate it with the path:
+        VideoProcessor videoProcessor = new VideoProcessor(new Video(filePath));
+        videoProcessor.process(errorAllowed,planarSelected, ROISelected, depthSelected);
+
+        //Set the video processor with the values given by user:
+        Main.setVideoProcessor(videoProcessor);
+
     }
 }

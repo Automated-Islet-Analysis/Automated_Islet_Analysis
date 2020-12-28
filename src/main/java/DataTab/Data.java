@@ -1,5 +1,4 @@
 package DataTab;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -10,6 +9,8 @@ public class Data extends JPanel{
     JLabel bodyDisc1, bodyDisc2, bodyROI1, bodyROI2, bodyInt;;
 
     public Data(){
+
+
         // Create button
         measureBtn = new JButton("Measure intensity");
 
@@ -54,5 +55,6 @@ public class Data extends JPanel{
         add(panROI);
         add(Box.createHorizontalStrut(400));
         add(panInt);
+
     }
 }

@@ -15,6 +15,7 @@ import javax.swing.*;
 
 public class ManualROISelection extends JPanel{
 
+
     // Image for display
     BufferedImage image;
     // Stores number of ROI/cells shown on display
