@@ -1,5 +1,5 @@
 
-import DataTab.Data;
+import UI.Controller;
 import videoprocessing.VideoProcessor;
 
 import java.awt.*;

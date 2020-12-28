@@ -1,3 +1,5 @@
+package UI;
+
 import videoprocessing.Video;
 import videoprocessing.VideoProcessor;
 
@@ -51,7 +53,7 @@ class AnalyseListener implements ActionListener {
         videoProcessor.process(errorAllowed,planarSelected, ROISelected, depthSelected);
 
         //Set the video processor with the values given by user:
-        Main.setVideoProcessor(videoProcessor);
+        Controller.setVideoProcessor(videoProcessor);
 
     }
 }

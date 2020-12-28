@@ -1,4 +1,4 @@
-package DataTab;
+package UI.DataTab;
 
 import javax.swing.*;
 

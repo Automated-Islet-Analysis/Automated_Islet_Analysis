@@ -1,17 +1,14 @@
-package DataTab;
+package UI.DataTab;
 
 
 
 
 //import com.sun.media.controls.VFlowLayout;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 public class ROIs extends JPanel {
     JButton addROI;

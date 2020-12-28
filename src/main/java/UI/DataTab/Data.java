@@ -1,4 +1,7 @@
-package DataTab;
+package UI.DataTab;
+import UI.Controller;
+import videoprocessing.VideoProcessor;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,6 +12,14 @@ public class Data extends JPanel{
     JLabel bodyDisc1, bodyDisc2, bodyROI1, bodyROI2, bodyInt;;
 
     public Data(){
+
+        //Get the video processor and set it with the analyze cell function
+        VideoProcessor videoProcessor;
+        videoProcessor=Controller.getVideoProcessor();
+        videoProcessor.analyseCells();
+        Controller.setVideoProcessor(videoProcessor);
+
+
 
 
         // Create button

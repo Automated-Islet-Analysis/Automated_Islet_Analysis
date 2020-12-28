@@ -1,7 +1,9 @@
-import DataTab.MCVideoDepth;
-import DataTab.MCVideoPlanar;
-import DataTab.ROIs;
-import DataTab.Data;
+package UI;
+
+import UI.DataTab.MCVideoDepth;
+import UI.DataTab.MCVideoPlanar;
+import UI.DataTab.ROIs;
+import UI.DataTab.Data;
 import videoprocessing.VideoProcessor;
 
 import javax.swing.*;

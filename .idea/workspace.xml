@@ -24,12 +24,24 @@
   <component name="ChangeListManager">
     <list default="true" id="01e4016a-d0f0-45e1-aca9-bbe605a348cd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AnalyseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AnalyseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataTab/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataTab/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataTab/ManualROISelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataTab/ManualROISelection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AnalyseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/AnalyseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataTab/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataTab/MCVideoDepth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoDepth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataTab/MCVideoPlanar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoPlanar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataTab/ManualROISelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/ManualROISelection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataTab/ROIs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/ROIs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HomeMenuListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/HomeMenuListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UploadListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UploadListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NewTiffReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/NewTiffReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SaveTab/SaveAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SaveTab/SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SaveTab/SaveROIs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveROIs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SaveTab/SaveVideo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveVideo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UploadListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/UploadListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Uploaded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Uploaded.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

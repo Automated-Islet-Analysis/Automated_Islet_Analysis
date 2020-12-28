@@ -1,4 +1,4 @@
-package SaveTab;
+package UI.SaveTab;
 
 public class SaveAll {
 }

@@ -1,4 +1,8 @@
-import javax.media.jai.widget.ScrollingImagePanel;
+package UI;
+
+import UI.AnalyseListener;
+import UI.UploadListener;
+
 import javax.swing.*;
 import java.awt.*;
 

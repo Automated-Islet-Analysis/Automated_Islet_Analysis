@@ -1,7 +1,10 @@
 // Source https://coderanch.com/t/492739/java/mouse-click-image-draw-point
 // Modified on 22/12/2020
 
-package DataTab;
+package UI.DataTab;
+
+import UI.Controller;
+import videoprocessing.VideoProcessor;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -139,8 +142,14 @@ public class ManualROISelection extends JPanel{
         g.drawString(s, x, y);
     }
 
+
+
     // Add manually selected ROI to VideoProcessor
     private void addNewROIS(){
+        VideoProcessor videoProcessor=Controller.getVideoProcessor();
+        videoProcessor.addCells(newROICoor);
+        Controller.setVideoProcessor(videoProcessor);
+
         // Call videoProcessor.addCells(newROICoor);
         // Calle videoProcessor.saveCells();
     }
