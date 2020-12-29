@@ -6,10 +6,13 @@ import java.awt.event.KeyEvent;
 
 public class MainMenu extends JMenuBar implements ActionListener {
     JMenu menuHome, menuData, menuSave, subMenuMCVid;
-    JMenuItem dataROI, dataData, MCVidPlanar, MCVidDepth;
+    static JMenuItem dataROI, dataData, MCVidPlanar, MCVidDepth;
     JMenuItem saveROI,saveMCVid, saveData, saveAll;
 
     public MainMenu() {
+
+
+
         menuHome = new JMenu("Home          ");
         menuHome.setFont(new Font(menuHome.getFont().getName(), Font.BOLD, 15));
 
@@ -65,6 +68,22 @@ public class MainMenu extends JMenuBar implements ActionListener {
         // Add keystroke as an alternative way to save all
         saveAll.setAccelerator(KeyStroke.getKeyStroke(
                 KeyEvent.VK_S, ActionEvent.CTRL_MASK));
+
+        dataROI.setName("ROIs");
+        menuData.setName("Data");
+        dataData.setName("dataData");
+        menuHome.setName("Home");
+
+        subMenuMCVid.setName("MCVideo");
+        MCVidPlanar.setName("MCPlanar");
+        MCVidDepth.setName("MCDepth");
+
+        menuSave.setName("menuSave");
+        saveROI.setName("saveROI");
+        saveData.setName("saveData");
+        saveMCVid.setName("saveMCVideo");
+        saveAll.setName("saveAll");
+
     }
 
     @Override
@@ -73,14 +92,14 @@ public class MainMenu extends JMenuBar implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // Changes display according to clicked menu item
         if (e.getActionCommand() == "ROIs"){
-            Controller.display = "ROIs";
-            Controller.setDisplay();
+            Home.display = "ROIs";
+            Home.setDisplay();
         }else if (e.getActionCommand() == "Motion corrected video"){
-            Controller.display = "MCVideo";
-            Controller.setDisplay();
+            Home.display = "MCVideo";
+            Home.setDisplay();
         }else if (e.getActionCommand() == "Data"){
-            Controller.display = "Data";
-            Controller.setDisplay();
+            Home.display = "Data";
+            Home.setDisplay();
         }
         System.out.println(e.getActionCommand());
     }

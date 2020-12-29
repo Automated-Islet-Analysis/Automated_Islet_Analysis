@@ -17,6 +17,7 @@ class UploadListener implements ActionListener {
 
         // Popup. Choose which file to upload
         JFileChooser chooser = new JFileChooser();
+        chooser.setName("chooser");
         // Later change to video formats
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
                 "TIFF Images", "tif", "tiff");
@@ -36,7 +37,8 @@ class UploadListener implements ActionListener {
         Uploaded.imgPanel.add(tiffReader.getImgLabel());
 
         // Refresh the frame display
-        Controller.display = "Upload";
-        Controller.setDisplay();
+
+        Home.display = "Upload";
+        Home.setDisplay();
     }
 }

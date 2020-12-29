@@ -5,13 +5,15 @@ import java.awt.*;
 
 public class Data extends JPanel{
     JButton measureBtn;
-    JPanel panDisc, panROI, panInt;
+    JPanel panDisc, panROI, panInt, panMeasureBtn;
     JLabel titleDisc, titleROI, titleInt;
     JLabel bodyDisc1, bodyDisc2, bodyROI1, bodyROI2, bodyInt;;
 
     public Data(){
         // Create button
         measureBtn = new JButton("Measure intensity");
+        panMeasureBtn=new JPanel();
+        panMeasureBtn.add(measureBtn);
 
         // Create panels
         panDisc = new JPanel(new GridLayout(3,1));
@@ -46,13 +48,13 @@ public class Data extends JPanel{
         panInt.add(bodyInt);
 
         // Add elements to main JPanel
-        setLayout(new FlowLayout(FlowLayout.LEFT, 20, 30));
-        add(measureBtn);
-        add(Box.createHorizontalStrut(400));
+//        setLayout(new FlowLayout(FlowLayout.LEFT, 20, 30));
+        setLayout(new GridLayout(4,1));
+        add(panMeasureBtn);
         add(panDisc);
-        add(Box.createHorizontalStrut(400));
         add(panROI);
-        add(Box.createHorizontalStrut(400));
         add(panInt);
+
+        measureBtn.setName("measureIntensity");
     }
 }

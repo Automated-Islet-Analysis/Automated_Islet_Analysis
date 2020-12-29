@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class ROIs extends JPanel {
     JButton addROI;
-    JPanel subPanel;
+    JPanel subPanel,addROIPanel,textPanel;
     JLabel text, image;
     ImageIcon imgIcon;
 
@@ -38,11 +38,20 @@ public class ROIs extends JPanel {
         subPanel = new JPanel(new GridLayout(1,2));
 
         // Add elements to main panel
-        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 50));
+//        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 50));
         //add(image);
-        add(Box.createHorizontalStrut(500)); // Spacing
-        subPanel.add(text);
-        subPanel.add(addROI);
-        add(subPanel);
+        setLayout(new BorderLayout());
+        add(Box.createVerticalStrut(500),BorderLayout.NORTH); // Spacing
+        addROIPanel=new JPanel();
+        addROIPanel.add(addROI);
+        textPanel=new JPanel();
+        textPanel.add(text);
+
+        subPanel.add(textPanel);
+        subPanel.add(addROIPanel);
+
+        addROI.setName("addROIButton");
+
+        add(subPanel,BorderLayout.CENTER);
     }
 }

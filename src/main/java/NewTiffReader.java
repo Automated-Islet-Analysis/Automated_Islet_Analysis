@@ -6,7 +6,6 @@ import java.awt.image.renderable.ParameterBlock;
 
 import javax.media.jai.JAI;
 import javax.media.jai.RenderedOp;
-import javax.media.jai.widget.ScrollingImagePanel;
 import javax.swing.*;
 
 public class NewTiffReader {
