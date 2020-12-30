@@ -37,7 +37,7 @@ public class TestHome {
 
 
         JFileChooserFixture fileChooser = JFileChooserFinder.findFileChooser().withTimeout(10000).using(robotf);
-        fileChooser.selectFile(new File(System.getProperty("user.dir")+"/img/2 2.tif")).approve();
+        fileChooser.selectFile(new File(System.getProperty("user.dir")+"/img/2 2.tif"));
 
     }
 }
