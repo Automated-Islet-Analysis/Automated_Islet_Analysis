@@ -10,57 +10,14 @@ public class MainMenu extends JMenuBar implements ActionListener {
     JMenuItem saveROI,saveMCVid, saveData, saveAll;
 
     public MainMenu() {
-        menuHome = new JMenu("Home          ");
-        menuHome.setFont(new Font(menuHome.getFont().getName(), Font.BOLD, 15));
-
-        // Data dropdown
-        menuData = new JMenu("Data          ");
-        menuData.setFont(new Font(menuData.getFont().getName(), Font.BOLD, 15));
-
-        dataROI = new JMenuItem("ROIs");
-        subMenuMCVid = new JMenu("Motion corrected video");
-        MCVidPlanar = new JMenuItem("Planar motion");
-        MCVidDepth = new JMenuItem("Depth motion");
-        dataData = new JMenuItem("Data");
-
-        // Save dropdown
-        menuSave = new JMenu("Save          ");
-        menuSave.setFont(new Font(menuSave.getFont().getName(), Font.BOLD, 15));
-
-        saveROI = new JMenuItem("Save ROIs");
-        saveMCVid = new JMenuItem("Save motion corrected video");
-        saveData = new JMenuItem("Save data");
-        saveAll = new JMenuItem("Save all");
-
-        // Action Listeners
-        menuHome.addMenuListener(new HomeMenuListener());
-
-        dataROI.addActionListener(this);
-        MCVidPlanar.addActionListener(this);
-        MCVidDepth.addActionListener(this);
-        dataData.addActionListener(this);
-
-        saveROI.addActionListener(this);
-        saveMCVid.addActionListener(this);
-        saveData.addActionListener(this);
-        saveAll.addActionListener(this);
+        menuHome = getMenuHome();
+        menuData = getMenuData();
+        menuSave = getMenuSave();
 
         // Add menus to the JMenuBar
         add(menuHome);
         add(menuData);
         add(menuSave);
-
-        // Add the menu items to each menu
-        menuData.add(dataROI);
-        menuData.add(subMenuMCVid);
-            subMenuMCVid.add(MCVidPlanar);
-            subMenuMCVid.add(MCVidDepth);
-        menuData.add(dataData);
-
-        menuSave.add(saveROI);
-        menuSave.add(saveMCVid);
-        menuSave.add(saveData);
-        menuSave.add(saveAll);
 
         // Add keystroke as an alternative way to save all
         saveAll.setAccelerator(KeyStroke.getKeyStroke(
@@ -72,17 +29,75 @@ public class MainMenu extends JMenuBar implements ActionListener {
     // The ActionEvent command will be the text of the menu item selected
     public void actionPerformed(ActionEvent e) {
         // Changes display according to clicked menu item
-        if (e.getActionCommand() == "ROIs"){
+        if (e.getActionCommand().equals("ROIs")){
             Controller.display = "ROIs";
             Controller.setDisplay();
-        }else if (e.getActionCommand() == "Motion corrected video"){
+        }else if (e.getActionCommand().equals("Motion Corrected Video")){
             Controller.display = "MCVideo";
             Controller.setDisplay();
-        }else if (e.getActionCommand() == "Data"){
-            Controller.display = "Data";
+        }else if (e.getActionCommand().equals("Results")){
+            Controller.display = "Results";
             Controller.setDisplay();
         }
         System.out.println(e.getActionCommand());
+    }
+
+    private JMenu getMenuHome(){
+        menuHome = new JMenu("Home          ");
+        menuHome.setFont(new Font(menuHome.getFont().getName(), Font.BOLD, 15));
+        menuHome.addMenuListener(new HomeMenuListener()); // add actionlistener
+
+        return menuHome;
+    }
+
+    private JMenu getMenuData(){
+        menuData = new JMenu("Data          ");
+        menuData.setFont(new Font(menuData.getFont().getName(), Font.BOLD, 15));
+
+        // Data Dropdown
+        dataROI = new JMenuItem("ROIs");
+        subMenuMCVid = new JMenu("Motion Corrected Video");
+        MCVidPlanar = new JMenuItem("Planar motion");
+        MCVidDepth = new JMenuItem("Depth motion");
+        dataData = new JMenuItem("Results");
+
+        // ActionListeners
+        dataROI.addActionListener(this);
+        MCVidPlanar.addActionListener(this);
+        MCVidDepth.addActionListener(this);
+        dataData.addActionListener(this);
+
+        menuData.add(dataROI);
+        menuData.add(subMenuMCVid);
+        subMenuMCVid.add(MCVidPlanar);
+        subMenuMCVid.add(MCVidDepth);
+        menuData.add(dataData);
+
+        return menuData;
+    }
+
+    private JMenu getMenuSave(){
+        menuSave = new JMenu("Save          ");
+        menuSave.setFont(new Font(menuSave.getFont().getName(), Font.BOLD, 15));
+
+        // Save Dropdown
+        saveROI = new JMenuItem("Save ROIs");
+        saveMCVid = new JMenuItem("Save Motion Corrected Video");
+        saveData = new JMenuItem("Save Results");
+        saveAll = new JMenuItem("Save All");
+
+        // ActionListeners
+        saveROI.addActionListener(this);
+        saveMCVid.addActionListener(this);
+        saveData.addActionListener(this);
+        saveAll.addActionListener(this);
+
+        menuSave.add(saveROI);
+        menuSave.add(saveMCVid);
+        menuSave.add(saveData);
+        menuSave.add(saveAll);
+
+        return menuSave;
     }
 }
 
