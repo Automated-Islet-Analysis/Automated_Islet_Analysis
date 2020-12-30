@@ -45,5 +45,6 @@ public class Uploaded extends JPanel {
         subHPanel.add(analysePanel);
         subHPanel.setSize(200,40);
         add(subHPanel,BorderLayout.CENTER);
+        btnAnalyse.setName("analyse");
     }
 }
