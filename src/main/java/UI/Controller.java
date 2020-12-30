@@ -24,17 +24,6 @@ public class Controller extends Frame {
 
     static public boolean analysedImg;
 
-    public static VideoProcessor getVideoProcessor() {
-        return videoProcessor;
-    }
-
-    public static void setVideoProcessor(VideoProcessor videoProcessor) {
-        Controller.videoProcessor = videoProcessor;
-    }
-
-    public static VideoProcessor videoProcessor;
-
-
     public Controller() {
         display = "home";
         analysedImg = false;

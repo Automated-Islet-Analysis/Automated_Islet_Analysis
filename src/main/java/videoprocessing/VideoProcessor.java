@@ -9,6 +9,7 @@ import videoprocessing.process.CellFinder;
 import videoprocessing.process.DepthMotionCorrector;
 import videoprocessing.process.PlanarMotionCorrector;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -20,8 +21,10 @@ public class VideoProcessor{
     private int cellSize =50;
     // Size of the regions of interest (roiSize x roiSize)
     private final int roiSize =10;
+
     // Change in area(%) tolerated before disregarding frame for too much depth motion
     private double thresholdArea;
+
     // Video to be processed
     private Video video;
 
@@ -32,6 +35,9 @@ public class VideoProcessor{
     // Video to show depth motion correction
     private ImagePlus depthCorrectionVid;
 
+    // Getters
+    public Video getVideo() { return video;}
+    public double getThresholdArea() { return thresholdArea; }
 
     // Constructor
     public VideoProcessor(Video video){
@@ -40,6 +46,17 @@ public class VideoProcessor{
 
     // Process video depending on input values
     public void process(int thresholdArea,boolean planarMotionCorrect, boolean depthMotionCorrect,boolean findCells){
+        // pop-up for progress
+        JPanel popUp = new JPanel(new GridLayout(3,2));
+        JLabel jLabelPlanar = new JLabel();
+        JLabel jLabelDepth = new JLabel();
+        JLabel jLabelCells = new JLabel();
+        JLabel done = new JLabel();
+        done.setText(": Done!");
+        popUp.setSize(100,100);
+        popUp.setVisible(true);
+
+
         // Set threshold for depth motion correction
         this.thresholdArea = thresholdArea;
 
@@ -51,6 +68,8 @@ public class VideoProcessor{
 
         // Perform planar motion correction (if needed)
         if(planarMotionCorrect){
+            jLabelPlanar.setText("Planar Motion correction in progress");
+            popUp.add(jLabelPlanar);
             System.out.println("Planar Motion correction in progress");
             PlanarMotionCorrector pMC = new PlanarMotionCorrector(video);
             pMC.run();
@@ -58,6 +77,7 @@ public class VideoProcessor{
             video.setSEFrames(pMC.getSEFrames());
             // Create planar motion corrected video
             createPlanarCorrectionVid();
+            popUp.add(done);
             System.out.println("Done");
         }else{
             // Clear SEFrames to avoid running out of memory
@@ -66,6 +86,8 @@ public class VideoProcessor{
 
         // Perform depth motion correction (if needed)
         if (depthMotionCorrect) {
+            jLabelDepth.setText("Depth Motion correction in progress");
+            popUp.add(jLabelDepth);
             System.out.println("Depth Motion correction in progress");
             DepthMotionCorrector dMC = new DepthMotionCorrector(video,thresholdArea);
             dMC.run();
@@ -73,6 +95,7 @@ public class VideoProcessor{
             // Save depth motion corrected vid
             createDepthCorrectionVid();
             System.out.println("Done");
+            popUp.add(done);
         } else {
             // Set that all frames are valid for further processing
             LinkedList<Integer>idxFramesInFocus = new LinkedList<>();
@@ -82,11 +105,15 @@ public class VideoProcessor{
 
         // Perform automatic detection of Beta-cells (if needed)
         if(findCells){
+            jLabelCells.setText("Searching for Beta-cells");
+            popUp.add(jLabelCells);
             System.out.println("Searching for Beta-cells");
             //Find Beta-cells
             CellFinder cellFinder = new CellFinder(video,cellSize);
             cellFinder.run();
             video.setCells(cellFinder.getCells());
+            done.setText(": Done, found "+video.getCells().size()+" cells");
+            popUp.add(done);
             System.out.println("Done, found "+video.getCells().size()+" cells");
         }
         // Save img that show the Cells/ROIs found for display on GUI

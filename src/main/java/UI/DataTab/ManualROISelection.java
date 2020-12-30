@@ -4,6 +4,7 @@
 package UI.DataTab;
 
 import UI.Controller;
+import UI.UserInterface;
 import videoprocessing.VideoProcessor;
 
 import java.awt.*;
@@ -146,11 +147,9 @@ public class ManualROISelection extends JPanel{
 
     // Add manually selected ROI to VideoProcessor
     private void addNewROIS(){
-        VideoProcessor videoProcessor=Controller.getVideoProcessor();
+        VideoProcessor videoProcessor= UserInterface.getVideoProcessor();
         videoProcessor.addCells(newROICoor);
-        Controller.setVideoProcessor(videoProcessor);
+        UserInterface.setVideoProcessor(videoProcessor);
 
-        // Call videoProcessor.addCells(newROICoor);
-        // Calle videoProcessor.saveCells();
     }
 }

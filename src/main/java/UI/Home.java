@@ -1,7 +1,5 @@
 package UI;
 
-import UI.UploadListener;
-
 import javax.swing.*;
 import java.awt.*;
 

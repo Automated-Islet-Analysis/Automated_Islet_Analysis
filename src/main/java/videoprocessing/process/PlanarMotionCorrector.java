@@ -29,6 +29,8 @@ public class PlanarMotionCorrector extends Processor{
             ijFrames.add(nifti_reader.run(file));
 
         }
+        new File(System.getProperty("user.dir") + "/temp.nii").delete();
+
         video.setIjFrames(ijFrames);
         // Not needed anymore, better to delete it to reduce the risk of running out of memory
         video.clearSEFrames();
