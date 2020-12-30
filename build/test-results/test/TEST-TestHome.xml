@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestHome" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-30T11:21:39" hostname="Fabios-MBP" time="8.516">
+<testsuite name="TestHome" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-30T12:29:42" hostname="Fabios-MBP" time="21.896">
   <properties/>
-  <testcase name="testController" classname="TestHome" time="8.516"/>
+  <testcase name="testController" classname="TestHome" time="21.896"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[Error: Could not find mediaLib accelerator wrapper classes. Continuing in pure Java mode.
 Occurs in: com.sun.media.jai.mlib.MediaLibAccessor
