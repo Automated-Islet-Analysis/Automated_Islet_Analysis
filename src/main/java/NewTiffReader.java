@@ -15,6 +15,8 @@ public class NewTiffReader {
     BufferedImage bufImage;
 
     public NewTiffReader(String filename) {
+        // prevent annoying JAI message when using JAI extension
+        System.setProperty("com.sun.media.jai.disableMediaLib", "true");
         src = (RenderedImage) JAI.create("fileload", filename);
 
         ParameterBlock pb  = new ParameterBlock();

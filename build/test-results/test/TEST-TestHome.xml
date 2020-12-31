@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestHome" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-31T13:17:54" hostname="Fabios-MBP" time="21.91">
+  <properties/>
+  <testcase name="testController" classname="TestHome" time="21.91"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
