@@ -12,8 +12,8 @@ videoprocessing/ImageJ/nifti_io/Nifti_Reader.java
  ImageJ.nifti_io.Nifti_Reader
 videoprocessing/process/DepthMotionCorrector.java
  videoprocessing.process.DepthMotionCorrector
-UI/Uploaded.java
- UI.Uploaded
+UI/SaveTab/SaveROIs.java
+ UI.SaveTab.SaveROIs
 videoprocessing/ImageJ/nifti_io/CoordinateMapper.java
  ImageJ.nifti_io.CoordinateMapper
 videoprocessing/ImageJ/Thresholder.java
@@ -46,9 +46,8 @@ UI/Controller.java
  UI.Controller$1
 UI/HomeMenuListener.java
  UI.HomeMenuListener
-UI/AnalyseListener.java
- UI.AnalyseListener
- UI.AnalyseListener$1
+videoprocessing/Cell.java
+ videoprocessing.Cell
 videoprocessing/process/CellAnalyzer.java
  videoprocessing.process.CellAnalyzer
 UI/SaveTab/SaveVideo.java
@@ -79,7 +78,8 @@ videoprocessing/ImageJ/Binary.java
  videoprocessing.ImageJ.Binary
 UI/UserInterface.java
  UI.UserInterface
-videoprocessing/Cell.java
- videoprocessing.Cell
-UI/SaveTab/SaveROIs.java
- UI.SaveTab.SaveROIs
+UI/Uploaded.java
+ UI.Uploaded
+UI/AnalyseListener.java
+ UI.AnalyseListener
+ UI.AnalyseListener$1

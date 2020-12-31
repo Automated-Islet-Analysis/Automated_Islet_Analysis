@@ -62,6 +62,7 @@ class AnalyseListener implements ActionListener {
         JLabel jLabel = new JLabel("Please wait, processing in progress!");
         jLabel.setFont(new Font(jLabel.getFont().getName(),Font.PLAIN,20));
         p1.add(jLabel, BorderLayout.CENTER);
+        processing.getContentPane().add(p1);
         processing.setUndecorated(true);
         processing.pack();
         processing.setLocationRelativeTo(Controller.interframe);
