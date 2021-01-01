@@ -15,12 +15,6 @@ class AnalyseListener implements ActionListener {
     JCheckBox checkROI = new JCheckBox("Find ROIs");
 
     Object[] options = {"ok","help", "cancel"};
-    /*JButton ok = new JButton("Ok");
-    JButton help = new JButton("Help");
-    JButton cancel = new JButton("Cancel");
-    JButton[] options = {ok, help, cancel};*/
-
-
 
     @Override
 

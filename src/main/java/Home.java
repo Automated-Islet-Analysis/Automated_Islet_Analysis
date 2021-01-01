@@ -1,34 +1,38 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 
 public class Home extends JPanel {
-    JLabel welcome;
-    JLabel empty;
-    JButton button;
+    JLabel welcomeLabel;
+    JLabel emptyLabel;
+    JButton uploadButton;
     JPanel subPanel;
 
     public Home(){
+        subPanel = getSubPanel();
+        add(subPanel);
+    }
+
+    private JPanel getSubPanel(){
         // Create a welcome text
-        welcome = new JLabel("Welcome!");
-        welcome.setFont(new Font(welcome.getFont().getName(), Font.PLAIN, 30));
-        welcome.setHorizontalAlignment(SwingConstants.CENTER);
+        welcomeLabel = new JLabel("Welcome!");
+        welcomeLabel.setFont(new Font(welcomeLabel.getFont().getName(), Font.PLAIN, 30));
+        welcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
         // Upload file for analysis
-        button = new JButton("Upload");
-        button.addActionListener(new UploadListener());
+        uploadButton = new JButton("Upload");
+        uploadButton.addActionListener(new UploadListener());
 
         // Spacing
-        empty = new JLabel("");
+        emptyLabel = new JLabel("");
 
         // Set layout
         setLayout(new FlowLayout(FlowLayout.CENTER, 500, 200));
 
         subPanel = new JPanel(new GridLayout(3,1));
-        subPanel.add(welcome);
-        subPanel.add(empty);
-        subPanel.add(button);
+        subPanel.add(welcomeLabel);
+        subPanel.add(emptyLabel);
+        subPanel.add(uploadButton);
 
-        add(subPanel);
+        return subPanel;
     }
 }
