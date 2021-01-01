@@ -1,2 +1,4 @@
 videoprocessing/VideoTest.java
  videoprocessing.VideoTest
+videoprocessing/CombinerTest.java
+ videoprocessing.CombinerTest

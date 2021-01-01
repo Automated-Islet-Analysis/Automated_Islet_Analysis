@@ -13,7 +13,7 @@ public class Combiner {
 
 
     // Constructor
-    public Combiner(){}
+    public Combiner(){combVidFrames=new LinkedList<>();}
 
     //getters
     public  LinkedList<ImagePlus> getCombVidFrames(){return combVidFrames;}
@@ -30,7 +30,7 @@ public class Combiner {
 //            imageConverterLeft.convertToGray8();
 
             // Get processors for processing
-            ImageProcessor ipLeft = imgLeft.getProcessor();
+            ImageProcessor ipLeft =imgLeft.getProcessor();
             ImageProcessor ipRight = imgRight.getProcessor();
 
             // Make sure that both vide can fit
@@ -66,6 +66,9 @@ public class Combiner {
                 }
                 // Save combined frame
                 imageStack.addSlice(combinedImgIp);
+
+                //Needed for UnitTesting
+                combVidFrames.add(combinedImg);
             }
             ImagePlus combinedVid = new ImagePlus("out",imageStack);
             return combinedVid;

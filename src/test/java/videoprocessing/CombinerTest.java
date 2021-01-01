@@ -16,8 +16,8 @@ public class CombinerTest {
         ImagePlus expectedCombinedVid;
 
         //Input for Combiner method combine
-        ImagePlus leftImg=new ImagePlus(System.getProperty("user.dir") + "/img/Unit_testing/leftImg.tif");
-        ImagePlus rightImg=new ImagePlus(System.getProperty("user.dir") + "/img/Unit_testing/rightImg.tif");
+        ImagePlus leftImg=new ImagePlus(System.getProperty("user.dir") + "/img/Unit_testing/1.tif");
+        ImagePlus rightImg=new ImagePlus(System.getProperty("user.dir") + "/img/Unit_testing/2.tif");
 
         //Create instance of Combiner
         Combiner combiner=new Combiner();
