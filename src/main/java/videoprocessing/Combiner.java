@@ -4,10 +4,20 @@ import ij.ImagePlus;
 import ij.ImageStack;
 import ij.process.ImageProcessor;
 
+import java.util.LinkedList;
+
 
 public class Combiner {
+    //stores frames of combined video. Needed for unit testing
+    private LinkedList<ImagePlus> combVidFrames;
+
+
     // Constructor
     public Combiner(){}
+
+    //getters
+    public  LinkedList<ImagePlus> getCombVidFrames(){return combVidFrames;}
+
 
     // Combines two ImagePlus and combines them horizontally
     // Two ImagePlus need to have the same number of slices
