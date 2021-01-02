@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class Controller extends Frame {
+public class Controller extends JFrame {
     static JFrame interframe;
     static public String display;
 
@@ -56,17 +56,17 @@ public class Controller extends Frame {
 
     static void setDisplay(){
         // Allows switching between panels
-        if(display == "home"){
+        if(display.equals("home")){
             interframe.setContentPane(home);
             interframe.invalidate();
             interframe.validate();
         }
-        else if(display == "Upload"){
+        else if(display.equals("Upload")){
             interframe.setContentPane(upload);
             interframe.invalidate();
             interframe.validate();
         }
-        else if(display == "ROIs"){
+        else if(display.equals("ROIs")){
             if (analysedImg == true){
                 interframe.setContentPane(rois);
                 interframe.invalidate();
@@ -75,7 +75,7 @@ public class Controller extends Frame {
                 popupNoFile();
             }
         }
-        else if(display == "MCVideoPlanar"){
+        else if(display.equals("MCVideoPlanar")){
             if (analysedImg == true) {
                 interframe.setContentPane(mcvidPlanar);
                 interframe.invalidate();
@@ -84,7 +84,7 @@ public class Controller extends Frame {
                 popupNoFile();
             }
         }
-        else if(display == "MCVideoDepth"){
+        else if(display.equals("MCVideoDepth")){
             if (analysedImg == true) {
                 interframe.setContentPane(mcvidDepth);
                 interframe.invalidate();
@@ -93,7 +93,7 @@ public class Controller extends Frame {
                 popupNoFile();
             }
         }
-        else if(display == "Data"){
+        else if(display.equals("Data")){
             if (analysedImg == true) {
                 interframe.setContentPane(data);
                 interframe.invalidate();

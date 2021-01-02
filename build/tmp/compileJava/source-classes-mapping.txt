@@ -20,8 +20,8 @@ videoprocessing/ImageJ/Thresholder.java
  videoprocessing.ImageJ.Thresholder
 Main.java
  Main
-videoprocessing/Cell.java
- videoprocessing.Cell
+videoprocessing/VideoProcessor.java
+ videoprocessing.VideoProcessor
 UI/NewTiffReader.java
  UI.NewTiffReader
 UI/DataTab/MCVideoDepth.java
@@ -66,8 +66,8 @@ videoprocessing/ImageJ/nifti_io/NiftiHeader.java
  ImageJ.nifti_io.NiftiHeader
 videoprocessing/process/PlanarMotionCorrector.java
  videoprocessing.process.PlanarMotionCorrector
-UI/SaveTab/SaveROIs.java
- UI.SaveTab.SaveROIs
+videoprocessing/Combiner.java
+ videoprocessing.Combiner
 videoprocessing/ImageJ/nifti_io/Nifti_writer.java
  ImageJ.nifti_io.Nifti_writer
 UI/DataTab/Data.java
@@ -79,7 +79,7 @@ videoprocessing/ImageJ/Binary.java
  videoprocessing.ImageJ.Binary
 UI/UserInterface.java
  UI.UserInterface
-videoprocessing/Combiner.java
- videoprocessing.Combiner
-videoprocessing/VideoProcessor.java
- videoprocessing.VideoProcessor
+videoprocessing/Cell.java
+ videoprocessing.Cell
+UI/SaveTab/SaveROIs.java
+ UI.SaveTab.SaveROIs
