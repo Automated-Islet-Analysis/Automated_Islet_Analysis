@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="videoprocessing.VideoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-01T20:34:19" hostname="DESKTOP-867OUMT" time="2.099">
+<testsuite name="videoprocessing.VideoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-02T15:03:02" hostname="LAPTOP-OK0DBQNM" time="0.913">
   <properties/>
-  <testcase name="testReadingFrames" classname="videoprocessing.VideoTest" time="2.099"/>
-  <system-out><![CDATA[C:\Users\fo1318\Desktop\project\Image_treatment-\videos\Unit_testing
+  <testcase name="testReadingFrames" classname="videoprocessing.VideoTest" time="0.913"/>
+  <system-out><![CDATA[C:\Users\livia\OneDrive\Documents\GitHub\Image_treatment-\videos\Unit_testing
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

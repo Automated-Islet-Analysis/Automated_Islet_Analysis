@@ -67,9 +67,8 @@ videoprocessing/process/PlanarMotionCorrector.java
  videoprocessing.process.PlanarMotionCorrector
 videoprocessing/Combiner.java
  videoprocessing.Combiner
-UI/Controller.java
- UI.Controller
- UI.Controller$1
+UI/UserInterface.java
+ UI.UserInterface
 UI/Uploaded.java
  UI.Uploaded
 UI/HomeMenuListener.java
@@ -77,9 +76,10 @@ UI/HomeMenuListener.java
 UI/AnalyseListener.java
  UI.AnalyseListener
  UI.AnalyseListener$1
-UI/MainMenu.java
- UI.MainMenu
 UI/UploadListener.java
  UI.UploadListener
-UI/UserInterface.java
- UI.UserInterface
+UI/Controller.java
+ UI.Controller
+ UI.Controller$1
+UI/MainMenu.java
+ UI.MainMenu
