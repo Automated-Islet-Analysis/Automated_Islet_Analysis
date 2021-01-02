@@ -49,6 +49,8 @@ class AnalyseListener implements ActionListener {
             process(errorAllowed, planarSelected, ROISelected, depthSelected);
         }else if(input==1){
             // help button
+            System.out.println(input);
+            JOptionPane.showMessageDialog(null, "Choose the allowed margin of difference in cross-sectional area of the islet in between frames (suggested value: 10%)");
         }else if(input==2){
             // nothing to do close button
         }

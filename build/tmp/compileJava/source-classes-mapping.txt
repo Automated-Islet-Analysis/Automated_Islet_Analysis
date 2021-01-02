@@ -12,8 +12,8 @@ videoprocessing/ImageJ/nifti_io/Nifti_Reader.java
  ImageJ.nifti_io.Nifti_Reader
 videoprocessing/process/DepthMotionCorrector.java
  videoprocessing.process.DepthMotionCorrector
-UI/Uploaded.java
- UI.Uploaded
+videoprocessing/Cell.java
+ videoprocessing.Cell
 videoprocessing/ImageJ/nifti_io/CoordinateMapper.java
  ImageJ.nifti_io.CoordinateMapper
 videoprocessing/ImageJ/Thresholder.java
@@ -41,20 +41,19 @@ videoprocessing/ImageJ/ParticleAnalyzer.java
  videoprocessing.ImageJ.ParticleAnalyzer
 UI/DataTab/MCVideoPlanar.java
  UI.DataTab.MCVideoPlanar
-UI/Controller.java
- UI.Controller
- UI.Controller$1
-UI/HomeMenuListener.java
- UI.HomeMenuListener
-UI/AnalyseListener.java
- UI.AnalyseListener
- UI.AnalyseListener$1
+UI/SaveTab/SaveROIs.java
+ UI.SaveTab.SaveROIs
+videoprocessing/ImageJ/nifti_io/Nifti_writer.java
+ ImageJ.nifti_io.Nifti_writer
+videoprocessing/ImageJ/Binary.java
+ videoprocessing.ImageJ.Binary
 videoprocessing/process/CellAnalyzer.java
  videoprocessing.process.CellAnalyzer
 UI/SaveTab/SaveVideo.java
  UI.SaveTab.SaveVideo
-UI/UploadListener.java
- UI.UploadListener
+UI/DataTab/Data.java
+ UI.DataTab.Data
+ UI.DataTab.Data$1
 UI/DataTab/ManualROISelection.java
  UI.DataTab.ManualROISelection
  UI.DataTab.ManualROISelection$1
@@ -68,18 +67,19 @@ videoprocessing/process/PlanarMotionCorrector.java
  videoprocessing.process.PlanarMotionCorrector
 videoprocessing/Combiner.java
  videoprocessing.Combiner
-videoprocessing/ImageJ/nifti_io/Nifti_writer.java
- ImageJ.nifti_io.Nifti_writer
-UI/DataTab/Data.java
- UI.DataTab.Data
- UI.DataTab.Data$1
+UI/Controller.java
+ UI.Controller
+ UI.Controller$1
+UI/Uploaded.java
+ UI.Uploaded
+UI/HomeMenuListener.java
+ UI.HomeMenuListener
+UI/AnalyseListener.java
+ UI.AnalyseListener
+ UI.AnalyseListener$1
 UI/MainMenu.java
  UI.MainMenu
-videoprocessing/ImageJ/Binary.java
- videoprocessing.ImageJ.Binary
+UI/UploadListener.java
+ UI.UploadListener
 UI/UserInterface.java
  UI.UserInterface
-videoprocessing/Cell.java
- videoprocessing.Cell
-UI/SaveTab/SaveROIs.java
- UI.SaveTab.SaveROIs
