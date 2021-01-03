@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-class AnalyseListener implements ActionListener {
+public class AnalyseListener implements ActionListener {
     JPanel mainPanel = new JPanel(new GridLayout(3,2));
 
     JLabel error = new JLabel("Allowed CS error (%)");
@@ -47,6 +47,7 @@ class AnalyseListener implements ActionListener {
             depthSelected= checkDepth.isSelected();
 
             process(errorAllowed, planarSelected, ROISelected, depthSelected);
+            Controller.analysedImg = true; // Allow clicking of "Data" and "Save" tabs
         }else if(input==1){
             // help button
             System.out.println(input);

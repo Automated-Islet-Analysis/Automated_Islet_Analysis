@@ -18,14 +18,17 @@ videoprocessing/ImageJ/nifti_io/CoordinateMapper.java
  ImageJ.nifti_io.CoordinateMapper
 videoprocessing/ImageJ/Thresholder.java
  videoprocessing.ImageJ.Thresholder
-Main.java
- Main
 videoprocessing/VideoProcessor.java
  videoprocessing.VideoProcessor
+Main.java
+ Main
 UI/NewTiffReader.java
  UI.NewTiffReader
 UI/DataTab/MCVideoDepth.java
  UI.DataTab.MCVideoDepth
+UI/TiffListener.java
+ UI.TiffListener
+ UI.TiffListener$1
 videoprocessing/Video.java
  videoprocessing.Video
 videoprocessing/ImageJ/Stack_Splitter.java
@@ -41,45 +44,45 @@ videoprocessing/ImageJ/ParticleAnalyzer.java
  videoprocessing.ImageJ.ParticleAnalyzer
 UI/DataTab/MCVideoPlanar.java
  UI.DataTab.MCVideoPlanar
+UI/Controller.java
+ UI.Controller
+ UI.Controller$1
+UI/AnalyseListener.java
+ UI.AnalyseListener
+ UI.AnalyseListener$1
 UI/SaveTab/SaveROIs.java
  UI.SaveTab.SaveROIs
-videoprocessing/ImageJ/nifti_io/Nifti_writer.java
- ImageJ.nifti_io.Nifti_writer
-videoprocessing/ImageJ/Binary.java
- videoprocessing.ImageJ.Binary
 videoprocessing/process/CellAnalyzer.java
  videoprocessing.process.CellAnalyzer
 UI/SaveTab/SaveVideo.java
  UI.SaveTab.SaveVideo
-UI/DataTab/Data.java
- UI.DataTab.Data
- UI.DataTab.Data$1
+UI/UploadListener.java
+ UI.UploadListener
 UI/DataTab/ManualROISelection.java
  UI.DataTab.ManualROISelection
  UI.DataTab.ManualROISelection$1
  UI.DataTab.ManualROISelection$2
  UI.DataTab.ManualROISelection$3
-TiffReader.java
- TiffReader
 videoprocessing/ImageJ/nifti_io/NiftiHeader.java
  ImageJ.nifti_io.NiftiHeader
 videoprocessing/process/PlanarMotionCorrector.java
  videoprocessing.process.PlanarMotionCorrector
+TiffReader.java
+ TiffReader
 videoprocessing/Combiner.java
  videoprocessing.Combiner
-UI/UserInterface.java
- UI.UserInterface
+videoprocessing/ImageJ/nifti_io/Nifti_writer.java
+ ImageJ.nifti_io.Nifti_writer
 UI/Uploaded.java
  UI.Uploaded
+UI/DataTab/Data.java
+ UI.DataTab.Data
+ UI.DataTab.Data$1
+videoprocessing/ImageJ/Binary.java
+ videoprocessing.ImageJ.Binary
+UI/UserInterface.java
+ UI.UserInterface
 UI/HomeMenuListener.java
  UI.HomeMenuListener
-UI/AnalyseListener.java
- UI.AnalyseListener
- UI.AnalyseListener$1
-UI/UploadListener.java
- UI.UploadListener
-UI/Controller.java
- UI.Controller
- UI.Controller$1
 UI/MainMenu.java
  UI.MainMenu
