@@ -236,6 +236,7 @@ public class VideoProcessor{
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         // Headers and number of frames without depth motion
         StringBuilder sb = new StringBuilder();
         sb.append("ROI number,x coordinate(width),y coordinate(height),,,Number of frames without depth motions,");
