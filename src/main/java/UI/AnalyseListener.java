@@ -86,8 +86,9 @@ public class AnalyseListener implements ActionListener {
                 processing.dispose();
         }
         };
-        worker.execute(); //here the process thread initiates
         processing.setVisible(true);
+        worker.execute(); //here the process thread initiates
+
         try
         {
             worker.get(); //here the parent thread waits for completion

@@ -105,12 +105,13 @@ public class Cell {
     }
 
     // Save ROI as video so that it can be used later on to compute the mean intensity
-    public void setPixROI(LinkedList<ImagePlus>ijFrames, LinkedList<Integer> idxFramesInFocus){
+    public CellError setPixROI(LinkedList<ImagePlus>ijFrames, LinkedList<Integer> idxFramesInFocus){
         // Crop cell and ROI from full frames
         // Variable for temporary processing
         ImagePlus img;
         // Loop over valid frames for processing
         Rectangle rectangle = roiIntracellular.getBounds();
+        if(idxFramesInFocus.size()==0)return CellError.CELL_NO_FRAME_IN_FOCUS_ERROR;
         for(int j : idxFramesInFocus){
             double[] pix = new double[rectangle.width*rectangle.height];
             img = ijFrames.get(j);
@@ -126,15 +127,18 @@ public class Cell {
                     pix[y*x + y] = iP.getf(x,y);
             pixROI.add(pix);
         }
+        return CellError.CELL_SUCCESS;
     }
 
     // Compute mean intensity of ROI from saved video
-    public void computeMeanIntensity(boolean smooth){
+    public CellError computeMeanIntensity(boolean smooth){
+        if(pixROI.get(0).length==0) return CellError.CELL_NO_ROI_ERROR;
         int nPix = pixROI.get(0).length;
         meanIntensity = new double[pixROI.size()];
         // Find mean intensity of each frame
         for(int i=0;i< pixROI.size();i++)
             meanIntensity[i]= DoubleStream.of(pixROI.get(i)).sum() /nPix ;
+        return CellError.CELL_SUCCESS;
     }
 
     // Save mean intensity measurements to .cvs file

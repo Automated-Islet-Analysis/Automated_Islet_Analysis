@@ -7,14 +7,14 @@ import videoprocessing.Video;
 
 import java.util.LinkedList;
 
-public class Processor {
+public abstract class Processor {
     protected Video video;
 
     public Processor(Video video){
         this.video = video;
     }
 
-    public void run() {}
+    public abstract ProcessorError run();
 
     public LinkedList<ImagePlus> getIjFrames(){
         return video.getIjFrames();
