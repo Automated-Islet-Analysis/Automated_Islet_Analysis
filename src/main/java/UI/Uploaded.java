@@ -1,21 +1,20 @@
 package UI;
-
-import UI.AnalyseListener;
-import UI.UploadListener;
-
 import javax.swing.*;
 import java.awt.*;
 import java.lang.Exception;
 
 public class Uploaded extends JPanel {
     static JLabel filename;
-    static JPanel imgPanel;
+    static String filePath;
+    static JButton imgButton;
     JButton btnUpload, btnAnalyse;
     JPanel subHPanel;
 
     public Uploaded(){
+        filePath = "";
         // Empty img panel
-        imgPanel = new JPanel();
+        imgButton = new JButton();
+        imgButton.addActionListener(new TiffListener());
         // Label for the text
         filename = new JLabel("filename");
         filename.setFont(new Font(filename.getFont().getName(), Font.PLAIN, 30));
@@ -29,7 +28,7 @@ public class Uploaded extends JPanel {
 
         // Set layout
         setLayout(new FlowLayout(FlowLayout.CENTER, 200, 30));
-        add(imgPanel);
+        add(imgButton);
         add(filename);
 
         // Place buttons side by side
@@ -38,4 +37,5 @@ public class Uploaded extends JPanel {
         subHPanel.add(btnAnalyse);
         add(subHPanel);
     }
+
 }
