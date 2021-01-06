@@ -17,7 +17,7 @@ class TiffListener implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         // Get filename
-        String filepath = Uploaded.filePath;
+        String filepath = Uploaded.getFilePath();
         File file = new File(filepath);
 
         SeekableStream stream = null;

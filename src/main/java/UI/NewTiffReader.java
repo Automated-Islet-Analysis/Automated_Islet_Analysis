@@ -1,7 +1,5 @@
 package UI;
 
-import com.sun.media.jai.codec.TIFFDecodeParam;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
@@ -10,7 +8,6 @@ import java.awt.image.renderable.ParameterBlock;
 
 import javax.media.jai.JAI;
 import javax.media.jai.RenderedOp;
-import javax.media.jai.widget.ScrollingImagePanel;
 import javax.swing.*;
 
 public class NewTiffReader {
@@ -19,6 +16,7 @@ public class NewTiffReader {
     BufferedImage bufImage;
 
     public NewTiffReader(RenderedImage inputImg) {
+        System.setProperty("com.sun.media.jai.disableMediaLib", "true");
         ParameterBlock pb  = new ParameterBlock();
         pb.addSource(inputImg);// The source image
         pb.add(null);// The region of the image to scan. Null means all of it

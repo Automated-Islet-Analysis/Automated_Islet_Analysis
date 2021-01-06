@@ -26,16 +26,19 @@ public class AnalyseListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
         mainPanel.add(error);
         mainPanel.add(perError);
         mainPanel.add(checkPlanar);
         mainPanel.add(checkROI);
         mainPanel.add(checkDepth);
 
+        pop_up();
+    }
 
+
+    private void pop_up(){
         // Popup selection of parameters
-        int input = JOptionPane.showOptionDialog(null, mainPanel, "Customise analysis",
+        int input = JOptionPane.showOptionDialog(Controller.interframe, mainPanel, "Customise analysis",
                 JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null,
                 options, null);
 
@@ -46,54 +49,52 @@ public class AnalyseListener implements ActionListener {
             ROISelected= checkROI.isSelected();
             depthSelected= checkDepth.isSelected();
 
-            process(errorAllowed, planarSelected, ROISelected, depthSelected);
+            process();
             Controller.analysedImg = true; // Allow clicking of "Data" and "Save" tabs
         }else if(input==1){
             // help button
             System.out.println(input);
-            JOptionPane.showMessageDialog(null, "Choose the allowed margin of difference in cross-sectional area of the islet in between frames (suggested value: 10%)");
+            JOptionPane.showMessageDialog(Controller.interframe, "Choose the allowed margin of difference in cross-sectional area of the islet in between frames (suggested value: 10%)");
+            pop_up();
         }else if(input==2){
             // nothing to do close button
         }
     }
 
 
-    private void process(double errorAllowed, boolean planarSelected, boolean ROISelected, boolean depthSelected){
-        // Code for pop-up from https://riptutorial.com/swing/example/3977/create-a--please-wait-----popup
-        final JDialog processing = new JDialog(Controller.interframe);
-        JPanel p1 = new JPanel(new BorderLayout());
-        JLabel jLabel = new JLabel("Please wait, processing in progress!");
-        jLabel.setFont(new Font(jLabel.getFont().getName(),Font.PLAIN,20));
-        p1.add(jLabel, BorderLayout.CENTER);
-        processing.getContentPane().add(p1);
-        processing.setUndecorated(true);
-        processing.pack();
-        processing.setLocationRelativeTo(Controller.interframe);
-        processing.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-        processing.setModal(true);
+    private void process(){
+        final JDialog dialog = new JDialog(Controller.interframe,"");
+        JPanel panel = new JPanel(new FlowLayout());
+        JLabel text = new JLabel();
+        text.setText("The video is being processed, please wait");
+        Font font = text.getFont();
+        text.setFont(new Font(font.getFontName(),Font.PLAIN,20));
 
-        SwingWorker<String, Void> worker = new SwingWorker<String, Void>() {
+        SwingWorker<Void, Void> worker = new SwingWorker<Void,Void>() {
             @Override
-            protected String doInBackground() throws InterruptedException{
-                VideoProcessor videoProcessor = new VideoProcessor(new Video(UploadListener.getFilePath()));
-                videoProcessor.process((int) AnalyseListener.errorAllowed,AnalyseListener.planarSelected,
-                        AnalyseListener.depthSelected,AnalyseListener.ROISelected);
+            protected Void doInBackground() throws InterruptedException{
+                System.out.println("Analysing: " + Uploaded.getFilePath());
+                VideoProcessor videoProcessor = new VideoProcessor(new Video(Uploaded.getFilePath()));
+                videoProcessor.process((int) AnalyseListener.errorAllowed, AnalyseListener.planarSelected, AnalyseListener.depthSelected, AnalyseListener.ROISelected);
                 UserInterface.setVideoProcessor(videoProcessor);
-                return  "Done";
+                return null;
             }
+
             @Override
             protected void done() {
-                processing.dispose();
-        }
+                System.out.println("Processing done");
+                dialog.setVisible(false);
+                JOptionPane.showMessageDialog(Controller.interframe,"The processing is finished");
+            }
         };
-        processing.setVisible(true);
-        worker.execute(); //here the process thread initiates
 
-        try
-        {
-            worker.get(); //here the parent thread waits for completion
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
+        dialog.setUndecorated(true);
+        panel.add(text);
+        dialog.add(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(Controller.interframe);
+
+        worker.execute(); //here the process thread initiates
+        dialog.setVisible(true);
     }
 }

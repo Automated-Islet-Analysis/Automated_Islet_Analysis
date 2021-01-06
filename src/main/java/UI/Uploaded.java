@@ -3,11 +3,16 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Uploaded extends JPanel {
-    static JLabel filename;
-    static String filePath;
+    private static JLabel fileName;
+    private static String filePath;
     static JButton imgButton;
     JButton btnUpload, btnAnalyse;
     JPanel subHPanel;
+
+    public static JLabel getFileName() {return fileName;}
+    public static void setFileName(JLabel fileName) { Uploaded.fileName = fileName; }
+    public static String getFilePath() { return filePath;}
+    public static void setFilePath(String filePath) { Uploaded.filePath = filePath; }
 
     public Uploaded(){
         filePath = "";
@@ -15,9 +20,9 @@ public class Uploaded extends JPanel {
         imgButton = new JButton();
         imgButton.addActionListener(new TiffListener());
         // Label for the text
-        filename = new JLabel("filename");
-        filename.setFont(new Font(filename.getFont().getName(), Font.PLAIN, 30));
-        filename.setHorizontalAlignment(SwingConstants.CENTER);
+        fileName = new JLabel("fileName");
+        fileName.setFont(new Font(fileName.getFont().getName(), Font.PLAIN, 30));
+        fileName.setHorizontalAlignment(SwingConstants.CENTER);
 
         // Two buttons. Upload to change uploaded file. Analyse to process the file.
         btnUpload = new JButton("Upload");
@@ -28,7 +33,7 @@ public class Uploaded extends JPanel {
         // Set layout
         setLayout(new FlowLayout(FlowLayout.CENTER, 200, 30));
         add(imgButton);
-        add(filename);
+        add(fileName);
 
         // Place buttons side by side
         subHPanel = new JPanel(new GridLayout(1,2));
