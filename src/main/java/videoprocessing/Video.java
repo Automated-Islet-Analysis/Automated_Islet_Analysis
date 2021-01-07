@@ -77,7 +77,7 @@ public class Video {
     public void clearSEFrames(){SEFrames.clear();}
 
     // Load frames into vid ijFrames and SEFrames
-    private void readFrames() {
+    private VideoProcessorError readFrames() {
         // Open input file
         vid = new ImagePlus();
         Opener opener = new Opener();
@@ -95,14 +95,22 @@ public class Video {
         // Load individual files in linked list
         for (int i = 1; i <= numberOfFrames; i++) {
             FileSaver fileSaver = new FileSaver(ijFrames.get(i-1));
-            fileSaver.saveAsTiff(System.getProperty("user.dir") + "/temp.tif");
-            Image image;
-            image = SimpleITK.readImage(System.getProperty("user.dir") + "/temp.tif");
-            SEFrames.add(image);
-
+            try {
+                fileSaver.saveAsTiff(System.getProperty("user.dir") + "/temp.tif");
+                Image image;
+                image = SimpleITK.readImage(System.getProperty("user.dir") + "/temp.tif");
+                SEFrames.add(image);
+            }catch (Exception e){
+                return VideoProcessorError.VIDEO_PROCESSOR_TEMP_ERROR;
+            }
         }
         File file = new File(System.getProperty("user.dir") + "/temp.tif");
-        file.delete();
+        try {
+            file.delete();
+        }catch (Exception e){
+            return VideoProcessorError.VIDEO_PROCESSOR_TEMP_ERROR;
+        }
+        return VideoProcessorError.VIDEO_PROCESSOR_SUCCESS;
     }
 
     public ImagePlus framesToImagePlus(){

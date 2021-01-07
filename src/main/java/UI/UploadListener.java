@@ -12,17 +12,6 @@ import java.io.File;
 
 public class UploadListener implements ActionListener {
 
-    public static String getFilePath() {
-        return filePath;
-    }
-
-    public static void setFilePath(String filePath) {
-        UploadListener.filePath = filePath;
-    }
-
-    //create a static object of type string that will carry the path of the video
-    public static String filePath;
-
     @Override
 
     public void actionPerformed(ActionEvent e) {
@@ -35,15 +24,17 @@ public class UploadListener implements ActionListener {
         chooser.showOpenDialog(null);
 
         // Display the name of the file
-        Uploaded.filename.setText(chooser.getSelectedFile().getName());
-        Uploaded.filename.setFont(new Font(Uploaded.filename.getFont().getName(), Font.PLAIN, 20));
+        JLabel fileName = Uploaded.getFileName();
+        fileName.setText(chooser.getSelectedFile().getName());
+        fileName.setFont(new Font(fileName.getFont().getName(), Font.PLAIN, 20));
+        Uploaded.setFileName(fileName);
 
         // Save the path of the file
         File file = chooser.getSelectedFile();
-        Uploaded.filePath = file.getAbsolutePath();
+        Uploaded.setFilePath(file.getAbsolutePath());
 
         // Create rendered img and display it
-        RenderedImage src = JAI.create("fileload", Uploaded.filePath);
+        RenderedImage src = JAI.create("fileload", Uploaded.getFilePath());
         NewTiffReader tiffReader =  new NewTiffReader(src);
 
         Uploaded.imgButton.removeAll(); // If updating, remove previous image

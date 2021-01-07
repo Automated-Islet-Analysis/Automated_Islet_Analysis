@@ -4,12 +4,8 @@ import ij.ImagePlus;
 import ij.ImageStack;
 import ij.io.FileSaver;
 import ij.process.ImageProcessor;
-import videoprocessing.process.CellAnalyzer;
-import videoprocessing.process.CellFinder;
-import videoprocessing.process.DepthMotionCorrector;
-import videoprocessing.process.PlanarMotionCorrector;
+import videoprocessing.process.*;
 
-import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -45,18 +41,7 @@ public class VideoProcessor{
     }
 
     // Process video depending on input values
-    public void process(int thresholdArea,boolean planarMotionCorrect, boolean depthMotionCorrect,boolean findCells){
-        // pop-up for progress
-        JPanel popUp = new JPanel(new GridLayout(3,2));
-        JLabel jLabelPlanar = new JLabel();
-        JLabel jLabelDepth = new JLabel();
-        JLabel jLabelCells = new JLabel();
-        JLabel done = new JLabel();
-        done.setText(": Done!");
-        popUp.setSize(100,100);
-        popUp.setVisible(true);
-
-
+    public VideoProcessorError process(int thresholdArea,boolean planarMotionCorrect, boolean depthMotionCorrect,boolean findCells){
         // Set threshold for depth motion correction
         this.thresholdArea = thresholdArea;
 
@@ -68,16 +53,19 @@ public class VideoProcessor{
 
         // Perform planar motion correction (if needed)
         if(planarMotionCorrect){
-            jLabelPlanar.setText("Planar Motion correction in progress");
-            popUp.add(jLabelPlanar);
             System.out.println("Planar Motion correction in progress");
             PlanarMotionCorrector pMC = new PlanarMotionCorrector(video);
-            pMC.run();
+            ProcessorError processorError;
+            processorError =pMC.run();
+            if(processorError==ProcessorError.PROCESSOR_IMAGE_ERROR ||processorError==ProcessorError.PROCESSOR_NO_DATA_ERROR)
+                return VideoProcessorError.VIDEO_PROCESSOR_NOT_VIDEO_ERROR;
+            if(processorError==ProcessorError.PROCESSOR_TEMP_DELETE_ERROR || processorError==ProcessorError.PROCESSOR_TEMP_READ_ERROR || processorError==ProcessorError.PROCESSOR_TEMP_WRITE_ERROR)
+                return VideoProcessorError.VIDEO_PROCESSOR_TEMP_ERROR;
+
             video.setIjFrames(pMC.getIjFrames());
             video.setSEFrames(pMC.getSEFrames());
             // Create planar motion corrected video
             createPlanarCorrectionVid();
-            popUp.add(done);
             System.out.println("Done");
         }else{
             // Clear SEFrames to avoid running out of memory
@@ -86,16 +74,18 @@ public class VideoProcessor{
 
         // Perform depth motion correction (if needed)
         if (depthMotionCorrect) {
-            jLabelDepth.setText("Depth Motion correction in progress");
-            popUp.add(jLabelDepth);
             System.out.println("Depth Motion correction in progress");
             DepthMotionCorrector dMC = new DepthMotionCorrector(video,thresholdArea);
-            dMC.run();
+            ProcessorError processorError = dMC.run();
+            if(processorError==ProcessorError.PROCESSOR_NO_DATA_ERROR || processorError==ProcessorError.PROCESSOR_IMAGE_ERROR)
+                return VideoProcessorError.VIDEO_PROCESSOR_NOT_VIDEO_ERROR;
+            if(dMC.getIdxFramesInFocus().size()==0 ||dMC.getIdxFramesInFocus().size()==1 )
+                return VideoProcessorError.VIDEO_PROCESSOR_DEPTH_MOTION_ERROR;
+
             video.setIdxFramesInFocus(dMC.getIdxFramesInFocus());
             // Save depth motion corrected vid
             createDepthCorrectionVid();
             System.out.println("Done");
-            popUp.add(done);
         } else {
             // Set that all frames are valid for further processing
             LinkedList<Integer>idxFramesInFocus = new LinkedList<>();
@@ -105,37 +95,46 @@ public class VideoProcessor{
 
         // Perform automatic detection of Beta-cells (if needed)
         if(findCells){
-            jLabelCells.setText("Searching for Beta-cells");
-            popUp.add(jLabelCells);
             System.out.println("Searching for Beta-cells");
             //Find Beta-cells
             CellFinder cellFinder = new CellFinder(video,cellSize);
-            cellFinder.run();
+            ProcessorError processorError = cellFinder.run();
+            if(processorError==ProcessorError.PROCESSOR_CELL_OUT_OF_FRAME_ERROR)
+                return VideoProcessorError.VIDEO_PROCESSOR_OUT_OF_BOUNDS_ERROR;
+
             video.setCells(cellFinder.getCells());
-            done.setText(": Done, found "+video.getCells().size()+" cells");
-            popUp.add(done);
             System.out.println("Done, found "+video.getCells().size()+" cells");
         }
         // Save img that show the Cells/ROIs found for display on GUI
         createROIImage();
+        return VideoProcessorError.VIDEO_PROCESSOR_SUCCESS;
     }
 
     // Analyse the identified Beta-cells
-    public void analyseCells(){
+    public VideoProcessorError analyseCells(){
         System.out.println("Analysis Beta-cells");
         CellAnalyzer cellAnalyzer = new CellAnalyzer(video,roiSize);
-        cellAnalyzer.run();
+        ProcessorError processorError = cellAnalyzer.run();
+        if(processorError==ProcessorError.PROCESSOR_NO_DATA_ERROR)
+            return VideoProcessorError.VIDEO_PROCESSOR_NOT_VIDEO_ERROR;
+        if(processorError==ProcessorError.PROCESSOR_NO_FRAME_IN_FOCUS_ERROR)
+            return VideoProcessorError.VIDEO_PROCESSOR_DEPTH_MOTION_ERROR;
+
         video.setCells(cellAnalyzer.getCells());
         System.out.println("Done");
+        return VideoProcessorError.VIDEO_PROCESSOR_SUCCESS;
     }
 
     // Add multiple cells, used to add cells after manual selection of cells in GUI
-    public void addCells(LinkedList<int[]> cellCoors){
+    public VideoProcessorError addCells(LinkedList<int[]> cellCoors){
         for(int[] coor:cellCoors){
+            if(coor[0]-cellSize<0 || coor[1]-cellSize<0 || coor[0]+cellSize> video.getWidth() || coor[1]+cellSize> video.getWidth())
+                return VideoProcessorError.VIDEO_PROCESSOR_OUT_OF_BOUNDS_ERROR;
             Cell cell = new Cell(coor,video.getCells().size()+1,0, cellSize);
             // Add cell to video
             video.addCell(cell);
         }
+        return VideoProcessorError.VIDEO_PROCESSOR_SUCCESS;
     }
 
     private void createPlanarCorrectionVid(){
@@ -149,9 +148,16 @@ public class VideoProcessor{
         FileSaver fileSaver = new FileSaver(planarCorrectionVid);
     }
 
-    public void savePlanarCorrectionVid(String path){
+    public SaveError savePlanarCorrectionVid(String path){
+        if(planarCorrectionVid==null)
+            return SaveError.SAVE_NO_DATA_ERROR;
         FileSaver fileSaver = new FileSaver(planarCorrectionVid);
-        fileSaver.saveAsTiff(path );
+        try {
+            fileSaver.saveAsTiff(path);
+        }catch (Exception e){
+            return SaveError.SAVE_WRITE_ERROR;
+        }
+        return SaveError.SAVE_SUCCESS;
     }
 
     private void createDepthCorrectionVid(){
@@ -185,9 +191,16 @@ public class VideoProcessor{
         depthCorrectionVid =  combiner.combine(leftVid,rightVid);
     }
 
-    public void saveDepthCorrectionVid(String path){
+    public SaveError saveDepthCorrectionVid(String path){
+        if(depthCorrectionVid==null)
+            return SaveError.SAVE_NO_DATA_ERROR;
         FileSaver fileSaver = new FileSaver(depthCorrectionVid);
-        fileSaver.saveAsTiff(path);
+        try {
+            fileSaver.saveAsTiff(path);
+        }catch (Exception e){
+            return SaveError.SAVE_WRITE_ERROR;
+        }
+        return SaveError.SAVE_SUCCESS;
     }
 
     // Save image with cells shown as numbers for display in GUI
@@ -212,12 +225,16 @@ public class VideoProcessor{
     }
 
     // Save Image with all ROI shown
-    public void saveRoiImage(String path){
-        if(roiImage!=null) {
-            // Save modified first frame
-            FileSaver fileSaver = new FileSaver(roiImage);
+    public SaveError saveRoiImage(String path){
+        if(roiImage==null) return SaveError.SAVE_NO_DATA_ERROR;
+        // Save modified first frame
+        FileSaver fileSaver = new FileSaver(roiImage);
+        try {
             fileSaver.saveAsJpeg(path);
-        }else System.out.println("The ROI image was not created yet!");
+        }catch(Exception e){
+            return SaveError.SAVE_WRITE_ERROR;
+        }
+        return SaveError.SAVE_SUCCESS;
     }
 
     // Save Mean intensity measurements
@@ -227,7 +244,10 @@ public class VideoProcessor{
     }
 
     // Save a summary of the results of the processing
-    public void saveSummary(String path){
+    public SaveError saveSummary(String path){
+        if(video.getCells().size()==0)
+            return SaveError.SAVE_NO_DATA_ERROR;
+
         // Create buffer writer to write .cvs file
         BufferedWriter br = null;
         // Try to create buffer
@@ -235,6 +255,7 @@ public class VideoProcessor{
             br = new BufferedWriter(new FileWriter(path));
         } catch (IOException e) {
             e.printStackTrace();
+            return SaveError.SAVE_WRITE_ERROR;
         }
 
         // Headers and number of frames without depth motion
@@ -261,8 +282,9 @@ public class VideoProcessor{
             br.write(sb.toString());
             br.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            return SaveError.SAVE_WRITE_ERROR;
         }
+        return SaveError.SAVE_SUCCESS;
     }
 
 }

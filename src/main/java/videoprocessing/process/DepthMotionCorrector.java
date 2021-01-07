@@ -20,11 +20,13 @@ public class DepthMotionCorrector extends Processor {
     }
 
     @Override
-    public void run(){
+    public ProcessorError run(){
         // Find area of each frame
         // Initialise variable
         double area0=0;
         LinkedList<Integer> idxFramesInFocus = new LinkedList<>();
+        if(video.getNumberOfFrames()==0) return ProcessorError.PROCESSOR_NO_DATA_ERROR;
+        if(video.getNumberOfFrames()==1) return ProcessorError.PROCESSOR_IMAGE_ERROR;
         for (int i=0;i<video.getNumberOfFrames();i++) {
             ImagePlus forProcessing;
 
@@ -68,5 +70,8 @@ public class DepthMotionCorrector extends Processor {
             }
         }
         video.setIdxFramesInFocus(idxFramesInFocus);
+
+        return ProcessorError.PROCESSOR_SUCCESS;
     }
+
 }

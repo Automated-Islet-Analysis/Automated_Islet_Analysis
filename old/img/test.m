@@ -68,8 +68,8 @@ scatter(coo_uniq(:,2),coo_uniq(:,1),'linewidth',4)
 %% Plot Mean intensity results
 MI=[];
 for i=1:23
-    filename = "MI_data/"+num2str(i)+".csv";
-    Array=csvread(filename);
+    fileName = "MI_data/"+num2str(i)+".csv";
+    Array=csvread(fileName);
     MI = [MI;Array(1,:)];
 end
 plot(MI')

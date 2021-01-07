@@ -15,26 +15,41 @@ public class PlanarMotionCorrector extends Processor{
     }
 
     @Override
-    public void run(){
+    public ProcessorError run(){
         LinkedList<ImagePlus> ijFrames = new LinkedList<>();
+        LinkedList<Image> SEFrames = video.getSEFrames();
 
+        if(SEFrames.size()==0) return ProcessorError.PROCESSOR_NO_DATA_ERROR;
+        if(SEFrames.size()==1) return ProcessorError.PROCESSOR_IMAGE_ERROR;
         // Shift each frame using SimpleElastix
-        for (Image frame : video.getSEFrames()){
+        for (Image frame : SEFrames){
             Image out;
-            out = SimpleITK.elastix(video.getSEFrames().get(0),frame,"translation");
+            out = SimpleITK.elastix(SEFrames.get(0),frame,"translation");
 
-            SimpleITK.writeImage(out, "temp.nii");
+            try {
+                SimpleITK.writeImage(out, "temp.nii");
+            }catch (Exception e){
+                return ProcessorError.PROCESSOR_TEMP_WRITE_ERROR;
+            }
             File file = new File(System.getProperty("user.dir") + "/temp.nii");
-            ImageJ.nifti_io.Nifti_Reader nifti_reader = new ImageJ.nifti_io.Nifti_Reader();
-            ijFrames.add(nifti_reader.run(file));
-
+            try{
+                ImageJ.nifti_io.Nifti_Reader nifti_reader = new ImageJ.nifti_io.Nifti_Reader();
+                ijFrames.add(nifti_reader.run(file));
+            }catch (Exception e){
+                return ProcessorError.PROCESSOR_TEMP_READ_ERROR;
+            }
         }
-        new File(System.getProperty("user.dir") + "/temp.nii").delete();
+        try {
+            new File(System.getProperty("user.dir") + "/temp.nii").delete();
+        }catch (Exception e){
+            return ProcessorError.PROCESSOR_TEMP_DELETE_ERROR;
+        }
 
         video.setIjFrames(ijFrames);
         // Not needed anymore, better to delete it to reduce the risk of running out of memory
         video.clearSEFrames();
 
+        return ProcessorError.PROCESSOR_SUCCESS;
     }
 
 }

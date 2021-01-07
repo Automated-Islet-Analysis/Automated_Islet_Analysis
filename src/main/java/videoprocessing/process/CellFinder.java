@@ -18,7 +18,7 @@ public class CellFinder extends Processor {
     }
 
     @Override
-    public void run(){
+    public ProcessorError run(){
         // Variables for search of cells  after filtering
         // Number of peaks=cells to be found per frame
         final int nPeaksPerFrame = 15;
@@ -73,6 +73,7 @@ public class CellFinder extends Processor {
         // Loop over each image and find the nPeaksPerFrame highest peaks
         int width = video.getIjFrames().get(0).getWidth();
         int height = video.getIjFrames().get(0).getHeight();
+        if(video.getIdxFramesInFocus().size()==0) return ProcessorError.PROCESSOR_NO_FRAME_IN_FOCUS_ERROR;
         for (int i:video.getIdxFramesInFocus()){ //
             // Image to BufferImage for quicker 2D convolution
             BufferedImage bI;
@@ -135,9 +136,13 @@ public class CellFinder extends Processor {
                 cellCoor1[0]=coor.get(i)[0];
                 cellCoor1[1]=coor.get(i)[1];
                 coorUnique.add(coor.get(i));
-                addCell(cellCoor1,coor.get(i)[2]);
+                if(cellCoor1[0]-cellSize<0 || cellCoor1[1]-cellSize<0 || cellCoor1[0]+cellSize> video.getWidth() || cellCoor1[1]+cellSize> video.getWidth())
+                    return ProcessorError.PROCESSOR_CELL_OUT_OF_FRAME_ERROR;
+                else
+                    addCell(cellCoor1,coor.get(i)[2]);
             }
         }
+        return ProcessorError.PROCESSOR_SUCCESS;
     }
 
     // Add identified cell to video
