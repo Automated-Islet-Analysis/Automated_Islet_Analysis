@@ -49,6 +49,6 @@ public class Uploaded extends JPanel {
 
     public void setDim(){
         if(! (vidDisp.getIcon()==null))
-            setSize(vidDisp.getIcon().getIconWidth()+130,vidDisp.getIcon().getIconHeight()+200);
+            setSize(vidDisp.getIcon().getIconWidth()+50,vidDisp.getIcon().getIconHeight()+150);
     }
 }
