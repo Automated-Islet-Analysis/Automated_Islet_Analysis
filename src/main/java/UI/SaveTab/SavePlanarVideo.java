@@ -10,13 +10,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-public class SaveVideo extends JPanel implements ActionListener {
+public class SavePlanarVideo extends JPanel implements ActionListener {
 
     JButton saveButton;
     JTextArea log;
     JFileChooser chooser;
 
-    public SaveVideo(){
+    public SavePlanarVideo(){
         //create the file chooser
         chooser= new JFileChooser();
 
@@ -26,7 +26,7 @@ public class SaveVideo extends JPanel implements ActionListener {
                 "TIFF Images", "tif", "tiff");
         chooser.setFileFilter(filter);
         //Save button
-        saveButton=new JButton("Save Depth Corrected Video");
+        saveButton=new JButton("Save Planar Corrected Video");
         saveButton.addActionListener(this);
         JPanel panel=new JPanel();
         panel.add(saveButton);
@@ -37,7 +37,7 @@ public class SaveVideo extends JPanel implements ActionListener {
     @Override
 
     public void actionPerformed(ActionEvent e) {
-        int userSelection= chooser.showSaveDialog(SaveVideo.this);
+        int userSelection= chooser.showSaveDialog(SavePlanarVideo.this);
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = chooser.getSelectedFile();

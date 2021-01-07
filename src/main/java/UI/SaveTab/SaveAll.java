@@ -1,4 +1,6 @@
 package UI.SaveTab;
 
-public class SaveAll {
+import java.awt.*;
+
+public class SaveAll extends Container {
 }

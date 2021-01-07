@@ -4,6 +4,7 @@ import UI.DataTab.MCVideoDepth;
 import UI.DataTab.MCVideoPlanar;
 import UI.DataTab.ROIs;
 import UI.DataTab.Data;
+import UI.SaveTab.*;
 import videoprocessing.VideoProcessor;
 
 import javax.swing.*;
@@ -21,6 +22,11 @@ public class Controller extends JFrame {
     static MCVideoDepth mcvidDepth;
     static Data data;
     static Uploaded upload;
+    static SaveVideo savevideo;
+    static SaveData savedata;
+    static SaveAll saveall;
+    static SaveROIs saverois;
+    static SavePlanarVideo saveplanarvideo;
 
     static public boolean analysedImg;
 
@@ -49,6 +55,12 @@ public class Controller extends JFrame {
         mcvidDepth = new MCVideoDepth();
         data = new Data();
         upload = new Uploaded();
+        savevideo= new SaveVideo();
+        savedata=new SaveData();
+        saveall=new SaveAll();
+        saverois=new SaveROIs();
+        saveplanarvideo=new SavePlanarVideo();
+
 
         interframe.setVisible(true);
         setDisplay();
@@ -108,6 +120,43 @@ public class Controller extends JFrame {
                 popupNoFile();
             }
         }
+        else if(display.equals("SaveROIs")){
+            if (analysedImg == true) {
+                interframe.setContentPane(saverois);
+                interframe.invalidate();
+                interframe.validate();
+            } else{
+                popupNoFile();
+            }
+        }
+        else if(display.equals("SaveAll")){
+            if (analysedImg == true) {
+                interframe.setContentPane(saveall);
+                interframe.invalidate();
+                interframe.validate();
+            } else{
+                popupNoFile();
+            }
+        }
+        else if(display.equals("SaveDepthVideo")){
+            if (analysedImg == true) {
+                interframe.setContentPane(savevideo);
+                interframe.invalidate();
+                interframe.validate();
+            } else{
+                popupNoFile();
+            }
+        }
+        else if(display.equals("SavePlanarVideo")){
+            if (analysedImg == true) {
+                interframe.setContentPane(saveplanarvideo);
+                interframe.invalidate();
+                interframe.validate();
+            } else{
+                popupNoFile();
+            }
+        }
+
     }
 
     private static void popupNoFile(){

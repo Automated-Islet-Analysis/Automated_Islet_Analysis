@@ -1,4 +1,6 @@
 package UI.SaveTab;
 
-public class SaveROIs {
+import java.awt.*;
+
+public class SaveROIs extends Container {
 }
