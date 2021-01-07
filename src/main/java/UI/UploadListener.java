@@ -42,6 +42,7 @@ public class UploadListener implements ActionListener {
 
         // Refresh the frame display
         Controller.display = "Upload";
+        Controller.fileUploaded=true;
         Controller.setDisplay();
     }
 }

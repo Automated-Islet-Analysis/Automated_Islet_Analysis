@@ -72,12 +72,12 @@ public class VideoProcessor{
             video.setIjFrames(pMC.getIjFrames());
             video.setSEFrames(pMC.getSEFrames());
             // Create planar motion corrected video
+            createPlanarCorrectionVid();
             System.out.println("Done");
         }else{
             // Clear SEFrames to avoid running out of memory
             video.clearSEFrames();
         }
-        createPlanarCorrectionVid();
 
         // Perform depth motion correction (if needed)
         if (depthMotionCorrect) {
@@ -90,8 +90,9 @@ public class VideoProcessor{
                 return VideoProcessorError.VIDEO_PROCESSOR_DEPTH_MOTION_ERROR;
 
             video.setIdxFramesInFocus(dMC.getIdxFramesInFocus());
-            // Save depth motion corrected vid
 
+            // Create depth motion corrected vid
+            createDepthCorrectionVid();
             System.out.println("Done");
         } else {
             // Set that all frames are valid for further processing
@@ -99,7 +100,6 @@ public class VideoProcessor{
             for(int i=0;i<video.getNumberOfFrames();i++)idxFramesInFocus.add(i);
             video.setIdxFramesInFocus(idxFramesInFocus);
         }
-        createDepthCorrectionVid();
 
         // Perform automatic detection of Beta-cells (if needed)
         if(findCells){

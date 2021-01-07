@@ -49,11 +49,20 @@ public class MCVideoPlanar extends JPanel {
         VideoProcessor videoProcessor = UserInterface.getVideoProcessor();
         ImagePlus video = videoProcessor.getPlanarCorrectionVid();
 
-        BufferedImage img = video.getBufferedImage();
-        img = resizeImage(img,(int)Math.round(img.getWidth()*0.3),(int)Math.round(img.getHeight()*0.3));
-        vid.setIcon(new ImageIcon(img));
-        vid.setVisible(true);
-        setSize(vid.getIcon().getIconWidth()+100,vid.getIcon().getIconHeight()+130);
+        if(video==null){
+            remove(msg);
+            msg = new JLabel("The video was not corrected for planar motion, no preview available!");
+            msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,20));
+            add(msg,BorderLayout.CENTER);
+            setSize(700,700);
+        }
+        else{
+            BufferedImage img = video.getBufferedImage();
+            img = resizeImage(img,(int)Math.round(img.getWidth()*0.3),(int)Math.round(img.getHeight()*0.3));
+            vid.setIcon(new ImageIcon(img));
+            vid.setVisible(true);
+            setSize(vid.getIcon().getIconWidth()+100,vid.getIcon().getIconHeight()+130);
+        }
     }
 
     private void playVideo(){

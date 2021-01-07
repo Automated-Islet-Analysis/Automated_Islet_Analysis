@@ -161,5 +161,6 @@ public class ManualROISelection extends JPanel{
         Controller.interframe.setContentPane(rois);
         Controller.interframe.invalidate();
         Controller.interframe.validate();
+        if(newCells.size()>0)Controller.meanIntensityMeasured=false;
     }
 }
