@@ -150,7 +150,7 @@ public class CellFinder extends Processor {
         // Create a Cell
         Cell cell = new Cell(cellCoor,video.getCells().size()+1,frameNum, cellSize);
         // Add cell to video
-        video.addCell(cell);
+//        video.addCell(cell);
     }
 
 }
