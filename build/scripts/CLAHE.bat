@@ -82,7 +82,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\CLAHE-1.0-SNAPSHOT.jar;%APP_HOME%\lib\ij.jar;%APP_HOME%\lib\jai_core-1.1.3.jar;%APP_HOME%\lib\javacpp-1.4.1.jar;%APP_HOME%\lib\jmf-2.1.1e.jar;%APP_HOME%\lib\opencv-3.4.1-1.4.1.jar;%APP_HOME%\lib\simplelastix.jar;%APP_HOME%\lib\sun-jai_codec.jar;%APP_HOME%\lib\com.springsource.javax.media.jai.codec-1.1.3.jar;%APP_HOME%\lib\com.springsource.javax.media.jai.core-1.1.3.jar
+set CLASSPATH=%APP_HOME%\lib\CLAHE-1.0-SNAPSHOT.jar;%APP_HOME%\lib\ij.jar;%APP_HOME%\lib\simplelastix.jar;%APP_HOME%\lib\com.springsource.javax.media.jai.codec-1.1.3.jar;%APP_HOME%\lib\com.springsource.javax.media.jai.core-1.1.3.jar
 
 
 @rem Execute CLAHE

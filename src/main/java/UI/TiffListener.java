@@ -6,16 +6,23 @@ import javax.media.jai.OpImage;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.Timer;
 
 
-public class TiffListener implements ActionListener {
-    @Override
+public class TiffListener implements MouseListener {
+//    @Override
+//
+//    public void actionPerformed(ActionEvent e) {
+//
+//    }
 
-    public void actionPerformed(ActionEvent e) {
+    @Override
+    public void mouseClicked(MouseEvent e) {
         // Get filename
         String filepath = Uploaded.getFilePath();
         File file = new File(filepath);
@@ -61,12 +68,31 @@ public class TiffListener implements ActionListener {
 
                 NewTiffReader tiffReader = new NewTiffReader(renderedImg);
                 // Display the image
-                Uploaded.imgButton.setIcon(tiffReader.getImg());
-                Uploaded.imgButton.setVisible(true);
+                Uploaded.vidDisp.setIcon(tiffReader.getImg());
+                Uploaded.vidDisp.setVisible(true);
             }
         });
         timer.setInitialDelay(0);
         timer.start();
     }
 
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }

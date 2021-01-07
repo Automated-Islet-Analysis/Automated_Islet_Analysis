@@ -84,8 +84,6 @@ public class AnalyseListener implements ActionListener {
                 VideoProcessor videoProcessor = new VideoProcessor(new Video(Uploaded.getFilePath()));
                 videoProcessor.process((int) AnalyseListener.errorAllowed, AnalyseListener.planarSelected, AnalyseListener.depthSelected, AnalyseListener.ROISelected);
                 UserInterface.setVideoProcessor(videoProcessor);
-                videoProcessor.saveDepthCorrectionVid("/Users/sachamaire/Desktop/Travail/Etudes/Imperial/Year3/Programming3/Temp/DepthCorrected");
-                videoProcessor.savePlanarCorrectionVid("/Users/sachamaire/Desktop/Travail/Etudes/Imperial/Year3/Programming3/Temp/PlannarCorrected");
                 return null;
             }
 

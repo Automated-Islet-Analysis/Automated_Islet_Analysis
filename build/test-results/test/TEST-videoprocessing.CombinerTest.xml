@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="videoprocessing.CombinerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-07T15:05:54" hostname="LAPTOP-OK0DBQNM" time="0.126">
+<testsuite name="videoprocessing.CombinerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-07T17:53:00" hostname="DESKTOP-HF1TTVU" time="0.155">
   <properties/>
-  <testcase name="testCombining" classname="videoprocessing.CombinerTest" time="0.126"/>
+  <testcase name="testCombining" classname="videoprocessing.CombinerTest" time="0.155"/>
   <system-out><![CDATA[Unsupported format or file not found:
-C:\Users\livia\OneDrive\Documents\GitHub\Image_treatment-/img/Unit_testing/combinedVid1.tif
+C:\Users\olivi\OneDrive - Imperial College London\Year 3\Programming 3\Project\New_Image_treatment\Image_treatment-/img/Unit_testing/combinedVid1.tif
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

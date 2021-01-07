@@ -82,6 +82,8 @@ public class Controller extends JFrame {
         else if(display.equals("MCVideoPlanar")){
             if (analysedImg == true) {
                 interframe.setContentPane(mcvidPlanar);
+                mcvidPlanar.update();
+                interframe.setSize(mcvidPlanar.getWidth(),mcvidPlanar.getHeight());
                 interframe.invalidate();
                 interframe.validate();
             } else{

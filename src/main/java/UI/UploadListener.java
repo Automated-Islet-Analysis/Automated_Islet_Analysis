@@ -37,8 +37,8 @@ public class UploadListener implements ActionListener {
         RenderedImage src = JAI.create("fileload", Uploaded.getFilePath());
         NewTiffReader tiffReader =  new NewTiffReader(src);
 
-        Uploaded.imgButton.removeAll(); // If updating, remove previous image
-        Uploaded.imgButton.setIcon(tiffReader.getImg());
+        Uploaded.vidDisp.removeAll(); // If updating, remove previous image
+        Uploaded.vidDisp.setIcon(tiffReader.getImg());
 
         // Refresh the frame display
         Controller.display = "Upload";

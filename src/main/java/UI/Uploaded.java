@@ -18,6 +18,7 @@ public class Uploaded extends JPanel {
     static JButton imgButton;
     JButton btnUpload, btnAnalyse;
     JPanel subHPanel;
+    static JLabel vidDisp;
 
     public static JLabel getFileName() {return fileName;}
     public static void setFileName(JLabel fileName) { Uploaded.fileName = fileName; }
@@ -26,9 +27,13 @@ public class Uploaded extends JPanel {
 
     public Uploaded(){
         filePath = "";
+
+        vidDisp = new JLabel();
+        vidDisp.addMouseListener(new TiffListener());
+
         // Empty img panel
-        imgButton = new JButton();
-        imgButton.addActionListener(new TiffListener());
+//        imgButton = new JButton();
+//        imgButton.addActionListener(new TiffListener());
 
         // Label for the text
         fileName = new JLabel("fileName");
@@ -43,7 +48,7 @@ public class Uploaded extends JPanel {
 
         // Set layout
         setLayout(new FlowLayout(FlowLayout.CENTER));
-        add(imgButton);
+        add(vidDisp);
         add(fileName,BorderLayout.WEST);
 
         // Place buttons side by side
@@ -55,7 +60,7 @@ public class Uploaded extends JPanel {
 
 
     public void setDim(){
-        if(! (imgButton.getIcon()==null))
-            setSize(imgButton.getIcon().getIconWidth()+100,imgButton.getIcon().getIconHeight()+130);
+        if(! (vidDisp.getIcon()==null))
+            setSize(vidDisp.getIcon().getIconWidth()+100,vidDisp.getIcon().getIconHeight()+130);
     }
 }

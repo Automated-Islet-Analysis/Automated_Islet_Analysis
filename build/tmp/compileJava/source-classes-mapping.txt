@@ -12,9 +12,8 @@ videoprocessing/ImageJ/nifti_io/Nifti_Reader.java
  ImageJ.nifti_io.Nifti_Reader
 videoprocessing/process/DepthMotionCorrector.java
  videoprocessing.process.DepthMotionCorrector
-UI/DataTab/ROIs.java
- UI.DataTab.ROIs
- UI.DataTab.ROIs$1
+UI/UserInterface.java
+ UI.UserInterface
 videoprocessing/ImageJ/nifti_io/CoordinateMapper.java
  ImageJ.nifti_io.CoordinateMapper
 videoprocessing/ImageJ/Thresholder.java
@@ -27,8 +26,8 @@ videoprocessing/SaveError.java
  videoprocessing.SaveError
 UI/NewTiffReader.java
  UI.NewTiffReader
-UI/DataTab/MCVideoDepth.java
- UI.DataTab.MCVideoDepth
+UI/SaveTab/SaveROIs.java
+ UI.SaveTab.SaveROIs
 videoprocessing/Video.java
  videoprocessing.Video
 videoprocessing/ImageJ/Binary.java
@@ -37,50 +36,53 @@ videoprocessing/ImageJ/Stack_Splitter.java
  videoprocessing.ImageJ.Stack_Splitter
 videoprocessing/process/CellFinder.java
  videoprocessing.process.CellFinder
-videoprocessing/Cell.java
- videoprocessing.Cell
+UI/DataTab/ROIs.java
+ UI.DataTab.ROIs
+ UI.DataTab.ROIs$1
 UI/Home.java
  UI.Home
 videoprocessing/ImageJ/ParticleAnalyzer.java
  videoprocessing.ImageJ.ParticleAnalyzer
 UI/DataTab/MCVideoPlanar.java
  UI.DataTab.MCVideoPlanar
+ UI.DataTab.MCVideoPlanar$1
+ UI.DataTab.MCVideoPlanar$2
 videoprocessing/VideoProcessorError.java
  videoprocessing.VideoProcessorError
 videoprocessing/process/ProcessorError.java
  videoprocessing.process.ProcessorError
-videoprocessing/Combiner.java
- videoprocessing.Combiner
-videoprocessing/ImageJ/nifti_io/Nifti_writer.java
- ImageJ.nifti_io.Nifti_writer
-UI/DataTab/Data.java
- UI.DataTab.Data
- UI.DataTab.Data$1
+videoprocessing/Cell.java
+ videoprocessing.Cell
+UI/HomeMenuListener.java
+ UI.HomeMenuListener
+UI/MainMenu.java
+ UI.MainMenu
 videoprocessing/process/CellAnalyzer.java
  videoprocessing.process.CellAnalyzer
 UI/SaveTab/SaveVideo.java
  UI.SaveTab.SaveVideo
-videoprocessing/CellError.java
- videoprocessing.CellError
-UI/SaveTab/SaveROIs.java
- UI.SaveTab.SaveROIs
+UI/DataTab/Data.java
+ UI.DataTab.Data
+ UI.DataTab.Data$1
+UI/DataTab/ManualROISelection.java
+ UI.DataTab.ManualROISelection
+ UI.DataTab.ManualROISelection$1
+ UI.DataTab.ManualROISelection$2
+ UI.DataTab.ManualROISelection$3
 TiffReader.java
  TiffReader
 videoprocessing/ImageJ/nifti_io/NiftiHeader.java
  ImageJ.nifti_io.NiftiHeader
 videoprocessing/process/PlanarMotionCorrector.java
  videoprocessing.process.PlanarMotionCorrector
-UI/DataTab/ManualROISelection.java
- UI.DataTab.ManualROISelection
- UI.DataTab.ManualROISelection$1
- UI.DataTab.ManualROISelection$2
- UI.DataTab.ManualROISelection$3
-UI/UserInterface.java
- UI.UserInterface
-UI/HomeMenuListener.java
- UI.HomeMenuListener
-UI/MainMenu.java
- UI.MainMenu
+videoprocessing/Combiner.java
+ videoprocessing.Combiner
+videoprocessing/CellError.java
+ videoprocessing.CellError
+videoprocessing/ImageJ/nifti_io/Nifti_writer.java
+ ImageJ.nifti_io.Nifti_writer
+UI/DataTab/MCVideoDepth.java
+ UI.DataTab.MCVideoDepth
 UI/Controller.java
  UI.Controller
  UI.Controller$1

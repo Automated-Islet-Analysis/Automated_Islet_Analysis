@@ -22,20 +22,20 @@ public class MCVideoDepth extends JPanel {
         Uploaded.setFilePath(filePath);
         
         // Empty img panel
-        imgButtonDepth = new JButton();
-        imgButtonDepth.addActionListener(new TiffListener());
+//        imgButtonDepth = new JButton();
+//        imgButtonDepth.addActionListener(new TiffListener());
 
-        //Set the uploaded button
-        imgButtonDepth=Uploaded.getImgButton();
-
-
-        // Label for the text
-        fileName.setFont(new Font(fileName.getFont().getName(), Font.PLAIN, 30));
-        fileName.setHorizontalAlignment(SwingConstants.CENTER);
-
-        // Set layout
-        setLayout(new FlowLayout(FlowLayout.CENTER, 200, 30));
-        add(fileName);
+//        //Set the uploaded button
+//        imgButtonDepth=Uploaded.getImgButton();
+//
+//
+//        // Label for the text
+//        fileName.setFont(new Font(fileName.getFont().getName(), Font.PLAIN, 30));
+//        fileName.setHorizontalAlignment(SwingConstants.CENTER);
+//
+//        // Set layout
+//        setLayout(new FlowLayout(FlowLayout.CENTER, 200, 30));
+//        add(fileName);
 
     }
 }

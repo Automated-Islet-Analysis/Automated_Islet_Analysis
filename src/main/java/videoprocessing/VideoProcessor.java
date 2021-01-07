@@ -27,6 +27,8 @@ public class VideoProcessor{
 
     // Image with all the roi indicated with their roi number
     private ImagePlus roiImage;
+
+
     // Video to show planar motion correction
     private ImagePlus planarCorrectionVid;
     // Video to show depth motion correction
@@ -37,6 +39,8 @@ public class VideoProcessor{
     public double getThresholdArea() { return thresholdArea; }
     public ImagePlus getRoiImage() { return roiImage; }
     public int getCellSize() { return cellSize; }
+    public ImagePlus getPlanarCorrectionVid() { return planarCorrectionVid; }
+    public ImagePlus getDepthCorrectionVid() {  return depthCorrectionVid;  }
 
     // Constructor
     public VideoProcessor(Video video){
@@ -68,12 +72,12 @@ public class VideoProcessor{
             video.setIjFrames(pMC.getIjFrames());
             video.setSEFrames(pMC.getSEFrames());
             // Create planar motion corrected video
-            createPlanarCorrectionVid();
             System.out.println("Done");
         }else{
             // Clear SEFrames to avoid running out of memory
             video.clearSEFrames();
         }
+        createPlanarCorrectionVid();
 
         // Perform depth motion correction (if needed)
         if (depthMotionCorrect) {
@@ -87,7 +91,7 @@ public class VideoProcessor{
 
             video.setIdxFramesInFocus(dMC.getIdxFramesInFocus());
             // Save depth motion corrected vid
-            createDepthCorrectionVid();
+
             System.out.println("Done");
         } else {
             // Set that all frames are valid for further processing
@@ -95,6 +99,7 @@ public class VideoProcessor{
             for(int i=0;i<video.getNumberOfFrames();i++)idxFramesInFocus.add(i);
             video.setIdxFramesInFocus(idxFramesInFocus);
         }
+        createDepthCorrectionVid();
 
         // Perform automatic detection of Beta-cells (if needed)
         if(findCells){
