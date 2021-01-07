@@ -47,15 +47,17 @@ public class AnalyseListener implements ActionListener {
             // Convert the inputs to int or booleans to be used by function videoProcessor
             try{
             errorAllowed = Integer.parseInt(perError.getText());
-            } catch (InputMismatchException ex){
-                System.out.println("Enter int");
-            }
             planarSelected= checkPlanar.isSelected();
             ROISelected= checkROI.isSelected();
             depthSelected= checkDepth.isSelected();
 
             process();
             Controller.analysedImg = true; // Allow clicking of "Data" and "Save" tabs
+
+            } catch (NumberFormatException ex){
+                JOptionPane.showMessageDialog(Controller.interframe, "Please enter an integer");
+            }
+
         }else if(input==1){
             // help button
             System.out.println(input);
