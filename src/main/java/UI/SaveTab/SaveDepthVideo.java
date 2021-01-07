@@ -1,6 +1,7 @@
 package UI.SaveTab;
 
 import UI.Controller;
+import ij.ImagePlus;
 import videoprocessing.VideoProcessor;
 
 import javax.swing.*;
@@ -9,12 +10,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-public class SaveVideo extends JPanel implements ActionListener {
-
+public class SaveDepthVideo extends JPanel implements ActionListener {
     @Override
 
     public void actionPerformed(ActionEvent e) {
-
 
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
