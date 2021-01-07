@@ -5,6 +5,7 @@ package UI.DataTab;
 
 import UI.Controller;
 import UI.UserInterface;
+import videoprocessing.Cell;
 import videoprocessing.VideoProcessor;
 
 import java.awt.*;
@@ -18,18 +19,17 @@ import javax.swing.*;
 
 
 public class ManualROISelection extends JPanel{
-
-
     // Image for display
     BufferedImage image;
     // Stores number of ROI/cells shown on display
     private int numROI=0;
+    private int cellSize;
     // Dimensions of video
     Dimension size = new Dimension();
     // Scaling of video used for display so that it fits on screen
     private double scalingOfImg = 0.65;
     // Stores coordinates of selected ROIs
-    private LinkedList<int[]> newROICoor = new LinkedList();
+    private LinkedList<Cell> newCells = new LinkedList<>();
     // Hold image for display
     private JLabel img;
 
@@ -44,15 +44,15 @@ public class ManualROISelection extends JPanel{
             Graphics g = img.getGraphics();
 
             // Draw number of selected new ROI
-            g.setColor(Color.red);
+            g.setColor(Color.blue);
             g.setFont(new Font(g.getFont().getFontName(), Font.PLAIN, 12));
-            drawCenteredString(Integer.toString(numROI++),x,y,g);
+            drawCenteredString(Integer.toString(numROI++ + 1),x,y,g);
 
             // Add coordinates of new ROI
             int[] coor = new int[2];
             coor[0]= (int) Math.floor(x/scalingOfImg);
             coor[1]= (int) Math.floor(y/scalingOfImg);
-            newROICoor.add(coor);
+            newCells.add(new Cell(coor,numROI,0,cellSize));
         }
         @Override
         public void mouseClicked(MouseEvent e  ) {}
@@ -65,10 +65,11 @@ public class ManualROISelection extends JPanel{
     };
 
     // Constructor
-    public ManualROISelection(BufferedImage image, int numROI) {
+    public ManualROISelection(BufferedImage image, int numROI,int cellSize) {
         // Set variables needed for display
         this.numROI = numROI;
         this.image = image;
+        this.cellSize=cellSize;
         size.setSize(image.getWidth()*scalingOfImg, image.getHeight()*scalingOfImg);
 
         // Resize image otherwise img is too big
@@ -79,17 +80,18 @@ public class ManualROISelection extends JPanel{
     }
 
     // Open pop up and allow selection of new ROI and save them or disregard the changes
-    public LinkedList<int[]> run() {
+    public LinkedList<Cell> run() {
         // Pop-up window
-        JFrame f = new JFrame("Select new ROIs");
-        f.setLayout(new FlowLayout(FlowLayout.LEFT));
+        JDialog dialog = new JDialog(Controller.interframe,"Select new ROIs",true);
+//        JFrame f = new JFrame(null,"Select new ROIs");
+        setLayout(new FlowLayout(FlowLayout.LEFT));
 
         // Add JFrame that hold image
-        f.add(img,BorderLayout.PAGE_START);
+        add(img,BorderLayout.PAGE_START);
 
         // Create JPanel to hold buttons in gridlayout
-        JPanel jPanel = new JPanel();
-        jPanel.setLayout(new GridLayout(2,1));
+        JPanel jPanel = new JPanel(new GridLayout(1,2));
+
         // Button to confirm the newly added ROI/Cells
         JButton jButton = new JButton("Confirm");
         // Add action listener
@@ -98,7 +100,7 @@ public class ManualROISelection extends JPanel{
             // Save newly selected ROI/Cells to the videoProcessor
             public void actionPerformed(ActionEvent e) {
                 addNewROIS();
-                f.dispose();
+                dialog.dispose();
             }
         });
         jButton.setSize(100,30);
@@ -107,21 +109,23 @@ public class ManualROISelection extends JPanel{
         jButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                f.dispose();
+                dialog.dispose();
             }
         });
         jButton1.setSize(100,30);
         jPanel.add(jButton);
         jPanel.add(jButton1);
-        f.add(jPanel,BorderLayout.WEST);
+        add(jPanel);
 
-        // Display pop-up
-        f.setSize(size.width+105,size.height);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setResizable(false);
-        f.setVisible(true);
+        setSize(size.width+30,size.height+90);
+        dialog.setContentPane(this);
+        dialog.setSize(this.getSize());
+        dialog.setLocationRelativeTo(Controller.interframe);
+        dialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        dialog.setResizable(false);
+        dialog.setVisible(true);
 
-        return newROICoor;
+        return newCells;
     }
 
     // Resize image to fit on display
@@ -148,8 +152,14 @@ public class ManualROISelection extends JPanel{
     // Add manually selected ROI to VideoProcessor
     private void addNewROIS(){
         VideoProcessor videoProcessor= UserInterface.getVideoProcessor();
-        videoProcessor.addCells(newROICoor);
+        videoProcessor.addCells(newCells);
+        videoProcessor.createROIImage();
         UserInterface.setVideoProcessor(videoProcessor);
 
+        ROIs rois = new ROIs();
+        rois.updatePanel();
+        Controller.interframe.setContentPane(rois);
+        Controller.interframe.invalidate();
+        Controller.interframe.validate();
     }
 }

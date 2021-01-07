@@ -12,7 +12,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class Controller extends JFrame {
-    static JFrame interframe;
+    public static JFrame interframe;
     static public String display;
 
     static Home home;
@@ -63,12 +63,16 @@ public class Controller extends JFrame {
         }
         else if(display.equals("Upload")){
             interframe.setContentPane(upload);
+            upload.setDim();
+            interframe.setSize(upload.getWidth(),upload.getHeight());
             interframe.invalidate();
             interframe.validate();
         }
         else if(display.equals("ROIs")){
             if (analysedImg == true){
+                rois.updatePanel();
                 interframe.setContentPane(rois);
+                interframe.setSize(rois.getWidth(),rois.getHeight());
                 interframe.invalidate();
                 interframe.validate();
             } else{

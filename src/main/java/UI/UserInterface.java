@@ -4,7 +4,7 @@ import videoprocessing.VideoProcessor;
 
 public class UserInterface {
 
-    private static VideoProcessor videoProcessor;
+    private static VideoProcessor videoProcessor = new VideoProcessor(null);
 
     public static VideoProcessor getVideoProcessor() {
         return videoProcessor;

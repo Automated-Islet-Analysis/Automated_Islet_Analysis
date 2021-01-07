@@ -65,10 +65,8 @@ class TiffListener implements ActionListener {
                 Uploaded.imgButton.setVisible(true);
             }
         });
-
         timer.setInitialDelay(0);
         timer.start();
-
     }
 
 }

@@ -19,6 +19,7 @@ public class Uploaded extends JPanel {
         // Empty img panel
         imgButton = new JButton();
         imgButton.addActionListener(new TiffListener());
+
         // Label for the text
         fileName = new JLabel("fileName");
         fileName.setFont(new Font(fileName.getFont().getName(), Font.PLAIN, 30));
@@ -31,15 +32,20 @@ public class Uploaded extends JPanel {
         btnAnalyse.addActionListener(new AnalyseListener());
 
         // Set layout
-        setLayout(new FlowLayout(FlowLayout.CENTER, 200, 30));
+        setLayout(new FlowLayout(FlowLayout.CENTER));
         add(imgButton);
-        add(fileName);
+        add(fileName,BorderLayout.WEST);
 
         // Place buttons side by side
         subHPanel = new JPanel(new GridLayout(1,2));
         subHPanel.add(btnUpload);
         subHPanel.add(btnAnalyse);
-        add(subHPanel);
+        add(subHPanel,BorderLayout.EAST);
     }
 
+
+    public void setDim(){
+        if(! (imgButton.getIcon()==null))
+            setSize(imgButton.getIcon().getIconWidth()+100,imgButton.getIcon().getIconHeight()+130);
+    }
 }

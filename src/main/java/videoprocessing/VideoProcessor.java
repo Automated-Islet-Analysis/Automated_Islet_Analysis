@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 public class VideoProcessor{
+
     // Size of region at the identified cell where the ROI can be located (cellSize x cellSize)
     private int cellSize =50;
     // Size of the regions of interest (roiSize x roiSize)
@@ -34,6 +35,8 @@ public class VideoProcessor{
     // Getters
     public Video getVideo() { return video;}
     public double getThresholdArea() { return thresholdArea; }
+    public ImagePlus getRoiImage() { return roiImage; }
+    public int getCellSize() { return cellSize; }
 
     // Constructor
     public VideoProcessor(Video video){
@@ -126,12 +129,11 @@ public class VideoProcessor{
     }
 
     // Add multiple cells, used to add cells after manual selection of cells in GUI
-    public VideoProcessorError addCells(LinkedList<int[]> cellCoors){
-        for(int[] coor:cellCoors){
+    public VideoProcessorError addCells(LinkedList<Cell> newCells){
+        for(Cell cell : newCells) {
+            int[] coor = cell.getCoor();
             if(coor[0]-cellSize<0 || coor[1]-cellSize<0 || coor[0]+cellSize> video.getWidth() || coor[1]+cellSize> video.getWidth())
                 return VideoProcessorError.VIDEO_PROCESSOR_OUT_OF_BOUNDS_ERROR;
-            Cell cell = new Cell(coor,video.getCells().size()+1,0, cellSize);
-            // Add cell to video
             video.addCell(cell);
         }
         return VideoProcessorError.VIDEO_PROCESSOR_SUCCESS;
@@ -204,7 +206,7 @@ public class VideoProcessor{
     }
 
     // Save image with cells shown as numbers for display in GUI
-    private void createROIImage(){
+    public void createROIImage(){
         // Select first frame because it is the reference frame
         ImagePlus img = video.getIjFrames().get(0);
         ImageProcessor ip = img.getProcessor();
