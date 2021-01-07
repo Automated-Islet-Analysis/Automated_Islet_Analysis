@@ -7,12 +7,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.InputMismatchException;
 
 public class AnalyseListener implements ActionListener {
     JPanel mainPanel = new JPanel(new GridLayout(3,2));
 
     JLabel error = new JLabel("Allowed CS error (%)");
-    JTextField perError = new JTextField("10",5);
+    JTextField perError = new JTextField("10",5); // find a way of getting jtext field text
     JCheckBox checkPlanar = new JCheckBox("Planar motion correction");
     JCheckBox checkDepth = new JCheckBox("Depth motion correction");
     JCheckBox checkROI = new JCheckBox("Find ROIs");
@@ -41,7 +42,11 @@ public class AnalyseListener implements ActionListener {
 
         if(input==0){
             // Convert the inputs to int or booleans to be used by function videoProcessor
-            errorAllowed= Integer.parseInt(perError.getText());
+            try{
+            errorAllowed = Integer.parseInt(perError.getText());
+            } catch (InputMismatchException ex){
+                System.out.println("Enter int");
+            }
             planarSelected= checkPlanar.isSelected();
             ROISelected= checkROI.isSelected();
             depthSelected= checkDepth.isSelected();
