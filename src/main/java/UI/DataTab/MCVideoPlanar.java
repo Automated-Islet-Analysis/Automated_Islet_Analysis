@@ -1,14 +1,11 @@
 package UI.DataTab;
 
-import UI.Uploaded;
 import UI.UserInterface;
 import ij.ImagePlus;
 import videoprocessing.VideoProcessor;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -17,7 +14,6 @@ import java.util.Timer;
 
 public class MCVideoPlanar extends JPanel {
     private static JLabel msg;
-    static JButton imgButtonPlanar;
     private JLabel vid;
 
     public MCVideoPlanar(){
@@ -30,9 +26,7 @@ public class MCVideoPlanar extends JPanel {
         vid = new JLabel();
         vid.addMouseListener(new MouseListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-
-            }
+            public void mouseClicked(MouseEvent e) {}
 
             @Override
             public void mousePressed(MouseEvent e) {
@@ -40,29 +34,14 @@ public class MCVideoPlanar extends JPanel {
             }
 
             @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
+            public void mouseReleased(MouseEvent e) {}
 
             @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
+            public void mouseEntered(MouseEvent e) {}
             @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
+            public void mouseExited(MouseEvent e) {}
         });
-//
-//        imgButtonPlanar = new JButton();
-//        imgButtonPlanar.setBackground(Color.lightGray);
-//        imgButtonPlanar.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                playVideo();
-//            }
-//        });
+
         add(vid);
     }
 

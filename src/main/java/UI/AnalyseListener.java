@@ -73,7 +73,7 @@ public class AnalyseListener implements ActionListener {
         final JDialog dialog = new JDialog(Controller.interframe,"",true);
         JPanel panel = new JPanel(new FlowLayout());
         JLabel text = new JLabel();
-        text.setText("The video is being processed, please wait");
+        text.setText("The video is being processed, please wait!");
         Font font = text.getFont();
         text.setFont(new Font(font.getFontName(),Font.PLAIN,20));
 
