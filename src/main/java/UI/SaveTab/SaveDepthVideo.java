@@ -20,7 +20,7 @@ public class SaveDepthVideo extends JPanel implements ActionListener {
                 "TIFF Images", "tif", "tiff");
         chooser.setFileFilter(filter);
         //chooser.setSelectedFile();
-        int userSelection = chooser.showSaveDialog(Controller.interframe);
+        int userSelection = chooser.showSaveDialog(null);
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = chooser.getSelectedFile();

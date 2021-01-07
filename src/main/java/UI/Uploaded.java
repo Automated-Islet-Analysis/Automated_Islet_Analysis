@@ -35,7 +35,7 @@ public class Uploaded extends JPanel {
         btnAnalyse.addActionListener(new AnalyseListener());
 
         // Set layout
-        setLayout(new FlowLayout(FlowLayout.CENTER));
+        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 25));
         add(vidDisp);
         add(fileName,BorderLayout.WEST);
 
@@ -49,6 +49,6 @@ public class Uploaded extends JPanel {
 
     public void setDim(){
         if(! (vidDisp.getIcon()==null))
-            setSize(vidDisp.getIcon().getIconWidth()+50,vidDisp.getIcon().getIconHeight()+130);
+            setSize(vidDisp.getIcon().getIconWidth()+130,vidDisp.getIcon().getIconHeight()+200);
     }
 }
