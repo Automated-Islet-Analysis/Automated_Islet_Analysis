@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class Controller extends JFrame {
+public class Controller {
     public static JFrame interframe;
     static public String display;
 
@@ -28,15 +28,20 @@ public class Controller extends JFrame {
     static SaveROIs saverois;
     static SavePlanarVideo saveplanarvideo;
 
+    static public boolean fileUploaded;
     static public boolean analysedImg;
+    static public boolean meanIntensityMeasured;
+
 
     public Controller() {
         display = "home";
+        fileUploaded=false;
         analysedImg = false;
+        meanIntensityMeasured=false;
 
         // Set up the frame
         interframe = new JFrame("ROI detection");
-        interframe.setSize(600, 600);
+        interframe.setSize(550, 550);
 
         interframe.addWindowListener(new WindowAdapter() {// Closes the program if close window clicked
             public void windowClosing(WindowEvent e) {
@@ -53,7 +58,6 @@ public class Controller extends JFrame {
         rois = new ROIs();
         mcvidPlanar = new MCVideoPlanar();
         mcvidDepth = new MCVideoDepth();
-        data = new Data();
         upload = new Uploaded();
         savevideo= new SaveVideo();
         savedata=new SaveData();
@@ -66,7 +70,7 @@ public class Controller extends JFrame {
         setDisplay();
     }
 
-    static void setDisplay(){
+    static public void setDisplay(){
         // Allows switching between panels
         if(display.equals("home")){
             interframe.setContentPane(home);
@@ -105,15 +109,20 @@ public class Controller extends JFrame {
         else if(display.equals("MCVideoDepth")){
             if (analysedImg == true) {
                 interframe.setContentPane(mcvidDepth);
+                mcvidDepth.update();
+                interframe.setSize(mcvidDepth.getWidth(),mcvidDepth.getHeight());
                 interframe.invalidate();
                 interframe.validate();
             } else{
                 popupNoFile();
             }
         }
-        else if(display.equals("Data")){
+        else if(display.equals("Results")){
             if (analysedImg == true) {
+                data = new Data(meanIntensityMeasured);
                 interframe.setContentPane(data);
+                data.showResults();
+                interframe.setSize(700,700);
                 interframe.invalidate();
                 interframe.validate();
             } else{
@@ -161,10 +170,11 @@ public class Controller extends JFrame {
 
     private static void popupNoFile(){
         // Popup that tells the user that no file has been uploaded
-        JOptionPane.showMessageDialog(null,
+        JOptionPane.showMessageDialog(interframe,
                 "No file has been analysed yet. \n" +
                         "Please choose a file for upload and \n" +
                         "click on the 'Analyse' button",
                 "alert", JOptionPane.ERROR_MESSAGE);
     }
+
 }

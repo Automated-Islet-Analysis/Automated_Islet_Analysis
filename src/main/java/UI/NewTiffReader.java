@@ -12,7 +12,6 @@ import javax.swing.*;
 
 public class NewTiffReader {
     RenderedOp rescaledImage;
-    JLabel imageLabel;
     BufferedImage bufImage;
 
     public NewTiffReader(RenderedImage inputImg) {

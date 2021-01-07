@@ -12,7 +12,9 @@ class HomeMenuListener implements MenuListener {
     @Override
     public void menuSelected(MenuEvent e) {
         // Change view to Home page
-        Controller.display = "home";
+        if (Controller.fileUploaded==true)
+            Controller.display = "Upload";
+        else Controller.display = "home";
         Controller.setDisplay();
     }
 

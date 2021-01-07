@@ -1,6 +1,7 @@
 package UI;
 
 import UI.HomeMenuListener;
+import UI.SaveTab.SaveDepthVideo;
 
 import javax.swing.*;
 import java.awt.*;
@@ -111,7 +112,7 @@ public class MainMenu extends JMenuBar implements ActionListener {
         // ActionListeners
         saveROI.addActionListener(this);
         saveMCVidPlanar.addActionListener(this);
-        saveMCVidDepth.addActionListener(this);
+        saveMCVidDepth.addActionListener(new SaveDepthVideo());
         saveData.addActionListener(this);
         saveAll.addActionListener(this);
 
