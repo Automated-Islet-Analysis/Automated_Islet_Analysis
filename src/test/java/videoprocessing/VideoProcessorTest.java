@@ -1,5 +1,8 @@
 package videoprocessing;
 
+import ij.ImagePlus;
+import ij.process.ImageProcessor;
+import org.itk.simple.SimpleITK;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -41,6 +44,35 @@ public class VideoProcessorTest {
 
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testCreatingPlanarCorrectionVid(){
+        String expectedFile=System.getProperty("user.dir")+"/img/Unit_testing/Data/Planar_motion_correction.tif";
+        String actualFile=System.getProperty("user.dir")+"Planar_motion_correction.tif";
+
+        ImagePlus expectedImg=new ImagePlus(expectedFile);
+        ImagePlus actualImg=new ImagePlus(actualFile);
+
+        ImageProcessor imgProcessor1=expectedImg.getProcessor();
+        ImageProcessor imgProcessor2=actualImg.getProcessor();
+
+        int width=expectedImg.getWidth();
+        int height=expectedImg.getHeight();
+
+        long differenceImg=0;
+
+        for(int y=0; y<height;y++) {
+            for(int x=0;x<width;x++) {
+                int grayImg1= (int) imgProcessor1.getf(x,y);
+                int grayImg2= (int) imgProcessor2.getf(x,y);
+                differenceImg+=Math.abs(grayImg1-grayImg2);
+            }
+        }
+
+        if (differenceImg!=0) {
+            Assert.fail();
         }
     }
 }

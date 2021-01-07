@@ -22,9 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="450e1eba-0615-46d4-8cd7-6b46d25a3d50" name="Default Changelist" comment="Added files for testing">
-      <change afterPath="$PROJECT_DIR$/src/test/java/videoprocessing/VideoProcessorTest.java" afterDir="false" />
+    <list default="true" id="450e1eba-0615-46d4-8cd7-6b46d25a3d50" name="Default Changelist" comment="VideoProcessorTest added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/videoprocessing/VideoProcessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/videoprocessing/VideoProcessorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610058256578</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="VideoProcessorTest added">
+      <created>1610060227386</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610060227386</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +334,8 @@
     <MESSAGE value="Help Message in AnalyseListener" />
     <MESSAGE value="CellTest added" />
     <MESSAGE value="Added files for testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added files for testing" />
+    <MESSAGE value="VideoProcessorTest added" />
+    <option name="LAST_COMMIT_MESSAGE" value="VideoProcessorTest added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="180" key="MultipleFileMergeDialog" timestamp="1610057262779">
@@ -338,10 +346,11 @@
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="141" y="50" key="SettingsEditor/0.23.1280.777/1280.23.1881.1057@0.23.1280.777" timestamp="1610058327273" />
-    <state x="240" y="151" key="Vcs.Push.Dialog.v2" timestamp="1610058261921">
-      <screen x="0" y="23" width="1280" height="777" />
+    <state x="1633" y="197" key="Vcs.Push.Dialog.v2" timestamp="1610060250737">
+      <screen x="1280" y="23" width="1881" height="1057" />
     </state>
     <state x="240" y="151" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.23.1881.1057@0.23.1280.777" timestamp="1610058261921" />
+    <state x="1633" y="197" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1610060250737" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
