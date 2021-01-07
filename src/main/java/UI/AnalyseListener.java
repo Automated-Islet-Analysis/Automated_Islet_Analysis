@@ -7,12 +7,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.InputMismatchException;
 
 public class AnalyseListener implements ActionListener {
     JPanel mainPanel = new JPanel(new GridLayout(3,2));
 
     JLabel error = new JLabel("Allowed CS error (%)");
-    JTextField perError = new JTextField("10",5);
+    JTextField perError = new JTextField("10",5); // find a way of getting jtext field text
     JCheckBox checkPlanar = new JCheckBox("Planar motion correction");
     JCheckBox checkDepth = new JCheckBox("Depth motion correction");
     JCheckBox checkROI = new JCheckBox("Find ROIs");
@@ -44,13 +45,19 @@ public class AnalyseListener implements ActionListener {
 
         if(input==0){
             // Convert the inputs to int or booleans to be used by function videoProcessor
-            errorAllowed= Integer.parseInt(perError.getText());
+            try{
+            errorAllowed = Integer.parseInt(perError.getText());
             planarSelected= checkPlanar.isSelected();
             ROISelected= checkROI.isSelected();
             depthSelected= checkDepth.isSelected();
 
             process();
             Controller.analysedImg = true; // Allow clicking of "Data" and "Save" tabs
+
+            } catch (NumberFormatException ex){
+                JOptionPane.showMessageDialog(Controller.interframe, "Please enter an integer");
+            }
+
         }else if(input==1){
             // help button
             System.out.println(input);
@@ -77,6 +84,8 @@ public class AnalyseListener implements ActionListener {
                 VideoProcessor videoProcessor = new VideoProcessor(new Video(Uploaded.getFilePath()));
                 videoProcessor.process((int) AnalyseListener.errorAllowed, AnalyseListener.planarSelected, AnalyseListener.depthSelected, AnalyseListener.ROISelected);
                 UserInterface.setVideoProcessor(videoProcessor);
+                videoProcessor.saveDepthCorrectionVid("/Users/sachamaire/Desktop/Travail/Etudes/Imperial/Year3/Programming3/Temp/DepthCorrected");
+                videoProcessor.savePlanarCorrectionVid("/Users/sachamaire/Desktop/Travail/Etudes/Imperial/Year3/Programming3/Temp/PlannarCorrected");
                 return null;
             }
 

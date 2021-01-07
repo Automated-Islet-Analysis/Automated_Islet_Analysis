@@ -12,7 +12,7 @@ import java.io.IOException;
 import javax.swing.Timer;
 
 
-class TiffListener implements ActionListener {
+public class TiffListener implements ActionListener {
     @Override
 
     public void actionPerformed(ActionEvent e) {

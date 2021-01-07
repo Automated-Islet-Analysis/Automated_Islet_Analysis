@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="videoprocessing.VideoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-02T15:03:02" hostname="LAPTOP-OK0DBQNM" time="0.913">
+<testsuite name="videoprocessing.VideoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-07T15:05:54" hostname="LAPTOP-OK0DBQNM" time="0.948">
   <properties/>
-  <testcase name="testReadingFrames" classname="videoprocessing.VideoTest" time="0.913"/>
+  <testcase name="testReadingFrames" classname="videoprocessing.VideoTest" time="0.948"/>
   <system-out><![CDATA[C:\Users\livia\OneDrive\Documents\GitHub\Image_treatment-\videos\Unit_testing
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

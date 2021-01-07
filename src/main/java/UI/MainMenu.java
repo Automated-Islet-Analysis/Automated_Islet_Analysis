@@ -11,7 +11,7 @@ import java.awt.event.KeyEvent;
 public class MainMenu extends JMenuBar implements ActionListener {
     JMenu menuHome, menuData, menuSave, subMenuMCVid;
     JMenuItem dataROI, dataData, MCVidPlanar, MCVidDepth;
-    JMenuItem saveROI,saveMCVid, saveData, saveAll;
+    JMenuItem saveROI,saveMCVidPlanar,saveMCVidDepth, saveData, saveAll;
 
     public MainMenu() {
         menuHome = getMenuHome();
@@ -86,18 +86,22 @@ public class MainMenu extends JMenuBar implements ActionListener {
 
         // Save Dropdown
         saveROI = new JMenuItem("Save ROIs");
-        saveMCVid = new JMenuItem("Save Motion Corrected Video");
+        saveMCVidPlanar = new JMenuItem("Save Planar Corrected Video");
+        saveMCVidDepth=new JMenuItem("Save Depth Corrected Video");
+
         saveData = new JMenuItem("Save Results");
         saveAll = new JMenuItem("Save All");
 
         // ActionListeners
         saveROI.addActionListener(this);
-        saveMCVid.addActionListener(this);
+        saveMCVidPlanar.addActionListener(this);
+        saveMCVidDepth.addActionListener(this);
         saveData.addActionListener(this);
         saveAll.addActionListener(this);
 
         menuSave.add(saveROI);
-        menuSave.add(saveMCVid);
+        menuSave.add(saveMCVidPlanar);
+        menuSave.add(saveMCVidDepth);
         menuSave.add(saveData);
         menuSave.add(saveAll);
 

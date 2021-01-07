@@ -28,7 +28,7 @@ public class Video {
     private int width;
     // Video height
     private int height;
-    private int numberOfFrames=0;
+    private int numberOfFrames = 0;
     // Variable holds index of the frames without Depth motion(also called Z motion)
     private LinkedList<Integer> idxFramesInFocus = new LinkedList<>();
     // Holds frames in SimpleElastix and ImageJ frames for processing
@@ -40,7 +40,7 @@ public class Video {
 
     // Constructors
     public Video(String filename){
-        this.filename=filename;
+        this.filename = filename;
         File file = new File(filename);
         name = file.getName();
         dirName = file.getParent();
