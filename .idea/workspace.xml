@@ -22,54 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="450e1eba-0615-46d4-8cd7-6b46d25a3d50" name="Default Changelist" comment="Help Message in AnalyseListener">
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SavePlanarVideo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
+    <list default="true" id="450e1eba-0615-46d4-8cd7-6b46d25a3d50" name="Default Changelist" comment="CellTest added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/AnalyseListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Controller$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DataTab/Data.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DataTab/MCVideoDepth.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DataTab/MCVideoPlanar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DataTab/ManualROISelection$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DataTab/ManualROISelection$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DataTab/ManualROISelection$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DataTab/ManualROISelection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DataTab/ROIs$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DataTab/ROIs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/FileInfo_Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Home.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/HomeMenuListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MainMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/NewTiffReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/SaveTab/SaveAll.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/SaveTab/SaveData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/SaveTab/SaveROIs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/SaveTab/SaveVideo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/MainMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveAll.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveAll.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveROIs.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveROIs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveVideo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveVideo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UploadListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Uploaded.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveAll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveROIs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveROIs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveVideo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveVideo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609600474959</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="CellTest added">
+      <created>1610057327794</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610057327794</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,7 +269,18 @@
     <MESSAGE value="encapsulation Home" />
     <MESSAGE value="Encapsulation of Home" />
     <MESSAGE value="Help Message in AnalyseListener" />
-    <option name="LAST_COMMIT_MESSAGE" value="Help Message in AnalyseListener" />
+    <MESSAGE value="CellTest added" />
+    <option name="LAST_COMMIT_MESSAGE" value="CellTest added" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="278" y="180" key="MultipleFileMergeDialog" timestamp="1610057262779">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="278" y="180" key="MultipleFileMergeDialog/0.23.1280.777/1280.23.1881.1057@0.23.1280.777" timestamp="1610057262779" />
+    <state x="240" y="151" key="Vcs.Push.Dialog.v2" timestamp="1610057331998">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="240" y="151" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.23.1881.1057@0.23.1280.777" timestamp="1610057331998" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
