@@ -1,41 +1,98 @@
 package UI.DataTab;
-import UI.TiffListener;
-import UI.Uploaded;
+
+import UI.UserInterface;
+import ij.ImagePlus;
+import videoprocessing.VideoProcessor;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MCVideoDepth extends JPanel {
-    private static JLabel welcome;
-    private static JLabel fileName;
-    private static String filePath;
-    static JButton imgButtonDepth;
+    private static JLabel msg;
+    private JLabel vid;
+
     public MCVideoDepth(){
+        msg = new JLabel("This is the depth motion corrected video");
+        msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,20));
+        msg.setHorizontalAlignment(JLabel.CENTER);
+        add(msg);
 
-        welcome = new JLabel("This is the depth motion corrected video");
-        welcome.setHorizontalAlignment(JLabel.CENTER);
-        welcome.setSize(400,100);
-        add(welcome);
-        filePath = "/Users/sachamaire/Desktop/Travail/Etudes/Imperial/Year3/Programming3/Temp/DepthCorrected";
-
-        // Set filepath of uploaded to have it called by TiffListener
-        Uploaded.setFilePath(filePath);
-        
         // Empty img panel
-//        imgButtonDepth = new JButton();
-//        imgButtonDepth.addActionListener(new TiffListener());
+        vid = new JLabel();
+        vid.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {}
 
-//        //Set the uploaded button
-//        imgButtonDepth=Uploaded.getImgButton();
-//
-//
-//        // Label for the text
-//        fileName.setFont(new Font(fileName.getFont().getName(), Font.PLAIN, 30));
-//        fileName.setHorizontalAlignment(SwingConstants.CENTER);
-//
-//        // Set layout
-//        setLayout(new FlowLayout(FlowLayout.CENTER, 200, 30));
-//        add(fileName);
+            @Override
+            public void mousePressed(MouseEvent e) {
+                playVideo();
+            }
 
+            @Override
+            public void mouseReleased(MouseEvent e) {}
+
+            @Override
+            public void mouseEntered(MouseEvent e) {}
+            @Override
+            public void mouseExited(MouseEvent e) {}
+        });
+
+        add(vid);
+    }
+
+
+    public void update(){
+        VideoProcessor videoProcessor = UserInterface.getVideoProcessor();
+        ImagePlus video = videoProcessor.getPlanarCorrectionVid();
+
+        BufferedImage img = video.getBufferedImage();
+        img = resizeImage(img,(int)Math.round(img.getWidth()*0.3),(int)Math.round(img.getHeight()*0.3));
+        vid.setIcon(new ImageIcon(img));
+        vid.setVisible(true);
+        setSize(vid.getIcon().getIconWidth()+100,vid.getIcon().getIconHeight()+130);
+    }
+
+    private void playVideo(){
+        VideoProcessor videoProcessor = UserInterface.getVideoProcessor();
+        ImagePlus video = videoProcessor.getDepthCorrectionVid();
+
+        int speed = 1000/18; // 18 frames per second
+        int finalNumImages = video.getNSlices();
+        final int[] frame = {0};
+        java.util.Timer timer = new Timer();
+
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("done");
+                if(frame[0] <finalNumImages){
+                    System.out.println("test");
+                    video.setSlice(frame[0]);
+                    BufferedImage img = video.getBufferedImage();
+                    img = resizeImage(img,(int)Math.round(img.getWidth()*0.3),(int)Math.round(img.getHeight()*0.3));
+                    vid.setIcon(new ImageIcon(img));
+                    vid.setVisible(true);
+                    frame[0]++;
+                }else{
+                    timer.cancel();
+                }
+            }
+        };
+        timer.scheduleAtFixedRate(task,0,speed);
+    }
+
+    // Resize image to fit on display
+    private BufferedImage resizeImage(BufferedImage imgIn, int w, int h){
+        BufferedImage resizedImg = new BufferedImage(w,h,BufferedImage.TYPE_BYTE_GRAY);
+        Graphics2D g2 = resizedImg.createGraphics();
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(imgIn, 0, 0, w,h, null);
+        g2.dispose();
+        return resizedImg;
     }
 }

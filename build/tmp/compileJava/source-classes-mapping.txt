@@ -12,27 +12,26 @@ videoprocessing/ImageJ/nifti_io/Nifti_Reader.java
  ImageJ.nifti_io.Nifti_Reader
 videoprocessing/process/DepthMotionCorrector.java
  videoprocessing.process.DepthMotionCorrector
-UI/Uploaded.java
- UI.Uploaded
+UI/NewTiffReader.java
+ UI.NewTiffReader
 videoprocessing/ImageJ/nifti_io/CoordinateMapper.java
  ImageJ.nifti_io.CoordinateMapper
 videoprocessing/ImageJ/Thresholder.java
  videoprocessing.ImageJ.Thresholder
-videoprocessing/VideoProcessor.java
- videoprocessing.VideoProcessor
 Main.java
  Main
+videoprocessing/VideoProcessor.java
+ videoprocessing.VideoProcessor
 videoprocessing/SaveError.java
  videoprocessing.SaveError
-UI/NewTiffReader.java
- UI.NewTiffReader
-UI/DataTab/MCVideoDepth.java
- UI.DataTab.MCVideoDepth
-UI/TiffListener.java
- UI.TiffListener
- UI.TiffListener$1
+videoprocessing/ImageJ/nifti_io/Nifti_writer.java
+ ImageJ.nifti_io.Nifti_writer
+UI/SaveTab/SaveROIs.java
+ UI.SaveTab.SaveROIs
 videoprocessing/Video.java
  videoprocessing.Video
+videoprocessing/ImageJ/Binary.java
+ videoprocessing.ImageJ.Binary
 videoprocessing/ImageJ/Stack_Splitter.java
  videoprocessing.ImageJ.Stack_Splitter
 videoprocessing/process/CellFinder.java
@@ -44,57 +43,58 @@ UI/Home.java
  UI.Home
 videoprocessing/ImageJ/ParticleAnalyzer.java
  videoprocessing.ImageJ.ParticleAnalyzer
-UI/DataTab/MCVideoPlanar.java
- UI.DataTab.MCVideoPlanar
- UI.DataTab.MCVideoPlanar$1
- UI.DataTab.MCVideoPlanar$2
+videoprocessing/CellError.java
+ videoprocessing.CellError
 videoprocessing/VideoProcessorError.java
  videoprocessing.VideoProcessorError
 videoprocessing/process/ProcessorError.java
  videoprocessing.process.ProcessorError
-UI/SaveTab/SaveROIs.java
- UI.SaveTab.SaveROIs
-UI/HomeMenuListener.java
- UI.HomeMenuListener
-UI/AnalyseListener.java
- UI.AnalyseListener
- UI.AnalyseListener$1
-videoprocessing/process/CellAnalyzer.java
- videoprocessing.process.CellAnalyzer
 videoprocessing/Cell.java
  videoprocessing.Cell
-UI/UploadListener.java
- UI.UploadListener
+UI/SaveTab/SaveVideo.java
+ UI.SaveTab.SaveVideo
+UI/MainMenu.java
+ UI.MainMenu
+videoprocessing/process/CellAnalyzer.java
+ videoprocessing.process.CellAnalyzer
+UI/DataTab/MCVideoDepth.java
+ UI.DataTab.MCVideoDepth
+ UI.DataTab.MCVideoDepth$1
+ UI.DataTab.MCVideoDepth$2
+UI/DataTab/Data.java
+ UI.DataTab.Data
+ UI.DataTab.Data$1
+UI/DataTab/MCVideoPlanar.java
+ UI.DataTab.MCVideoPlanar
+ UI.DataTab.MCVideoPlanar$1
+ UI.DataTab.MCVideoPlanar$2
+TiffReader.java
+ TiffReader
+videoprocessing/ImageJ/nifti_io/NiftiHeader.java
+ ImageJ.nifti_io.NiftiHeader
+videoprocessing/process/PlanarMotionCorrector.java
+ videoprocessing.process.PlanarMotionCorrector
+videoprocessing/Combiner.java
+ videoprocessing.Combiner
 UI/DataTab/ManualROISelection.java
  UI.DataTab.ManualROISelection
  UI.DataTab.ManualROISelection$1
  UI.DataTab.ManualROISelection$2
  UI.DataTab.ManualROISelection$3
-videoprocessing/ImageJ/nifti_io/NiftiHeader.java
- ImageJ.nifti_io.NiftiHeader
-videoprocessing/process/PlanarMotionCorrector.java
- videoprocessing.process.PlanarMotionCorrector
-TiffReader.java
- TiffReader
-videoprocessing/Combiner.java
- videoprocessing.Combiner
-videoprocessing/CellError.java
- videoprocessing.CellError
-videoprocessing/ImageJ/nifti_io/Nifti_writer.java
- ImageJ.nifti_io.Nifti_writer
 UI/UserInterface.java
  UI.UserInterface
-UI/DataTab/Data.java
- UI.DataTab.Data
- UI.DataTab.Data$1
-videoprocessing/ImageJ/Binary.java
- videoprocessing.ImageJ.Binary
+UI/HomeMenuListener.java
+ UI.HomeMenuListener
 UI/Controller.java
  UI.Controller
  UI.Controller$1
-UI/SaveTab/SaveMotionVideo.java
- UI.SaveTab.SaveMotionVideo
-UI/SaveTab/SaveDepthVideo.java
- UI.SaveTab.SaveDepthVideo
-UI/MainMenu.java
- UI.MainMenu
+UI/Uploaded.java
+ UI.Uploaded
+UI/TiffListener.java
+ UI.TiffListener
+ UI.TiffListener$1
+UI/AnalyseListener.java
+ UI.AnalyseListener
+ UI.AnalyseListener$1
+UI/UploadListener.java
+ UI.UploadListener

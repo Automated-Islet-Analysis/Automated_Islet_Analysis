@@ -93,6 +93,8 @@ public class Controller extends JFrame {
         else if(display.equals("MCVideoDepth")){
             if (analysedImg == true) {
                 interframe.setContentPane(mcvidDepth);
+                mcvidDepth.update();
+                interframe.setSize(mcvidDepth.getWidth(),mcvidDepth.getHeight());
                 interframe.invalidate();
                 interframe.validate();
             } else{
