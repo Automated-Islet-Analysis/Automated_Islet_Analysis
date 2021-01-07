@@ -6,6 +6,15 @@ import java.lang.Exception;
 public class Uploaded extends JPanel {
     private static JLabel fileName;
     private static String filePath;
+
+    public static JButton getImgButton() {
+        return imgButton;
+    }
+
+    public static void setImgButton(JButton imgButton) {
+        Uploaded.imgButton = imgButton;
+    }
+
     static JButton imgButton;
     JButton btnUpload, btnAnalyse;
     JPanel subHPanel;

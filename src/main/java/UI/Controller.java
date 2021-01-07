@@ -12,7 +12,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class Controller extends JFrame {
-    static JFrame interframe;
+    public static JFrame interframe;
     static public String display;
 
     static Home home;
