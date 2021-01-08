@@ -3,12 +3,10 @@ package UI;
 import UI.DataTab.MCVideoDepth;
 import UI.DataTab.MCVideoPlanar;
 import UI.DataTab.ROIs;
-import UI.DataTab.Data;
+import UI.DataTab.Results;
 import UI.SaveTab.*;
-import videoprocessing.VideoProcessor;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -20,9 +18,9 @@ public class Controller {
     static ROIs rois;
     static MCVideoPlanar mcvidPlanar;
     static MCVideoDepth mcvidDepth;
-    static Data data;
+    static Results results;
     static Uploaded upload;
-    static SaveVideo savevideo;
+    static SaveDepthVideo savevideo;
     static SaveData savedata;
     static SaveAll saveall;
     static SaveROIs saverois;
@@ -37,7 +35,7 @@ public class Controller {
         display = "home";
         fileUploaded=false;
         analysedImg = false;
-        meanIntensityMeasured=false;
+        meanIntensityMeasured = false;
 
         // Set up the frame
         interframe = new JFrame("ROI detection");
@@ -59,7 +57,7 @@ public class Controller {
         mcvidPlanar = new MCVideoPlanar();
         mcvidDepth = new MCVideoDepth();
         upload = new Uploaded();
-        savevideo= new SaveVideo();
+        savevideo= new SaveDepthVideo();
         savedata=new SaveData();
         saveall=new SaveAll();
         saverois=new SaveROIs();
@@ -79,16 +77,13 @@ public class Controller {
         }
         else if(display.equals("Upload")){
             interframe.setContentPane(upload);
-            upload.setDim();
-            interframe.setSize(upload.getWidth(),upload.getHeight());
             interframe.invalidate();
             interframe.validate();
         }
         else if(display.equals("ROIs")){
-            if (analysedImg == true){
+            if (analysedImg){
                 rois.updatePanel();
                 interframe.setContentPane(rois);
-                interframe.setSize(rois.getWidth(),rois.getHeight());
                 interframe.invalidate();
                 interframe.validate();
             } else{
@@ -96,10 +91,9 @@ public class Controller {
             }
         }
         else if(display.equals("MCVideoPlanar")){
-            if (analysedImg == true) {
+            if (analysedImg) {
                 interframe.setContentPane(mcvidPlanar);
                 mcvidPlanar.update();
-                interframe.setSize(mcvidPlanar.getWidth(),mcvidPlanar.getHeight());
                 interframe.invalidate();
                 interframe.validate();
             } else{
@@ -107,10 +101,9 @@ public class Controller {
             }
         }
         else if(display.equals("MCVideoDepth")){
-            if (analysedImg == true) {
+            if (analysedImg) {
                 interframe.setContentPane(mcvidDepth);
                 mcvidDepth.update();
-                interframe.setSize(mcvidDepth.getWidth(),mcvidDepth.getHeight());
                 interframe.invalidate();
                 interframe.validate();
             } else{
@@ -118,11 +111,10 @@ public class Controller {
             }
         }
         else if(display.equals("Results")){
-            if (analysedImg == true) {
-                data = new Data(meanIntensityMeasured);
-                interframe.setContentPane(data);
-                data.showResults();
-                interframe.setSize(700,700);
+            if (analysedImg) {
+                results = new Results(meanIntensityMeasured);
+                if(meanIntensityMeasured){results.showResults();}
+                interframe.setContentPane(results);
                 interframe.invalidate();
                 interframe.validate();
             } else{
@@ -130,7 +122,7 @@ public class Controller {
             }
         }
         else if(display.equals("SaveROIs")){
-            if (analysedImg == true) {
+            if (analysedImg) {
                 interframe.setContentPane(saverois);
                 interframe.invalidate();
                 interframe.validate();
@@ -139,7 +131,7 @@ public class Controller {
             }
         }
         else if(display.equals("SaveAll")){
-            if (analysedImg == true) {
+            if (analysedImg) {
                 interframe.setContentPane(saveall);
                 interframe.invalidate();
                 interframe.validate();
@@ -148,7 +140,7 @@ public class Controller {
             }
         }
         else if(display.equals("SaveDepthVideo")){
-            if (analysedImg == true) {
+            if (analysedImg) {
                 interframe.setContentPane(savevideo);
                 interframe.invalidate();
                 interframe.validate();
@@ -157,7 +149,7 @@ public class Controller {
             }
         }
         else if(display.equals("SavePlanarVideo")){
-            if (analysedImg == true) {
+            if (analysedImg) {
                 interframe.setContentPane(saveplanarvideo);
                 interframe.invalidate();
                 interframe.validate();
