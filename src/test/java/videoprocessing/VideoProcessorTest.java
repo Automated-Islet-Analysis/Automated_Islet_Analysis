@@ -15,7 +15,6 @@ public class VideoProcessorTest {
         if (differenceImg!=0) {
             Assert.fail();
         }
-
     }
     @Test
     public void testCreatingPlanarCorrectionVid(){

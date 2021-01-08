@@ -4,6 +4,7 @@ import ij.ImagePlus;
 import ij.ImageStack;
 import ij.io.FileSaver;
 import ij.process.ImageProcessor;
+import org.itk.simple.Image;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,8 +16,6 @@ public class CombinerTest {
     public void testCombining(){
         //List storing all frames of the combined video from Combiner
         LinkedList<ImagePlus> combinedVid;
-        //List storing the expected frames of the combined video
-        ImagePlus expectedCombinedVid;
 
         //Input for Combiner method combine
         ImagePlus leftImg=new ImagePlus(System.getProperty("user.dir") + "/img/Unit_testing/1.tif");
@@ -29,10 +28,8 @@ public class CombinerTest {
         //Getter for combined video frames
         combinedVid=combiner.getCombVidFrames();
 
-        ImageStack stackOut=new ImageStack();
-        for(ImagePlus ip:combinedVid)
-            stackOut.addSlice(ip.getProcessor());
-            ImagePlus combVidOut=new ImagePlus("out",stackOut);
+        MakeImage makeImage=new MakeImage(combinedVid);
+        ImagePlus combVidOut=makeImage.getImgOut();
 
         FileSaver fileSaver=new FileSaver(combVidOut);
         String actualFile=System.getProperty("user.dir")+"/img/actualCombVid.tif";

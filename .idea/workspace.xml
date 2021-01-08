@@ -23,32 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="450e1eba-0615-46d4-8cd7-6b46d25a3d50" name="Default Changelist" comment="VideoProcessorTest added">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/videoprocessing/MakeImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/Data$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/Data.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/MainMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SavePlanarVideo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SavePlanarVideo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Uploaded.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Uploaded.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/process/CellFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/process/CellFinder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/DataTab/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/Results.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveDepthVideo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveDepthVideo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveMotionVideo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SavePlanarVideo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SavePlanarVideo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/videoprocessing/CombinerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/videoprocessing/CombinerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/videoprocessing/VideoProcessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/videoprocessing/VideoProcessorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/videoprocessing/VideoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/videoprocessing/VideoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,10 +310,10 @@
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="141" y="50" key="SettingsEditor/0.23.1280.777/1280.23.1881.1057@0.23.1280.777" timestamp="1610058327273" />
-    <state x="1633" y="197" key="Vcs.Push.Dialog.v2" timestamp="1610060250737">
-      <screen x="1280" y="23" width="1881" height="1057" />
+    <state x="240" y="151" key="Vcs.Push.Dialog.v2" timestamp="1610102795331">
+      <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state x="240" y="151" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.23.1881.1057@0.23.1280.777" timestamp="1610058261921" />
+    <state x="240" y="151" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.23.1881.1057@0.23.1280.777" timestamp="1610102795331" />
     <state x="1633" y="197" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1610060250737" />
     <state x="510" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610099608226">
       <screen x="0" y="23" width="1440" height="877" />

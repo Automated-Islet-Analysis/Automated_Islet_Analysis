@@ -1,6 +1,8 @@
 package videoprocessing;
 
 import ij.ImagePlus;
+import ij.ImageStack;
+import ij.io.FileSaver;
 import ij.process.ImageProcessor;
 import junit.framework.TestCase;
 import org.itk.simple.Image;
@@ -9,6 +11,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.FileDescriptor;
 import java.util.LinkedList;
 
 public class VideoTest extends TestCase {
