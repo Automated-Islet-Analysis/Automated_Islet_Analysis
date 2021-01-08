@@ -13,14 +13,16 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MCVideoDepth extends JPanel {
-    private static JLabel msg;
+    private static JLabel msg1, msg2;
     private JLabel vid;
 
     public MCVideoDepth(){
-        msg = new JLabel("This is the depth motion corrected video");
-        msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,20));
-        msg.setHorizontalAlignment(JLabel.CENTER);
-        add(msg);
+        setLayout(new FlowLayout(FlowLayout.CENTER, 30, 30));
+
+        // Title
+        msg1 = new JLabel("Depth motion corrected video");
+        msg1.setFont(new Font(msg1.getFont().getFontName(),Font.BOLD,20));
+        add(msg1);
 
         // Empty img panel
         vid = new JLabel();
@@ -51,18 +53,17 @@ public class MCVideoDepth extends JPanel {
         ImagePlus video = videoProcessor.getDepthCorrectionVid();
 
         if(video==null){
-            remove(msg);
-            msg = new JLabel("The video was not corrected for depth motion, no preview available!");
-            msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,20));
-            add(msg,BorderLayout.CENTER);
-            setSize(700,700);
+            removeAll();
+            // Message to user
+            msg1 = new JLabel("The video was not corrected for depth motion, no preview available!");
+            msg1.setFont(new Font(msg1.getFont().getFontName(),Font.PLAIN,15));
+            add(msg1);
         }
         else {
             BufferedImage img = video.getBufferedImage();
             img = resizeImage(img, (int) Math.round(img.getWidth() * 0.3), (int) Math.round(img.getHeight() * 0.3));
             vid.setIcon(new ImageIcon(img));
             vid.setVisible(true);
-            setSize(vid.getIcon().getIconWidth() + 100, vid.getIcon().getIconHeight() + 130);
         }
     }
 

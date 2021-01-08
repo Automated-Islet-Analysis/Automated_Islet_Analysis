@@ -7,6 +7,7 @@ package UI.DataTab;
 
 import UI.Controller;
 import UI.UserInterface;
+import ij.ImagePlus;
 import videoprocessing.VideoProcessor;
 
 import javax.imageio.ImageIO;
@@ -24,10 +25,13 @@ public class ROIs extends JPanel {
 
     private int numROI;
     private BufferedImage imageROI;
+    private ImagePlus imageP;
     private int cellSize;
     private VideoProcessor videoProcessor;
 
     public ROIs(){
+        setLayout(new FlowLayout(FlowLayout.CENTER, 30, 30));
+
         // Create elements
         addROI = new JButton("Add ROIs");
         addROI.addActionListener(new ActionListener() {
@@ -38,33 +42,44 @@ public class ROIs extends JPanel {
                 videoProcessor = UserInterface.getVideoProcessor();
             }
         });
-        subPanel = new JPanel(new FlowLayout());
+        subPanel = new JPanel();
     }
 
     public void updatePanel(){
         videoProcessor = UserInterface.getVideoProcessor();
-        numROI = videoProcessor.getVideo().getCells().size();
-        imageROI = videoProcessor.getRoiImage().getBufferedImage();
-        if(! (imageROI==null))
-            imageROI = resizeImage(imageROI,(int)Math.round(imageROI.getWidth()*0.65),(int)Math.round(imageROI.getHeight()*0.65));
-        cellSize = videoProcessor.getCellSize();
+        imageP = videoProcessor.getRoiImage();
 
-        text = new JLabel("Number of ROIs: " + numROI);
-        imgIcon = new ImageIcon(imageROI);
-        image = new JLabel(imgIcon);
+        if(! (imageP==null)) {
+            numROI = videoProcessor.getVideo().getCells().size();
+            imageROI = imageP.getBufferedImage();
+            imageROI = resizeImage(imageROI, (int) Math.round(imageROI.getWidth() * 0.65), (int) Math.round(imageROI.getHeight() * 0.65));
 
-        removeAll();
-        subPanel.removeAll();
-        setLayout(new FlowLayout(FlowLayout.LEFT));
+            cellSize = videoProcessor.getCellSize();
 
-        // Add JFrame that hold image
-        add(image,BorderLayout.PAGE_START);
-        setSize(imageROI.getWidth()+30,imageROI.getHeight()+130);
-        // Create JPanel to hold buttons in gridlayout
-        subPanel.setLayout(new GridLayout(2,1));
-        subPanel.add(text);
-        subPanel.add(addROI);
-        add(subPanel,BorderLayout.PAGE_END);
+            text = new JLabel("Number of ROIs: " + numROI);
+            imgIcon = new ImageIcon(imageROI);
+            image = new JLabel(imgIcon);
+
+            removeAll();
+            subPanel.removeAll();
+
+            // Add JFrame that hold image
+            add(image, BorderLayout.PAGE_START);
+            // Create JPanel to hold buttons in gridlayout
+            subPanel.setLayout(new GridLayout(2, 1));
+            subPanel.add(text);
+            subPanel.add(addROI);
+            add(subPanel, BorderLayout.PAGE_END);
+        }
+
+        else {   // if (imageP==null)
+            removeAll();
+            // Message to user
+            text = new JLabel("Something went wrong. Please try again.");
+            text.setFont(new Font(text.getFont().getFontName(),Font.PLAIN,15));
+            add(text);
+        }
+
     }
 
     // Resize image to fit on display
