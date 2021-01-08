@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class Results extends JPanel{
     JButton measureBtn;
-    JPanel panDisc, panROI, panInt;
+    JPanel panDisc, panROI, panInt, btnPan;
     JLabel titleDisc, titleROI, titleInt;
     JLabel bodyDisc1, bodyDisc2, bodyROI1, bodyInt;
 
@@ -38,6 +38,7 @@ public class Results extends JPanel{
         panDisc = new JPanel(new GridLayout(3,1));
         panROI = new JPanel(new GridLayout(2,1));
         panInt = new JPanel(new GridLayout(3,1));
+        btnPan = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
         // Create title labels
         titleDisc = new JLabel("Discarded frames");
@@ -97,7 +98,9 @@ public class Results extends JPanel{
 
         panInt.add(titleInt);
         panInt.add(bodyInt);
-        panInt.add(measureBtn);
+        measureBtn.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+        btnPan.add(measureBtn);
+        panInt.add(btnPan);
 
         add(Box.createHorizontalStrut(400));
         add(panDisc,BorderLayout.CENTER);

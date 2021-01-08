@@ -11,7 +11,8 @@ public class MCVideoDepth extends VideoPanel {
     private static JLabel msg;
 
     public MCVideoDepth(){
-        super(UserInterface.getVideoProcessor().getDepthCorrectionVid());
+        super(null,20,100);
+
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         // Title

@@ -33,6 +33,8 @@ public class Controller {
     static public boolean meanIntensityMeasured;
 
 
+    public static Uploaded getUpload() { return upload;}
+
     public Controller() {
         display = "home";
         fileUploaded=false;
@@ -92,6 +94,7 @@ public class Controller {
         }
         else if(display.equals("Upload")){
             interframe.setContentPane(upload);
+            upload.update();
             interframe.invalidate();
             interframe.validate();
         }

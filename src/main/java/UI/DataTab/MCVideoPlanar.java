@@ -2,8 +2,6 @@ package UI.DataTab;
 
 import UI.UserInterface;
 import UI.VideoPanel;
-import ij.ImagePlus;
-import videoprocessing.VideoProcessor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,8 +11,7 @@ public class MCVideoPlanar extends VideoPanel {
     private static JLabel msg;
 
     public MCVideoPlanar(){
-        super(UserInterface.getVideoProcessor().getPlanarCorrectionVid());
-
+        super(null,20,100);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         // Title

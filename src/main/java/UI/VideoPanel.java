@@ -11,7 +11,13 @@ import java.util.TimerTask;
 
 public abstract class VideoPanel extends ImagePanel {
     protected JLabel vidDisp;
+
+    public void setVideo(ImagePlus video) { this.video = video; }
+
     protected ImagePlus video;
+
+    protected final int hMargin;
+    protected final int vMargin;
 
     MouseListener mouseListener = new MouseListener() {
         @Override
@@ -21,18 +27,19 @@ public abstract class VideoPanel extends ImagePanel {
         public void mousePressed(MouseEvent e) {
             playVideo(video);
         }
-
         @Override
         public void mouseReleased(MouseEvent e) {}
-
         @Override
         public void mouseEntered(MouseEvent e) {}
         @Override
         public void mouseExited(MouseEvent e) {}
     };
 
-    public VideoPanel(ImagePlus video){
+    public VideoPanel(ImagePlus video,int hMargin,int vMargin){
         this.video = video;
+        this.hMargin=hMargin;
+        this.vMargin=vMargin;
+
         // Empty img panel
         vidDisp = new JLabel();
         vidDisp.addMouseListener(mouseListener);
@@ -40,7 +47,7 @@ public abstract class VideoPanel extends ImagePanel {
 
     protected void playVideo(ImagePlus video){
 
-        int speed = 1000/12; // 12 frames per second
+        int speed = 1000/18; // 18 frames per second
         int finalNumImages = video.getNSlices();
         final int[] frame = {0};
         java.util.Timer timer = new Timer();
@@ -51,7 +58,7 @@ public abstract class VideoPanel extends ImagePanel {
                 if(frame[0] <finalNumImages){
                     video.setSlice(frame[0]);
                     BufferedImage img = video.getBufferedImage();
-                    img = resizeImage(img,20,100);
+                    img = resizeImage(img,hMargin,vMargin);
                     vidDisp.setIcon(new ImageIcon(img));
                     vidDisp.setVisible(true);
                     frame[0]++;

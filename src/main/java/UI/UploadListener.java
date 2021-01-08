@@ -28,17 +28,18 @@ public class UploadListener implements ActionListener {
         fileName.setText(chooser.getSelectedFile().getName());
         fileName.setFont(new Font(fileName.getFont().getName(), Font.PLAIN, 20));
         Uploaded.setFileName(fileName);
+        Controller.getUpload().setVideo(null);
 
         // Save the path of the file
         File file = chooser.getSelectedFile();
         Uploaded.setFilePath(file.getAbsolutePath());
 
         // Create rendered img and display it
-        RenderedImage src = JAI.create("fileload", Uploaded.getFilePath());
-        NewTiffReader tiffReader =  new NewTiffReader(src);
-
-        Uploaded.vidDisp.removeAll(); // If updating, remove previous image
-        Uploaded.vidDisp.setIcon(tiffReader.getImg());
+//        RenderedImage src = JAI.create("fileload", Uploaded.getFilePath());
+//        NewTiffReader tiffReader =  new NewTiffReader(src);
+//
+//        Uploaded.vidDisp.removeAll(); // If updating, remove previous image
+//        Uploaded.vidDisp.setIcon(tiffReader.getImg());
 
         // Refresh the frame display
         Controller.display = "Upload";
