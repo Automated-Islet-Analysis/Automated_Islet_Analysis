@@ -13,13 +13,15 @@ import java.util.TimerTask;
 import java.util.Timer;
 
 public class MCVideoPlanar extends JPanel {
-    private static JLabel msg;
+    private static JLabel msg, msg2;
     private JLabel vid;
 
     public MCVideoPlanar(){
-        msg = new JLabel("This is the planar motion corrected video");
-        msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,20));
-        msg.setHorizontalAlignment(JLabel.CENTER);
+        setLayout(new FlowLayout(FlowLayout.CENTER, 30, 30));
+
+        // Title
+        msg = new JLabel("Planar motion corrected video");
+        msg.setFont(new Font(msg.getFont().getFontName(),Font.BOLD,20));
         add(msg);
 
         // Empty img panel
@@ -50,18 +52,17 @@ public class MCVideoPlanar extends JPanel {
         ImagePlus video = videoProcessor.getPlanarCorrectionVid();
 
         if(video==null){
-            remove(msg);
+            removeAll();
+            // Message to user
             msg = new JLabel("The video was not corrected for planar motion, no preview available!");
-            msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,20));
-            add(msg,BorderLayout.CENTER);
-            setSize(700,700);
+            msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,15));
+            add(msg);
         }
         else{
             BufferedImage img = video.getBufferedImage();
             img = resizeImage(img,(int)Math.round(img.getWidth()*0.3),(int)Math.round(img.getHeight()*0.3));
             vid.setIcon(new ImageIcon(img));
             vid.setVisible(true);
-            setSize(vid.getIcon().getIconWidth()+100,vid.getIcon().getIconHeight()+130);
         }
     }
 

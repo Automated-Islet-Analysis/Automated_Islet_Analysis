@@ -26,10 +26,10 @@ videoprocessing/SaveError.java
  videoprocessing.SaveError
 UI/NewTiffReader.java
  UI.NewTiffReader
-UI/DataTab/MCVideoDepth.java
- UI.DataTab.MCVideoDepth
- UI.DataTab.MCVideoDepth$1
- UI.DataTab.MCVideoDepth$2
+UI/DataTab/MCVideoPlanar.java
+ UI.DataTab.MCVideoPlanar
+ UI.DataTab.MCVideoPlanar$1
+ UI.DataTab.MCVideoPlanar$2
 UI/TiffListener.java
  UI.TiffListener
  UI.TiffListener$1
@@ -46,10 +46,8 @@ UI/Home.java
  UI.Home
 videoprocessing/ImageJ/ParticleAnalyzer.java
  videoprocessing.ImageJ.ParticleAnalyzer
-UI/DataTab/MCVideoPlanar.java
- UI.DataTab.MCVideoPlanar
- UI.DataTab.MCVideoPlanar$1
- UI.DataTab.MCVideoPlanar$2
+UI/UserInterface.java
+ UI.UserInterface
 videoprocessing/VideoProcessorError.java
  videoprocessing.VideoProcessorError
 UI/SaveTab/SavePlanarVideo.java
@@ -90,8 +88,10 @@ UI/AnalyseListener.java
  UI.AnalyseListener$1
 UI/MainMenu.java
  UI.MainMenu
-UI/UserInterface.java
- UI.UserInterface
+UI/DataTab/MCVideoDepth.java
+ UI.DataTab.MCVideoDepth
+ UI.DataTab.MCVideoDepth$1
+ UI.DataTab.MCVideoDepth$2
 UI/Controller.java
  UI.Controller
  UI.Controller$1

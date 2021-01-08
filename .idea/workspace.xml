@@ -22,7 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="450e1eba-0615-46d4-8cd7-6b46d25a3d50" name="Default Changelist" comment="VideoProcessorTest added">
+    <list default="true" id="450e1eba-0615-46d4-8cd7-6b46d25a3d50" name="Default Changelist" comment="Modified Controller for constant frame size. Fixed Results display">
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileContent/fileContent.lock" afterDir="false" />
@@ -30,25 +30,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/Data$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/Data.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/MainMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SavePlanarVideo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SavePlanarVideo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Uploaded.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Uploaded.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/process/CellFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/process/CellFinder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/DataTab/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/Results.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveDepthVideo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveDepthVideo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveMotionVideo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SavePlanarVideo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SavePlanarVideo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoDepth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoDepth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoPlanar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoPlanar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/DataTab/Results.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/Results.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +117,17 @@
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RunManager" selected="Gradle.Image_treatment- [run]">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CombinerTest.testCombining" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -230,7 +230,7 @@
       <workItem from="1609969026094" duration="955000" />
       <workItem from="1610030123638" duration="11455000" />
       <workItem from="1610041858129" duration="4803000" />
-      <workItem from="1610099584170" duration="2026000" />
+      <workItem from="1610099584170" duration="3513000" />
     </task>
     <task id="LOCAL-00001" summary="CombinerTest added">
       <created>1609532012958</created>
@@ -274,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610060227386</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Modified Controller for constant frame size. Fixed Results display">
+      <created>1610101805850</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610101805850</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,29 +307,32 @@
     <MESSAGE value="CellTest added" />
     <MESSAGE value="Added files for testing" />
     <MESSAGE value="VideoProcessorTest added" />
-    <option name="LAST_COMMIT_MESSAGE" value="VideoProcessorTest added" />
+    <MESSAGE value="Modified Controller for constant frame size. Fixed Results display" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified Controller for constant frame size. Fixed Results display" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1610101070590">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="425" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877@0.23.1440.877" timestamp="1610101070590" />
-    <state width="1217" height="216" key="GridCell.Tab.0.bottom" timestamp="1610101537835">
+    <state width="1398" height="216" key="GridCell.Tab.0.bottom" timestamp="1610103103908">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.0.1440.900" timestamp="1610103103908" />
+    <state width="1283" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1610103003178" />
+    <state width="1398" height="216" key="GridCell.Tab.0.center" timestamp="1610103102824">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1217" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1610101537835" />
-    <state width="1217" height="216" key="GridCell.Tab.0.center" timestamp="1610101537834">
+    <state width="1398" height="216" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1610103102824" />
+    <state width="1398" height="216" key="GridCell.Tab.0.left" timestamp="1610103102792">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1217" height="216" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1610101537834" />
-    <state width="1217" height="216" key="GridCell.Tab.0.left" timestamp="1610101537833">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1398" height="216" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1610103102792" />
+    <state width="1398" height="216" key="GridCell.Tab.0.right" timestamp="1610103103809">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1217" height="216" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1610101537833" />
-    <state width="1217" height="216" key="GridCell.Tab.0.right" timestamp="1610101537834">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="1217" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1610101537834" />
+    <state width="1398" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.0.1440.900" timestamp="1610103103809" />
+    <state width="1283" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1610103003178" />
     <state x="278" y="180" key="MultipleFileMergeDialog" timestamp="1610057262779">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
@@ -331,11 +341,12 @@
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="141" y="50" key="SettingsEditor/0.23.1280.777/1280.23.1881.1057@0.23.1280.777" timestamp="1610058327273" />
-    <state x="1633" y="197" key="Vcs.Push.Dialog.v2" timestamp="1610060250737">
-      <screen x="1280" y="23" width="1881" height="1057" />
+    <state x="270" y="167" key="Vcs.Push.Dialog.v2" timestamp="1610101806177">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="240" y="151" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.23.1881.1057@0.23.1280.777" timestamp="1610058261921" />
     <state x="1633" y="197" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1610060250737" />
+    <state x="270" y="167" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1610101806177" />
     <state x="510" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610099608226">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -346,7 +357,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoPlanar.java</url>
-          <line>92</line>
+          <line>93</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

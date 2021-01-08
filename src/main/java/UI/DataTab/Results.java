@@ -55,7 +55,8 @@ public class Results extends JPanel{
         if (meanIntensityMeasured == false){
             helpText1 = new JLabel("Before analysis, make sure all desired ROIs have been selected.");
             helpText2 = new JLabel("To do so, go to Data->ROIs.");
-
+            helpText1.setFont(new Font(helpText1.getFont().getFontName(),Font.PLAIN,15));
+            helpText2.setFont(new Font(helpText2.getFont().getFontName(),Font.PLAIN,15));
             add(helpText1);
             add(helpText2);
             add(Box.createHorizontalStrut(400));
