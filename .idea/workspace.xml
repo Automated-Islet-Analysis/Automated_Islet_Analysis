@@ -22,55 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="450e1eba-0615-46d4-8cd7-6b46d25a3d50" name="Default Changelist" comment="Modified displays MCVideoDepth and MCVideoPlanar">
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/ImagePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/VideoPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+    <list default="true" id="450e1eba-0615-46d4-8cd7-6b46d25a3d50" name="Default Changelist" comment="Help Message in AnalyseListener">
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2021__21_43__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2021__21_43__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoDepth$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoDepth$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoDepth.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoDepth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoPlanar$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoPlanar$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoPlanar.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoPlanar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/ROIs$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/ROIs$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/ROIs.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/ROIs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/NewTiffReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/NewTiffReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/TiffListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/TiffListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Uploaded.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Uploaded.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/process/CellFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/process/CellFinder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/CombinerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/CombinerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/VideoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/VideoTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/jai_codec-1.1.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/jai_core-1.1.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoDepth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoDepth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoPlanar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoPlanar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/DataTab/ROIs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/ROIs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/DataTab/Results.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/Results.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/NewTiffReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/NewTiffReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/TiffListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/TiffListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/Uploaded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Uploaded.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoprocessing/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoprocessing/Video.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoprocessing/VideoProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoprocessing/VideoProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoprocessing/process/CellFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoprocessing/process/CellFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveDepthVideo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SaveDepthVideo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SavePlanarVideo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/SaveTab/SavePlanarVideo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,23 +106,9 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.47471264" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RunManager" selected="Gradle.Image_treatment- [run]">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CombinerTest.testCombining" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -179,7 +125,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="Image_treatment- [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -198,7 +146,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="Image_treatment- [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -217,7 +167,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="VideoTest.testReadingFrames" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -236,7 +188,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -265,8 +219,8 @@
       <workItem from="1609969026094" duration="955000" />
       <workItem from="1610030123638" duration="11455000" />
       <workItem from="1610041858129" duration="4803000" />
-      <workItem from="1610099584170" duration="4489000" />
-      <workItem from="1610125607996" duration="9768000" />
+      <workItem from="1610138802925" duration="48000" />
+      <workItem from="1610139024131" duration="955000" />
     </task>
     <task id="LOCAL-00001" summary="CombinerTest added">
       <created>1609532012958</created>
@@ -289,42 +243,7 @@
       <option name="project" value="LOCAL" />
       <updated>1609600474959</updated>
     </task>
-    <task id="LOCAL-00004" summary="CellTest added">
-      <created>1610057327794</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1610057327794</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Added files for testing">
-      <created>1610058256578</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1610058256578</updated>
-    </task>
-    <task id="LOCAL-00006" summary="VideoProcessorTest added">
-      <created>1610060227386</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1610060227386</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Modified Controller for constant frame size. Fixed Results display">
-      <created>1610101805850</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1610101805850</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Modified displays MCVideoDepth and MCVideoPlanar">
-      <created>1610103281771</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1610103281772</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,77 +266,22 @@
     <MESSAGE value="encapsulation Home" />
     <MESSAGE value="Encapsulation of Home" />
     <MESSAGE value="Help Message in AnalyseListener" />
-    <MESSAGE value="CellTest added" />
-    <MESSAGE value="Added files for testing" />
-    <MESSAGE value="VideoProcessorTest added" />
-    <MESSAGE value="Modified Controller for constant frame size. Fixed Results display" />
-    <MESSAGE value="Modified displays MCVideoDepth and MCVideoPlanar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modified displays MCVideoDepth and MCVideoPlanar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Help Message in AnalyseListener" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="574" y="139" key="#com.intellij.ide.util.MemberChooser" timestamp="1610133916702">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="574" y="139" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1610133916702" />
-    <state x="425" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1610101070590">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="425" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877@0.23.1440.877" timestamp="1610101070590" />
-    <state width="1492" height="41" key="GridCell.Tab.0.bottom" timestamp="1610135386616">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1492" height="41" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1610135386616" />
-    <state width="1130" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.0.1440.900" timestamp="1610103191654" />
-    <state width="1355" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1610104052425" />
-    <state width="1492" height="41" key="GridCell.Tab.0.center" timestamp="1610135386616">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1492" height="41" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1610135386616" />
-    <state width="1355" height="216" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1610104052425" />
-    <state width="1492" height="41" key="GridCell.Tab.0.left" timestamp="1610135386615">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1492" height="41" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1610135386615" />
-    <state width="1355" height="216" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1610104052424" />
-    <state width="1492" height="41" key="GridCell.Tab.0.right" timestamp="1610135386616">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1492" height="41" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1610135386616" />
-    <state width="1398" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.0.1440.900" timestamp="1610103103809" />
-    <state width="1355" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1610104052425" />
-    <state width="1492" height="260" key="GridCell.Tab.1.bottom" timestamp="1610126494434">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1492" height="260" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1610126494434" />
-    <state width="1492" height="260" key="GridCell.Tab.1.center" timestamp="1610126494434">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1492" height="260" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1610126494434" />
-    <state width="1492" height="260" key="GridCell.Tab.1.left" timestamp="1610126494434">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1492" height="260" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1610126494434" />
-    <state width="1492" height="260" key="GridCell.Tab.1.right" timestamp="1610126494434">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1492" height="260" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1610126494434" />
-    <state x="278" y="180" key="MultipleFileMergeDialog" timestamp="1610057262779">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="278" y="180" key="MultipleFileMergeDialog/0.23.1280.777/1280.23.1881.1057@0.23.1280.777" timestamp="1610057262779" />
-    <state x="141" y="50" key="SettingsEditor" timestamp="1610058327273">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="141" y="50" key="SettingsEditor/0.23.1280.777/1280.23.1881.1057@0.23.1280.777" timestamp="1610058327273" />
-    <state x="270" y="167" key="Vcs.Push.Dialog.v2" timestamp="1610103352168">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="240" y="151" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.23.1881.1057@0.23.1280.777" timestamp="1610058261921" />
-    <state x="1633" y="197" key="Vcs.Push.Dialog.v2/0.23.1280.777/1280.23.1881.1057@1280.23.1881.1057" timestamp="1610060250737" />
-    <state x="270" y="167" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1610103352168" />
-    <state x="510" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610103341617">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="510" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1610103341617" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/videoprocessing/VideoProcessor.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoPlanar.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
