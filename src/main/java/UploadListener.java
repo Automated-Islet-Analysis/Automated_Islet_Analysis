@@ -10,14 +10,23 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 
-class UploadListener implements ActionListener {
+import javax.media.jai.JAI;
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.RenderedImage;
+import java.io.File;
+
+
+public class UploadListener implements ActionListener {
+
     @Override
 
     public void actionPerformed(ActionEvent e) {
-
         // Popup. Choose which file to upload
         JFileChooser chooser = new JFileChooser();
-        chooser.setName("chooser");
         // Later change to video formats
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
                 "TIFF Images", "tif", "tiff");
@@ -25,20 +34,25 @@ class UploadListener implements ActionListener {
         chooser.showOpenDialog(null);
 
         // Display the name of the file
-        Uploaded.filename.setText(chooser.getSelectedFile().getName());
-        Uploaded.filename.setFont(new Font(Uploaded.filename.getFont().getName(), Font.PLAIN, 20));
+        JLabel fileName = Uploaded.getFileName();
+        fileName.setText(chooser.getSelectedFile().getName());
+        fileName.setFont(new Font(fileName.getFont().getName(), Font.PLAIN, 20));
+        Uploaded.setFileName(fileName);
 
         // Save the path of the file
         File file = chooser.getSelectedFile();
-        String filePath = file.getAbsolutePath();
+        Uploaded.setFilePath(file.getAbsolutePath());
 
-        NewTiffReader tiffReader =  new NewTiffReader(filePath);
-        Uploaded.imgPanel.removeAll(); // If updating, remove previous image
-        Uploaded.imgPanel.add(tiffReader.getImgLabel());
+        // Create rendered img and display it
+        RenderedImage src = JAI.create("fileload", Uploaded.getFilePath());
+        NewTiffReader tiffReader =  new NewTiffReader(src);
+
+        Uploaded.vidDisp.removeAll(); // If updating, remove previous image
+        Uploaded.vidDisp.setIcon(tiffReader.getImg());
 
         // Refresh the frame display
-
         Home.display = "Upload";
+        Home.fileUploaded=true;
         Home.setDisplay();
     }
 }

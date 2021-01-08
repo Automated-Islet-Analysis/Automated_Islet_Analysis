@@ -1,24 +1,13 @@
-import DataTab.MCVideoDepth;
-import DataTab.MCVideoPlanar;
-import DataTab.ROIs;
-import DataTab.Data;
-
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class Controller extends JFrame {
 //    static JFrame interframe;
     static public String display;
-
     static Home home;
 
-    static public boolean analysedImg;
-
     public Controller() {
-        display = "home";
-        analysedImg = false;
 
         this.setSize(700, 800);
 

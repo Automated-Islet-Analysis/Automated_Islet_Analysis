@@ -1,42 +1,53 @@
-import DataTab.Data;
+import DataTab.Results;
 import DataTab.MCVideoDepth;
 import DataTab.MCVideoPlanar;
 import DataTab.ROIs;
-import jdk.internal.jimage.ImageStrings;
+import SaveTab.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 
 public class Home extends JPanel {
     private JLabel welcome;
     private static JLabel empty;
     private JButton button;
-    private static JPanel subPanel,welcomePanel,buttonPanel;
+    public static JPanel subPanel,welcomePanel,buttonPanel;
 
     static public String display;
 
-    static Home home;
     static ROIs rois;
     static MCVideoPlanar mcvidPlanar;
     static MCVideoDepth mcvidDepth;
-    static Data data;
+    static Results results;
     static Uploaded upload;
+    static SaveDepthVideo savevideo;
+    static SaveData savedata;
+    static SaveAll saveall;
+    static SaveROIs saverois;
+    static SavePlanarVideo saveplanarvideo;
 
+    static public boolean fileUploaded;
     static public boolean analysedImg;
+    static public boolean meanIntensityMeasured;
 
 
     public Home(){
         display = "home";
         analysedImg = true;
+        fileUploaded=false;
+        meanIntensityMeasured=false;
 
         // Create all the panel views
 //        home = new Home();
         rois = new ROIs();
         mcvidPlanar = new MCVideoPlanar();
         mcvidDepth = new MCVideoDepth();
-        data = new Data();
         upload = new Uploaded();
+        savevideo= new SaveDepthVideo();
+        savedata=new SaveData();
+        saveall=new SaveAll();
+        saverois=new SaveROIs();
+        saveplanarvideo=new SavePlanarVideo();
 
         welcome = new JLabel("Welcome!");
         welcome.setFont(new Font(welcome.getFont().getName(), Font.PLAIN, 30));
@@ -90,6 +101,7 @@ public class Home extends JPanel {
                 subPanel.removeAll();
                 subPanel.setLayout(new GridLayout(1,1));
                 subPanel.repaint();
+                rois.updatePanel();
                 subPanel.add(rois);
                 subPanel.revalidate();
             } else{
@@ -118,17 +130,67 @@ public class Home extends JPanel {
                 popupNoFile();
             }
         }
-        else if(display == "Data"){
-            if (analysedImg == true) {
+        else if(display == "Results") {
+            if (analysedImg) {
+                results = new Results(meanIntensityMeasured);
+                if (meanIntensityMeasured) {
+                    results.showResults();
+                }
                 subPanel.removeAll();
+                subPanel.setLayout(new GridLayout(1,1));
                 subPanel.repaint();
-                subPanel.add(data);
+                subPanel.add(results);
+                subPanel.revalidate();
+            } else {
+                popupNoFile();
+            }
+        }
+        else if(display.equals("SaveROIs")){
+            if (analysedImg) {
+                subPanel.removeAll();
+                subPanel.setLayout(new GridLayout(1,1));
+                subPanel.repaint();
+//                subPanel.add(saverois);
                 subPanel.revalidate();
             } else{
                 popupNoFile();
             }
         }
+        else if(display.equals("SaveAll")){
+            if (analysedImg) {
+                subPanel.removeAll();
+                subPanel.setLayout(new GridLayout(1,1));
+                subPanel.repaint();
+//                subPanel.add(saveall);
+                subPanel.revalidate();
+            } else{
+                popupNoFile();
+            }
+        }
+        else if(display.equals("SaveDepthVideo")){
+            if (analysedImg) {
+                subPanel.removeAll();
+                subPanel.setLayout(new GridLayout(1,1));
+                subPanel.repaint();
+                subPanel.add(savevideo);
+                subPanel.revalidate();
+            } else{
+                popupNoFile();
+            }
+        }
+        else if(display.equals("SavePlanarVideo")) {
+            if (analysedImg) {
+                subPanel.removeAll();
+                subPanel.setLayout(new GridLayout(1,1));
+                subPanel.repaint();
+                subPanel.add(saveplanarvideo);
+                subPanel.revalidate();
+            } else {
+                popupNoFile();
+            }
+        }
     }
+
 
     private static void popupNoFile(){
         // Popup that tells the user that no file has been uploaded

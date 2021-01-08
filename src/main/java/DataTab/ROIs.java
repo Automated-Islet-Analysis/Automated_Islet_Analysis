@@ -5,53 +5,90 @@ package DataTab;
 
 //import com.sun.media.controls.VFlowLayout;
 
+//import UI.Controller;
+//import UI.UserInterface;
+//import ij.ImagePlus;
+//import videoprocessing.VideoProcessor;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 public class ROIs extends JPanel {
-    JButton addROI;
-    JPanel subPanel,addROIPanel,textPanel;
-    JLabel text, image;
-    ImageIcon imgIcon;
+    private JButton addROI;
+    private JPanel subPanel;
+    private JLabel text, image;
+    private ImageIcon imgIcon;
+
+    private int numROI;
+    private BufferedImage imageROI;
+//    private ImagePlus imageP;
+    private int cellSize;
+//    private VideoProcessor videoProcessor;
 
     public ROIs(){
+        setLayout(new FlowLayout(FlowLayout.CENTER, 30, 30));
+
         // Create elements
         addROI = new JButton("Add ROIs");
         addROI.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                int numROI = number of already present ROI on image
-//                BufferedImage image =  ImageIO.read(path to image);
-//                ManualROISelection select = new ManualROISelection(image,numROI);
+//                ManualROISelection select = new ManualROISelection(videoProcessor.getRoiImage().getBufferedImage(),numROI,cellSize);
 //                select.run();
+//                videoProcessor = UserInterface.getVideoProcessor();
             }
         });
-        text = new JLabel("Number of ROIs:           ");
+        subPanel = new JPanel();
+    }
 
-        // imgIcon = new ImageIcon(path to image)
-        // image = new JLabel(imgIcon);
-        subPanel = new JPanel(new GridLayout(1,2));
+    public void updatePanel(){
+        videoProcessor = UserInterface.getVideoProcessor();
+        imageP = videoProcessor.getRoiImage();
 
-        // Add elements to main panel
-//        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 50));
-        //add(image);
-        setLayout(new BorderLayout());
-        add(Box.createVerticalStrut(500),BorderLayout.NORTH); // Spacing
-        addROIPanel=new JPanel();
-        addROIPanel.add(addROI);
-        textPanel=new JPanel();
-        textPanel.add(text);
+        if(! (imageP==null)) {
+            numROI = videoProcessor.getVideo().getCells().size();
+            imageROI = imageP.getBufferedImage();
+            imageROI = resizeImage(imageROI, (int) Math.round(imageROI.getWidth() * 0.65), (int) Math.round(imageROI.getHeight() * 0.65));
 
-        subPanel.add(textPanel);
-        subPanel.add(addROIPanel);
+            cellSize = videoProcessor.getCellSize();
 
-        addROI.setName("addROIButton");
+            text = new JLabel("Number of ROIs: " + numROI);
+            imgIcon = new ImageIcon(imageROI);
+            image = new JLabel(imgIcon);
 
-        add(subPanel,BorderLayout.CENTER);
+            removeAll();
+            subPanel.removeAll();
+
+            // Add JFrame that hold image
+            add(image, BorderLayout.PAGE_START);
+            // Create JPanel to hold buttons in gridlayout
+            subPanel.setLayout(new GridLayout(2, 1));
+            subPanel.add(text);
+            subPanel.add(addROI);
+            add(subPanel, BorderLayout.PAGE_END);
+        }
+
+        else {   // if (imageP==null)
+            removeAll();
+            // Message to user
+            text = new JLabel("Something went wrong. Please try again.");
+            text.setFont(new Font(text.getFont().getFontName(),Font.PLAIN,15));
+            add(text);
+        }
+
+    }
+
+//    // Resize image to fit on display
+    private BufferedImage resizeImage(BufferedImage imgIn,int w,int h){
+        BufferedImage resizedImg = new BufferedImage(w,h,BufferedImage.TYPE_BYTE_GRAY);
+        Graphics2D g2 = resizedImg.createGraphics();
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(imgIn, 0, 0, w,h, null);
+        g2.dispose();
+        return resizedImg;
     }
 }

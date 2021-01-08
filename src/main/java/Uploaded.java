@@ -1,50 +1,58 @@
 import javax.swing.*;
 import java.awt.*;
 
+import javax.swing.*;
+import java.awt.*;
+import java.lang.Exception;
+
 public class Uploaded extends JPanel {
-    static JLabel filename;
-    static JPanel imgPanel, uploadPanel,analysePanel,fileNamePanel;
+    private static JLabel fileName;
+    private static String filePath;
+
     JButton btnUpload, btnAnalyse;
     JPanel subHPanel;
+    static JLabel vidDisp;
+
+    public static JLabel getFileName() {return fileName;}
+    public static void setFileName(JLabel fileName) { Uploaded.fileName = fileName; }
+    public static String getFilePath() { return filePath;}
+    public static void setFilePath(String filePath) { Uploaded.filePath = filePath; }
 
     public Uploaded(){
-        // Empty img panel
-        imgPanel = new JPanel();
+        filePath = "";
+
+        vidDisp = new JLabel();
+        vidDisp.addMouseListener(new TiffListener());
+
+
         // Label for the text
-        filename = new JLabel("filename");
-        filename.setFont(new Font(filename.getFont().getName(), Font.PLAIN, 30));
-        filename.setHorizontalAlignment(SwingConstants.CENTER);
+        fileName = new JLabel("fileName");
+        fileName.setFont(new Font(fileName.getFont().getName(), Font.PLAIN, 30));
+        fileName.setHorizontalAlignment(SwingConstants.CENTER);
 
         // Two buttons. Upload to change uploaded file. Analyse to process the file.
-        uploadPanel=new JPanel();
-        analysePanel=new JPanel();
         btnUpload = new JButton("Upload");
         btnUpload.addActionListener(new UploadListener());
-        uploadPanel.add(btnUpload);
         btnAnalyse = new JButton("Analyse");
         btnAnalyse.addActionListener(new AnalyseListener());
-        analysePanel.add(btnAnalyse);
 
         // Set layout
-        setLayout(new GridLayout(2,1));
-        setLayout(new BorderLayout());
-        fileNamePanel=new JPanel();
-        fileNamePanel.add(filename);
-//        add(fileNamePanel);
-//        fileNamePanel.setVisible(false);
-//        fileNamePanel.setPreferredSize(new Dimension(600,100));
-        imgPanel.setSize(600,600);
-        add(imgPanel,BorderLayout.NORTH);
-//        imgPanel.setVisible(false);
-
+        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 25));
+        add(vidDisp);
+        add(fileName,BorderLayout.WEST);
 
         // Place buttons side by side
-        subHPanel = new JPanel(new GridLayout(1,3));
-        subHPanel.add(fileNamePanel);
-        subHPanel.add(uploadPanel);
-        subHPanel.add(analysePanel);
-        subHPanel.setSize(200,40);
-        add(subHPanel,BorderLayout.CENTER);
+        subHPanel = new JPanel(new GridLayout(1,2));
+        subHPanel.add(btnUpload);
+        subHPanel.add(btnAnalyse);
+        add(subHPanel,BorderLayout.EAST);
+
         btnAnalyse.setName("analyse");
+    }
+
+
+    public void setDim(){
+        if(! (vidDisp.getIcon()==null))
+            setSize(vidDisp.getIcon().getIconWidth()+50,vidDisp.getIcon().getIconHeight()+150);
     }
 }

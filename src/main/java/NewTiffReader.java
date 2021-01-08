@@ -10,17 +10,12 @@ import javax.swing.*;
 
 public class NewTiffReader {
     RenderedOp rescaledImage;
-    JLabel imageLabel;
-    RenderedImage src;
     BufferedImage bufImage;
 
-    public NewTiffReader(String filename) {
-        // prevent annoying JAI message when using JAI extension
+    public NewTiffReader(RenderedImage inputImg) {
         System.setProperty("com.sun.media.jai.disableMediaLib", "true");
-        src = (RenderedImage) JAI.create("fileload", filename);
-
         ParameterBlock pb  = new ParameterBlock();
-        pb.addSource(src);// The source image
+        pb.addSource(inputImg);// The source image
         pb.add(null);// The region of the image to scan. Null means all of it
         pb.add(1); // The horizontal sampling rate. 1 means all points
         pb.add(1); // The vertical sampling rate
@@ -41,7 +36,7 @@ public class NewTiffReader {
         double[] offsets = {offset}; // The per-band offsets to be added.
 
         ParameterBlock rescalingPB  = new ParameterBlock();
-        rescalingPB.addSource(src);
+        rescalingPB.addSource(inputImg);
         rescalingPB.add(constants);
         rescalingPB.add(offsets);
         // Use parameters to create the image
@@ -68,10 +63,9 @@ public class NewTiffReader {
         return resizedImg;
     }
 
-    public JLabel getImgLabel () {
+    public ImageIcon getImg () {
         ImageIcon imgIcon = new ImageIcon(bufImage);
-        imageLabel = new JLabel(imgIcon);
-        return imageLabel;
+        return imgIcon;
     }
 
 }
