@@ -1,14 +1,13 @@
-import javax.swing.*;
+import UI.Controller;
+import UI.UserInterface;
+import videoprocessing.VideoProcessor;
+
 import java.awt.*;
 
 public class Main extends Frame {
 
-    public static void main( final String[] args ) {
-        // Controller takes care of switching between displays
-        Controller controller = new Controller();
-        controller.setVisible(true);
-
+    public static void main(final String[] args) {
+        UserInterface userInterface = new UserInterface();
     }
-
 
 }
