@@ -9,17 +9,18 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Data extends JPanel{
+public class Results extends JPanel{
     JButton measureBtn;
     JPanel panDisc, panROI, panInt;
     JLabel titleDisc, titleROI, titleInt;
+    JLabel helpText1, helpText2;
     JLabel bodyDisc1, bodyDisc2, bodyROI1, bodyInt;
 
     VideoProcessor videoProcessor;
 
     private boolean meanIntensityMeasured;
 
-    public Data(boolean meanIntensityMeasured){
+    public Results(boolean meanIntensityMeasured){
         this.meanIntensityMeasured = meanIntensityMeasured;
         // Create button
         measureBtn = new JButton("Measure intensity");
@@ -34,6 +35,7 @@ public class Data extends JPanel{
             }
         });
 
+
         // Create panels
         panDisc = new JPanel(new GridLayout(3,1));
         panROI = new JPanel(new GridLayout(2,1));
@@ -47,8 +49,18 @@ public class Data extends JPanel{
         titleInt = new JLabel("Intensity");
         titleInt.setFont(new Font(titleInt.getFont().getName(), Font.BOLD, 24));
 
-        // Add elements to main JPanel
+        // Create layout
         setLayout(new FlowLayout(FlowLayout.LEFT, 30, 30));
+
+        if (meanIntensityMeasured == false){
+            helpText1 = new JLabel("Before analysis, make sure all desired ROIs have been selected.");
+            helpText2 = new JLabel("To do so, go to Data->ROIs.");
+
+            add(helpText1);
+            add(helpText2);
+            add(Box.createHorizontalStrut(400));
+            add(measureBtn);
+        }
     }
 
     public void showResults(){

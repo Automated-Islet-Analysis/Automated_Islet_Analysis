@@ -1,8 +1,5 @@
 package UI.SaveTab;
 
-import UI.Controller;
-import videoprocessing.VideoProcessor;
-
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
@@ -10,13 +7,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-public class SaveVideo extends JPanel implements ActionListener {
+public class SaveDepthVideo extends JPanel implements ActionListener {
 
     JButton saveButton;
     JTextArea log;
     JFileChooser chooser;
 
-    public SaveVideo(){
+    public SaveDepthVideo(){
         //create the file chooser
         chooser= new JFileChooser();
 
@@ -37,7 +34,7 @@ public class SaveVideo extends JPanel implements ActionListener {
     @Override
 
     public void actionPerformed(ActionEvent e) {
-        int userSelection= chooser.showSaveDialog(SaveVideo.this);
+        int userSelection= chooser.showSaveDialog(SaveDepthVideo.this);
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = chooser.getSelectedFile();
@@ -48,7 +45,7 @@ public class SaveVideo extends JPanel implements ActionListener {
     }
     //cite here for this part: https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/uiswing/examples/components/FileChooserDemoProject/src/components/FileChooserDemo.java
     protected static ImageIcon createImageIcon(String path){
-        java.net.URL imgURL= SaveVideo.class.getResource(path);
+        java.net.URL imgURL= SaveDepthVideo.class.getResource(path);
         if (imgURL != null) {
             return new ImageIcon(imgURL);
         } else {
