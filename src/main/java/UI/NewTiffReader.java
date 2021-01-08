@@ -51,10 +51,13 @@ public class NewTiffReader {
         int w = imgIn.getWidth();
         int h = imgIn.getHeight();
 
+        double wFrame = Controller.interframe.getWidth();
+        double hFrame = Controller.interframe.getHeight();
+
         // Scale to fit in frame
-        int scaleCoef = w/400;
-        w = w/scaleCoef;
-        h = h/scaleCoef;
+        double scaleCoef = (wFrame-50)/w;
+        w = (int) Math.round(w*scaleCoef);
+        h = (int) Math.round(h*scaleCoef);
 
         // Create resized img
         BufferedImage resizedImg = new BufferedImage(w,h,BufferedImage.TYPE_BYTE_GRAY);
@@ -69,5 +72,4 @@ public class NewTiffReader {
         ImageIcon imgIcon = new ImageIcon(bufImage);
         return imgIcon;
     }
-
 }

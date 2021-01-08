@@ -91,7 +91,7 @@ public class VideoProcessor{
 
             video.setIdxFramesInFocus(dMC.getIdxFramesInFocus());
 
-            // Create depth motion corrected vid
+            // Create depth motion corrected vidDisp
             createDepthCorrectionVid();
             System.out.println("Done");
         } else {

@@ -1,7 +1,6 @@
 package UI;
 import javax.swing.*;
 import java.awt.*;
-import java.lang.Exception;
 
 public class Uploaded extends JPanel {
     private static JLabel fileName;
@@ -21,7 +20,6 @@ public class Uploaded extends JPanel {
 
         vidDisp = new JLabel();
         vidDisp.addMouseListener(new TiffListener());
-
 
         // Label for the text
         fileName = new JLabel("fileName");

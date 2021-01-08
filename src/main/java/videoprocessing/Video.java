@@ -46,7 +46,7 @@ public class Video {
         dirName = file.getParent();
         // Check if input file is corrupt
         checkUncorrupted();
-        // Load frames into vid,SEFrames, ijFrames
+        // Load frames into vidDisp,SEFrames, ijFrames
         readFrames();
     }
 
@@ -76,7 +76,7 @@ public class Video {
     public void addCell(Cell cell){cells.add(cell);}
     public void clearSEFrames(){SEFrames.clear();}
 
-    // Load frames into vid ijFrames and SEFrames
+    // Load frames into vidDisp ijFrames and SEFrames
     private VideoProcessorError readFrames() {
         // Open input file
         vid = new ImagePlus();

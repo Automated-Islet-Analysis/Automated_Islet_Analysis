@@ -7,6 +7,8 @@ import UI.DataTab.Results;
 import UI.SaveTab.*;
 
 import javax.swing.*;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -46,6 +48,20 @@ public class Controller {
                 interframe.dispose();
             }
         });
+        interframe.addComponentListener(new ComponentListener() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                setDisplay();
+            }
+            @Override
+            public void componentMoved(ComponentEvent e) {}
+
+            @Override
+            public void componentShown(ComponentEvent e) {}
+
+            @Override
+            public void componentHidden(ComponentEvent e){}
+        });
 
         // Set up menu bar
         MainMenu mainMenu = new MainMenu();
@@ -62,7 +78,6 @@ public class Controller {
         saveall=new SaveAll();
         saverois=new SaveROIs();
         saveplanarvideo=new SavePlanarVideo();
-
 
         interframe.setVisible(true);
         setDisplay();
@@ -113,7 +128,7 @@ public class Controller {
         else if(display.equals("Results")){
             if (analysedImg) {
                 results = new Results(meanIntensityMeasured);
-                if(meanIntensityMeasured){results.showResults();}
+                results.showResults();
                 interframe.setContentPane(results);
                 interframe.invalidate();
                 interframe.validate();
