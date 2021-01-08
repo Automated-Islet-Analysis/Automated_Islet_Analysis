@@ -39,9 +39,10 @@ videoprocessing/ImageJ/Stack_Splitter.java
  videoprocessing.ImageJ.Stack_Splitter
 videoprocessing/process/CellFinder.java
  videoprocessing.process.CellFinder
-UI/DataTab/ROIs.java
- UI.DataTab.ROIs
- UI.DataTab.ROIs$1
+UI/DataTab/MCVideoDepth.java
+ UI.DataTab.MCVideoDepth
+ UI.DataTab.MCVideoDepth$1
+ UI.DataTab.MCVideoDepth$2
 UI/Home.java
  UI.Home
 videoprocessing/ImageJ/ParticleAnalyzer.java
@@ -74,11 +75,9 @@ videoprocessing/process/PlanarMotionCorrector.java
  videoprocessing.process.PlanarMotionCorrector
 videoprocessing/Combiner.java
  videoprocessing.Combiner
-UI/DataTab/ManualROISelection.java
- UI.DataTab.ManualROISelection
- UI.DataTab.ManualROISelection$1
- UI.DataTab.ManualROISelection$2
- UI.DataTab.ManualROISelection$3
+UI/DataTab/Results.java
+ UI.DataTab.Results
+ UI.DataTab.Results$1
 UI/UploadListener.java
  UI.UploadListener
 UI/HomeMenuListener.java
@@ -88,13 +87,14 @@ UI/AnalyseListener.java
  UI.AnalyseListener$1
 UI/MainMenu.java
  UI.MainMenu
-UI/DataTab/MCVideoDepth.java
- UI.DataTab.MCVideoDepth
- UI.DataTab.MCVideoDepth$1
- UI.DataTab.MCVideoDepth$2
+UI/DataTab/ManualROISelection.java
+ UI.DataTab.ManualROISelection
+ UI.DataTab.ManualROISelection$1
+ UI.DataTab.ManualROISelection$2
+ UI.DataTab.ManualROISelection$3
 UI/Controller.java
  UI.Controller
  UI.Controller$1
-UI/DataTab/Results.java
- UI.DataTab.Results
- UI.DataTab.Results$1
+UI/DataTab/ROIs.java
+ UI.DataTab.ROIs
+ UI.DataTab.ROIs$1
