@@ -23,10 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="450e1eba-0615-46d4-8cd7-6b46d25a3d50" name="Default Changelist" comment="Modified displays MCVideoDepth and MCVideoPlanar">
-      <change afterPath="$PROJECT_DIR$/old/TiffListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
@@ -35,32 +33,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoDepth.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoDepth.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoPlanar.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoPlanar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/Results.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/Results.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/NewTiffReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/TiffListener$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/TiffListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/UploadListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/UploadListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Uploaded.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Uploaded.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/VideoPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/VideoPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/VideoPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/VideoPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoDepth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoDepth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoPlanar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoPlanar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/DataTab/Results.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/Results.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/NewTiffReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/old/NewTiffReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/TiffListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/UploadListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/UploadListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/Uploaded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Uploaded.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/VideoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/VideoPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,19 +124,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.Image_treatment- [run]">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CombinerTest.testCombining" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -261,7 +227,8 @@
       <workItem from="1610030123638" duration="11455000" />
       <workItem from="1610041858129" duration="4803000" />
       <workItem from="1610099584170" duration="4489000" />
-      <workItem from="1610125607996" duration="13854000" />
+      <workItem from="1610125607996" duration="14521000" />
+      <workItem from="1610276016197" duration="966000" />
     </task>
     <task id="LOCAL-00001" summary="CombinerTest added">
       <created>1609532012958</created>
@@ -358,44 +325,44 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="425" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877@0.23.1440.877" timestamp="1610101070590" />
-    <state width="1492" height="67" key="GridCell.Tab.0.bottom" timestamp="1610140401478">
+    <state width="1492" height="329" key="GridCell.Tab.0.bottom" timestamp="1610276359932">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="67" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1610140401478" />
+    <state width="1492" height="329" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1610276359932" />
     <state width="1130" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.0.1440.900" timestamp="1610103191654" />
     <state width="1355" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1610104052425" />
-    <state width="1492" height="67" key="GridCell.Tab.0.center" timestamp="1610140401478">
+    <state width="1492" height="329" key="GridCell.Tab.0.center" timestamp="1610276359932">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="67" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1610140401478" />
+    <state width="1492" height="329" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1610276359932" />
     <state width="1355" height="216" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1610104052425" />
-    <state width="1492" height="67" key="GridCell.Tab.0.left" timestamp="1610140401477">
+    <state width="1492" height="329" key="GridCell.Tab.0.left" timestamp="1610276359932">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="67" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1610140401477" />
+    <state width="1492" height="329" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1610276359932" />
     <state width="1355" height="216" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1610104052424" />
-    <state width="1492" height="67" key="GridCell.Tab.0.right" timestamp="1610140401478">
+    <state width="1492" height="329" key="GridCell.Tab.0.right" timestamp="1610276359932">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="67" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1610140401478" />
+    <state width="1492" height="329" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1610276359932" />
     <state width="1398" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.0.1440.900" timestamp="1610103103809" />
     <state width="1355" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1610104052425" />
-    <state width="1492" height="260" key="GridCell.Tab.1.bottom" timestamp="1610126494434">
+    <state width="1492" height="260" key="GridCell.Tab.1.bottom" timestamp="1610275951840">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="260" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1610126494434" />
-    <state width="1492" height="260" key="GridCell.Tab.1.center" timestamp="1610126494434">
+    <state width="1492" height="260" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1610275951840" />
+    <state width="1492" height="260" key="GridCell.Tab.1.center" timestamp="1610275951840">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="260" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1610126494434" />
-    <state width="1492" height="260" key="GridCell.Tab.1.left" timestamp="1610126494434">
+    <state width="1492" height="260" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1610275951840" />
+    <state width="1492" height="260" key="GridCell.Tab.1.left" timestamp="1610275951840">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="260" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1610126494434" />
-    <state width="1492" height="260" key="GridCell.Tab.1.right" timestamp="1610126494434">
+    <state width="1492" height="260" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1610275951840" />
+    <state width="1492" height="260" key="GridCell.Tab.1.right" timestamp="1610275951840">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="260" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1610126494434" />
+    <state width="1492" height="260" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1610275951840" />
     <state x="278" y="180" key="MultipleFileMergeDialog" timestamp="1610057262779">
       <screen x="0" y="23" width="1280" height="777" />
     </state>

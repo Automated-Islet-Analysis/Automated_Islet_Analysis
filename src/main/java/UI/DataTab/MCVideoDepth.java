@@ -33,7 +33,7 @@ public class MCVideoDepth extends VideoPanel {
             removeAll();
             // Message to user
             msg = new JLabel("The video was not corrected for depth motion, no preview available!");
-            msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,15));
+            msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,20));
             add(msg);
         }
         else {
