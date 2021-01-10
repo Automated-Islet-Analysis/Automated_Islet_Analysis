@@ -22,7 +22,7 @@ public class CellAnalyzer extends Processor {
             cellError =cell.setPixROI(video.getIjFrames(), video.getIdxFramesInFocus());
             if(cellError==CellError.CELL_NO_FRAME_IN_FOCUS_ERROR) return ProcessorError.PROCESSOR_NO_FRAME_IN_FOCUS_ERROR;
             // Compute the mean intensity of each ROI from save video
-            cellError = cell.computeMeanIntensity(true);
+            cellError = cell.computeMeanIntensity();
             if(cellError==CellError.CELL_NO_ROI_ERROR) return ProcessorError.PROCESSOR_NO_DATA_ERROR;
         }
         return ProcessorError.PROCESSOR_SUCCESS;

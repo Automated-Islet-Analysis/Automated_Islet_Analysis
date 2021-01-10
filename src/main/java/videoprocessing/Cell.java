@@ -131,7 +131,7 @@ public class Cell {
     }
 
     // Compute mean intensity of ROI from saved video
-    public CellError computeMeanIntensity(boolean smooth){
+    public CellError computeMeanIntensity(){
         if(pixROI.get(0).length==0) return CellError.CELL_NO_ROI_ERROR;
         int nPix = pixROI.get(0).length;
         meanIntensity = new double[pixROI.size()];
