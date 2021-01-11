@@ -51,7 +51,7 @@ public class SaveDepthVideo extends JPanel implements ActionListener {
             ImagePlus videoToSave = Controller.getVideoProcessor().getDepthCorrectionVid();
 
             Controller.getVideoProcessor().saveDepthCorrectionVid(fileToSave.getPath());
-            
+
 
 
            /* BufferedImage bufferedImage=videoToSave.getBufferedImage();
