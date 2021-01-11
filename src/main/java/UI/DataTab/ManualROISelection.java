@@ -4,7 +4,6 @@
 package UI.DataTab;
 
 import UI.Controller;
-import UI.UserInterface;
 import videoprocessing.Cell;
 import videoprocessing.VideoProcessor;
 
@@ -82,7 +81,7 @@ public class ManualROISelection extends JPanel{
     // Open pop up and allow selection of new ROI and save them or disregard the changes
     public LinkedList<Cell> run() {
         // Pop-up window
-        JDialog dialog = new JDialog(Controller.interframe,"Select new ROIs",true);
+        JDialog dialog = new JDialog(Controller.getInterframe(),"Select new ROIs",true);
 //        JFrame f = new JFrame(null,"Select new ROIs");
         setLayout(new FlowLayout(FlowLayout.LEFT));
 
@@ -120,7 +119,7 @@ public class ManualROISelection extends JPanel{
         setSize(size.width+30,size.height+90);
         dialog.setContentPane(this);
         dialog.setSize(this.getSize());
-        dialog.setLocationRelativeTo(Controller.interframe);
+        dialog.setLocationRelativeTo(Controller.getInterframe());
         dialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         dialog.setResizable(false);
         dialog.setVisible(true);
@@ -151,16 +150,16 @@ public class ManualROISelection extends JPanel{
 
     // Add manually selected ROI to VideoProcessor
     private void addNewROIS(){
-        VideoProcessor videoProcessor= UserInterface.getVideoProcessor();
+        VideoProcessor videoProcessor= Controller.getVideoProcessor();
         videoProcessor.addCells(newCells);
         videoProcessor.createROIImage();
-        UserInterface.setVideoProcessor(videoProcessor);
+        Controller.setVideoProcessor(videoProcessor);
 
         ROIs rois = new ROIs();
         rois.updatePanel();
-        Controller.interframe.setContentPane(rois);
-        Controller.interframe.invalidate();
-        Controller.interframe.validate();
-        if(newCells.size()>0)Controller.meanIntensityMeasured=false;
+        Controller.getInterframe().setContentPane(rois);
+        Controller.getInterframe().invalidate();
+        Controller.getInterframe().validate();
+        if(newCells.size()>0)Controller.setMeanIntensityMeasured(false);
     }
 }

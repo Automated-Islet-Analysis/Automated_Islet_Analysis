@@ -1,8 +1,7 @@
 package UI.DataTab;
 
-import UI.VideoPanel;
-import UI.UserInterface;
-
+import UI.Controller;
+import UI.Panel.VideoPanel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -15,7 +14,6 @@ public class MCVideoDepth extends VideoPanel {
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        // Title
         msg = new JLabel("Depth motion corrected video");
         msg.setFont(new Font(msg.getFont().getFontName(),Font.BOLD,20));
         msg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
@@ -27,7 +25,7 @@ public class MCVideoDepth extends VideoPanel {
 
     @Override
     public void update(){
-        this.video = UserInterface.getVideoProcessor().getDepthCorrectionVid();
+        this.video = Controller.getVideoProcessor().getDepthCorrectionVid();
 
         if(video==null){
             removeAll();

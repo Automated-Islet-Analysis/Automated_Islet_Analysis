@@ -11,7 +11,6 @@ public class Combiner {
     //stores frames of combined video. Needed for unit testing
     private LinkedList<ImagePlus> combVidFrames;
 
-
     // Constructor
     public Combiner(){combVidFrames=new LinkedList<>();}
 
@@ -24,11 +23,6 @@ public class Combiner {
     public ImagePlus combine(ImagePlus imgLeft,ImagePlus imgRight) {
         ImageStack imageStack = new ImageStack();
         if (imgLeft.getNSlices() == imgRight.getNSlices()) {
-            // Required for project because video to be analysed can have 16-bit pixels while output always 8-bit
-            // and want to make sure both images have same data type for pixels
-//            ImageConverter imageConverterLeft = new ImageConverter(imgLeft);
-//            imageConverterLeft.convertToGray8();
-
             // Get processors for processing
             ImageProcessor ipLeft =imgLeft.getProcessor();
             ImageProcessor ipRight = imgRight.getProcessor();

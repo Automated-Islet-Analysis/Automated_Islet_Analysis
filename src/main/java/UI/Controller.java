@@ -4,7 +4,11 @@ import UI.DataTab.MCVideoDepth;
 import UI.DataTab.MCVideoPlanar;
 import UI.DataTab.ROIs;
 import UI.DataTab.Results;
+import UI.HomeTab.Home;
+import UI.HomeTab.MainMenu;
+import UI.HomeTab.Uploaded;
 import UI.SaveTab.*;
+import videoprocessing.VideoProcessor;
 
 import javax.swing.*;
 import java.awt.event.ComponentEvent;
@@ -13,37 +17,63 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class Controller {
-    public static JFrame interframe;
-    static public String display;
+    // Frame that hold UI
+    private static JFrame interframe;
 
-    static Home home;
-    static ROIs rois;
-    static MCVideoPlanar mcvidPlanar;
-    static MCVideoDepth mcvidDepth;
-    static Results results;
-    static Uploaded upload;
-    static SaveDepthVideo savevideo;
-    static SaveData savedata;
-    static SaveAll saveall;
-    static SaveROIs saverois;
-    static SavePlanarVideo saveplanarvideo;
+    // Stores which panel is being displayed
+    private static String display;
 
-    static public boolean fileUploaded;
-    static public boolean analysedImg;
-    static public boolean meanIntensityMeasured;
+    // Panels of each part of menu
+    private static Home home;
+    private static ROIs rois;
+    private static MCVideoPlanar mcvidPlanar;
+    private static MCVideoDepth mcvidDepth;
+    private static Results results;
+    private static Uploaded upload;
+    private static SaveDepthVideo savevideo;
+    private static SaveData savedata;
+    private static SaveAll saveall;
+    private static SaveROIs saverois;
+    private static SavePlanarVideo saveplanarvideo;
 
+    // Store if tasks were already performed
+    private static boolean fileUploaded;
+    private static boolean analysedImg;
+    private static  boolean meanIntensityMeasured;
 
+    // Stores backend
+    private static VideoProcessor videoProcessor = new VideoProcessor(null);
+
+    // Getters
     public static Uploaded getUpload() { return upload;}
+    public static VideoProcessor getVideoProcessor() {
+        return videoProcessor;
+    }
+    public static JFrame getInterframe() { return interframe; }
+    public static boolean isAnalysedImg() { return analysedImg; }
+    public static boolean isFileUploaded() { return fileUploaded;}
+    public static boolean isMeanIntensityMeasured() { return meanIntensityMeasured; }
+
+    // Setters
+    public static void setDisplay(String display) { Controller.display = display;}
+    public static void setVideoProcessor(VideoProcessor videoProcessor1) {
+        videoProcessor = videoProcessor1;
+    }
+    public static void setFileUploaded(boolean fileUploaded) { Controller.fileUploaded = fileUploaded; }
+    public static void setAnalysedImg(boolean analysedImg) { Controller.analysedImg = analysedImg;}
+    public static void setMeanIntensityMeasured(boolean meanIntensityMeasured) { Controller.meanIntensityMeasured = meanIntensityMeasured; }
+
 
     public Controller() {
+
         display = "home";
         fileUploaded=false;
         analysedImg = false;
         meanIntensityMeasured = false;
 
-        // Set up the frame
-        interframe = new JFrame("ROI detection");
-        interframe.setSize(550, 550);
+        // Set-up main frame of user-interface
+        interframe = new JFrame("Automated analysis of Islet in eye");
+        interframe.setSize(700, 700);
 
         interframe.addWindowListener(new WindowAdapter() {// Closes the program if close window clicked
             public void windowClosing(WindowEvent e) {
@@ -85,7 +115,7 @@ public class Controller {
         setDisplay();
     }
 
-    static public void setDisplay(){
+    public static void setDisplay(){
         // Allows switching between panels
         if(display.equals("home")){
             interframe.setContentPane(home);
@@ -105,7 +135,7 @@ public class Controller {
                 interframe.invalidate();
                 interframe.validate();
             } else{
-                popupNoFile();
+                popupNoFileAnalysed();
             }
         }
         else if(display.equals("MCVideoPlanar")){
@@ -115,7 +145,7 @@ public class Controller {
                 interframe.invalidate();
                 interframe.validate();
             } else{
-                popupNoFile();
+                popupNoFileAnalysed();
             }
         }
         else if(display.equals("MCVideoDepth")){
@@ -125,7 +155,7 @@ public class Controller {
                 interframe.invalidate();
                 interframe.validate();
             } else{
-                popupNoFile();
+                popupNoFileAnalysed();
             }
         }
         else if(display.equals("Results")){
@@ -136,7 +166,7 @@ public class Controller {
                 interframe.invalidate();
                 interframe.validate();
             } else{
-                popupNoFile();
+                popupNoFileAnalysed();
             }
         }
         else if(display.equals("SaveROIs")){
@@ -145,7 +175,7 @@ public class Controller {
                 interframe.invalidate();
                 interframe.validate();
             } else{
-                popupNoFile();
+                popupNoFileAnalysed();
             }
         }
         else if(display.equals("SaveAll")){
@@ -154,7 +184,7 @@ public class Controller {
                 interframe.invalidate();
                 interframe.validate();
             } else{
-                popupNoFile();
+                popupNoFileAnalysed();
             }
         }
         else if(display.equals("SaveDepthVideo")){
@@ -163,7 +193,7 @@ public class Controller {
                 interframe.invalidate();
                 interframe.validate();
             } else{
-                popupNoFile();
+                popupNoFileAnalysed();
             }
         }
         else if(display.equals("SavePlanarVideo")){
@@ -172,13 +202,13 @@ public class Controller {
                 interframe.invalidate();
                 interframe.validate();
             } else{
-                popupNoFile();
+                popupNoFileAnalysed();
             }
         }
 
     }
 
-    private static void popupNoFile(){
+    private static void popupNoFileAnalysed(){
         // Popup that tells the user that no file has been uploaded
         JOptionPane.showMessageDialog(interframe,
                 "No file has been analysed yet. \n" +

@@ -1,6 +1,5 @@
 package UI.DataTab;
 import UI.Controller;
-import UI.UserInterface;
 import videoprocessing.Video;
 import videoprocessing.VideoProcessor;
 
@@ -26,10 +25,10 @@ public class Results extends JPanel{
         measureBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                videoProcessor= UserInterface.getVideoProcessor();
+                videoProcessor= Controller.getVideoProcessor();
                 videoProcessor.analyseCells();
-                UserInterface.setVideoProcessor(videoProcessor);
-                Controller.meanIntensityMeasured=true;
+                Controller.setVideoProcessor(videoProcessor);
+                Controller.setMeanIntensityMeasured(true);
                 Controller.setDisplay();
             }
         });
@@ -69,7 +68,7 @@ public class Results extends JPanel{
         panROI.removeAll();
         panInt.removeAll();
 
-        videoProcessor = UserInterface.getVideoProcessor();
+        videoProcessor = Controller.getVideoProcessor();
         Video video = videoProcessor.getVideo();
 
         // Create body labels

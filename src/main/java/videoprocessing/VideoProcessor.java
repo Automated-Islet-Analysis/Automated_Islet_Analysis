@@ -4,7 +4,7 @@ import ij.ImagePlus;
 import ij.ImageStack;
 import ij.io.FileSaver;
 import ij.process.ImageProcessor;
-import videoprocessing.process.*;
+import videoprocessing.processor.*;
 
 import java.awt.*;
 import java.io.BufferedWriter;

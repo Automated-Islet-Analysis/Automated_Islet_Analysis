@@ -1,7 +1,7 @@
 package UI.DataTab;
 
-import UI.ImagePanel;
-import UI.UserInterface;
+import UI.Controller;
+import UI.Panel.ImagePanel;
 import videoprocessing.VideoProcessor;
 
 import javax.swing.*;
@@ -29,14 +29,14 @@ public class ROIs extends ImagePanel {
             public void actionPerformed(ActionEvent e) {
                 ManualROISelection select = new ManualROISelection(videoProcessor.getRoiImage().getBufferedImage(),numROI,cellSize);
                 select.run();
-                videoProcessor = UserInterface.getVideoProcessor();
+                videoProcessor = Controller.getVideoProcessor();
             }
         });
         subPanel = new JPanel();
     }
 
     public void updatePanel(){
-        videoProcessor = UserInterface.getVideoProcessor();
+        videoProcessor = Controller.getVideoProcessor();
 
         numROI = videoProcessor.getVideo().getCells().size();
         imageROI = videoProcessor.getRoiImage().getBufferedImage();

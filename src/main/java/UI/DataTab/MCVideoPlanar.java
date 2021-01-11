@@ -1,7 +1,7 @@
 package UI.DataTab;
 
-import UI.UserInterface;
-import UI.VideoPanel;
+import UI.Controller;
+import UI.Panel.VideoPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,7 +26,7 @@ public class MCVideoPlanar extends VideoPanel {
 
     @Override
     public void update(){
-        this.video = UserInterface.getVideoProcessor().getPlanarCorrectionVid();
+        this.video = Controller.getVideoProcessor().getPlanarCorrectionVid();
 
         if(video==null){
             removeAll();
