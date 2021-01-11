@@ -1,3 +1,13 @@
+/**
+ * Panel used for display of videos and images where the size of the displayed image dependents
+ * on the size of the frame of dialog it is part of.
+ * This enable to see the videos in greater detail by opening the app in full screen mode.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI.Panel;
 
 import javax.swing.*;

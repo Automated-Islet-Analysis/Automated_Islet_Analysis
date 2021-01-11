@@ -1,5 +1,11 @@
-// Source https://coderanch.com/t/492739/java/mouse-click-image-draw-point
-// Modified on 22/12/2020
+/**
+ * Class that is used to show a pop-up where you can manually select ROI. After confirming the new ROI,
+ * these are added to the cells of the videoProcessor.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
 
 package UI.DataTab;
 
@@ -30,6 +36,8 @@ public class ManualROISelection extends ImagePanel {
     JButton jButton1 = new JButton("Cancel");
 
     // Mouse listeners that listens to mousePressed on JLabel imgDisp only
+    // Source https://coderanch.com/t/492739/java/mouse-click-image-draw-point
+    // Modified on 22/12/2020
     private MouseListener mouseListener = new MouseListener() {
         @Override
         public void mousePressed(MouseEvent e) {
@@ -161,7 +169,6 @@ public class ManualROISelection extends ImagePanel {
         this.setAlignmentX(JComponent.LEFT_ALIGNMENT);
         dialog.setContentPane(this);
     }
-
     // Draw cell numbers on GUI
     // Adapted From http://www.java2s.com/Tutorial/Java/0261__2D-Graphics/Centertext.html
     public void drawCenteredString(String s, int x, int y, Graphics g) {

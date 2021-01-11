@@ -1,3 +1,11 @@
+/**
+ * ImagePanel used for display of the analysed islet with its region of interest shown with numbers.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI.DataTab;
 
 import UI.Controller;
@@ -11,13 +19,8 @@ import java.awt.event.ActionListener;
 
 public class ROIs extends ImagePanel {
     private JButton addROI;
-<<<<<<< HEAD
-    private JLabel text, image;
-    private ImageIcon imgIcon;
-=======
     private JPanel subPanel;
     private JLabel text;
->>>>>>> 41aec54c48d8f4a439de9a060d43c840e387c78d
 
     private int numROI;
     private int cellSize;

@@ -1,3 +1,11 @@
+/**
+ * Panel used for display of dynamic videos.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI.Panel;
 
 import UI.Controller;

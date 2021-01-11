@@ -1,10 +1,14 @@
+/**
+ * Panel used for display of dynamic images.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI.Panel;
 
-import UI.Controller;
-import ij.ImagePlus;
-
 import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public abstract class ImagePanel extends DynamicPanel {

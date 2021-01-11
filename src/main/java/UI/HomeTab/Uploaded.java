@@ -1,3 +1,11 @@
+/**
+ * Panel used for display of uploaded video with the options to analyses video or upload an other video.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI.HomeTab;
 
 import UI.Controller;

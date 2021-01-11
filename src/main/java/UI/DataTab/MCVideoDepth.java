@@ -1,3 +1,11 @@
+/**
+ * Panel used for display of the results of the depth motion correction.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI.DataTab;
 
 import UI.Controller;
