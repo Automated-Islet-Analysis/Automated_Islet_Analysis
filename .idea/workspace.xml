@@ -30,8 +30,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/HomeTab/UploadListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/HomeTab/UploadListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/HomeTab/Uploaded.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/HomeTab/Uploaded.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveDepthVideo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveDepthVideo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SavePlanarVideo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SavePlanarVideo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
@@ -259,7 +257,7 @@
       <workItem from="1610276016197" duration="966000" />
       <workItem from="1610368146406" duration="149000" />
       <workItem from="1610375431002" duration="4518000" />
-      <workItem from="1610380136895" duration="4739000" />
+      <workItem from="1610380136895" duration="5416000" />
     </task>
     <task id="LOCAL-00001" summary="CombinerTest added">
       <created>1609532012958</created>

@@ -14,8 +14,8 @@ videoprocessing/ImageJ/nifti_io/QuaternCoors.java
  ImageJ.nifti_io.QuaternCoors
 videoprocessing/ImageJ/nifti_io/Nifti_Reader.java
  ImageJ.nifti_io.Nifti_Reader
-UI/HomeTab/MainMenu.java
- UI.HomeTab.MainMenu
+videoprocessing/ImageJ/nifti_io/Nifti_writer.java
+ ImageJ.nifti_io.Nifti_writer
 videoprocessing/ImageJ/nifti_io/CoordinateMapper.java
  ImageJ.nifti_io.CoordinateMapper
 UI/HomeTab/AnalyseListener.java
@@ -58,18 +58,16 @@ UI/HomeTab/Home.java
  UI.HomeTab.Home
 videoprocessing/VideoProcessorError.java
  videoprocessing.VideoProcessorError
-UI/SaveTab/SavePlanarVideo.java
- UI.SaveTab.SavePlanarVideo
+videoprocessing/Cell.java
+ videoprocessing.Cell
 videoprocessing/processor/PlanarMotionCorrector.java
  videoprocessing.processor.PlanarMotionCorrector
-UI/Controller.java
- UI.Controller
- UI.Controller$1
- UI.Controller$2
+UI/SaveTab/SaveROIs.java
+ UI.SaveTab.SaveROIs
 UI/HomeTab/HomeMenuListener.java
  UI.HomeTab.HomeMenuListener
-UI/SaveTab/SaveDepthVideo.java
- UI.SaveTab.SaveDepthVideo
+videoprocessing/ImageJ/Binary.java
+ videoprocessing.ImageJ.Binary
 UI/DataTab/Results.java
  UI.DataTab.Results
  UI.DataTab.Results$1
@@ -86,11 +84,13 @@ videoprocessing/processor/CellAnalyzer.java
  videoprocessing.processor.CellAnalyzer
 videoprocessing/CellError.java
  videoprocessing.CellError
-videoprocessing/ImageJ/nifti_io/Nifti_writer.java
- ImageJ.nifti_io.Nifti_writer
-videoprocessing/ImageJ/Binary.java
- videoprocessing.ImageJ.Binary
-UI/SaveTab/SaveROIs.java
- UI.SaveTab.SaveROIs
-videoprocessing/Cell.java
- videoprocessing.Cell
+UI/SaveTab/SavePlanarVideo.java
+ UI.SaveTab.SavePlanarVideo
+UI/Controller.java
+ UI.Controller
+ UI.Controller$1
+ UI.Controller$2
+UI/SaveTab/SaveDepthVideo.java
+ UI.SaveTab.SaveDepthVideo
+UI/HomeTab/MainMenu.java
+ UI.HomeTab.MainMenu

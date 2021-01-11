@@ -45,11 +45,9 @@ public class SavePlanarVideo extends JPanel implements ActionListener {
                         JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
 
                 if (check.isSelected() && x ==1) {
-                    Controller.getVideoProcessor().savePlanarCorrectionVid(fileToSave.getPath());
-                }            }
-            //Controller.getVideoProcessor().savePlanarCorrectionVid(fileToSave.getPath());
-            log.append("Saving: "+ fileToSave.getName());
-            System.out.println("Save as file: " + fileToSave.getAbsolutePath());
+                    Controller.getVideoProcessor().savePlanarCorrectionVid(fileToSave.getPath()+".tif");
+                }
+            }
         }
 
     }

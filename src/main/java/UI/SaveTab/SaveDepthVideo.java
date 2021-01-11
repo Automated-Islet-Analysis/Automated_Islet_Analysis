@@ -48,11 +48,17 @@ public class SaveDepthVideo extends JPanel implements ActionListener {
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = chooser.getSelectedFile();
-            ImagePlus videoToSave = Controller.getVideoProcessor().getDepthCorrectionVid();
+            if(fileToSave.exists() && !fileToSave.isDirectory()) {
+                JCheckBox check = new JCheckBox("Warning");
+                Object[] options = {"Yes", "No, overwrite"};
+                int x = JOptionPane.showOptionDialog(null, "This file already exist. Do you want to change its name?",
+                        "Warning",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
 
-            Controller.getVideoProcessor().saveDepthCorrectionVid(fileToSave.getPath());
-
-
+                if (check.isSelected() && x ==1) {
+                    Controller.getVideoProcessor().saveDepthCorrectionVid(fileToSave.getPath()+".tif");
+                }
+            }
 
            /* BufferedImage bufferedImage=videoToSave.getBufferedImage();
             WritableRaster raster = bufferedImage .getRaster();
