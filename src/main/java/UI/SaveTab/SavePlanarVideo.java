@@ -40,7 +40,7 @@ public class SavePlanarVideo extends JPanel implements ActionListener {
             if(fileToSave.exists() && !fileToSave.isDirectory()) {
                 JCheckBox check = new JCheckBox("Warning");
                 Object[] options = {"Yes", "No, overwrite"};
-                int x = JOptionPane.showOptionDialog(null, "This file already exist. Do you want to change to change its name?]",
+                int x = JOptionPane.showOptionDialog(null, "This file already exist. Do you want to change its name?",
                         "Warning",
                         JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
 
