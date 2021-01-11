@@ -1,6 +1,7 @@
 package UI.HomeTab;
 
 import UI.Controller;
+import ij.ImagePlus;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -17,11 +18,10 @@ public class UploadListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // Popup. Choose which file to upload
         JFileChooser chooser = new JFileChooser();
-        // Later change to video formats
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
                 "TIFF Images", "tif", "tiff");
         chooser.setFileFilter(filter);
-        chooser.showOpenDialog(null);
+        chooser.showOpenDialog(Controller.getInterframe());
 
         // Display the name of the file
         JLabel fileName = Uploaded.getFileName();
@@ -32,11 +32,15 @@ public class UploadListener implements ActionListener {
 
         // Save the path of the file
         File file = chooser.getSelectedFile();
-        Uploaded.setFilePath(file.getAbsolutePath());
+        if(!(new ImagePlus(file.getAbsolutePath())==null)) {
+            Uploaded.setFilePath(file.getAbsolutePath());
 
-        // Refresh the frame display
-        Controller.setDisplay("Upload");
-        Controller.setFileUploaded(true);
-        Controller.setDisplay();
+            // Refresh the frame display
+            Controller.setDisplay("Upload");
+            Controller.setFileUploaded(true);
+            Controller.setDisplay();
+        }else{
+            JOptionPane.showMessageDialog(Controller.getInterframe(), "The upload was unsuccessful, check if the file is corrupted!");
+        }
     }
 }

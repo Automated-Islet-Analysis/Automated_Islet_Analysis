@@ -2,8 +2,8 @@ UI/Panel/VideoPanel.java
  UI.Panel.VideoPanel
  UI.Panel.VideoPanel$1
  UI.Panel.VideoPanel$2
-UI/HomeTab/Uploaded.java
- UI.HomeTab.Uploaded
+UI/SaveTab/SaveROIs.java
+ UI.SaveTab.SaveROIs
 UI/SaveTab/SaveAll.java
  UI.SaveTab.SaveAll
 videoprocessing/ImageJ/nifti_io/AffineCoors.java
@@ -42,8 +42,8 @@ videoprocessing/processor/CellFinder.java
 UI/DataTab/ROIs.java
  UI.DataTab.ROIs
  UI.DataTab.ROIs$1
-UI/HomeTab/UploadListener.java
- UI.HomeTab.UploadListener
+videoprocessing/ImageJ/Binary.java
+ videoprocessing.ImageJ.Binary
 videoprocessing/ImageJ/ParticleAnalyzer.java
  videoprocessing.ImageJ.ParticleAnalyzer
 videoprocessing/processor/DepthMotionCorrector.java
@@ -54,8 +54,8 @@ UI/Panel/ImagePanel.java
  UI.Panel.ImagePanel
 videoprocessing/processor/Processor.java
  videoprocessing.processor.Processor
-UI/HomeTab/Home.java
- UI.HomeTab.Home
+videoprocessing/Cell.java
+ videoprocessing.Cell
 videoprocessing/VideoProcessorError.java
  videoprocessing.VideoProcessorError
 UI/SaveTab/SavePlanarVideo.java
@@ -88,9 +88,9 @@ videoprocessing/CellError.java
  videoprocessing.CellError
 videoprocessing/ImageJ/nifti_io/Nifti_writer.java
  ImageJ.nifti_io.Nifti_writer
-videoprocessing/ImageJ/Binary.java
- videoprocessing.ImageJ.Binary
-UI/SaveTab/SaveROIs.java
- UI.SaveTab.SaveROIs
-videoprocessing/Cell.java
- videoprocessing.Cell
+UI/HomeTab/Home.java
+ UI.HomeTab.Home
+UI/HomeTab/Uploaded.java
+ UI.HomeTab.Uploaded
+UI/HomeTab/UploadListener.java
+ UI.HomeTab.UploadListener

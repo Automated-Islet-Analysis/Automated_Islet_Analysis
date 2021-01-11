@@ -34,15 +34,40 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2021__21_43__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2021__21_43__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/CellTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/CellTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/CombinerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/CombinerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/CompareImages.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/CompareImages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/MakeImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/MakeImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/VideoProcessorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/VideoProcessorTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/VideoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/VideoTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/simplelastix.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/10.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/11.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/11.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/12.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/12.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/13.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/13.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/14.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/14.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/15.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/15.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/16.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/16.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/17.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/17.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/18.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/18.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/19.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/19.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/20.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/20.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/21.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/21.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/22.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/22.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/23.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/23.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/6.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/7.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/8.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/8.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/old/img/MI_data/9.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/HomeTab/UploadListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/HomeTab/UploadListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/HomeTab/Uploaded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/HomeTab/Uploaded.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,18 +96,6 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="CLAHE" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CLAHE" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CLAHE" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -144,6 +157,17 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.Image_treatment- [run]">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CombinerTest.testCombining" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -255,7 +279,7 @@
       <workItem from="1610099584170" duration="4489000" />
       <workItem from="1610125607996" duration="14521000" />
       <workItem from="1610276016197" duration="966000" />
-      <workItem from="1610368146406" duration="149000" />
+      <workItem from="1610368146406" duration="3068000" />
     </task>
     <task id="LOCAL-00001" summary="CombinerTest added">
       <created>1609532012958</created>
@@ -348,30 +372,31 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="574" y="139" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1610140310372" />
-    <state x="425" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1610101070590">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="425" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877@0.23.1440.877" timestamp="1610101070590" />
-    <state width="1492" height="211" key="GridCell.Tab.0.bottom" timestamp="1610368187143">
+    <state x="332" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1610381874247">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="211" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1610368187143" />
+    <state x="332" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1610381874247" />
+    <state x="425" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877@0.23.1440.877" timestamp="1610101070590" />
+    <state width="1492" height="2" key="GridCell.Tab.0.bottom" timestamp="1610382333695">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="2" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1610382333695" />
     <state width="1130" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.0.1440.900" timestamp="1610103191654" />
     <state width="1355" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1610104052425" />
-    <state width="1492" height="211" key="GridCell.Tab.0.center" timestamp="1610368187143">
+    <state width="1492" height="2" key="GridCell.Tab.0.center" timestamp="1610382333694">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="211" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1610368187143" />
+    <state width="1492" height="2" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1610382333694" />
     <state width="1355" height="216" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1610104052425" />
-    <state width="1492" height="211" key="GridCell.Tab.0.left" timestamp="1610368187143">
+    <state width="1492" height="2" key="GridCell.Tab.0.left" timestamp="1610382333694">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="211" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1610368187143" />
+    <state width="1492" height="2" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1610382333694" />
     <state width="1355" height="216" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1610104052424" />
-    <state width="1492" height="211" key="GridCell.Tab.0.right" timestamp="1610368187143">
+    <state width="1492" height="2" key="GridCell.Tab.0.right" timestamp="1610382333694">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="211" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1610368187143" />
+    <state width="1492" height="2" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1610382333694" />
     <state width="1398" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.0.1440.900" timestamp="1610103103809" />
     <state width="1355" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1610104052425" />
     <state width="1492" height="260" key="GridCell.Tab.1.bottom" timestamp="1610275951840">
