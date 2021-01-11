@@ -3,13 +3,8 @@
 
 package UI.DataTab;
 
-//import UI.Controller;
-//import UI.UserInterface;
-//import videoprocessing.Cell;
-//import videoprocessing.VideoProcessor;
-
-import UI.Home;
-import UI.UserInterface;
+import UI.Controller;
+import UI.HomeTab.Home;
 import videoprocessing.Cell;
 import videoprocessing.VideoProcessor;
 
@@ -159,17 +154,16 @@ public class ManualROISelection extends JPanel{
 
     // Add manually selected ROI to VideoProcessor
     private void addNewROIS(){
-        VideoProcessor videoProcessor= UserInterface.getVideoProcessor();
+        VideoProcessor videoProcessor= Home.getVideoProcessor();
         videoProcessor.addCells(newCells);
         videoProcessor.createROIImage();
-        UserInterface.setVideoProcessor(videoProcessor);
+        Home.setVideoProcessor(videoProcessor);
 
         ROIs rois = new ROIs();
         rois.updatePanel();
-        Home.subPanel.repaint();
-        Home.subPanel.add(rois);
-        Home.subPanel.invalidate();
-        Home.subPanel.revalidate();
-        if(newCells.size()>0)Home.meanIntensityMeasured=false;
+        Home.getInterframe().add(rois);
+        Home.getInterframe().invalidate();
+        Home.getInterframe().validate();
+        if(newCells.size()>0)Home.setMeanIntensityMeasured(false);
     }
 }

@@ -1,22 +1,18 @@
 package UI.DataTab;
-
+import UI.Controller;
+import UI.HomeTab.Home;
 import videoprocessing.Video;
 import videoprocessing.VideoProcessor;
-
-import UI.Home;
-import UI.UserInterface;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class Results extends JPanel{
     JButton measureBtn;
-    JPanel panDisc, panROI, panInt;
+    JPanel panDisc, panROI, panInt, btnPan;
     JLabel titleDisc, titleROI, titleInt;
-    JLabel helpText1, helpText2;
     JLabel bodyDisc1, bodyDisc2, bodyROI1, bodyInt;
 
     VideoProcessor videoProcessor;
@@ -30,19 +26,19 @@ public class Results extends JPanel{
         measureBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                videoProcessor= UserInterface.getVideoProcessor();
+                videoProcessor= Home.getVideoProcessor();
                 videoProcessor.analyseCells();
-                UserInterface.setVideoProcessor(videoProcessor);
-                Home.meanIntensityMeasured=true;
+                Home.setVideoProcessor(videoProcessor);
+                Home.setMeanIntensityMeasured(true);
                 Home.setDisplay();
             }
         });
-
 
         // Create panels
         panDisc = new JPanel(new GridLayout(3,1));
         panROI = new JPanel(new GridLayout(2,1));
         panInt = new JPanel(new GridLayout(3,1));
+        btnPan = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
         // Create title labels
         titleDisc = new JLabel("Discarded frames");
@@ -53,18 +49,18 @@ public class Results extends JPanel{
         titleInt.setFont(new Font(titleInt.getFont().getName(), Font.BOLD, 24));
 
         // Create layout
-        setLayout(new FlowLayout(FlowLayout.LEFT, 30, 30));
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        if (meanIntensityMeasured == false){
-            helpText1 = new JLabel("Before analysis, make sure all desired ROIs have been selected.");
-            helpText2 = new JLabel("To do so, go to Data->ROIs.");
-            helpText1.setFont(new Font(helpText1.getFont().getFontName(),Font.PLAIN,15));
-            helpText2.setFont(new Font(helpText2.getFont().getFontName(),Font.PLAIN,15));
-            add(helpText1);
-            add(helpText2);
-            add(Box.createHorizontalStrut(400));
-            add(measureBtn);
-        }
+//        if (meanIntensityMeasured == false){
+//            helpText1 = new JLabel("Before analysis, make sure all desired ROIs have been selected.");
+//            helpText2 = new JLabel("To do so, go to Data->ROIs.");
+//            helpText1.setFont(new Font(helpText1.getFont().getFontName(),Font.PLAIN,15));
+//            helpText2.setFont(new Font(helpText2.getFont().getFontName(),Font.PLAIN,15));
+//            add(helpText1);
+//            add(helpText2);
+//            add(Box.createHorizontalStrut(400));
+//            add(measureBtn);
+//        }
     }
 
     public void showResults(){
@@ -73,17 +69,17 @@ public class Results extends JPanel{
         panROI.removeAll();
         panInt.removeAll();
 
-        videoProcessor = UserInterface.getVideoProcessor();
+        videoProcessor = Home.getVideoProcessor();
         Video video = videoProcessor.getVideo();
 
-//        Create body labels
-        bodyDisc2 = new JLabel("Used percentage cross sectional error of: "+videoProcessor.getThresholdArea());
-        bodyDisc1 = new JLabel("The program identified "+video.getIdxFramesInFocus().size()+" frames without depth motion.");
-        bodyROI1 = new JLabel("There are "+video.getCells().size()+" regions of interest in the uploaded video.");
+        // Create body labels
+        bodyDisc2 = new JLabel("    Used percentage cross sectional error of: "+videoProcessor.getThresholdArea());
+        bodyDisc1 = new JLabel("    The program identified "+video.getIdxFramesInFocus().size()+" frames without depth motion.");
+        bodyROI1 = new JLabel("    There are "+video.getCells().size()+" regions of interest in the uploaded video.");
         if(meanIntensityMeasured==false)
-            bodyInt = new JLabel("Mean intensities are not measured yet!");
+            bodyInt = new JLabel("    Mean intensities are not measured yet!");
         else
-            bodyInt = new JLabel("Mean intensities were measured and can be saved!");
+            bodyInt = new JLabel("    Mean intensities were measured and can be saved!");
 
         Font fontBody = new Font(bodyDisc1.getFont().getFontName(),Font.PLAIN,20);
         bodyDisc1.setFont(fontBody);
@@ -102,8 +98,9 @@ public class Results extends JPanel{
 
         panInt.add(titleInt);
         panInt.add(bodyInt);
-        panInt.add(measureBtn);
-
+        measureBtn.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+        btnPan.add(measureBtn);
+        panInt.add(btnPan);
 
         add(Box.createHorizontalStrut(400));
         add(panDisc,BorderLayout.CENTER);

@@ -4,7 +4,7 @@ import ij.ImagePlus;
 import ij.ImageStack;
 import ij.io.FileSaver;
 import ij.process.ImageProcessor;
-import videoprocessing.process.*;
+import videoprocessing.processor.*;
 
 import java.awt.*;
 import java.io.BufferedWriter;
@@ -91,7 +91,7 @@ public class VideoProcessor{
 
             video.setIdxFramesInFocus(dMC.getIdxFramesInFocus());
 
-            // Create depth motion corrected vid
+            // Create depth motion corrected vidDisp
             createDepthCorrectionVid();
             System.out.println("Done");
         } else {

@@ -1,4 +1,5 @@
 package UI.SaveTab;
+
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
@@ -21,13 +22,7 @@ public class SavePlanarVideo extends JPanel implements ActionListener {
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
                 "TIFF Images", "tif", "tiff");
         chooser.setFileFilter(filter);
-        //Save button
-        saveButton=new JButton("Save Planar Corrected Video");
-        saveButton.addActionListener(this);
-        JPanel panel=new JPanel();
-        panel.add(saveButton);
 
-        add(panel, BorderLayout.CENTER);
     }
 
     @Override
