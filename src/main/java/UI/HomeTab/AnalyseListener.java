@@ -62,7 +62,8 @@ public class AnalyseListener implements ActionListener {
         }else if(input==1){
             // help button
             System.out.println(input);
-            JOptionPane.showMessageDialog(Controller.getInterframe(), "Choose the allowed margin of difference in cross-sectional area of the islet in between frames (suggested value: 10%)");
+            JOptionPane.showMessageDialog(Controller.getInterframe(), "Choose percentual error allowed for cross-sectional area of the islet (suggested value: 10%).\n" +
+                    "Frames with a cross-sectional area outside of this range will be discarded.");
             pop_up();
         }else if(input==2){
             // nothing to do close button

@@ -12,7 +12,6 @@ import java.awt.image.BufferedImage;
 
 public class ROIs extends ImagePanel {
     private JButton addROI;
-    private JPanel subPanel;
     private JLabel text, image;
     private ImageIcon imgIcon;
 
@@ -32,7 +31,6 @@ public class ROIs extends ImagePanel {
                 videoProcessor = Controller.getVideoProcessor();
             }
         });
-        subPanel = new JPanel();
     }
 
     public void updatePanel(){
@@ -53,13 +51,17 @@ public class ROIs extends ImagePanel {
         imgIcon = new ImageIcon(imageROI);
         image = new JLabel(imgIcon);
         removeAll();
-        subPanel.removeAll();
+
+        // Add components to the panel
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        // Add JFrame that hold image
-        add(image,BorderLayout.PAGE_START);
+        image.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(image);
         setSize(imageROI.getWidth()+15,imageROI.getHeight()+130);
-        // Create JPanel to hold buttons in gridlayout
+        add(Box.createVerticalStrut(10));
+        text.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(text);
+        add(Box.createVerticalStrut(10));
+        addROI.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(addROI);
     }
 }

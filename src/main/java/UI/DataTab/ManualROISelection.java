@@ -83,7 +83,7 @@ public class ManualROISelection extends JPanel{
         // Pop-up window
         JDialog dialog = new JDialog(Controller.getInterframe(),"Select new ROIs",true);
 //        JFrame f = new JFrame(null,"Select new ROIs");
-        setLayout(new FlowLayout(FlowLayout.LEFT));
+        setLayout(new FlowLayout(FlowLayout.CENTER));
 
         // Add JFrame that hold image
         add(img,BorderLayout.PAGE_START);

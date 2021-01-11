@@ -16,9 +16,11 @@ public class MCVideoPlanar extends VideoPanel {
 
         // Title
         msg = new JLabel("Planar motion corrected video");
-        msg.setFont(new Font(msg.getFont().getFontName(),Font.BOLD,20));
+        msg.setFont(new Font(msg.getFont().getFontName(),Font.BOLD,18));
         msg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+        add(Box.createVerticalStrut(25));
         add(msg,BorderLayout.CENTER);
+        add(Box.createVerticalStrut(25));
 
         vidDisp.setAlignmentX(JComponent.CENTER_ALIGNMENT);
         add(vidDisp);
@@ -32,7 +34,9 @@ public class MCVideoPlanar extends VideoPanel {
             removeAll();
             // Message to user
             msg = new JLabel("The video was not corrected for planar motion, no preview available!");
-            msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,20));
+            msg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+            msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,18));
+            add(Box.createVerticalStrut(50));
             add(msg);
         }
         else{

@@ -72,15 +72,15 @@ public class Results extends JPanel{
         Video video = videoProcessor.getVideo();
 
         // Create body labels
-        bodyDisc2 = new JLabel("    Used percentage cross sectional error of: "+videoProcessor.getThresholdArea());
         bodyDisc1 = new JLabel("    The program identified "+video.getIdxFramesInFocus().size()+" frames without depth motion.");
+        bodyDisc2 = new JLabel("    Used cross sectional error of: "+videoProcessor.getThresholdArea()+"%");
         bodyROI1 = new JLabel("    There are "+video.getCells().size()+" regions of interest in the uploaded video.");
         if(meanIntensityMeasured==false)
-            bodyInt = new JLabel("    Mean intensities are not measured yet!");
+            bodyInt = new JLabel("    Mean intensities have not been measured yet!");
         else
-            bodyInt = new JLabel("    Mean intensities were measured and can be saved!");
+            bodyInt = new JLabel("    Mean intensities have been measured and can be saved!");
 
-        Font fontBody = new Font(bodyDisc1.getFont().getFontName(),Font.PLAIN,20);
+        Font fontBody = new Font(bodyDisc1.getFont().getFontName(),Font.PLAIN,15);
         bodyDisc1.setFont(fontBody);
         bodyDisc2.setFont(fontBody);
         bodyROI1.setFont(fontBody);
@@ -101,7 +101,6 @@ public class Results extends JPanel{
         btnPan.add(measureBtn);
         panInt.add(btnPan);
 
-        add(Box.createHorizontalStrut(400));
         add(panDisc,BorderLayout.CENTER);
         add(Box.createHorizontalStrut(400));
         add(panROI,BorderLayout.CENTER);
