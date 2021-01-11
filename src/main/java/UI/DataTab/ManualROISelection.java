@@ -4,35 +4,32 @@
 package UI.DataTab;
 
 import UI.Controller;
+import UI.Panel.ImagePanel;
 import videoprocessing.Cell;
 import videoprocessing.VideoProcessor;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 import javax.swing.*;
 
 
-public class ManualROISelection extends JPanel{
-    // Image for display
-    BufferedImage image;
+public class ManualROISelection extends ImagePanel {
     // Stores number of ROI/cells shown on display
     private int numROI=0;
     private int cellSize;
-    // Dimensions of video
-    Dimension size = new Dimension();
-    // Scaling of video used for display so that it fits on screen
-    private double scalingOfImg = 0.65;
+
     // Stores coordinates of selected ROIs
     private LinkedList<Cell> newCells = new LinkedList<>();
-    // Hold image for display
-    private JLabel img;
 
-    // Mouse listeners that lisstend to mousePressed on JLabel img only
+    // variable for display
+    JDialog dialog=new JDialog();
+    JPanel buttonPanel = new JPanel();
+    JButton jButton = new JButton("Confirm");
+    JButton jButton1 = new JButton("Cancel");
+
+    // Mouse listeners that listens to mousePressed on JLabel imgDisp only
     private MouseListener mouseListener = new MouseListener() {
         @Override
         public void mousePressed(MouseEvent e) {
@@ -40,12 +37,12 @@ public class ManualROISelection extends JPanel{
             int  x,y;
             x = e.getX();
             y = e.getY();
-            Graphics g = img.getGraphics();
+            Graphics g = image.getGraphics();
 
             // Draw number of selected new ROI
             g.setColor(Color.blue);
             g.setFont(new Font(g.getFont().getFontName(), Font.PLAIN, 12));
-            drawCenteredString(Integer.toString(numROI++ + 1),x,y,g);
+            drawCenteredString(Integer.toString(numROI++ + 1),(int)Math.round(x/scalingOfImg),(int)Math.round(y/scalingOfImg),g);
 
             // Add coordinates of new ROI
             int[] coor = new int[2];
@@ -62,37 +59,59 @@ public class ManualROISelection extends JPanel{
         @Override
         public void mouseExited(MouseEvent e) {}
     };
+    // Window listener to update image when window changes size
+    private ComponentListener componentListener = new ComponentListener() {
+        @Override
+        public void componentResized(ComponentEvent e) {
+            updatePanel();
+        }
+        @Override
+        public void componentMoved(ComponentEvent e) { }
+        @Override
+        public void componentShown(ComponentEvent e) { }
+        @Override
+        public void componentHidden(ComponentEvent e) { }
+    };
 
     // Constructor
     public ManualROISelection(BufferedImage image, int numROI,int cellSize) {
+        super();
+
+        this.image=image;
+        // Pop-up window
+        dialog = new JDialog(Controller.getInterframe(),"Select new ROIs",true);
+        dialog.setSize(Controller.getInterframe().getSize());
+
         // Set variables needed for display
         this.numROI = numROI;
-        this.image = image;
         this.cellSize=cellSize;
-        size.setSize(image.getWidth()*scalingOfImg, image.getHeight()*scalingOfImg);
 
         // Resize image otherwise img is too big
-        image = resizeImage(image,size.width,size.height);
-        img = new JLabel(new ImageIcon(image));
+        image = resizeImage(image,15,90,dialog);
+        imgDisp.setIcon(new ImageIcon(image));
+
         // Add Mouse listener to img
-        img.addMouseListener(mouseListener);
+        imgDisp.addMouseListener(mouseListener);
+
+        // Add component listener to dialog
+        dialog.addComponentListener(componentListener);
     }
 
     // Open pop up and allow selection of new ROI and save them or disregard the changes
     public LinkedList<Cell> run() {
+<<<<<<< HEAD
         // Pop-up window
         JDialog dialog = new JDialog(Controller.getInterframe(),"Select new ROIs",true);
 //        JFrame f = new JFrame(null,"Select new ROIs");
         setLayout(new FlowLayout(FlowLayout.CENTER));
+=======
+        setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+>>>>>>> 41aec54c48d8f4a439de9a060d43c840e387c78d
 
-        // Add JFrame that hold image
-        add(img,BorderLayout.PAGE_START);
-
-        // Create JPanel to hold buttons in gridlayout
-        JPanel jPanel = new JPanel(new GridLayout(1,2));
+        // Add JLabel that hold image
+        add(imgDisp,BorderLayout.PAGE_START);
 
         // Button to confirm the newly added ROI/Cells
-        JButton jButton = new JButton("Confirm");
         // Add action listener
         jButton.addActionListener(new ActionListener() {
             @Override
@@ -103,8 +122,9 @@ public class ManualROISelection extends JPanel{
             }
         });
         jButton.setSize(100,30);
+
         // Button to cancel the addition of new ROIs/cells
-        JButton jButton1 = new JButton("Cancel");
+        // Add action listener to close pop-up
         jButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -112,41 +132,46 @@ public class ManualROISelection extends JPanel{
             }
         });
         jButton1.setSize(100,30);
-        jPanel.add(jButton);
-        jPanel.add(jButton1);
-        add(jPanel);
 
-        setSize(size.width+30,size.height+90);
+        // Setup buttonPanel
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        buttonPanel.add(jButton);
+        buttonPanel.add(jButton1);
+        buttonPanel.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+        add(buttonPanel,BorderLayout.LINE_START);
+
         dialog.setContentPane(this);
-        dialog.setSize(this.getSize());
         dialog.setLocationRelativeTo(Controller.getInterframe());
         dialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        dialog.setResizable(false);
+        dialog.setResizable(true);
         dialog.setVisible(true);
 
         return newCells;
     }
 
-    // Resize image to fit on display
-    private BufferedImage resizeImage(BufferedImage imgIn,int w,int h){
-        BufferedImage resizedImg = new BufferedImage(w,h,BufferedImage.TYPE_BYTE_GRAY);
-        Graphics2D g2 = resizedImg.createGraphics();
-        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        g2.drawImage(imgIn, 0, 0, w,h, null);
-        g2.dispose();
-        return resizedImg;
+    @Override
+    public void updatePanel() {
+        BufferedImage image = resizeImage(this.image,15,90,dialog);
+        imgDisp.setIcon(new ImageIcon(image));
+
+        removeAll();
+        // Add JLabel that hold image
+        add(imgDisp,BorderLayout.PAGE_START);
+        add(buttonPanel,BorderLayout.LINE_START);
+        this.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+        dialog.setContentPane(this);
     }
 
     // Draw cell numbers on GUI
     // Adapted From http://www.java2s.com/Tutorial/Java/0261__2D-Graphics/Centertext.html
     public void drawCenteredString(String s, int x, int y, Graphics g) {
+        g.setFont(new Font(g.getFont().getFontName(),Font.PLAIN,18));
         FontMetrics fm = g.getFontMetrics();
         x = x - fm.stringWidth(s) / 2;
-        y = y + fm.getAscent()/2;//  (fm.getAscent() + (h - (fm.getAscent() + fm.getDescent())) / 2);
+        y = y + fm.getAscent()/2;
         g.drawString(s, x, y);
+        updatePanel();
     }
-
-
 
     // Add manually selected ROI to VideoProcessor
     private void addNewROIS(){

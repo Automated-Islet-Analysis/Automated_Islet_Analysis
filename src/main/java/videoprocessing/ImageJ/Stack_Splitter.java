@@ -1,4 +1,14 @@
-// Code from ImageJ but adapted to remove all GUI
+/**
+ * Splits a stack into multiple substacks. The number of such
+ *  substacks is user specified. Each substack may contain only a single
+ *  image. Original code modified to change return type of run.
+ *
+ * @author Patrick Kelly <phkelly@ucsd.edu>
+ *
+ * Modified on 26th April 01 by Greg Joss  gjoss@rna.bio.mq.edu.au
+ * Modified on 30st April 2003 by Bob Cunningham  rcunning@acm.org
+ * Modified on 11th January 2021  by Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ */
 
 
 package videoprocessing.ImageJ;
@@ -10,18 +20,6 @@ import java.lang.*;
 import java.awt.image.*;
 import java.text.DecimalFormat;
 import java.util.LinkedList;
-
-/** Splits a stack into multiple substacks. The number of such
- substacks is user specified. Each substack may contain only a single
- image.
-
-  @author Patrick Kelly <phkelly@ucsd.edu>
-
-  *** modified 26th April 01 by Greg Joss  gjoss@rna.bio.mq.edu.au
-
- RWC modified 30 April 2003 by Bob Cunningham  rcunning@acm.org
-
- */
 
 
 
