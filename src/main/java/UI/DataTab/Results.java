@@ -1,4 +1,14 @@
+/**
+ * Panel that summarizes the results and give the possibility to measure the mean intensity of the ROIs.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
+
 package UI.DataTab;
+
 import UI.Controller;
 import UI.HomeTab.Home;
 import videoprocessing.Video;
@@ -51,16 +61,6 @@ public class Results extends JPanel{
         // Create layout
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-//        if (meanIntensityMeasured == false){
-//            helpText1 = new JLabel("Before analysis, make sure all desired ROIs have been selected.");
-//            helpText2 = new JLabel("To do so, go to Data->ROIs.");
-//            helpText1.setFont(new Font(helpText1.getFont().getFontName(),Font.PLAIN,15));
-//            helpText2.setFont(new Font(helpText2.getFont().getFontName(),Font.PLAIN,15));
-//            add(helpText1);
-//            add(helpText2);
-//            add(Box.createHorizontalStrut(400));
-//            add(measureBtn);
-//        }
     }
 
     public void showResults(){
@@ -73,15 +73,15 @@ public class Results extends JPanel{
         Video video = videoProcessor.getVideo();
 
         // Create body labels
-        bodyDisc2 = new JLabel("    Used percentage cross sectional error of: "+videoProcessor.getThresholdArea());
         bodyDisc1 = new JLabel("    The program identified "+video.getIdxFramesInFocus().size()+" frames without depth motion.");
+        bodyDisc2 = new JLabel("    Used cross sectional error of: "+videoProcessor.getThresholdArea()+"%");
         bodyROI1 = new JLabel("    There are "+video.getCells().size()+" regions of interest in the uploaded video.");
         if(meanIntensityMeasured==false)
-            bodyInt = new JLabel("    Mean intensities are not measured yet!");
+            bodyInt = new JLabel("    Mean intensities have not been measured yet!");
         else
-            bodyInt = new JLabel("    Mean intensities were measured and can be saved!");
+            bodyInt = new JLabel("    Mean intensities have been measured and can be saved!");
 
-        Font fontBody = new Font(bodyDisc1.getFont().getFontName(),Font.PLAIN,20);
+        Font fontBody = new Font(bodyDisc1.getFont().getFontName(),Font.PLAIN,15);
         bodyDisc1.setFont(fontBody);
         bodyDisc2.setFont(fontBody);
         bodyROI1.setFont(fontBody);
@@ -102,7 +102,6 @@ public class Results extends JPanel{
         btnPan.add(measureBtn);
         panInt.add(btnPan);
 
-        add(Box.createHorizontalStrut(400));
         add(panDisc,BorderLayout.CENTER);
         add(Box.createHorizontalStrut(400));
         add(panROI,BorderLayout.CENTER);
