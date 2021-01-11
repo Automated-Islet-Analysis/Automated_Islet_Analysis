@@ -48,9 +48,7 @@ public class SaveDepthVideo extends JPanel implements ActionListener {
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = chooser.getSelectedFile();
-            ImagePlus videoToSave = Controller.getVideoProcessor().getDepthCorrectionVid();
-
-            Controller.getVideoProcessor().saveDepthCorrectionVid(fileToSave.getPath());
+            Controller.getVideoProcessor().saveDepthCorrectionVid(fileToSave.getPath()+".tif");
             
 
 
