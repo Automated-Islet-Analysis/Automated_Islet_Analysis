@@ -1,3 +1,12 @@
+/**
+ * Main class of the user interface. Holds main JFrame, possible JPanels that can be displayed,
+ * variables on the state of the user interface and forms the link between the back-end and the front-end.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI;
 
 import UI.DataTab.MCVideoDepth;
@@ -63,10 +72,12 @@ public class Controller {
     public static void setAnalysedImg(boolean analysedImg) { Controller.analysedImg = analysedImg;}
     public static void setMeanIntensityMeasured(boolean meanIntensityMeasured) { Controller.meanIntensityMeasured = meanIntensityMeasured; }
 
-
+    // Constructor
     public Controller() {
-
+        // Set default panel
         display = "home";
+
+        // Set no actions performed
         fileUploaded=false;
         analysedImg = false;
         meanIntensityMeasured = false;
@@ -74,13 +85,13 @@ public class Controller {
         // Set-up main frame of user-interface
         interframe = new JFrame("Automated analysis of Islet in eye");
         interframe.setSize(700, 700);
-
         interframe.addWindowListener(new WindowAdapter() {// Closes the program if close window clicked
             public void windowClosing(WindowEvent e) {
                 interframe.dispose();
             }
         });
         interframe.addComponentListener(new ComponentListener() {
+            // Update display if the window size changed
             @Override
             public void componentResized(ComponentEvent e) {
                 setDisplay();
@@ -111,10 +122,12 @@ public class Controller {
         saverois=new SaveROIs();
         saveplanarvideo=new SavePlanarVideo();
 
+        // Set user interface visible
         interframe.setVisible(true);
         setDisplay();
     }
 
+    // Update panel displayed
     public static void setDisplay(){
         // Allows switching between panels
         if(display.equals("home")){
@@ -208,6 +221,7 @@ public class Controller {
 
     }
 
+    // Pop-up to prevent being able to see data or save results before they are generated
     private static void popupNoFileAnalysed(){
         // Popup that tells the user that no file has been uploaded
         JOptionPane.showMessageDialog(interframe,

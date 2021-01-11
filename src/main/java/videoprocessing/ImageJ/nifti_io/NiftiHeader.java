@@ -1,4 +1,4 @@
-package ImageJ.nifti_io;
+package videoprocessing.ImageJ.nifti_io;
 
 
 public class NiftiHeader {

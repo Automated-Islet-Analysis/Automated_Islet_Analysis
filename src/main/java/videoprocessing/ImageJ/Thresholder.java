@@ -1,4 +1,12 @@
-// Code from ImageJ but adapted to remove all GUI
+/**
+ * Class to make ImagePlus binary using a threshold. Modified to remove all user input and take inputs from other code.
+ *
+ * @author ImageJ develpers
+ *
+ * Modified by Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
 
 package videoprocessing.ImageJ;
 
