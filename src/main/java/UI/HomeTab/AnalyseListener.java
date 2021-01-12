@@ -36,6 +36,11 @@ public class AnalyseListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        perError.setName("perError");
+        checkPlanar.setName("checkPlanar");
+        checkDepth.setName("checkDepth");
+        checkROI.setName("checkROI");
+
         mainPanel.add(error);
         mainPanel.add(perError);
         mainPanel.add(checkPlanar);

@@ -43,6 +43,7 @@ public class Uploaded extends VideoPanel {
         btnUpload.addActionListener(new UploadListener());
         btnAnalyse = new JButton("Analyse");
         btnAnalyse.addActionListener(new AnalyseListener());
+        btnAnalyse.setName("analyse");
 
         // Set layout
         setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));

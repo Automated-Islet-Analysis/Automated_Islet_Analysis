@@ -8,16 +8,19 @@
 //import org.junit.Before;
 //import org.junit.Test;
 //
-//import java.io.File;
+//import java.io.*;
 //import java.util.concurrent.TimeUnit;
+//
 //
 //public class TestHome {
 //    static private FrameFixture controller;
 //    static private Robot robotf=BasicRobot.robotWithNewAwtHierarchy();
+//    private volatile ByteArrayOutputStream outputStreamCaptor=new ByteArrayOutputStream();
 //
 //    @Before
-//    public void setUp(){
+//    public void setUp() throws InterruptedException {
 //        controller=new FrameFixture(robotf,new Controller());
+//        System.setOut(new PrintStream(outputStreamCaptor));
 //    }
 //
 //    @After
@@ -52,7 +55,6 @@
 //
 //        TimeUnit.SECONDS.sleep(1);
 //        controller.optionPane().buttonWithText("Ok").click();
-//        TimeUnit.SECONDS.sleep(1);
 //
 //        controller.optionPane().dialog().close();
 //
@@ -67,6 +69,7 @@
 //        TimeUnit.SECONDS.sleep(1);
 //        controller.optionPane().buttonWithText("Cancel").click();
 //        TimeUnit.SECONDS.sleep(1);
-//
+//        }
 //    }
-//}
+//
+//

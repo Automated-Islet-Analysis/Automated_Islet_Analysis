@@ -67,6 +67,7 @@ public class MainMenu extends JMenuBar implements ActionListener {
         menuHome = new JMenu("Home          ");
         menuHome.setFont(new Font(menuHome.getFont().getName(), Font.BOLD, 15));
         menuHome.addMenuListener(new HomeMenuListener()); // add actionlistener
+        menuHome.setName("Home");
 
         return menuHome;
     }
@@ -74,13 +75,19 @@ public class MainMenu extends JMenuBar implements ActionListener {
     private JMenu getMenuData(){
         menuData = new JMenu("Data          ");
         menuData.setFont(new Font(menuData.getFont().getName(), Font.BOLD, 15));
+        menuData.setName("Data");
 
         // Data Dropdown
         dataROI = new JMenuItem("ROIs");
+        dataROI.setName("ROIs");
         subMenuMCVid = new JMenu("Motion Corrected Video");
+        subMenuMCVid.setName("MCVideo");
         MCVidPlanar = new JMenuItem("Planar motion");
+        MCVidPlanar.setName("MCPlanar");
         MCVidDepth = new JMenuItem("Depth motion");
+        MCVidDepth.setName("MCDepth");
         dataData = new JMenuItem("Results");
+        dataData.setName("Results");
 
         // ActionListeners
         dataROI.addActionListener(this);

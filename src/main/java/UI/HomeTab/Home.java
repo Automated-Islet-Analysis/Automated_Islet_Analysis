@@ -128,6 +128,7 @@ public class Home extends JPanel {
                 subPanel.removeAll();
                 subPanel.setLayout(new GridLayout(1,1));
                 subPanel.repaint();
+                rois.updatePanel();
                 subPanel.add(rois);
                 subPanel.revalidate();
             } else{
