@@ -13,7 +13,7 @@ import UI.Controller;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
-class HomeMenuListener implements MenuListener {
+public class HomeMenuListener implements MenuListener {
 
     @Override
     public void menuSelected(MenuEvent e) {

@@ -107,14 +107,10 @@ public class ManualROISelection extends ImagePanel {
 
     // Open pop up and allow selection of new ROI and save them or disregard the changes
     public LinkedList<Cell> run() {
-<<<<<<< HEAD
         // Pop-up window
         JDialog dialog = new JDialog(Controller.getInterframe(),"Select new ROIs",true);
 //        JFrame f = new JFrame(null,"Select new ROIs");
         setLayout(new FlowLayout(FlowLayout.CENTER));
-=======
-        setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
->>>>>>> 41aec54c48d8f4a439de9a060d43c840e387c78d
 
         // Add JLabel that hold image
         add(imgDisp,BorderLayout.PAGE_START);
