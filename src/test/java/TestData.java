@@ -4,9 +4,10 @@ import org.fest.swing.core.BasicRobot;
 import org.fest.swing.core.Robot;
 import org.fest.swing.fixture.FrameFixture;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import videoprocessing.Video;
+import videoprocessing.VideoProcessor;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -23,6 +24,14 @@ import java.util.concurrent.TimeUnit;
 
         @Before
         public void setUp(){
+            String filepath=System.getProperty("user.dir")+"/Video_for_Demo.tif";
+            Video video =new Video(filepath);
+            VideoProcessor videoProcessor=new VideoProcessor(video);
+
+            videoProcessor.process(10,true,true,true);
+
+            Home.setVideoProcessor(videoProcessor);
+
             controller=new FrameFixture(robotf,new Controller());
             System.setOut(new PrintStream(outputStreamCaptor));
         }
@@ -37,23 +46,27 @@ import java.util.concurrent.TimeUnit;
 
         @Test
         public void testController() throws InterruptedException, IOException {
+            Home.setFileUploaded(true);
+            Home.setAnalysedImg(true);
+
             controller.menuItem("Data").click();
             TimeUnit.SECONDS.sleep(1);
             controller.menuItem("ROIs").click();
             TimeUnit.SECONDS.sleep(1);
-            controller.dialog().close();
 
+            controller.menuItem("Data").click();
             controller.menuItem("Results").click();
             TimeUnit.SECONDS.sleep(1);
-            controller.dialog().close();
 
+            controller.menuItem("Data").click();
             controller.menuItem("MCVideo").click();
             TimeUnit.SECONDS.sleep(1);
             controller.menuItem("MCPlanar").click();
-            controller.dialog().close();
+
+            controller.menuItem("Data").click();
+            controller.menuItem("MCVideo").click();
             TimeUnit.SECONDS.sleep(1);
             controller.menuItem("MCDepth").click();
-            controller.dialog().close();
 
         }
     }
