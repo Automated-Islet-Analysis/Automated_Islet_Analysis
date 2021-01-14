@@ -1,7 +1,7 @@
 /**
  * Class to analyse particles, used in this project to find area of the islets
  *
- * @author ImageJ develpers
+ * @author Rasband, W.S., ImageJ, U. S. National Institutes of Health, Bethesda, Maryland, USA, https://imagej.nih.gov/ij/
  *
  * Modified by Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *

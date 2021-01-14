@@ -42,10 +42,10 @@ public class Uploaded extends VideoPanel {
         fileName.setHorizontalAlignment(SwingConstants.CENTER);
 
         // Two buttons. Upload to change uploaded file. Analyse to process the file.
-        btnUpload = new JButton("Upload");
+        btnUpload = new JButton("Upload another video");
         btnUpload.addActionListener(new UploadListener());
-        btnAnalyse = new JButton("Analyse");
-        btnAnalyse.addActionListener(new AnalyseListener());
+        btnAnalyse = new JButton("Process Video");
+        btnAnalyse.addActionListener(new ProcessListener());
 
         // Set layout
         setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -70,7 +70,6 @@ public class Uploaded extends VideoPanel {
         add(subPanel,BorderLayout.EAST);
         add(Box.createVerticalStrut(10));
     }
-
 
     @Override
     // Display components on frame

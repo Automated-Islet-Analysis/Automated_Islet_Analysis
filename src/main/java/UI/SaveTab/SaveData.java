@@ -15,7 +15,6 @@ public class SaveData extends JFileChooser {
     // Constructor
     public SaveData(){
         setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
     }
 
     public void save(){
@@ -47,10 +46,12 @@ public class SaveData extends JFileChooser {
                         "Warning",
                         JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
             }else {
+                // Create or empty measurements folder
                 File MIFolder = new File(folder.getAbsoluteFile()+"/mean_intensity_measurements");
                 if(MIFolder.exists())
                     MIFolder.delete();
                 MIFolder.mkdir();
+                // Save files
                 Controller.getVideoProcessor().saveCellsMeanIntensity(MIFolder.getAbsolutePath());
                 Controller.getVideoProcessor().saveSummary(folder.getPath()+"/Summary.csv");
             }

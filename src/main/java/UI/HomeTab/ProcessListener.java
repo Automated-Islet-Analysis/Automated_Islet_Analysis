@@ -18,15 +18,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AnalyseListener implements ActionListener {
+public class ProcessListener implements ActionListener {
     JPanel mainPanel = new JPanel(new GridLayout(3,2));
 
     // Components to allow personalization of the analysis
-    JLabel error = new JLabel("Allowed CS error (%)");
+    JLabel error = new JLabel("Allowed change in cross section area(%)  ");
     JTextField perError = new JTextField("10",5); // find a way of getting jtext field text
     JCheckBox checkPlanar = new JCheckBox("Planar motion correction");
     JCheckBox checkDepth = new JCheckBox("Depth motion correction");
-    JCheckBox checkROI = new JCheckBox("Find ROIs");
+    JCheckBox checkROI = new JCheckBox("Find regions of interest");
 
     // Options for pop-up
     Object[] options = {"Ok", "Help", "Cancel"};
@@ -74,8 +74,9 @@ public class AnalyseListener implements ActionListener {
 
         }else if(input==1){ // Help option button
             System.out.println(input);
-            JOptionPane.showMessageDialog(Controller.getInterframe(), "Choose percentual error allowed for cross-sectional area of the islet (suggested value: 10%).\n" +
-                    "Frames with a cross-sectional area outside of this range will be discarded.");
+            JOptionPane.showMessageDialog(Controller.getInterframe(), "Choose the change in cross-sectional area allowed of the islet (suggested value: 10%).\n" +
+                    "This is a measure of motion in the depth direction and frames with a cross-sectional area outside of this range will be discarded. " +
+                    "Additionally, choose if you want to perform the different motion corrections and the automatic search of ROIs");
             pop_up();
         }else if(input==2){ // Close option button
             // Nothing to do, just close pop-up
@@ -99,9 +100,9 @@ public class AnalyseListener implements ActionListener {
             // Call video processor and analyse taking into account parameters inputed in pop-up
             protected Void doInBackground() throws InterruptedException{
                 try {
-                    System.out.println("Analysing: " + Uploaded.getFilePath());
+                    System.out.println("Processing: " + Uploaded.getFilePath());
                     VideoProcessor videoProcessor = new VideoProcessor(new Video(Uploaded.getFilePath()));
-                    videoProcessorError[0] = videoProcessor.process((int) AnalyseListener.errorAllowed, AnalyseListener.planarSelected, AnalyseListener.depthSelected, AnalyseListener.ROISelected);
+                    videoProcessorError[0] = videoProcessor.process((int) ProcessListener.errorAllowed, ProcessListener.planarSelected, ProcessListener.depthSelected, ProcessListener.ROISelected);
                     Controller.setVideoProcessor(videoProcessor);
                 }catch (OutOfMemoryError e){
                     videoProcessorError[0] = VideoProcessorError.VIDEO_PROCESSOR_OUT_OF_MEMORY_ERROR;

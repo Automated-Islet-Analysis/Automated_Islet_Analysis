@@ -78,11 +78,13 @@ public class VideoProcessor{
                 return VideoProcessorError.VIDEO_PROCESSOR_TEMP_ERROR;
 
             video.setIjFrames(pMC.getIjFrames());
-            video.setSEFrames(pMC.getSEFrames());
+
             // Create planar motion corrected video
             createPlanarCorrectionVid();
             System.out.println("Done");
         }
+        // to prevent running out of memory
+        video.clearSEFrames();
 
         // Perform depth motion correction (if needed)
         if (depthMotionCorrect) {
@@ -96,7 +98,7 @@ public class VideoProcessor{
 
             video.setIdxFramesInFocus(dMC.getIdxFramesInFocus());
 
-            // Create depth motion corrected vidDisp
+            // Create depth motion corrected video
             createDepthCorrectionVid();
             System.out.println("Done");
         } else {
@@ -149,7 +151,7 @@ public class VideoProcessor{
         return VideoProcessorError.VIDEO_PROCESSOR_SUCCESS;
     }
 
-    // Generic meethod to save Imageplus as tif or jpeg
+    // Generic method to save ImagePlus as tif or jpeg
     private SaveError saveImagePlus(ImagePlus toSave, String format, String path){
         if(toSave==null)
             return SaveError.SAVE_NO_DATA_ERROR;
@@ -164,7 +166,6 @@ public class VideoProcessor{
             return SaveError.SAVE_WRITE_ERROR;
         }
         return SaveError.SAVE_SUCCESS;
-
     }
 
     // Create video with on the left the original video and on the right a video with the planar motion correction.

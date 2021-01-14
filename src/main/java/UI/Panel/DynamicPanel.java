@@ -24,6 +24,8 @@ public class DynamicPanel extends JPanel {
     // Constructor
     public DynamicPanel(){}
 
+
+
     // Resize image to fit on display - JFrame input
     protected BufferedImage resizeImage(BufferedImage imgIn, JFrame frame){
         int w,h;
@@ -46,11 +48,13 @@ public class DynamicPanel extends JPanel {
         }
 
         // Create image with scaled dimensions
+        /* Reference 1 - taken from https://stackoverflow.com/questions/6714045/how-to-resize-jlabel-imageicon*/
         BufferedImage resizedImg = new BufferedImage(w,h,BufferedImage.TYPE_BYTE_GRAY);
         Graphics2D g2 = resizedImg.createGraphics();
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         g2.drawImage(imgIn, 0, 0, w,h, null);
         g2.dispose();
+        /* end of reference 1 */
         return resizedImg;
     }
 
@@ -77,11 +81,14 @@ public class DynamicPanel extends JPanel {
         }
 
         // Create image with scaled dimensions
+        /* Reference 1 - taken from https://stackoverflow.com/questions/6714045/how-to-resize-jlabel-imageicon*/
         BufferedImage resizedImg = new BufferedImage(w,h,BufferedImage.TYPE_BYTE_GRAY);
         Graphics2D g2 = resizedImg.createGraphics();
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         g2.drawImage(imgIn, 0, 0, w,h, null);
         g2.dispose();
+        /* end of reference 1 */
+
         return resizedImg;
     }
 

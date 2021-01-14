@@ -54,9 +54,12 @@ public class SaveAll extends JFileChooser {
         Controller.getVideoProcessor().savePlanarCorrectionVid(directory.getPath()+"\\_PlanarVideoCorrected.tif");
         Controller.getVideoProcessor().saveDepthCorrectionVid(directory.getPath()+"\\_DepthVideoCorrected.tif");
         Controller.getVideoProcessor().saveRoiImage(directory.getPath()+"\\_ROIs.jpg");
+
         //Sub folder for SaveData
         File saveDataFolder= new File(directory.getPath()+"\\DataFolder");
         File MIFolder  = new File(saveDataFolder+"/mean_intensity_measurements");
+
+        // Make sure all necessary folders are present and empty
         if(saveDataFolder.exists())
             saveDataFolder.delete();
         saveDataFolder.mkdir();

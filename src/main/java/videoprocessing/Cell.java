@@ -83,7 +83,7 @@ public class Cell {
         convolveOp.filter(bI,bIOut);
 
         // Find center of square with greatest average intensity
-        // Next 12 lines adapted from https://imagejdocu.tudor.lu/plugin/analysis/find_min_max/start
+        /* Reference 1 - taken from https://imagejdocu.tudor.lu/plugin/analysis/find_min_max/start*/
         double pixMax = Double.NEGATIVE_INFINITY;
         int xMax = 0;
         int yMax = 0;
@@ -96,6 +96,7 @@ public class Cell {
                 }
             }
         }
+        /* end of reference 1 */
 
         // Set coordinates of found ROI
         coorRoi[0] = coorCell[0]-Math.round(cellSize/2) + xMax;

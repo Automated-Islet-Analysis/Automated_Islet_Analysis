@@ -1,7 +1,7 @@
 /**
  * Class to make ImagePlus binary using a threshold. Modified to remove all user input and take inputs from other code.
  *
- * @author ImageJ develpers
+ * @author Rasband, W.S., ImageJ, U. S. National Institutes of Health, Bethesda, Maryland, USA, https://imagej.nih.gov/ij/
  *
  * Modified by Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *

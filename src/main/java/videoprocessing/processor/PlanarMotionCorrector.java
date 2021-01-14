@@ -36,8 +36,11 @@ public class PlanarMotionCorrector extends Processor{
 
         // Shift each frame using SimpleElastix to align with first frame
         for (Image frame : SEFrames){
+
             Image out;
+            /* Reference 1 - taken from https://simpleelastix.readthedocs.io/HelloWorld.html*/
             out = SimpleITK.elastix(SEFrames.get(0),frame,"translation");
+            /* end of reference 1 */
 
             try {
                 SimpleITK.writeImage(out, "temp.nii");

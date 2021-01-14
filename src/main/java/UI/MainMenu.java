@@ -8,10 +8,9 @@
 
 package UI;
 
-import UI.HomeTab.HomeMenuListener;
-import UI.SaveTab.SaveDepthVideo;
-
 import javax.swing.*;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -98,9 +97,25 @@ public class MainMenu extends JMenuBar implements ActionListener {
 
     // Create home tab
     private JMenu getMenuHome(){
+        MenuListener menuListener = new MenuListener() {
+            @Override
+            // Action performed when clicking on Home button in the menu bar
+            public void menuSelected(MenuEvent e) {
+                // Change view to Home page
+                if (Controller.isFileUploaded()==true)
+                    Controller.setDisplay("Upload");
+                else Controller.setDisplay("home");
+                Controller.setDisplay();
+            }
+            @Override
+            public void menuDeselected(MenuEvent e) { }
+            @Override
+            public void menuCanceled(MenuEvent e) { }
+        };
+
         menuHome = new JMenu("Home          ");
         menuHome.setFont(new Font(menuHome.getFont().getName(), Font.BOLD, 15));
-        menuHome.addMenuListener(new HomeMenuListener()); // add actionlistener
+        menuHome.addMenuListener(menuListener); // add actionlistener
 
         return menuHome;
     }
@@ -111,8 +126,8 @@ public class MainMenu extends JMenuBar implements ActionListener {
         menuData.setFont(new Font(menuData.getFont().getName(), Font.BOLD, 15));
 
         // Data Dropdown
-        dataROI = new JMenuItem("ROIs");
-        subMenuMCVid = new JMenu("Motion Corrected Video");
+        dataROI = new JMenuItem("Regions of Interest");
+        subMenuMCVid = new JMenu("Motion Corrected Videos");
         MCVidPlanar = new JMenuItem("Planar motion");
         MCVidDepth = new JMenuItem("Depth motion");
         dataData = new JMenuItem("Results");
@@ -138,12 +153,12 @@ public class MainMenu extends JMenuBar implements ActionListener {
         menuSave.setFont(new Font(menuSave.getFont().getName(), Font.BOLD, 15));
 
         // Save Dropdown
-        saveROI = new JMenuItem("Save ROIs");
-        saveMCVidPlanar = new JMenuItem("Save Planar Corrected Video");
-        saveMCVidDepth=new JMenuItem("Save Depth Corrected Video");
+        saveROI = new JMenuItem("Save regions of interest");
+        saveMCVidPlanar = new JMenuItem("Save video of planar motion correction");
+        saveMCVidDepth=new JMenuItem("Save video of depth motion correction");
 
-        saveData = new JMenuItem("Save Data");
-        saveAll = new JMenuItem("Save All");
+        saveData = new JMenuItem("Save results");
+        saveAll = new JMenuItem("Save all");
 
         // ActionListeners
         saveROI.addActionListener(this);
