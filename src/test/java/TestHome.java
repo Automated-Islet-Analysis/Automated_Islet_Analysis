@@ -46,7 +46,7 @@ public class TestHome {
 
 
         JFileChooserFixture fileChooser = JFileChooserFinder.findFileChooser().withTimeout(10000).using(robotf);
-        fileChooser.selectFiles(new File(System.getProperty("user.dir")+"/img/im/2 2.tif"));
+        fileChooser.selectFiles(new File(System.getProperty("user.dir")+"/img/TestFrame.tif"));
         TimeUnit.SECONDS.sleep(1);
         fileChooser.cancelButton().click();
         TimeUnit.SECONDS.sleep(1);
