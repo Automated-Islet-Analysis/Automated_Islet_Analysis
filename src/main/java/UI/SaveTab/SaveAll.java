@@ -22,6 +22,15 @@ public class SaveAll extends JFileChooser {
     }
 
     public void save(){
+
+        //Make sure the Mean Intensity has been measured
+        if(!Controller.isMeanIntensityMeasured()){
+            Object[] options = {"Ok"};
+            JOptionPane.showOptionDialog(Controller.getInterframe(), "Please measure the mean intensity of the ROIs first with the Measure intensity button in Data > Results!",
+                    "Warning",
+                    JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+            return;
+        }
         int userSelection= showSaveDialog(SaveAll.this);
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {
@@ -52,7 +61,9 @@ public class SaveAll extends JFileChooser {
         File saveDataFolder= new File(directory.getPath()+"\\DataFolder");
         saveDataFolder.mkdirs();
         //Save the Data in a sub folder
-        Controller.getVideoProcessor().saveSummary(saveDataFolder.getPath()+"\\Data");
+        Controller.getVideoProcessor().saveCellsMeanIntensity(saveDataFolder.getAbsolutePath());
+        Controller.getVideoProcessor().saveSummary(saveDataFolder.getPath()+"\\Data_Summary.csv");
+
 
     }
 }

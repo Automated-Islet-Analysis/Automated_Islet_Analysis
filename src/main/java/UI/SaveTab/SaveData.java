@@ -18,6 +18,7 @@ public class SaveData extends JFileChooser {
     }
 
     public void save(){
+        //Make sure the Mean Intensity has been measured
         if(!Controller.isMeanIntensityMeasured()){
             Object[] options = {"Ok"};
             JOptionPane.showOptionDialog(Controller.getInterframe(), "Please measure the mean intensity of the ROIs first with the Measure intensity button in Data > Results!",
@@ -37,7 +38,7 @@ public class SaveData extends JFileChooser {
                         "Warning",
                         JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
             }else {
-                File MIFolder = new File(folder.getAbsoluteFile()+"/mean intensity measurements");
+                File MIFolder = new File(folder.getAbsoluteFile()+"/mean_intensity_measurements");
                 if(MIFolder.exists())
                     MIFolder.delete();
                 MIFolder.mkdir();
