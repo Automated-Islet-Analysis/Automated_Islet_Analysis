@@ -29,7 +29,7 @@ public class ManualROISelection extends ImagePanel {
     // Stores coordinates of selected ROIs
     private LinkedList<Cell> newCells = new LinkedList<>();
 
-    // Variable for display
+    // variable for display
     JDialog dialog=new JDialog();
     JPanel buttonPanel = new JPanel();
     JButton jButton = new JButton("Confirm");
@@ -67,6 +67,7 @@ public class ManualROISelection extends ImagePanel {
         @Override
         public void mouseExited(MouseEvent e) {}
     };
+
     // Window listener to update image when window changes size
     private ComponentListener componentListener = new ComponentListener() {
         @Override
@@ -83,38 +84,25 @@ public class ManualROISelection extends ImagePanel {
 
     // Constructor
     public ManualROISelection(BufferedImage image, int numROI,int cellSize) {
-        super();
-
-        this.image=image;
-        // Pop-up window
-        dialog = new JDialog(Controller.getInterframe(),"Select new ROIs",true);
-        dialog.setSize(Controller.getInterframe().getSize());
+        super(15,90);
 
         // Set variables needed for display
+        this.image=image;
         this.numROI = numROI;
         this.cellSize=cellSize;
 
-        // Resize image otherwise img is too big
-        image = resizeImage(image,15,90,dialog);
-        imgDisp.setIcon(new ImageIcon(image));
+        // Define pop-up window
+        dialog = new JDialog(Controller.getInterframe(),"Select new ROIs by clicking on the image!",true);
+        dialog.setSize(Controller.getInterframe().getSize());
+        dialog.setLocationRelativeTo(Controller.getInterframe());
+        dialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        // Add Mouse listener to img
-        imgDisp.addMouseListener(mouseListener);
+        // Set panel layout
+        setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 
-        // Add component listener to dialog
-        dialog.addComponentListener(componentListener);
-    }
-
-    // Open pop up and allow selection of new ROI and save them or disregard the changes
-    public LinkedList<Cell> run() {
-        // Pop-up window
-        JDialog dialog = new JDialog(Controller.getInterframe(),"Select new ROIs",true);
-        //JFrame f = new JFrame(null,"Select new ROIs");
-        setLayout(new FlowLayout(FlowLayout.CENTER));
-
-        // Add JLabel that hold image
-        add(imgDisp,BorderLayout.PAGE_START);
-
+        // Setup buttons and button pane
+        buttonPanel.setLayout(new FlowLayout());
+        buttonPanel.setAlignmentX(JComponent.CENTER_ALIGNMENT);
         // Button to confirm the newly added ROI/Cells
         // Add action listener
         jButton.addActionListener(new ActionListener() {
@@ -126,7 +114,6 @@ public class ManualROISelection extends ImagePanel {
             }
         });
         jButton.setSize(100,30);
-
         // Button to cancel the addition of new ROIs/cells
         // Add action listener to close pop-up
         jButton1.addActionListener(new ActionListener() {
@@ -137,38 +124,51 @@ public class ManualROISelection extends ImagePanel {
         });
         jButton1.setSize(100,30);
 
-        // Setup buttonPanel
-        buttonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+        imgDisp.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+
+        // Resize image otherwise img is too big
+        image = resizeImage(image,dialog);
+        imgDisp.setIcon(new ImageIcon(image));
+
+        // Add Listeners
+        imgDisp.addMouseListener(mouseListener);
+        dialog.addComponentListener(componentListener);
+    }
+
+    // Open pop up and allow selection of new ROI and save them or disregard the changes
+    public LinkedList<Cell> run() {
+        // Add JLabel that hold image
+        add(imgDisp,BorderLayout.WEST);
+
+        // Add buttons
         buttonPanel.add(jButton);
         buttonPanel.add(jButton1);
-        buttonPanel.setAlignmentX(JComponent.LEFT_ALIGNMENT);
-        add(buttonPanel,BorderLayout.LINE_START);
+        add(buttonPanel);
 
         dialog.setContentPane(this);
-        dialog.setLocationRelativeTo(Controller.getInterframe());
-        dialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        dialog.setResizable(true);
         dialog.setVisible(true);
-
         return newCells;
     }
 
     @Override
     public void updatePanel() {
-        BufferedImage image = resizeImage(this.image,15,90,dialog);
+        BufferedImage image = resizeImage(this.image,dialog);
         imgDisp.setIcon(new ImageIcon(image));
 
         removeAll();
         // Add JLabel that hold image
-        add(imgDisp,BorderLayout.PAGE_START);
-        add(buttonPanel,BorderLayout.LINE_START);
-        this.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+        add(imgDisp);
+        add(buttonPanel);
         dialog.setContentPane(this);
     }
+
+
     // Draw cell numbers on GUI
     // Adapted From http://www.java2s.com/Tutorial/Java/0261__2D-Graphics/Centertext.html
     public void drawCenteredString(String s, int x, int y, Graphics g) {
         g.setFont(new Font(g.getFont().getFontName(),Font.PLAIN,18));
+        g.setColor(Color.BLUE);
         FontMetrics fm = g.getFontMetrics();
         x = x - fm.stringWidth(s) / 2;
         y = y + fm.getAscent()/2;

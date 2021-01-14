@@ -74,7 +74,7 @@ public class Uploaded extends VideoPanel {
         if (video==null)
             this.video = new ImagePlus(filePath);
         BufferedImage img = video.getBufferedImage();
-        img = resizeImage(img,20,150, Controller.getInterframe());
+        img = resizeImage(img, Controller.getInterframe());
         vidDisp.setIcon(new ImageIcon(img));
         vidDisp.setVisible(true);
     }
