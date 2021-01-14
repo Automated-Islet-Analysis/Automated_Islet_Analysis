@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestData" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-12T12:45:12" hostname="DESKTOP-867OUMT" time="13.102">
+<testsuite name="TestData" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-14T19:15:01" hostname="DESKTOP-867OUMT" time="103.743">
   <properties/>
-  <testcase name="testController" classname="TestData" time="13.102"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="testController" classname="TestData" time="103.743"/>
+  <system-out><![CDATA[Planar Motion correction in progress
+Done
+Depth Motion correction in progress
+Done
+Searching for Beta-cells
+Done, found 48 cells
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
