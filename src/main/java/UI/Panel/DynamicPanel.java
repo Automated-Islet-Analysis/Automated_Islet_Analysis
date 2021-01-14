@@ -18,11 +18,14 @@ public class DynamicPanel extends JPanel {
     // Scaling of video used for display so that it fits on screen
     protected double scalingOfImg = 0;
 
+    protected int marginHorizontal;
+    protected int marginVertical;
+
     public DynamicPanel(){}
 
 
     // Resize image to fit on display
-    protected BufferedImage resizeImage(BufferedImage imgIn, int marginHorizontal, int marginVertical, JFrame frame){
+    protected BufferedImage resizeImage(BufferedImage imgIn, JFrame frame){
         int w,h;
         double ratio = (double)imgIn.getWidth()/(double)imgIn.getHeight();
         double frameRatio = ((double) frame.getWidth()-marginHorizontal) / ((double)frame.getHeight()-marginVertical);
@@ -48,7 +51,7 @@ public class DynamicPanel extends JPanel {
     }
 
     // Resize image to fit on display
-    protected BufferedImage resizeImage(BufferedImage imgIn, int marginHorizontal, int marginVertical, JDialog frame){
+    protected BufferedImage resizeImage(BufferedImage imgIn, JDialog frame){
         int w,h;
         double ratio = (double)imgIn.getWidth()/(double)imgIn.getHeight();
         double frameRatio = ((double) frame.getWidth()-marginHorizontal) / ((double)frame.getHeight()-marginVertical);

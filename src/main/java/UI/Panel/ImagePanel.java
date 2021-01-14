@@ -19,11 +19,14 @@ public abstract class ImagePanel extends DynamicPanel {
     // ImageIcon of imgDisp
     protected ImageIcon imgIcon;
 
-    public ImagePanel(){
+    public ImagePanel(int marginHorizontal, int marginVertical){
+        this.marginHorizontal=marginHorizontal;
+        this.marginVertical=marginVertical;
         imgIcon = new ImageIcon();
         imgDisp = new JLabel();
     }
 
+    // Function to update panel if needed
     public abstract void updatePanel();
 
 }

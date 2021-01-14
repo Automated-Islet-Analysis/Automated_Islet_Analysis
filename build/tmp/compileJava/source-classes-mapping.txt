@@ -4,12 +4,12 @@ UI/Panel/VideoPanel.java
  UI.Panel.VideoPanel$2
 UI/HomeTab/Uploaded.java
  UI.HomeTab.Uploaded
-UI/MainMenu.java
- UI.MainMenu
+UI/SaveTab/SaveAll.java
+ UI.SaveTab.SaveAll
 videoprocessing/ImageJ/nifti_io/AffineCoors.java
  videoprocessing.ImageJ.nifti_io.AffineCoors
-videoprocessing/ImageJ/nifti_io/Nifti_writer.java
- videoprocessing.ImageJ.nifti_io.Nifti_writer
+UI/SaveTab/SaveData.java
+ UI.SaveTab.SaveData
 videoprocessing/ImageJ/nifti_io/QuaternCoors.java
  videoprocessing.ImageJ.nifti_io.QuaternCoors
 videoprocessing/ImageJ/nifti_io/Nifti_Reader.java
@@ -56,16 +56,18 @@ UI/HomeTab/Home.java
  UI.HomeTab.Home
 videoprocessing/VideoProcessorError.java
  videoprocessing.VideoProcessorError
-videoprocessing/processor/CellAnalyzer.java
- videoprocessing.processor.CellAnalyzer
+UI/SaveTab/SavePlanarVideo.java
+ UI.SaveTab.SavePlanarVideo
 videoprocessing/processor/PlanarMotionCorrector.java
  videoprocessing.processor.PlanarMotionCorrector
-videoprocessing/Cell.java
- videoprocessing.Cell
+UI/Controller.java
+ UI.Controller
+ UI.Controller$1
+ UI.Controller$2
 UI/HomeTab/HomeMenuListener.java
  UI.HomeTab.HomeMenuListener
-videoprocessing/CellError.java
- videoprocessing.CellError
+UI/SaveTab/SaveDepthVideo.java
+ UI.SaveTab.SaveDepthVideo
 UI/DataTab/Results.java
  UI.DataTab.Results
  UI.DataTab.Results$1
@@ -81,17 +83,15 @@ UI/Panel/DynamicPanel.java
  UI.Panel.DynamicPanel
 videoprocessing/Combiner.java
  videoprocessing.Combiner
+videoprocessing/processor/CellAnalyzer.java
+ videoprocessing.processor.CellAnalyzer
+videoprocessing/CellError.java
+ videoprocessing.CellError
+videoprocessing/ImageJ/nifti_io/Nifti_writer.java
+ videoprocessing.ImageJ.nifti_io.Nifti_writer
+UI/MainMenu.java
+ UI.MainMenu
 UI/SaveTab/SaveROIs.java
  UI.SaveTab.SaveROIs
-UI/SaveTab/SaveData.java
- UI.SaveTab.SaveData
-UI/SaveTab/SavePlanarVideo.java
- UI.SaveTab.SavePlanarVideo
-UI/SaveTab/SaveDepthVideo.java
- UI.SaveTab.SaveDepthVideo
-UI/SaveTab/SaveAll.java
- UI.SaveTab.SaveAll
-UI/Controller.java
- UI.Controller
- UI.Controller$1
- UI.Controller$2
+videoprocessing/Cell.java
+ videoprocessing.Cell

@@ -22,8 +22,6 @@ public abstract class VideoPanel extends DynamicPanel {
 
     protected JLabel vidDisp;
     protected ImagePlus video;
-    protected final int hMargin;
-    protected final int vMargin;
 
     MouseListener mouseListener = new MouseListener() {
         @Override
@@ -42,10 +40,10 @@ public abstract class VideoPanel extends DynamicPanel {
 
     public void setVideo(ImagePlus video) { this.video = video; }
 
-    public VideoPanel(ImagePlus video,int hMargin,int vMargin){
+    public VideoPanel(ImagePlus video,int marginHorizontal,int marginVertical){
         this.video = video;
-        this.hMargin=hMargin;
-        this.vMargin=vMargin;
+        this.marginHorizontal=marginHorizontal;
+        this.marginVertical=marginVertical;
 
         // Empty img panel
         vidDisp = new JLabel();
@@ -65,7 +63,7 @@ public abstract class VideoPanel extends DynamicPanel {
                 if(frame[0] <finalNumImages){
                     video.setSlice(frame[0]);
                     BufferedImage img = video.getBufferedImage();
-                    img = resizeImage(img,hMargin,vMargin, Controller.getInterframe());
+                    img = resizeImage(img, Controller.getInterframe());
                     vidDisp.setIcon(new ImageIcon(img));
                     vidDisp.setVisible(true);
                     frame[0]++;

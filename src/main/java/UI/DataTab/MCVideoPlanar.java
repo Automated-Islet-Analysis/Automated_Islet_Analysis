@@ -49,7 +49,7 @@ public class MCVideoPlanar extends VideoPanel {
         }
         else{
             BufferedImage img = video.getBufferedImage();
-            img = resizeImage(img,20,100,Controller.getInterframe());
+            img = resizeImage(img,Controller.getInterframe());
             vidDisp.setIcon(new ImageIcon(img));
             vidDisp.setVisible(true);
         }

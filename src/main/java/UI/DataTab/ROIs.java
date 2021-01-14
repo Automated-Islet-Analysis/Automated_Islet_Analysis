@@ -26,15 +26,16 @@ public class ROIs extends ImagePanel {
     private VideoProcessor videoProcessor;
 
     public ROIs(){
-        super();
+        super(15,145);
+
         // Create elements
         addROI = new JButton("Add ROIs");
         addROI.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Add cells manually
-                ManualROISelection select = new ManualROISelection(videoProcessor.getRoiImage().getBufferedImage(),numROI,cellSize);
-                select.run();
+                ManualROISelection addROI = new ManualROISelection(videoProcessor.getRoiImage().getBufferedImage(),numROI,cellSize);
+                addROI.run();
                 // Update VideoProcessor after adding cells
                 videoProcessor = Controller.getVideoProcessor();
             }
@@ -48,7 +49,7 @@ public class ROIs extends ImagePanel {
         image = videoProcessor.getRoiImage().getBufferedImage();
 
         if(! (image ==null))
-            image = resizeImage(image,15,130, Controller.getInterframe());
+            image = resizeImage(image, Controller.getInterframe());
 
         cellSize = videoProcessor.getCellSize();
 
@@ -67,7 +68,7 @@ public class ROIs extends ImagePanel {
 
         imgDisp.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(imgDisp);
-        setSize(imgDisp.getWidth()+15,imgDisp.getHeight()+130);
+        setSize(imgDisp.getWidth()+15,imgDisp.getHeight()+145);
         add(Box.createVerticalStrut(10));
 
         text.setAlignmentX(Component.CENTER_ALIGNMENT);
