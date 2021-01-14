@@ -76,5 +76,4 @@ public abstract class VideoPanel extends DynamicPanel {
     }
 
     public abstract void update();
-
 }

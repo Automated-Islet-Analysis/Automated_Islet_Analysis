@@ -23,7 +23,6 @@ public class SaveAll extends JFileChooser {
 
     public void save(){
         int userSelection= showSaveDialog(SaveAll.this);
-
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = getSelectedFile();
                 //Create a folder to store everything
