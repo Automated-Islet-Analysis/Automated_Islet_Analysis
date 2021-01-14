@@ -1,13 +1,18 @@
+/**
+ * Pop-up for letting the user create a folder and save the processed videos, image with ROIs and data.
+ * Creates a sub folder for saving the data in it.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 14/01/2021
+ */
+
 package UI.SaveTab;
-
 import UI.Controller;
-
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
+
+import static sun.security.util.KnownOIDs.Data;
 
 public class SaveAll extends JFileChooser {
 
@@ -22,19 +27,20 @@ public class SaveAll extends JFileChooser {
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = getSelectedFile();
                 //Create a folder to store everything
-                File theDir = new File(fileToSave.getPath()+fileToSave.getName());
+                File theDir = new File(fileToSave.getPath());
+                //Check if already exists
                 if (!theDir.exists()){
                     theDir.mkdirs();
 
                     //Save the videos and ROIs
-                    Controller.getVideoProcessor().savePlanarCorrectionVid(theDir.getPath()+".tif");
-                    Controller.getVideoProcessor().saveDepthCorrectionVid(theDir.getPath()+".tif");
-                    Controller.getVideoProcessor().saveRoiImage(theDir.getPath()+".jpg");
+                    Controller.getVideoProcessor().savePlanarCorrectionVid(theDir.getPath()+"\\_PlanarVideoCorrected.tif");
+                    Controller.getVideoProcessor().saveDepthCorrectionVid(theDir.getPath()+"\\_DepthVideoCorrected.tif");
+                    Controller.getVideoProcessor().saveRoiImage(theDir.getPath()+"\\_ROIs.jpg");
                     //Sub folder for SaveData
-                    File saveDataFolder= new File(theDir.getPath());
+                    File saveDataFolder= new File(theDir.getPath()+"\\DataFolder");
                     saveDataFolder.mkdirs();
-                    //Save the Data
-                    Controller.getVideoProcessor().saveSummary(saveDataFolder.getPath());
+                    //Save the Data in a sub folder
+                    Controller.getVideoProcessor().saveSummary(saveDataFolder.getPath()+"\\Data");
                 }
             }
     }

@@ -51,8 +51,8 @@ public class MainMenu extends JMenuBar implements ActionListener {
         }else if (e.getActionCommand().equals("Depth motion")){
             Controller.setDisplay("MCVideoDepth");
             Controller.setDisplay();
-        }else if (e.getActionCommand().equals("Results")){
-            Controller.setDisplay("Results") ;
+        }else if (e.getActionCommand().equals("Save Data")){
+            Controller.setDisplay("SaveData") ;
             Controller.setDisplay();
         }else if (e.getActionCommand().equals("Save ROIs")){
             Controller.setDisplay("SaveROIs") ;
