@@ -19,10 +19,11 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public abstract class VideoPanel extends DynamicPanel {
-
+    // Create components
     protected JLabel vidDisp;
     protected ImagePlus video;
 
+    // Play video when image is pressed
     MouseListener mouseListener = new MouseListener() {
         @Override
         public void mouseClicked(MouseEvent e) {}
@@ -38,8 +39,10 @@ public abstract class VideoPanel extends DynamicPanel {
         public void mouseExited(MouseEvent e) {}
     };
 
+    // Set video
     public void setVideo(ImagePlus video) { this.video = video; }
 
+    // Create video panel
     public VideoPanel(ImagePlus video,int marginHorizontal,int marginVertical){
         this.video = video;
         this.marginHorizontal=marginHorizontal;
@@ -50,6 +53,7 @@ public abstract class VideoPanel extends DynamicPanel {
         vidDisp.addMouseListener(mouseListener);
     }
 
+    // Play video
     protected void playVideo(ImagePlus video){
 
         int speed = 1000/18; // 18 frames per second
@@ -57,6 +61,7 @@ public abstract class VideoPanel extends DynamicPanel {
         final int[] frame = {0};
         java.util.Timer timer = new Timer();
 
+        // Set a timer to change between frames of the video
         TimerTask task = new TimerTask() {
             @Override
             public void run() {

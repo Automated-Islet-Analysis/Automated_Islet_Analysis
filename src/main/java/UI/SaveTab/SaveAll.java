@@ -1,6 +1,5 @@
 /**
- * Pop-up for letting the user create a folder and save the processed videos, image with ROIs and data.
- * Creates a sub folder for saving the data in it.
+ * Pop-up for the creation of a folder and saving the processed videos, image with ROIs and data (in a subfolder).
  *
  * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *
@@ -16,12 +15,14 @@ import static sun.security.util.KnownOIDs.Data;
 
 public class SaveAll extends JFileChooser {
 
+    // Constructor
     public SaveAll(){
         setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
     }
 
     public void save(){
+        // Create save pop-up
         int userSelection= showSaveDialog(SaveAll.this);
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {

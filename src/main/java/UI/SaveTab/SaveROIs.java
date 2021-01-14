@@ -1,5 +1,5 @@
 /**
- * Pop-up for letting the user specifically save the images displaying the identified ROIs.
+ * Pop-up for saving the images displaying the identified ROIs.
  *
  * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *
@@ -13,6 +13,7 @@ import java.io.File;
 
 public class SaveROIs extends JFileChooser {
 
+    // Constructor
     public SaveROIs(){
         setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 
@@ -24,6 +25,7 @@ public class SaveROIs extends JFileChooser {
 
 
     public void save(){
+        // Create save pop-up
         int userSelection= showSaveDialog(SaveROIs.this);
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {

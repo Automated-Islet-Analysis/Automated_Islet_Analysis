@@ -1,5 +1,5 @@
 /**
- * Pop-up for letting specifically save the planar corrected video.
+ * Pop-up saving the planar motion corrected video.
  *
  * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *
@@ -13,6 +13,7 @@ import java.io.File;
 
 public class SavePlanarVideo extends JFileChooser {
 
+    // Constructor
     public SavePlanarVideo(){
         //create the file chooser
         setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
@@ -24,6 +25,7 @@ public class SavePlanarVideo extends JFileChooser {
     }
 
     public void save(){
+        // Create save pop-up
         int userSelection= showSaveDialog(SavePlanarVideo.this);
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {

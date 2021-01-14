@@ -28,6 +28,7 @@ public class Results extends JPanel{
 
     private boolean meanIntensityMeasured;
 
+    // Constructor
     public Results(boolean meanIntensityMeasured){
         this.meanIntensityMeasured = meanIntensityMeasured;
         // Create button
@@ -62,12 +63,15 @@ public class Results extends JPanel{
 
     }
 
+    // Get data from analysed videos and display it on the screen
     public void showResults(){
+        // Remove all components from the frame
         removeAll();
         panDisc.removeAll();
         panROI.removeAll();
         panInt.removeAll();
 
+        // Get the processed video
         videoProcessor = Controller.getVideoProcessor();
         Video video = videoProcessor.getVideo();
 
@@ -80,6 +84,7 @@ public class Results extends JPanel{
         else
             bodyInt = new JLabel("    Mean intensities have been measured and can be saved!");
 
+        // Style labels
         Font fontBody = new Font(bodyDisc1.getFont().getFontName(),Font.PLAIN,15);
         bodyDisc1.setFont(fontBody);
         bodyDisc2.setFont(fontBody);
@@ -87,7 +92,7 @@ public class Results extends JPanel{
         bodyInt.setFont(fontBody);
         measureBtn.setFont(fontBody);
 
-        // Add elements to sub panels
+        // Add elements to sub-panels
         panDisc.add(titleDisc);
         panDisc.add(bodyDisc1);
         panDisc.add(bodyDisc2);
@@ -101,6 +106,7 @@ public class Results extends JPanel{
         btnPan.add(measureBtn);
         panInt.add(btnPan);
 
+        // Add sub-panels to main panel
         add(panDisc,BorderLayout.CENTER);
         add(Box.createHorizontalStrut(400));
         add(panROI,BorderLayout.CENTER);

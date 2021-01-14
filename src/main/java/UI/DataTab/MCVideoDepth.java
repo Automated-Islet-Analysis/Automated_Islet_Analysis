@@ -17,6 +17,7 @@ import java.awt.image.BufferedImage;
 public class MCVideoDepth extends VideoPanel {
     private static JLabel msg;
 
+    // Constructor. Create all components
     public MCVideoDepth(){
         super(null,20,100);
 
@@ -35,6 +36,7 @@ public class MCVideoDepth extends VideoPanel {
     }
 
     @Override
+    // Display video if depth motion correction has been executed
     public void update(){
         this.video = Controller.getVideoProcessor().getDepthCorrectionVid();
 

@@ -1,5 +1,5 @@
 /**
- * Pop-up for letting the user create a folder and specifically save the data.
+ * Pop-up for the creation of a folder and saving the data.
  *
  * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *
@@ -12,12 +12,14 @@ import java.io.File;
 
 public class SaveData extends JFileChooser {
 
+    // Constructor
     public SaveData(){
         setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
     }
 
     public void save(){
+        // Create save pop-up
         int userSelection= showSaveDialog(SaveData.this);
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {

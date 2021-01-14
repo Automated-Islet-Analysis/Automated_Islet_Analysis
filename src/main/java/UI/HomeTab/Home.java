@@ -1,5 +1,5 @@
 /**
- * Class with panel of the home screen where you can upload a file.
+ * Panel of the home screen where you can upload a file.
  *
  * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *
@@ -12,16 +12,19 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Home extends JPanel {
+    // Create components
     JLabel welcome;
     JLabel empty;
     JButton uploadBtn;
     JPanel subPanel;
 
+    // Constructor
     public Home(){
         subPanel = getSubPanel();
         add(subPanel);
     }
 
+    // Create sub-panel
     private JPanel getSubPanel(){
         // Create a welcome text
         welcome = new JLabel("Welcome!");
@@ -38,6 +41,7 @@ public class Home extends JPanel {
         // Set layout
         setLayout(new FlowLayout(FlowLayout.CENTER, 500, 200));
 
+        // Add components to sub-panel
         subPanel = new JPanel(new GridLayout(3,1));
         subPanel.add(welcome);
         subPanel.add(empty);

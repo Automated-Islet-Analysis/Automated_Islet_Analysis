@@ -1,5 +1,5 @@
 /**
- * ImagePanel used for display of the analysed islet with its region of interest shown with numbers.
+ * ImagePanel used for display of the analysed islet with its regions of interest shown with numbers.
  *
  * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *
@@ -25,6 +25,7 @@ public class ROIs extends ImagePanel {
     private int cellSize;
     private VideoProcessor videoProcessor;
 
+    // Constructor
     public ROIs(){
         super(15,145);
 
@@ -43,7 +44,9 @@ public class ROIs extends ImagePanel {
     }
 
     @Override
+    // Display elements on frame
     public void updatePanel(){
+        // Get image from video
         videoProcessor = Controller.getVideoProcessor();
         numROI = videoProcessor.getVideo().getCells().size();
         image = videoProcessor.getRoiImage().getBufferedImage();
@@ -53,17 +56,19 @@ public class ROIs extends ImagePanel {
 
         cellSize = videoProcessor.getCellSize();
 
+        // Create label to display number of ROIs
         text = new JLabel("Number of ROIs: " + numROI);
         Font font =new Font(text.getFont().getFontName(),Font.PLAIN,15);
         text.setFont(font);
         addROI.setFont(font);
 
+        // Create image label to display image
         imgIcon = new ImageIcon(image);
         imgDisp = new JLabel(imgIcon);
 
         removeAll();
 
-        // Add components to the panel
+        // Add components to the panel and center-align them
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         imgDisp.setAlignmentX(Component.CENTER_ALIGNMENT);

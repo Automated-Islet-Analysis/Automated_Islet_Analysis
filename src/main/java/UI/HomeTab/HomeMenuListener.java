@@ -16,6 +16,7 @@ import javax.swing.event.MenuListener;
 public class HomeMenuListener implements MenuListener {
 
     @Override
+    // Action performed when clicking on Home button in the menu bar
     public void menuSelected(MenuEvent e) {
         // Change view to Home page
         if (Controller.isFileUploaded()==true)

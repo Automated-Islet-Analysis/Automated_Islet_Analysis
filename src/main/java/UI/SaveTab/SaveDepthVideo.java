@@ -1,5 +1,5 @@
 /**
- * Pop-up for letting specifically save the depth corrected video.
+ * Pop-up for saving the depth corrected video.
  *
  * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *
@@ -14,6 +14,7 @@ import java.io.File;
 
 public class SaveDepthVideo extends JFileChooser {
 
+    // Constructor
     public SaveDepthVideo(){
         setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 
@@ -24,6 +25,7 @@ public class SaveDepthVideo extends JFileChooser {
     }
 
     public void save(){
+        // Create save pop-up
         int userSelection= showSaveDialog(SaveDepthVideo.this);
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {

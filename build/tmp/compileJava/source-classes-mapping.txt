@@ -21,31 +21,31 @@ UI/HomeTab/AnalyseListener.java
  UI.HomeTab.AnalyseListener$1
 videoprocessing/ImageJ/Thresholder.java
  videoprocessing.ImageJ.Thresholder
-Main.java
- Main
 videoprocessing/VideoProcessor.java
  videoprocessing.VideoProcessor
 videoprocessing/processor/ProcessorError.java
  videoprocessing.processor.ProcessorError
+Main.java
+ Main
 videoprocessing/SaveError.java
  videoprocessing.SaveError
 UI/DataTab/MCVideoDepth.java
  UI.DataTab.MCVideoDepth
 videoprocessing/Video.java
  videoprocessing.Video
-videoprocessing/ImageJ/Stack_Splitter.java
- videoprocessing.ImageJ.Stack_Splitter
 videoprocessing/processor/CellFinder.java
  videoprocessing.processor.CellFinder
+videoprocessing/ImageJ/Stack_Splitter.java
+ videoprocessing.ImageJ.Stack_Splitter
+UI/HomeTab/UploadListener.java
+ UI.HomeTab.UploadListener
 UI/DataTab/ROIs.java
  UI.DataTab.ROIs
  UI.DataTab.ROIs$1
-UI/HomeTab/UploadListener.java
- UI.HomeTab.UploadListener
-videoprocessing/ImageJ/ParticleAnalyzer.java
- videoprocessing.ImageJ.ParticleAnalyzer
 videoprocessing/processor/DepthMotionCorrector.java
  videoprocessing.processor.DepthMotionCorrector
+videoprocessing/ImageJ/ParticleAnalyzer.java
+ videoprocessing.ImageJ.ParticleAnalyzer
 UI/DataTab/MCVideoPlanar.java
  UI.DataTab.MCVideoPlanar
 UI/Panel/ImagePanel.java
@@ -60,12 +60,10 @@ UI/SaveTab/SavePlanarVideo.java
  UI.SaveTab.SavePlanarVideo
 videoprocessing/processor/PlanarMotionCorrector.java
  videoprocessing.processor.PlanarMotionCorrector
-UI/Controller.java
- UI.Controller
- UI.Controller$1
- UI.Controller$2
 UI/HomeTab/HomeMenuListener.java
  UI.HomeTab.HomeMenuListener
+videoprocessing/Cell.java
+ videoprocessing.Cell
 UI/SaveTab/SaveDepthVideo.java
  UI.SaveTab.SaveDepthVideo
 UI/DataTab/Results.java
@@ -89,9 +87,11 @@ videoprocessing/CellError.java
  videoprocessing.CellError
 videoprocessing/ImageJ/nifti_io/Nifti_writer.java
  videoprocessing.ImageJ.nifti_io.Nifti_writer
-UI/MainMenu.java
- UI.MainMenu
 UI/SaveTab/SaveROIs.java
  UI.SaveTab.SaveROIs
-videoprocessing/Cell.java
- videoprocessing.Cell
+UI/Controller.java
+ UI.Controller
+ UI.Controller$1
+ UI.Controller$2
+UI/MainMenu.java
+ UI.MainMenu
