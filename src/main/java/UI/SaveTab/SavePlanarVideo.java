@@ -44,11 +44,11 @@ public class SavePlanarVideo extends JFileChooser {
                     //delete the existing file
                     fileWithExt.delete();
                     //Create a new one
-                    Controller.getVideoProcessor().savePlanarCorrectionVid(fileWithExt.getPath()+".tif");
+                    Controller.getVideoProcessor().savePlanarCorrectionVid(fileWithExt.getPath());
                 }
                 //If cancelled previous operation or i the file did not exist
             }else {
-                Controller.getVideoProcessor().savePlanarCorrectionVid(fileWithExt.getPath()+".tif");
+                Controller.getVideoProcessor().savePlanarCorrectionVid(fileWithExt.getPath());
             }
         }
     }

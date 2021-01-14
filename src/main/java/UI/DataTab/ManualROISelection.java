@@ -165,7 +165,6 @@ public class ManualROISelection extends ImagePanel {
         int n=0;
         for(Cell cell : newCells) {
             int coor[] = cell.getCoor();
-            System.out.println(coor[0] * scalingOfImg+","+coor[1]* scalingOfImg);
             drawCenteredString(Integer.toString(numROI+n+1), (int) Math.round(coor[0] * scalingOfImg), (int) Math.round(coor[1] * scalingOfImg), g);
             n++;
         }

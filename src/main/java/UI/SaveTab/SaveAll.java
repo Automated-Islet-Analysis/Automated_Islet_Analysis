@@ -44,12 +44,9 @@ public class SaveAll extends JFileChooser {
                     //Call the method to save
                     callSavers(theDir);
                 }else{
-
                     //Call the method to save
                     callSavers(theDir);
-
                 }
-
             }
     }
     public void callSavers(File directory){
@@ -59,11 +56,16 @@ public class SaveAll extends JFileChooser {
         Controller.getVideoProcessor().saveRoiImage(directory.getPath()+"\\_ROIs.jpg");
         //Sub folder for SaveData
         File saveDataFolder= new File(directory.getPath()+"\\DataFolder");
-        saveDataFolder.mkdirs();
+        File MIFolder  = new File(saveDataFolder+"/mean_intensity_measurements");
+        if(saveDataFolder.exists())
+            saveDataFolder.delete();
+        saveDataFolder.mkdir();
+        if(MIFolder.exists())
+            MIFolder.delete();
+        MIFolder.mkdir();
+
         //Save the Data in a sub folder
-        Controller.getVideoProcessor().saveCellsMeanIntensity(saveDataFolder.getAbsolutePath());
+        Controller.getVideoProcessor().saveCellsMeanIntensity(MIFolder.getAbsolutePath());
         Controller.getVideoProcessor().saveSummary(saveDataFolder.getPath()+"\\Data_Summary.csv");
-
-
     }
 }

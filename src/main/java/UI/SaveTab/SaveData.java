@@ -23,7 +23,14 @@ public class SaveData extends JFileChooser {
         //Make sure the Mean Intensity has been measured
         if(!Controller.isMeanIntensityMeasured()){
             Object[] options = {"Ok"};
-            JOptionPane.showOptionDialog(Controller.getInterframe(), "Please measure the mean intensity of the ROIs first with the Measure intensity button in Data > Results!",
+            JOptionPane.showOptionDialog(Controller.getInterframe(), "Please measure the mean intensity of the ROIs" +
+                            " first with the Measure intensity button in Data > Results!",
+                    "Warning",
+                    JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+            return;
+        }else if(Controller.getVideoProcessor().getVideo().getCells().size()==0){
+            Object[] options = {"Ok"};
+            JOptionPane.showOptionDialog(Controller.getInterframe(), "No ROIs present, please manually add ROIs.",
                     "Warning",
                     JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
             return;
