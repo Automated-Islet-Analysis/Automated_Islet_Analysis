@@ -39,12 +39,13 @@ public class SaveDepthVideo extends JFileChooser {
                         JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
 
                 //If decide to overwrite it
-                if (check.isSelected() && x ==1) {
-                    Controller.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath());
+                if (x ==1) {
+                    fileWithExt.delete();
+                    Controller.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath()+".tif");
                 }
                 //If cancelled previous operation or i the file did not exist
             }else {
-                Controller.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath());
+                Controller.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath()+".tif");
             }
         }
     }
