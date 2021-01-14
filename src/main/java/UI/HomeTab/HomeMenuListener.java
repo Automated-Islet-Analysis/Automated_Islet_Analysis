@@ -1,15 +1,19 @@
+/**
+ * Action listener of the home tab of the menu. The displayed panel depends on whether a file was already uploaded or not.2
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI.HomeTab;
 
 import UI.Controller;
 
-import javax.swing.*;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
-import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
-class HomeMenuListener implements MenuListener {
+public class HomeMenuListener implements MenuListener {
 
     @Override
     public void menuSelected(MenuEvent e) {

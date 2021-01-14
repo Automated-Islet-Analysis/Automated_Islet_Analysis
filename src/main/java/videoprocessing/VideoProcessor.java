@@ -1,3 +1,14 @@
+/**
+ * Main class of backend, coordinates all the processing through the process and analyzeCells method.
+ * This class also hold all the data for processing and the results from the processing.
+ *
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
+
 package videoprocessing;
 
 import ij.ImagePlus;
@@ -18,17 +29,12 @@ public class VideoProcessor{
     private int cellSize =50;
     // Size of the regions of interest (roiSize x roiSize)
     private final int roiSize =10;
-
     // Change in area(%) tolerated before disregarding frame for too much depth motion
     private double thresholdArea;
-
     // Video to be processed
     private Video video;
-
     // Image with all the roi indicated with their roi number
     private ImagePlus roiImage;
-
-
     // Video to show planar motion correction
     private ImagePlus planarCorrectionVid;
     // Video to show depth motion correction
@@ -66,7 +72,9 @@ public class VideoProcessor{
             processorError =pMC.run();
             if(processorError==ProcessorError.PROCESSOR_IMAGE_ERROR ||processorError==ProcessorError.PROCESSOR_NO_DATA_ERROR)
                 return VideoProcessorError.VIDEO_PROCESSOR_NOT_VIDEO_ERROR;
-            if(processorError==ProcessorError.PROCESSOR_TEMP_DELETE_ERROR || processorError==ProcessorError.PROCESSOR_TEMP_READ_ERROR || processorError==ProcessorError.PROCESSOR_TEMP_WRITE_ERROR)
+            if(processorError==ProcessorError.PROCESSOR_TEMP_DELETE_ERROR
+                    || processorError==ProcessorError.PROCESSOR_TEMP_READ_ERROR
+                    || processorError==ProcessorError.PROCESSOR_TEMP_WRITE_ERROR)
                 return VideoProcessorError.VIDEO_PROCESSOR_TEMP_ERROR;
 
             video.setIjFrames(pMC.getIjFrames());
@@ -74,9 +82,6 @@ public class VideoProcessor{
             // Create planar motion corrected video
             createPlanarCorrectionVid();
             System.out.println("Done");
-        }else{
-            // Clear SEFrames to avoid running out of memory
-            video.clearSEFrames();
         }
 
         // Perform depth motion correction (if needed)
@@ -144,6 +149,25 @@ public class VideoProcessor{
         return VideoProcessorError.VIDEO_PROCESSOR_SUCCESS;
     }
 
+    // Generic meethod to save Imageplus as tif or jpeg
+    private SaveError saveImagePlus(ImagePlus toSave, String format, String path){
+        if(toSave==null)
+            return SaveError.SAVE_NO_DATA_ERROR;
+        FileSaver fileSaver = new FileSaver(toSave);
+        try {
+            if(format=="tif")
+                fileSaver.saveAsTiff(path);
+            else if(format=="jpeg")
+                fileSaver.saveAsJpeg(path);
+            else return SaveError.SAVE_TYPE_ERROR;
+        }catch (Exception e){
+            return SaveError.SAVE_WRITE_ERROR;
+        }
+        return SaveError.SAVE_SUCCESS;
+
+    }
+
+    // Create video with on the left the original video and on the right a video with the planar motion correction.
     private void createPlanarCorrectionVid(){
         ImagePlus leftVid = video.getVid();
         ImagePlus rightVid = video.framesToImagePlus();
@@ -155,18 +179,13 @@ public class VideoProcessor{
         FileSaver fileSaver = new FileSaver(planarCorrectionVid);
     }
 
+    // Save video that shows planar motion correction
     public SaveError savePlanarCorrectionVid(String path){
-        if(planarCorrectionVid==null)
-            return SaveError.SAVE_NO_DATA_ERROR;
-        FileSaver fileSaver = new FileSaver(planarCorrectionVid);
-        try {
-            fileSaver.saveAsTiff(path);
-        }catch (Exception e){
-            return SaveError.SAVE_WRITE_ERROR;
-        }
-        return SaveError.SAVE_SUCCESS;
+        return saveImagePlus(planarCorrectionVid,"tif",path);
     }
 
+    // Create video with motion corrected video on left(if applicable, original video otherwise) and
+    // on the right video with black frames when motion in the depth direction was measured
     private void createDepthCorrectionVid(){
         ImagePlus leftVid;
         if(planarCorrectionVid==null)leftVid = video.getVid();
@@ -198,16 +217,9 @@ public class VideoProcessor{
         depthCorrectionVid =  combiner.combine(leftVid,rightVid);
     }
 
+    // Save video that shows depth motion correction
     public SaveError saveDepthCorrectionVid(String path){
-        if(depthCorrectionVid==null)
-            return SaveError.SAVE_NO_DATA_ERROR;
-        FileSaver fileSaver = new FileSaver(depthCorrectionVid);
-        try {
-            fileSaver.saveAsTiff(path);
-        }catch (Exception e){
-            return SaveError.SAVE_WRITE_ERROR;
-        }
-        return SaveError.SAVE_SUCCESS;
+        return saveImagePlus(depthCorrectionVid,"tif",path);
     }
 
     // Save image with cells shown as numbers for display in GUI
@@ -233,15 +245,7 @@ public class VideoProcessor{
 
     // Save Image with all ROI shown
     public SaveError saveRoiImage(String path){
-        if(roiImage==null) return SaveError.SAVE_NO_DATA_ERROR;
-        // Save modified first frame
-        FileSaver fileSaver = new FileSaver(roiImage);
-        try {
-            fileSaver.saveAsJpeg(path);
-        }catch(Exception e){
-            return SaveError.SAVE_WRITE_ERROR;
-        }
-        return SaveError.SAVE_SUCCESS;
+        return saveImagePlus(roiImage,"jpeg",path);
     }
 
     // Save Mean intensity measurements

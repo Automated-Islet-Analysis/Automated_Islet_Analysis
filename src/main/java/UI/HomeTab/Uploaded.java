@@ -1,5 +1,14 @@
+/**
+ * Panel used for display of uploaded video with the options to analyses video or upload an other video.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI.HomeTab;
 
+import UI.Controller;
 import UI.Panel.VideoPanel;
 import ij.ImagePlus;
 
@@ -43,9 +52,9 @@ public class Uploaded extends VideoPanel {
         btnAnalyse.setFont(font);
         btnUpload.setFont(font);
 
-        add(fileName);
         add(vidDisp);
-
+        add(fileName);
+        add(Box.createVerticalStrut(10));
 
         subPanel = new JPanel(new FlowLayout());
 
@@ -56,6 +65,7 @@ public class Uploaded extends VideoPanel {
         subPanel.add(subButtonPanel,BorderLayout.EAST);
         subPanel.setAlignmentX(JComponent.CENTER_ALIGNMENT);
         add(subPanel,BorderLayout.EAST);
+        add(Box.createVerticalStrut(10));
     }
 
 
@@ -64,7 +74,7 @@ public class Uploaded extends VideoPanel {
         if (video==null)
             this.video = new ImagePlus(filePath);
         BufferedImage img = video.getBufferedImage();
-        img = resizeImage(img,20,150);
+        img = resizeImage(img,20,150, Controller.getInterframe());
         vidDisp.setIcon(new ImageIcon(img));
         vidDisp.setVisible(true);
     }

@@ -1,8 +1,5 @@
-package ImageJ.nifti_io;
+package videoprocessing.ImageJ.nifti_io;
 
-import ImageJ.nifti_io.AffineCoors;
-import ImageJ.nifti_io.CoordinateMapper;
-import ImageJ.nifti_io.QuaternCoors;
 import ij.*;
 import ij.io.FileInfo;
 import ij.io.ImageWriter;

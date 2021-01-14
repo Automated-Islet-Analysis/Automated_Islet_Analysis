@@ -1,4 +1,4 @@
-package ImageJ.nifti_io;
+package videoprocessing.ImageJ.nifti_io;
 
 
 /** This class implements a Quatern coordinate mapping */

@@ -1,14 +1,3 @@
-package ImageJ.nifti_io;
-
-import java.io.*;
-import java.awt.*;
-import java.util.zip.GZIPInputStream;
-import ij.*;
-import ij.plugin.*;
-import ij.process.*;
-import ij.io.*;
-import ij.measure.*;
-
 /** This plugin loads Analyze and Nifti-1 format files.
  If the <filename> provided (or selected) ends with ".hdr" or ".img"
  then <filename>.hdr will be parsed and used to appropriately load
@@ -22,6 +11,17 @@ import ij.measure.*;
 
  Guy Williams, gbw1000@wbic.cam.ac.uk        19/08/2005
  */
+
+
+package videoprocessing.ImageJ.nifti_io;
+
+import java.io.*;
+import java.util.zip.GZIPInputStream;
+import ij.*;
+import ij.plugin.*;
+import ij.process.*;
+import ij.io.*;
+import ij.measure.*;
 
 
 public class Nifti_Reader extends ImagePlus implements PlugIn {

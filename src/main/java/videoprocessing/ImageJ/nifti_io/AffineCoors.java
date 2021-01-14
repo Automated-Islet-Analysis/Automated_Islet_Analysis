@@ -1,4 +1,4 @@
-package ImageJ.nifti_io;
+package videoprocessing.ImageJ.nifti_io;
 
 
 /** This class implements an affine coordinate mapping */

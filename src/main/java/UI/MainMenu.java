@@ -1,6 +1,14 @@
-package UI.HomeTab;
+/**
+ * Class containes all the structure of the main menu and interacts with Controller for the display of the correct panels.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
 
-import UI.Controller;
+package UI;
+
+import UI.HomeTab.HomeMenuListener;
 import UI.SaveTab.SaveDepthVideo;
 
 import javax.swing.*;

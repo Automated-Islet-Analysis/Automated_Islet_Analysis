@@ -1,4 +1,13 @@
-// Code from ImageJ but adapted to remove all GUI
+/**
+ * Class to analyse particles, used in this project to find area of the islets
+ *
+ * @author ImageJ develpers
+ *
+ * Modified by Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 
 package videoprocessing.ImageJ;
 

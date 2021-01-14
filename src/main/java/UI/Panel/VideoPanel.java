@@ -1,5 +1,14 @@
+/**
+ * Panel used for display of dynamic videos.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI.Panel;
 
+import UI.Controller;
 import ij.ImagePlus;
 
 import javax.swing.*;
@@ -9,7 +18,7 @@ import java.awt.image.BufferedImage;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public abstract class VideoPanel extends ImagePanel {
+public abstract class VideoPanel extends DynamicPanel {
 
     protected JLabel vidDisp;
     protected ImagePlus video;
@@ -56,7 +65,7 @@ public abstract class VideoPanel extends ImagePanel {
                 if(frame[0] <finalNumImages){
                     video.setSlice(frame[0]);
                     BufferedImage img = video.getBufferedImage();
-                    img = resizeImage(img,hMargin,vMargin);
+                    img = resizeImage(img,hMargin,vMargin, Controller.getInterframe());
                     vidDisp.setIcon(new ImageIcon(img));
                     vidDisp.setVisible(true);
                     frame[0]++;
@@ -69,4 +78,5 @@ public abstract class VideoPanel extends ImagePanel {
     }
 
     public abstract void update();
+
 }

@@ -1,3 +1,12 @@
+/**
+ * ActionListener that enables the user to choose a file to upload (only tif format) and initiates the change
+ * of displayed panel.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI.HomeTab;
 
 import UI.Controller;
