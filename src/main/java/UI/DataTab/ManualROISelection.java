@@ -45,18 +45,14 @@ public class ManualROISelection extends ImagePanel {
             int  x,y;
             x = e.getX();
             y = e.getY();
-            Graphics g = image.getGraphics();
-
-            // Draw number of selected new ROI
-            g.setColor(Color.blue);
-            g.setFont(new Font(g.getFont().getFontName(), Font.PLAIN, 12));
-            drawCenteredString(Integer.toString(numROI++ + 1),(int)Math.round(x/scalingOfImg),(int)Math.round(y/scalingOfImg),g);
 
             // Add coordinates of new ROI
             int[] coor = new int[2];
             coor[0]= (int) Math.floor(x/scalingOfImg);
             coor[1]= (int) Math.floor(y/scalingOfImg);
-            newCells.add(new Cell(coor,numROI,0,cellSize));
+            newCells.add(new Cell(coor,numROI+newCells.size()+1,0,cellSize));
+
+            updatePanel();
         }
         @Override
         public void mouseClicked(MouseEvent e  ) {}
@@ -87,7 +83,10 @@ public class ManualROISelection extends ImagePanel {
         super(15,90);
 
         // Set variables needed for display
-        this.image=image;
+        this.image = new BufferedImage(image.getWidth(),image.getHeight(),BufferedImage.TYPE_INT_RGB);
+        Graphics g = this.image.getGraphics();
+        g.setColor(Color.BLUE);
+        g.drawImage(image,0,0,null);
         this.numROI = numROI;
         this.cellSize=cellSize;
 
@@ -124,7 +123,6 @@ public class ManualROISelection extends ImagePanel {
         });
         jButton1.setSize(100,30);
 
-
         imgDisp.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 
         // Resize image otherwise img is too big
@@ -153,27 +151,34 @@ public class ManualROISelection extends ImagePanel {
 
     @Override
     public void updatePanel() {
-        BufferedImage image = resizeImage(this.image,dialog);
-        imgDisp.setIcon(new ImageIcon(image));
+        // Reset displayed image to original image
+        BufferedImage image_ = resizeImage(this.image,dialog);
 
-        removeAll();
-        // Add JLabel that hold image
-        add(imgDisp);
-        add(buttonPanel);
-        dialog.setContentPane(this);
+        BufferedImage image = new BufferedImage(image_.getWidth(),image_.getHeight(),BufferedImage.TYPE_INT_RGB);
+        Graphics g = image.getGraphics();
+        g.setFont(new Font(this.image.getGraphics().getFont().getFontName(),Font.BOLD,14));
+        g.setColor(Color.BLUE);
+        g.drawImage(image_,0,0,null);
+
+        int n=0;
+        for(Cell cell : newCells) {
+            int coor[] = cell.getCoor();
+            System.out.println(coor[0] * scalingOfImg+","+coor[1]* scalingOfImg);
+            drawCenteredString(Integer.toString(numROI+n+1), (int) Math.round(coor[0] * scalingOfImg), (int) Math.round(coor[1] * scalingOfImg), g);
+            n++;
+        }
+        imgIcon = new ImageIcon(image);
+        imgDisp.setIcon(imgIcon);
     }
 
 
     // Draw cell numbers on GUI
     // Adapted From http://www.java2s.com/Tutorial/Java/0261__2D-Graphics/Centertext.html
     public void drawCenteredString(String s, int x, int y, Graphics g) {
-        g.setFont(new Font(g.getFont().getFontName(),Font.PLAIN,18));
-        g.setColor(Color.BLUE);
         FontMetrics fm = g.getFontMetrics();
         x = x - fm.stringWidth(s) / 2;
         y = y + fm.getAscent()/2;
-        g.drawString(s, x, y);
-        updatePanel();
+        g.drawString(s,x, y);
     }
 
     // Add manually selected ROI to VideoProcessor

@@ -91,19 +91,45 @@ public class AnalyseListener implements ActionListener {
         SwingWorker<Void, Void> worker = new SwingWorker<Void,Void>() {
             @Override
             protected Void doInBackground() throws InterruptedException{
-                System.out.println("Analysing: " + Uploaded.getFilePath());
-                VideoProcessor videoProcessor = new VideoProcessor(new Video(Uploaded.getFilePath()));
-                videoProcessorError[0] = videoProcessor.process((int) AnalyseListener.errorAllowed, AnalyseListener.planarSelected, AnalyseListener.depthSelected, AnalyseListener.ROISelected);
-                Controller.setVideoProcessor(videoProcessor);
+                try {
+                    System.out.println("Analysing: " + Uploaded.getFilePath());
+                    VideoProcessor videoProcessor = new VideoProcessor(new Video(Uploaded.getFilePath()));
+                    videoProcessorError[0] = videoProcessor.process((int) AnalyseListener.errorAllowed, AnalyseListener.planarSelected, AnalyseListener.depthSelected, AnalyseListener.ROISelected);
+                    Controller.setVideoProcessor(videoProcessor);
+                }catch (OutOfMemoryError e){
+                    videoProcessorError[0] = VideoProcessorError.VIDEO_PROCESSOR_OUT_OF_MEMORY_ERROR;
+                }
                 return null;
             }
 
             @Override
             protected void done() {
-                System.out.println(videoProcessorError[0]);
-                System.out.println("Processing done");
                 dialog.setVisible(false);
-                JOptionPane.showMessageDialog(Controller.getInterframe(),"The processing is finished");
+                if(videoProcessorError[0]==VideoProcessorError.VIDEO_PROCESSOR_SUCCESS){
+                    System.out.println("Processing done");
+                    JOptionPane.showMessageDialog(Controller.getInterframe(),"The processing is finished");
+                }else if (videoProcessorError[0]==VideoProcessorError.VIDEO_PROCESSOR_NOT_VIDEO_ERROR) {
+                    System.out.println(videoProcessorError[0]);
+                    JOptionPane.showOptionDialog(Controller.getInterframe(), "ERROR, the processing failed because the video is either corrupt or the video has only one frame!",
+                            "Warning",
+                            JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+                }else if(videoProcessorError[0]==VideoProcessorError.VIDEO_PROCESSOR_OUT_OF_BOUNDS_ERROR){
+                    System.out.println(videoProcessorError[0]);
+                    JOptionPane.showOptionDialog(Controller.getInterframe(), "ERROR, the processing failed because the Islet is too close too the edge of the frame!",
+                            "Warning",
+                            JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+                }else if(videoProcessorError[0]==VideoProcessorError.VIDEO_PROCESSOR_TEMP_ERROR){
+                    System.out.println(videoProcessorError[0]);
+                    JOptionPane.showOptionDialog(Controller.getInterframe(), "ERROR, the processing failed because temporary files could not be created. " +
+                                    "Change position of directory or try to delete temp.tiff and temp.nii files if present in directory!",
+                            "Warning",
+                            JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+                }else if(videoProcessorError[0]==VideoProcessorError.VIDEO_PROCESSOR_OUT_OF_MEMORY_ERROR){
+                    System.out.println(videoProcessorError[0]);
+                    JOptionPane.showOptionDialog(Controller.getInterframe(), "ERROR, the processing failed because the momory allocated to this app is too small. Analyse a shorter video or change memory allocated!",
+                            "Warning",
+                            JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+                }
             }
         };
 
