@@ -30,7 +30,7 @@ public class Controller {
     private static MCVideoDepth mcvidDepth;
     private static Results results;
     private static Uploaded upload;
-    private static SaveDepthVideo savevideo;
+    private static SaveDepthVideo saveDepthVideo;
     private static SaveData savedata;
     private static SaveAll saveall;
     private static SaveROIs saverois;
@@ -105,7 +105,7 @@ public class Controller {
         mcvidPlanar = new MCVideoPlanar();
         mcvidDepth = new MCVideoDepth();
         upload = new Uploaded();
-        savevideo= new SaveDepthVideo();
+        saveDepthVideo = new SaveDepthVideo();
         savedata=new SaveData();
         saveall=new SaveAll();
         saverois=new SaveROIs();
@@ -171,36 +171,39 @@ public class Controller {
         }
         else if(display.equals("SaveROIs")){
             if (analysedImg) {
-                interframe.setContentPane(saverois);
-                interframe.invalidate();
-                interframe.validate();
+                saverois.save();
+
+            } else{
+                popupNoFileAnalysed();
+            }
+        }
+        else if(display.equals("SaveData")){
+            if (analysedImg) {
+                savedata.save();
+
             } else{
                 popupNoFileAnalysed();
             }
         }
         else if(display.equals("SaveAll")){
             if (analysedImg) {
-                interframe.setContentPane(saveall);
-                interframe.invalidate();
-                interframe.validate();
+                saveall.save();
+
             } else{
                 popupNoFileAnalysed();
             }
         }
         else if(display.equals("SaveDepthVideo")){
             if (analysedImg) {
-                interframe.setContentPane(savevideo);
-                interframe.invalidate();
-                interframe.validate();
+                saveDepthVideo.save();
             } else{
                 popupNoFileAnalysed();
             }
         }
         else if(display.equals("SavePlanarVideo")){
             if (analysedImg) {
-                interframe.setContentPane(saveplanarvideo);
-                interframe.invalidate();
-                interframe.validate();
+                saveplanarvideo.save();
+
             } else{
                 popupNoFileAnalysed();
             }

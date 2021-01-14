@@ -106,13 +106,13 @@ public class MainMenu extends JMenuBar implements ActionListener {
         saveMCVidPlanar = new JMenuItem("Save Planar Corrected Video");
         saveMCVidDepth=new JMenuItem("Save Depth Corrected Video");
 
-        saveData = new JMenuItem("Save Results");
+        saveData = new JMenuItem("Save Data");
         saveAll = new JMenuItem("Save All");
 
         // ActionListeners
         saveROI.addActionListener(this);
         saveMCVidPlanar.addActionListener(this);
-        saveMCVidDepth.addActionListener(new SaveDepthVideo());
+        saveMCVidDepth.addActionListener(this);
         saveData.addActionListener(this);
         saveAll.addActionListener(this);
 
