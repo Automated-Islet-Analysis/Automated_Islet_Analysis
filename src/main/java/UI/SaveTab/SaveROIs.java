@@ -40,7 +40,10 @@ public class SaveROIs extends JFileChooser {
                         JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
 
                 //If decide to overwrite
-                if (check.isSelected() && x ==1) {
+                if (x ==1) {
+                    //Delete the existing file
+                    fileWithExt.delete();
+                    //Replace it with a new one
                     Controller.getVideoProcessor().saveRoiImage(fileWithExt.getPath());
                 }
             }else {

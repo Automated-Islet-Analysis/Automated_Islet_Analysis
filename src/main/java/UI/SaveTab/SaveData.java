@@ -20,26 +20,32 @@ public class SaveData extends JFileChooser {
 
     public void save(){
         // Create save pop-up
+        //Make sure the Mean Intensity has been measured
+        if(!Controller.isMeanIntensityMeasured()){
+            Object[] options = {"Ok"};
+            JOptionPane.showOptionDialog(Controller.getInterframe(), "Please measure the mean intensity of the ROIs first with the Measure intensity button in Data > Results!",
+                    "Warning",
+                    JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+            return;
+        }
+
         int userSelection= showSaveDialog(SaveData.this);
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {
-            File fileToSave = getSelectedFile();
-            File fileWithExt = new File(fileToSave.getAbsolutePath());
+            File folder = getSelectedFile();
             //Check if the file already exists and let the user choose whether to overwrite it or cancel
-            if(fileWithExt.exists() && !fileToSave.isDirectory()) {
-                JCheckBox check = new JCheckBox("Warning");
-                Object[] options = {"Yes", "No, overwrite"};
-                int x = JOptionPane.showOptionDialog(null, "This file already exist. Do you want to change its name?",
+            if(!folder.isDirectory()) {
+                Object[] options = {"Ok"};
+                JOptionPane.showOptionDialog(Controller.getInterframe(), "Please input an existing directory file name!",
                         "Warning",
-                        JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
-
-                //If decide to overwrite it
-                if (check.isSelected() && x ==1) {
-                    Controller.getVideoProcessor().saveSummary(fileWithExt.getPath());
-                }
-                //If cancelled previous operation or i the file did not exist
+                        JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
             }else {
-                Controller.getVideoProcessor().saveSummary(fileWithExt.getPath());
+                File MIFolder = new File(folder.getAbsoluteFile()+"/mean_intensity_measurements");
+                if(MIFolder.exists())
+                    MIFolder.delete();
+                MIFolder.mkdir();
+                Controller.getVideoProcessor().saveCellsMeanIntensity(MIFolder.getAbsolutePath());
+                Controller.getVideoProcessor().saveSummary(folder.getPath()+"/Summary.csv");
             }
         }
     }

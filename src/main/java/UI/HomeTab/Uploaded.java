@@ -55,8 +55,8 @@ public class Uploaded extends VideoPanel {
         btnAnalyse.setFont(font);
         btnUpload.setFont(font);
 
-        add(vidDisp);
         add(fileName);
+        add(vidDisp);
         add(Box.createVerticalStrut(10));
 
         subPanel = new JPanel(new FlowLayout());
