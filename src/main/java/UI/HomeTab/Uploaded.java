@@ -1,5 +1,5 @@
 /**
- * Panel used for display of uploaded video with the options to analyses video or upload an other video.
+ * Panel used for display of uploaded video with the options to analyse video or upload another video.
  *
  * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *
@@ -17,6 +17,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Uploaded extends VideoPanel {
+    // Create components
     private static JLabel fileName;
     private static String filePath;
 
@@ -24,11 +25,13 @@ public class Uploaded extends VideoPanel {
     JPanel subButtonPanel;
     JPanel subPanel;
 
+    // Getter/setter functions
     public static JLabel getFileName() {return fileName;}
     public static void setFileName(JLabel fileName) { Uploaded.fileName = fileName; }
     public static String getFilePath() { return filePath;}
     public static void setFilePath(String filePath) { Uploaded.filePath = filePath; }
 
+    // Constructor
     public Uploaded(){
         super(null,20,150);
         filePath = "";
@@ -70,6 +73,7 @@ public class Uploaded extends VideoPanel {
 
 
     @Override
+    // Display components on frame
     public void update() {
         if (video==null)
             this.video = new ImagePlus(filePath);

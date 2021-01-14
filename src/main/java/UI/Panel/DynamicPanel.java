@@ -1,7 +1,7 @@
 /**
- * Panel used for display of videos and images where the size of the displayed image dependents
- * on the size of the frame of dialog it is part of.
- * This enable to see the videos in greater detail by opening the app in full screen mode.
+ * Panel used for display of videos and images where the size of the displayed image depends
+ * on the size of the frame it is part of.
+ * This enables the visualisation of the videos in greater detail by opening the app in full-screen mode.
  *
  * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *
@@ -21,27 +21,31 @@ public class DynamicPanel extends JPanel {
     protected int marginHorizontal;
     protected int marginVertical;
 
+    // Constructor
     public DynamicPanel(){}
 
-
-    // Resize image to fit on display
+    // Resize image to fit on display - JFrame input
     protected BufferedImage resizeImage(BufferedImage imgIn, JFrame frame){
         int w,h;
         double ratio = (double)imgIn.getWidth()/(double)imgIn.getHeight();
         double frameRatio = ((double) frame.getWidth()-marginHorizontal) / ((double)frame.getHeight()-marginVertical);
+
+        // Adapt to fit in display based on width ratio
         if (frameRatio < ratio) {
             double scaling = (double) (frame.getWidth() - marginHorizontal) / (double) imgIn.getWidth();
             w =(int) Math.round(imgIn.getWidth() * scaling);
             h =(int) Math.round(imgIn.getHeight() * scaling);
             this.scalingOfImg=scaling;
-
-        }else{
+        }
+        // Adapt to fit in display based on height ratio
+        else{
             double scaling = (double) (frame.getHeight() - marginVertical) / (double) imgIn.getHeight();
             w = (int) Math.round(imgIn.getWidth() * scaling);
             h = (int) Math.round(imgIn.getHeight() * scaling);
             this.scalingOfImg=scaling;
         }
 
+        // Create image with scaled dimensions
         BufferedImage resizedImg = new BufferedImage(w,h,BufferedImage.TYPE_BYTE_GRAY);
         Graphics2D g2 = resizedImg.createGraphics();
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
@@ -50,24 +54,29 @@ public class DynamicPanel extends JPanel {
         return resizedImg;
     }
 
-    // Resize image to fit on display
+    // Resize image to fit on display - JDialog input
     protected BufferedImage resizeImage(BufferedImage imgIn, JDialog frame){
         int w,h;
         double ratio = (double)imgIn.getWidth()/(double)imgIn.getHeight();
         double frameRatio = ((double) frame.getWidth()-marginHorizontal) / ((double)frame.getHeight()-marginVertical);
+
+        // Adapt to fit in display based on width ratio
         if (frameRatio < ratio) {
             double scaling = (double) (frame.getWidth() - marginHorizontal) / (double) imgIn.getWidth();
             w =(int) Math.round(imgIn.getWidth() * scaling);
             h =(int) Math.round(imgIn.getHeight() * scaling);
             this.scalingOfImg=scaling;
 
-        }else{
+        }
+        // Adapt to fit in display based on height ratio
+        else{
             double scaling = (double) (frame.getHeight() - marginVertical) / (double) imgIn.getHeight();
             w = (int) Math.round(imgIn.getWidth() * scaling);
             h = (int) Math.round(imgIn.getHeight() * scaling);
             this.scalingOfImg=scaling;
         }
 
+        // Create image with scaled dimensions
         BufferedImage resizedImg = new BufferedImage(w,h,BufferedImage.TYPE_BYTE_GRAY);
         Graphics2D g2 = resizedImg.createGraphics();
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);

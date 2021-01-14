@@ -1,5 +1,5 @@
 /**
- * Pop-up for letting specifically save the planar corrected video.
+ * Pop-up saving the planar motion corrected video.
  *
  * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *
@@ -13,6 +13,7 @@ import java.io.File;
 
 public class SavePlanarVideo extends JFileChooser {
 
+    // Constructor
     public SavePlanarVideo(){
         //create the file chooser
         setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
@@ -24,6 +25,7 @@ public class SavePlanarVideo extends JFileChooser {
     }
 
     public void save(){
+        // Create save pop-up
         int userSelection= showSaveDialog(SavePlanarVideo.this);
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {
@@ -38,12 +40,15 @@ public class SavePlanarVideo extends JFileChooser {
                         JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
 
                 //If decide to overwrite it
-                if (check.isSelected() && x ==1) {
-                    Controller.getVideoProcessor().savePlanarCorrectionVid(fileWithExt.getPath());
+                if (x ==1) {
+                    //delete the existing file
+                    fileWithExt.delete();
+                    //Create a new one
+                    Controller.getVideoProcessor().savePlanarCorrectionVid(fileWithExt.getPath()+".tif");
                 }
                 //If cancelled previous operation or i the file did not exist
             }else {
-                Controller.getVideoProcessor().savePlanarCorrectionVid(fileWithExt.getPath());
+                Controller.getVideoProcessor().savePlanarCorrectionVid(fileWithExt.getPath()+".tif");
             }
         }
     }

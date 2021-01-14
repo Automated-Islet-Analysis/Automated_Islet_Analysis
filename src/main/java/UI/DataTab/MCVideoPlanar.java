@@ -18,6 +18,7 @@ import java.awt.image.BufferedImage;
 public class MCVideoPlanar extends VideoPanel {
     private static JLabel msg;
 
+    // Constructor. Create all components
     public MCVideoPlanar(){
         super(null,20,100);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -35,6 +36,7 @@ public class MCVideoPlanar extends VideoPanel {
     }
 
     @Override
+    // Display video if planar motion correction has been executed
     public void update(){
         this.video = Controller.getVideoProcessor().getPlanarCorrectionVid();
 

@@ -1,5 +1,5 @@
 /**
- * Class that is used to show a pop-up where you can manually select ROI. After confirming the new ROI,
+ * Class that is used to show a pop-up where you can manually select ROIs. After confirming the new ROIs,
  * these are added to the cells of the videoProcessor.
  *
  * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
@@ -144,12 +144,14 @@ public class ManualROISelection extends ImagePanel {
         buttonPanel.add(jButton1);
         add(buttonPanel);
 
+        // Show dialog
         dialog.setContentPane(this);
         dialog.setVisible(true);
         return newCells;
     }
 
     @Override
+    // Make component in frame visible
     public void updatePanel() {
         // Reset displayed image to original image
         BufferedImage image_ = resizeImage(this.image,dialog);

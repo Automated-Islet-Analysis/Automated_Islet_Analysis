@@ -1,5 +1,5 @@
 /**
- * Pop-up for letting the user create a folder and specifically save the data.
+ * Pop-up for the creation of a folder and saving the data.
  *
  * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *
@@ -12,12 +12,15 @@ import java.io.File;
 
 public class SaveData extends JFileChooser {
 
+    // Constructor
     public SaveData(){
         setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
     }
 
     public void save(){
+        // Create save pop-up
+        //Make sure the Mean Intensity has been measured
         if(!Controller.isMeanIntensityMeasured()){
             Object[] options = {"Ok"};
             JOptionPane.showOptionDialog(Controller.getInterframe(), "Please measure the mean intensity of the ROIs first with the Measure intensity button in Data > Results!",
@@ -37,7 +40,7 @@ public class SaveData extends JFileChooser {
                         "Warning",
                         JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
             }else {
-                File MIFolder = new File(folder.getAbsoluteFile()+"/mean intensity measurements");
+                File MIFolder = new File(folder.getAbsoluteFile()+"/mean_intensity_measurements");
                 if(MIFolder.exists())
                     MIFolder.delete();
                 MIFolder.mkdir();

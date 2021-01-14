@@ -19,6 +19,7 @@ public abstract class ImagePanel extends DynamicPanel {
     // ImageIcon of imgDisp
     protected ImageIcon imgIcon;
 
+    // Constructor
     public ImagePanel(int marginHorizontal, int marginVertical){
         this.marginHorizontal=marginHorizontal;
         this.marginVertical=marginVertical;
