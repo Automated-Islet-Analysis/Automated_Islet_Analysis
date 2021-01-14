@@ -29,7 +29,7 @@ public class ManualROISelection extends ImagePanel {
     // Stores coordinates of selected ROIs
     private LinkedList<Cell> newCells = new LinkedList<>();
 
-    // variable for display
+    // Variable for display
     JDialog dialog=new JDialog();
     JPanel buttonPanel = new JPanel();
     JButton jButton = new JButton("Confirm");
@@ -109,7 +109,7 @@ public class ManualROISelection extends ImagePanel {
     public LinkedList<Cell> run() {
         // Pop-up window
         JDialog dialog = new JDialog(Controller.getInterframe(),"Select new ROIs",true);
-//        JFrame f = new JFrame(null,"Select new ROIs");
+        //JFrame f = new JFrame(null,"Select new ROIs");
         setLayout(new FlowLayout(FlowLayout.CENTER));
 
         // Add JLabel that hold image

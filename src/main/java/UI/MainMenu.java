@@ -66,7 +66,10 @@ public class MainMenu extends JMenuBar implements ActionListener {
         }else if (e.getActionCommand().equals("Save All")){
             Controller.setDisplay("SaveAll");
             Controller.setDisplay();
-        }
+        }else if (e.getActionCommand().equals("Results")){
+        Controller.setDisplay("Results");
+        Controller.setDisplay();
+    }
 
         System.out.println(e.getActionCommand());
     }

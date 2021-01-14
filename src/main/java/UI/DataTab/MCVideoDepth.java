@@ -22,6 +22,7 @@ public class MCVideoDepth extends VideoPanel {
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
+        //Message pop
         msg = new JLabel("Depth motion corrected video");
         msg.setFont(new Font(msg.getFont().getFontName(),Font.BOLD,18));
         msg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
@@ -37,9 +38,10 @@ public class MCVideoDepth extends VideoPanel {
     public void update(){
         this.video = Controller.getVideoProcessor().getDepthCorrectionVid();
 
+        //Check if the video has already been analyzed
         if(video==null){
             removeAll();
-            // Message to user
+            // Prompt the user if the video has not yet been analyzed
             msg = new JLabel("The video was not corrected for depth motion, no preview available!");
             msg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
             msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,18));
@@ -47,6 +49,7 @@ public class MCVideoDepth extends VideoPanel {
 
             add(msg);
         }
+        //Display the video if already processed
         else {
             BufferedImage img = video.getBufferedImage();
             img = resizeImage(img, 20,100,Controller.getInterframe());

@@ -29,6 +29,7 @@ public class SaveDepthVideo extends JFileChooser {
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = getSelectedFile();
             File fileWithExt = new File(fileToSave.getAbsolutePath()+".tif");
+
             //Check if the file already exists and let the user choose whether to overwrite it or cancel
             if(fileWithExt.exists() && !fileToSave.isDirectory()) {
                 JCheckBox check = new JCheckBox("Warning");

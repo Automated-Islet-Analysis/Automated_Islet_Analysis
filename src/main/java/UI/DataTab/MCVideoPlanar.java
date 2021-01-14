@@ -38,15 +38,17 @@ public class MCVideoPlanar extends VideoPanel {
     public void update(){
         this.video = Controller.getVideoProcessor().getPlanarCorrectionVid();
 
+        //Check if the video has already been analyzed
         if(video==null){
             removeAll();
-            // Message to user
+            // Prompt the user if no video was uploaded
             msg = new JLabel("The video was not corrected for planar motion, no preview available!");
             msg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
             msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,18));
             add(Box.createVerticalStrut(50));
             add(msg);
         }
+        //Display the video if already analyzed
         else{
             BufferedImage img = video.getBufferedImage();
             img = resizeImage(img,20,100,Controller.getInterframe());
