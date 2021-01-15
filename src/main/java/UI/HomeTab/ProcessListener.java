@@ -50,6 +50,7 @@ public class ProcessListener implements ActionListener {
     }
 
     // Set up the pop-up dialog
+    // Adapted from https://docs.oracle.com/javase/tutorial/uiswing/components/dialog.html
     private void pop_up(){
         // Call pop-up
         int input = JOptionPane.showOptionDialog(Controller.getInterframe(), mainPanel, "Customise analysis",
@@ -83,7 +84,7 @@ public class ProcessListener implements ActionListener {
         }
     }
 
-    //
+    // Carry out video processing
     private void process(){
         // Create components of message to user
         final JDialog dialog = new JDialog(Controller.getInterframe(),"",true);
