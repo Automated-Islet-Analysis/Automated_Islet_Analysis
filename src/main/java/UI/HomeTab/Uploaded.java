@@ -1,5 +1,5 @@
 /**
- * Panel used for display of uploaded video with the options to analyses video or upload an other video.
+ * Panel used for display of uploaded video with the options to analyse video or upload another video.
  *
  * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *
@@ -17,6 +17,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Uploaded extends VideoPanel {
+    // Create components
     private static JLabel fileName;
     private static String filePath;
 
@@ -24,11 +25,13 @@ public class Uploaded extends VideoPanel {
     JPanel subButtonPanel;
     JPanel subPanel;
 
+    // Getter/setter functions
     public static JLabel getFileName() {return fileName;}
     public static void setFileName(JLabel fileName) { Uploaded.fileName = fileName; }
     public static String getFilePath() { return filePath;}
     public static void setFilePath(String filePath) { Uploaded.filePath = filePath; }
 
+    // Constructor
     public Uploaded(){
         super(null,20,150);
         filePath = "";
@@ -39,11 +42,10 @@ public class Uploaded extends VideoPanel {
         fileName.setHorizontalAlignment(SwingConstants.CENTER);
 
         // Two buttons. Upload to change uploaded file. Analyse to process the file.
-        btnUpload = new JButton("Upload");
+        btnUpload = new JButton("Upload another video");
         btnUpload.addActionListener(new UploadListener());
-        btnAnalyse = new JButton("Analyse");
-        btnAnalyse.addActionListener(new AnalyseListener());
-        btnAnalyse.setName("analyse");
+        btnAnalyse = new JButton("Process Video");
+        btnAnalyse.addActionListener(new ProcessListener());
 
         // Set layout
         setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -53,8 +55,8 @@ public class Uploaded extends VideoPanel {
         btnAnalyse.setFont(font);
         btnUpload.setFont(font);
 
-        add(vidDisp);
         add(fileName);
+        add(vidDisp);
         add(Box.createVerticalStrut(10));
 
         subPanel = new JPanel(new FlowLayout());
@@ -69,13 +71,14 @@ public class Uploaded extends VideoPanel {
         add(Box.createVerticalStrut(10));
     }
 
-
     @Override
-    public void update() {
+    // Display components on frame
+    public void updatePanel() {
         if (video==null)
             this.video = new ImagePlus(filePath);
         BufferedImage img = video.getBufferedImage();
-        img = resizeImage(img,20,150, Home.getInterframe());
+        img = resizeImage(img, Home.getInterframe());
+        drawPlay(img.getGraphics());
         vidDisp.setIcon(new ImageIcon(img));
         vidDisp.setVisible(true);
     }

@@ -1,3 +1,13 @@
+/**
+ * Class that stores the uploaded video as individual frames in two different formats
+ * for the different steps of the processing.
+ *
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package videoprocessing;
 
 import ij.ImageStack;
@@ -46,7 +56,7 @@ public class Video {
         dirName = file.getParent();
         // Check if input file is corrupt
         checkUncorrupted();
-        // Load frames into vidDisp,SEFrames, ijFrames
+        // Load frames into vid,SEFrames, ijFrames
         readFrames();
     }
 
@@ -76,7 +86,7 @@ public class Video {
     public void addCell(Cell cell){cells.add(cell);}
     public void clearSEFrames(){SEFrames.clear();}
 
-    // Load frames into vidDisp ijFrames and SEFrames
+    // Load video into vid, ijFrames and SEFrames
     private VideoProcessorError readFrames() {
         // Open input file
         vid = new ImagePlus();
@@ -113,6 +123,7 @@ public class Video {
         return VideoProcessorError.VIDEO_PROCESSOR_SUCCESS;
     }
 
+    // Convert individual ijFrames to single ImagePlus video
     public ImagePlus framesToImagePlus(){
         ImageStack stackOut = new ImageStack();
         for(ImagePlus imagePlus:ijFrames)
@@ -132,5 +143,6 @@ public class Video {
         }
     }
 }
+
 
 

@@ -1,5 +1,5 @@
 /**
- * ImagePanel used for display of the analysed islet with its region of interest shown with numbers.
+ * ImagePanel used for display of the analysed islet with its regions of interest shown with numbers.
  *
  * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
  *
@@ -20,23 +20,24 @@ import java.awt.event.ActionListener;
 
 public class ROIs extends ImagePanel {
     private JButton addROI;
-    private JPanel subPanel;
     private JLabel text;
 
     private int numROI;
     private int cellSize;
     private VideoProcessor videoProcessor;
 
+    // Constructor
     public ROIs(){
-        super();
+        super(15,145);
+
         // Create elements
-        addROI = new JButton("Add ROIs");
+        addROI = new JButton("Add a region of interest");
         addROI.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Add cells manually
-                ManualROISelection select = new ManualROISelection(videoProcessor.getRoiImage().getBufferedImage(),numROI,cellSize);
-                select.run();
+                ManualROISelection addROI = new ManualROISelection(videoProcessor.getRoiImage().getBufferedImage(),numROI,cellSize);
+                addROI.run();
                 // Update VideoProcessor after adding cells
                 videoProcessor = Home.getVideoProcessor();
             }
@@ -44,37 +45,39 @@ public class ROIs extends ImagePanel {
     }
 
     @Override
+    // Display elements on frame
     public void updatePanel(){
+        // Get image from video
         videoProcessor = Home.getVideoProcessor();
         numROI = videoProcessor.getVideo().getCells().size();
         image = videoProcessor.getRoiImage().getBufferedImage();
 
         if(! (image ==null))
-            image = resizeImage(image,15,130, Home.getInterframe());
+            image = resizeImage(image, Home.getInterframe());
 
         cellSize = videoProcessor.getCellSize();
 
-        text = new JLabel("Number of ROIs: " + numROI);
+        // Create label to display number of ROIs
+        text = new JLabel("Number of regions of interest: " + numROI);
         Font font =new Font(text.getFont().getFontName(),Font.PLAIN,15);
         text.setFont(font);
         addROI.setFont(font);
 
+        // Create image label to display image
         imgIcon = new ImageIcon(image);
         imgDisp = new JLabel(imgIcon);
 
         removeAll();
 
-        // Add components to the panel
+        // Add components to the panel and center-align them
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-//        image.setAlignmentX(Component.CENTER_ALIGNMENT);
-//        add(image);
-//        setSize(imageROI.getWidth()+15,imageROI.getHeight()+130);
+
+        imgDisp.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(imgDisp);
+        setSize(imgDisp.getWidth()+15,imgDisp.getHeight()+145);
         add(Box.createVerticalStrut(10));
+
         text.setAlignmentX(Component.CENTER_ALIGNMENT);
-        // Add JFrame that hold imageDisp
-        add(imgDisp,BorderLayout.PAGE_START);
-        setSize(image.getWidth()+15, image.getHeight()+130);
-        // Create JPanel to hold buttons in gridlayout
         add(text);
         add(Box.createVerticalStrut(10));
         addROI.setAlignmentX(Component.CENTER_ALIGNMENT);

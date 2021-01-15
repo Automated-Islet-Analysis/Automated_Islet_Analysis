@@ -82,7 +82,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\CLAHE-1.0-SNAPSHOT.jar;%APP_HOME%\lib\fest-assert-1.2-sources.jar;%APP_HOME%\lib\fest-assert-1.2.jar;%APP_HOME%\lib\fest-reflect-1.2-sources.jar;%APP_HOME%\lib\fest-reflect-1.2.jar;%APP_HOME%\lib\fest-swing-1.2.jar;%APP_HOME%\lib\fest-util-1.1.2-sources.jar;%APP_HOME%\lib\fest-util-1.1.2.jar;%APP_HOME%\lib\ij.jar;%APP_HOME%\lib\jai_codec-1.1.3.jar;%APP_HOME%\lib\jai_core-1.1.3.jar;%APP_HOME%\lib\jcip-annotations-1.0-sources.jar;%APP_HOME%\lib\jcip-annotations-1.0.jar;%APP_HOME%\lib\simplelastix_2.jar;%APP_HOME%\lib\com.springsource.javax.media.jai.codec-1.1.3.jar;%APP_HOME%\lib\com.springsource.javax.media.jai.core-1.1.3.jar
+set CLASSPATH=%APP_HOME%\lib\CLAHE-1.0-SNAPSHOT.jar;%APP_HOME%\lib\fest-assert-1.2-sources.jar;%APP_HOME%\lib\fest-assert-1.2.jar;%APP_HOME%\lib\fest-reflect-1.2-sources.jar;%APP_HOME%\lib\fest-reflect-1.2.jar;%APP_HOME%\lib\fest-swing-1.2.jar;%APP_HOME%\lib\fest-util-1.1.2-sources.jar;%APP_HOME%\lib\fest-util-1.1.2.jar;%APP_HOME%\lib\ij.jar;%APP_HOME%\lib\jcip-annotations-1.0-sources.jar;%APP_HOME%\lib\jcip-annotations-1.0.jar;%APP_HOME%\lib\simplelastix_2.jar;%APP_HOME%\lib\com.springsource.javax.media.jai.codec-1.1.3.jar;%APP_HOME%\lib\com.springsource.javax.media.jai.core-1.1.3.jar
 
 @rem Execute CLAHE
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %CLAHE_OPTS%  -classpath "%CLASSPATH%" Main %CMD_LINE_ARGS%

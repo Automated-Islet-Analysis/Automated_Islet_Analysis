@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 
         @Before
         public void setUp(){
-            String filepath=System.getProperty("user.dir")+"/Video_for_Demo.tif";
+            String filepath=System.getProperty("user.dir")+"/Video_for_Testing_short.tif";
             Video video =new Video(filepath);
             VideoProcessor videoProcessor=new VideoProcessor(video);
 

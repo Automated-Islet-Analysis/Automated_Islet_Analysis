@@ -1,3 +1,11 @@
+/**
+ * Processor to perform depth motion correction.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package videoprocessing.processor;
 
 import ij.ImagePlus;
@@ -7,18 +15,20 @@ import ij.process.ImageProcessor;
 import videoprocessing.ImageJ.ParticleAnalyzer;
 import videoprocessing.ImageJ.Thresholder;
 import videoprocessing.Video;
-
 import java.util.LinkedList;
-
 import static java.lang.Double.MAX_VALUE;
 
 public class DepthMotionCorrector extends Processor {
+    // Hold permitted change in cross-section area(%) of islet relative to first frame
     private double thresholdArea;
+
+    // Constructor
     public DepthMotionCorrector(Video video, double thresholdArea) {
         super(video);
         this.thresholdArea=thresholdArea;
     }
 
+    // Perform depth motion correction
     @Override
     public ProcessorError run(){
         // Find area of each frame
@@ -73,5 +83,5 @@ public class DepthMotionCorrector extends Processor {
 
         return ProcessorError.PROCESSOR_SUCCESS;
     }
-
 }
+

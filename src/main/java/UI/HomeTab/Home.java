@@ -1,3 +1,11 @@
+/**
+ * Panel of the home screen where you can upload a file.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI.HomeTab;
 
 import UI.Controller;
@@ -10,17 +18,19 @@ import videoprocessing.VideoProcessor;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
 
 public class Home extends JPanel {
+    // Create components
     static JLabel welcome;
     static JLabel empty;
     static JButton uploadBtn;
-    public static JPanel subPanel,welcomePanel,uploadBtnPanel;
+    static JPanel subPanel, uploadBtnPanel,welcomePanel;
+
+
 
     // Stores which panel is being displayed
     private static String display;
+    private static String lastDisplay;
 
     // Panels of each part of menu
     private static ROIs rois;
@@ -28,7 +38,7 @@ public class Home extends JPanel {
     private static MCVideoDepth mcvidDepth;
     private static Results results;
     private static Uploaded upload;
-    private static SaveDepthVideo savevideo;
+    private static SaveDepthVideo saveDepthVideo;
     private static SaveData savedata;
     private static SaveAll saveall;
     private static SaveROIs saverois;
@@ -38,16 +48,18 @@ public class Home extends JPanel {
     private static boolean fileUploaded;
     private static boolean analysedImg;
     private static  boolean meanIntensityMeasured;
+    private static boolean reshaping;
 
-    // Stores backend
+
+    //     Stores backend
     private static VideoProcessor videoProcessor = new VideoProcessor(null);
 
-    // Getters
+//     Getters
     public static Uploaded getUpload() { return upload;}
     public static VideoProcessor getVideoProcessor() {
         return videoProcessor;
     }
-    public static JPanel getInterframe() { return subPanel; }
+    public static JPanel getInterframe() { return Home.subPanel; }
     public static boolean isAnalysedImg() { return analysedImg; }
     public static boolean isFileUploaded() { return fileUploaded;}
     public static boolean isMeanIntensityMeasured() { return meanIntensityMeasured; }
@@ -61,6 +73,8 @@ public class Home extends JPanel {
     public static void setAnalysedImg(boolean analysedImg) { Home.analysedImg = analysedImg;}
     public static void setMeanIntensityMeasured(boolean meanIntensityMeasured) { Home.meanIntensityMeasured = meanIntensityMeasured; }
 
+
+    // Constructor
     public Home(){
         display = "home";
         analysedImg = false;
@@ -71,7 +85,6 @@ public class Home extends JPanel {
         mcvidPlanar = new MCVideoPlanar();
         mcvidDepth = new MCVideoDepth();
         upload = new Uploaded();
-        savevideo= new SaveDepthVideo();
         savedata=new SaveData();
         saveall=new SaveAll();
         saverois=new SaveROIs();
@@ -104,6 +117,35 @@ public class Home extends JPanel {
         add(subPanel,BorderLayout.CENTER);
     }
 
+    // Create sub-panel
+//    private static JPanel getSubPanel(){
+//        // Create a welcome text
+//        welcome = new JLabel("Welcome!");
+//        welcome.setFont(new Font(welcome.getFont().getName(), Font.PLAIN, 30));
+//        welcome.setHorizontalAlignment(SwingConstants.CENTER);
+//
+//        // Upload file for analysis
+//        uploadBtn = new JButton("Upload video");
+//        uploadBtn.addActionListener(new UploadListener());
+//
+//        // Spacing
+//        empty = new JLabel("");
+//
+//
+//        JPanel welcomePanel=new JPanel();
+//        welcomePanel.add(welcome);
+//        JPanel uploadBtnPanel=new JPanel();
+//        uploadBtnPanel.add(uploadBtn);
+//
+//        // Add components to sub-panel
+////        subPanel = new JPanel(new GridLayout(3,1));
+////        subPanel.add(welcomePanel);
+////        subPanel.add(empty);
+////        subPanel.add(uploadBtnPanel);
+//
+//        return subPanel;
+//    }
+
     public static void setDisplay(){
         // Allows switching between panels
         if(display.equals("home")){
@@ -114,23 +156,26 @@ public class Home extends JPanel {
             subPanel.add(welcomePanel,BorderLayout.CENTER);
             subPanel.add(uploadBtnPanel,BorderLayout.CENTER);
             subPanel.revalidate();
+            lastDisplay = "home";
         }
         else if(display.equals("Upload")){
             subPanel.removeAll();
             subPanel.setLayout(new GridLayout(1,1));
             subPanel.repaint();
             subPanel.add(upload);
-            upload.update();
+            upload.updatePanel();
             subPanel.revalidate();
+            lastDisplay = "Upload";
         }
         else if(display.equals("ROIs")){
             if (analysedImg){
                 subPanel.removeAll();
                 subPanel.setLayout(new GridLayout(1,1));
                 subPanel.repaint();
-                rois.updatePanel();
                 subPanel.add(rois);
+                rois.updatePanel();
                 subPanel.revalidate();
+                lastDisplay="ROIs";
             } else{
                 popupNoFileAnalysed();
             }
@@ -141,8 +186,9 @@ public class Home extends JPanel {
                 subPanel.setLayout(new GridLayout(1,1));
                 subPanel.repaint();
                 subPanel.add(mcvidPlanar);
-                mcvidPlanar.update();
+                mcvidPlanar.updatePanel();
                 subPanel.revalidate();
+                lastDisplay="MCVideoPlanar";
             } else{
                 popupNoFileAnalysed();
             }
@@ -153,8 +199,9 @@ public class Home extends JPanel {
                 subPanel.setLayout(new GridLayout(1,1));
                 subPanel.repaint();
                 subPanel.add(mcvidDepth);
-                mcvidDepth.update();
+                mcvidDepth.updatePanel();
                 subPanel.revalidate();
+                lastDisplay="MCVideoDepth";
             } else{
                 popupNoFileAnalysed();
             }
@@ -168,56 +215,69 @@ public class Home extends JPanel {
                 subPanel.repaint();
                 subPanel.add(results);
                 subPanel.revalidate();
+                lastDisplay="Results";
             } else{
                 popupNoFileAnalysed();
             }
         }
-//        else if(display.equals("SaveROIs")){
-//            if (analysedImg) {
-//                interframe.setContentPane(saverois);
-//                interframe.invalidate();
-//                interframe.validate();
-//            } else{
-//                popupNoFileAnalysed();
-//            }
-//        }
-//        else if(display.equals("SaveAll")){
-//            if (analysedImg) {
-//                interframe.setContentPane(saveall);
-//                interframe.invalidate();
-//                interframe.validate();
-//            } else{
-//                popupNoFileAnalysed();
-//            }
-//        }
+        else if(display.equals("SaveROIs")){
+            if(reshaping==true){
+                setDisplay(lastDisplay);
+            }
+            else if (analysedImg ) {
+                saverois.save();
+            } else{
+                popupNoFileAnalysed();
+            }
+        }
+        else if(display.equals("SaveData")){
+            if(reshaping==true){
+                setDisplay(lastDisplay);
+            }
+            else if (analysedImg ) {
+                savedata.save();
+
+            } else{
+                popupNoFileAnalysed();
+            }
+        }
+        else if(display.equals("SaveAll")){
+            if(reshaping==true){
+                setDisplay(lastDisplay);
+            }
+            else if (analysedImg) {
+                saveall.save();
+
+            } else{
+                popupNoFileAnalysed();
+            }
+        }
         else if(display.equals("SaveDepthVideo")){
-            if (analysedImg) {
-                subPanel.removeAll();
-                subPanel.setLayout(new GridLayout(1,1));
-                subPanel.repaint();
-                subPanel.add(savevideo);
-                subPanel.revalidate();
+            if(reshaping==true){
+                setDisplay(lastDisplay);
+            }
+            else if (analysedImg) {
+                saveDepthVideo.save();
             } else{
                 popupNoFileAnalysed();
             }
         }
         else if(display.equals("SavePlanarVideo")){
-            if (analysedImg) {
-                subPanel.removeAll();
-                subPanel.setLayout(new GridLayout(1,1));
-                subPanel.repaint();
-                subPanel.add(saveplanarvideo);
-                subPanel.revalidate();
+            if(reshaping==true){
+                setDisplay(lastDisplay);
+            }
+            else if (analysedImg ) {
+                saveplanarvideo.save();
             } else{
                 popupNoFileAnalysed();
             }
         }
-
     }
 
+    // Pop-up to prevent being able to see data or save results before they are generated
     private static void popupNoFileAnalysed(){
         // Popup that tells the user that no file has been uploaded
-        JOptionPane.showMessageDialog(null,
+        JOptionPane.showMessageDialog(subPanel,
                 "No file has been analysed yet. \n" +
                         "Please choose a file for upload and \n" +
                         "click on the 'Analyse' button",

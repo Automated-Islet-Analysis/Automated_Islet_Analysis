@@ -1,3 +1,12 @@
+/**
+ * ActionListener that enables the user to choose a file to upload (only tif/tiff format) and initiates the change
+ * of displayed panel.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI.HomeTab;
 
 import UI.Controller;
@@ -14,7 +23,7 @@ import java.io.File;
 public class UploadListener implements ActionListener {
 
     @Override
-
+    // Action initiated when Upload button is clicked
     public void actionPerformed(ActionEvent e) {
         // Popup. Choose which file to upload
         JFileChooser chooser = new JFileChooser();

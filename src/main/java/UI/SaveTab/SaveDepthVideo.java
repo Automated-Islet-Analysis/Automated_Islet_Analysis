@@ -1,83 +1,86 @@
+/**
+ * Pop-up for saving the depth corrected video.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 14/01/2021
+ */
 package UI.SaveTab;
-
 import UI.Controller;
 import UI.HomeTab.Home;
-import com.sun.org.apache.xml.internal.serialize.OutputFormat;
-import ij.ImagePlus;
-import ij.io.FileInfo;
+import videoprocessing.SaveError;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.awt.image.WritableRaster;
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.file.Files;
 
 
-import static java.nio.file.StandardOpenOption.APPEND;
-import static java.nio.file.StandardOpenOption.CREATE;
+public class SaveDepthVideo extends JFileChooser {
 
-public class SaveDepthVideo extends JPanel implements ActionListener {
-
-    JButton saveButton;
-    JTextArea log;
-    JFileChooser chooser;
-
+    // Constructor
     public SaveDepthVideo(){
-        //create the file chooser
-        chooser= new JFileChooser();
+        setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 
-        chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-
+        //Allow tif extensions only
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
                 "TIFF Images", "tif", "tiff");
-        chooser.setFileFilter(filter);
-
+        setFileFilter(filter);
     }
 
-    @Override
+    public void save(){
+        // Variable to access if save is successful
+        SaveError saveError;
 
-    public void actionPerformed(ActionEvent e) {
-        int userSelection= chooser.showSaveDialog(SaveDepthVideo.this);
+        // Check if video exists
+        if(Home.getVideoProcessor().getDepthCorrectionVid()==null){
+            Object[] options = {"Ok"};
+            JOptionPane.showOptionDialog(Home.getInterframe(), "Depth motion correction was not applied to video. " +
+                            "Please first select depth motion correction during processing.",
+                    "Warning",
+                    JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+        }
 
+        // Create save pop-up
+        int userSelection= showSaveDialog(SaveDepthVideo.this);
+
+        // Cancel save
+        if(userSelection==1)return;
+
+        // Save file
         if (userSelection == JFileChooser.APPROVE_OPTION) {
-            File fileToSave = chooser.getSelectedFile();
-            Home.getVideoProcessor().saveDepthCorrectionVid(fileToSave.getPath()+".tif");
+            File fileToSave = getSelectedFile();
+            File fileWithExt = new File(fileToSave.getAbsolutePath()+".tif");
 
+            //Check if the file already exists and let the user choose whether to overwrite it or cancel
+            if(fileWithExt.exists() && !fileToSave.isDirectory()) {
+                JCheckBox check = new JCheckBox("Warning");
+                Object[] options = {"Yes", "No, overwrite"};
+                int x = JOptionPane.showOptionDialog(null, "This file already exist. Do you want to change its name?",
+                        "Warning",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
 
-
-           /* BufferedImage bufferedImage=videoToSave.getBufferedImage();
-            WritableRaster raster = bufferedImage .getRaster();
-            DataBufferByte data   = (DataBufferByte) raster.getDataBuffer();
-           byte dataFile[]= data.getData();
-            //Files.readAllBytes(fileToSave.toPath());
-            try (OutputStream out = Files.newOutputStream(fileToSave.toPath(), CREATE)) {
-                {
-                    //out.write(dataFile, 0, dataFile.length);
-                    //out.write(bufferedImage, OutputFormat.TIFF, )
+                //If decide to overwrite it
+                if (x ==1) {
+                    fileWithExt.delete();
+                    saveError = Home.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath());
+                    //If decide not to overwrite it, pop up again
+                }else{
+                    new SaveDepthVideo().save();
+                    return;
                 }
-            } catch (IOException ioException) {
-            ioException.printStackTrace();
-        }*/
-
-
+            }else {
+                saveError = Home.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath());
+            }
+            // Check that save was successful
+            String msg = "Unexpected error during save, try again.";
+            if(saveError == SaveError.SAVE_SUCCESS)return;
+            else if(saveError == SaveError.SAVE_TYPE_ERROR) msg="ERROR, wrong file extension. Should be .tif or .tiff";
+            else if(saveError==SaveError.SAVE_WRITE_ERROR) msg="ERROR, unexpected write error. Close files with filename" +
+                    " you are saving depth motion correction as or check that you have writing permissions for the path you specify.";
+            Object[] options = {"Ok"};
+            JOptionPane.showOptionDialog(Home.getInterframe(), msg,
+                    "Warning",
+                    JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
         }
     }
 }
-//cite here for this part: https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/uiswing/examples/components/FileChooserDemoProject/src/components/FileChooserDemo.java
-//protected static ImageIcon createImageIcon(String path){
-//    java.net.URL imgURL= SaveDepthVideo.class.getResource(path);
-//    if (imgURL != null) {
-//    return new ImageIcon(imgURL);
-//    } else {
-//        System.err.println("Couldn't find file: " + path);
-//        return null;
-//  }
-//}
