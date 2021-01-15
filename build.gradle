@@ -2,9 +2,23 @@ plugins {
     id 'java'
     id 'application'
 }
+
+jar {
+    manifest {
+        attributes "Main-Class": "Main"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+
 application{
     mainClassName='Main'
 }
+
+
 version '1.0-SNAPSHOT'
 group 'org.example'
 sourceCompatibility = 1.8

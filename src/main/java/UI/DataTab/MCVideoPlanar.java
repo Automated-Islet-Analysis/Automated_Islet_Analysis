@@ -20,7 +20,7 @@ public class MCVideoPlanar extends VideoPanel {
 
     // Constructor. Create all components
     public MCVideoPlanar(){
-        super(null,20,100);
+        super(null,20,140);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         // Title

@@ -12,6 +12,15 @@ public class VideoProcessorTest {
 //
     @BeforeClass
     public static void setUp(){
+        File folder = new File(System.getProperty("user.dir") + "/temp");
+        File folder1 = new File(System.getProperty("user.dir") + "/temp/MI_data");
+        if(folder.exists())
+            folder.delete();
+        folder.mkdir();
+        if(folder1.exists())
+            folder1.delete();
+        folder1.mkdir();
+
         video=new Video(filePath);
         videoProcessor=new VideoProcessor(video);
         videoProcessor.process(10,true,true,true);
@@ -35,6 +44,13 @@ public class VideoProcessorTest {
 
         File file4=new File(System.getProperty("user.dir") + "/temp"+ "/Analysis_recap.csv");
         file4.delete();
+
+        File directory=new File(System.getProperty("user.dir") + "/temp/MI_data");
+        for(File f: directory.listFiles())
+            f.delete();
+
+        directory.delete();
+        new File(directory.getParent()).delete();
 
     }
     @Test

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="videoprocessing.CombinerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-15T03:22:45" hostname="DESKTOP-867OUMT" time="0.23">
+<testsuite name="videoprocessing.CombinerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-15T15:32:03" hostname="DESKTOP-HF1TTVU" time="0.115">
   <properties/>
-  <testcase name="testCombining" classname="videoprocessing.CombinerTest" time="0.23"/>
+  <testcase name="testCombining" classname="videoprocessing.CombinerTest" time="0.115"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -16,9 +16,8 @@
 
 
 import UI.Controller;
-import java.awt.*;
 
-public class Main extends Frame {
+public class Main{
 
     public static void main(final String[] args) {
        new Controller();

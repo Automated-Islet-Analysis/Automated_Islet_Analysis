@@ -15,20 +15,24 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class MCVideoDepth extends VideoPanel {
-    private static JLabel msg;
+    private static JLabel msg,msg1;
 
     // Constructor. Create all components
     public MCVideoDepth(){
-        super(null,20,100);
+        super(null,20,165);
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         //Message
         msg = new JLabel("Original video(left) and video with depth motion correction(right).");
+        msg1 = new JLabel(" Disregarded frames appear in black.");
         msg.setFont(new Font(msg.getFont().getFontName(),Font.BOLD,18));
+        msg1.setFont(new Font(msg.getFont().getFontName(),Font.BOLD,18));
         msg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+        msg1.setAlignmentX(JComponent.CENTER_ALIGNMENT);
         add(Box.createVerticalStrut(25));
         add(msg);
+        add(msg1);
         add(Box.createVerticalStrut(25));
 
         vidDisp.setAlignmentX(JComponent.CENTER_ALIGNMENT);
@@ -48,7 +52,6 @@ public class MCVideoDepth extends VideoPanel {
             msg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
             msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,18));
             add(Box.createVerticalStrut(50));
-
             add(msg);
         }
         //Display the video if already processed
