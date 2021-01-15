@@ -78,7 +78,6 @@ A full description of the installation process can be found at: https://www.jetb
 - Gaspard Oliviers <gaspard.oliviers18@imperial.ac.uk>
 - Livia Soro <livia.soro18@imperial.ac.uk>
 
-Correspondance at <email@imperial.ac.uk>
 
 ---
 
