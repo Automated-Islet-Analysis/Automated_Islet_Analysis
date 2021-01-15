@@ -13,40 +13,44 @@ import java.awt.*;
 
 public class Home extends JPanel {
     // Create components
-    JLabel welcome;
-    JLabel empty;
+    JLabel welcome, description1, description2;
     JButton uploadBtn;
-    JPanel subPanel;
 
     // Constructor
     public Home(){
-        subPanel = getSubPanel();
-        add(subPanel);
+        // Set layout
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        updateDisplay();
     }
 
-    // Create sub-panel
-    private JPanel getSubPanel(){
+    // Display components
+    private void updateDisplay() {
         // Create a welcome text
         welcome = new JLabel("Welcome!");
         welcome.setFont(new Font(welcome.getFont().getName(), Font.PLAIN, 30));
-        welcome.setHorizontalAlignment(SwingConstants.CENTER);
+        welcome.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+
+        // Brief description of software functionality
+        description1 = new JLabel("Upload a TIFF video to correct depth and planar motion,");
+        description2 = new JLabel("identify regions of interest (ROIs) and track their intensity.");
+        description1.setFont(new Font(description1.getFont().getName(), Font.PLAIN, 18));
+        description2.setFont(new Font(description2.getFont().getName(), Font.PLAIN, 18));
+        description1.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+        description2.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 
         // Upload file for analysis
         uploadBtn = new JButton("Upload video");
         uploadBtn.addActionListener(new UploadListener());
+        uploadBtn.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 
-        // Spacing
-        empty = new JLabel("");
-
-        // Set layout
-        setLayout(new FlowLayout(FlowLayout.CENTER, 500, 200));
-
-        // Add components to sub-panel
-        subPanel = new JPanel(new GridLayout(3,1));
-        subPanel.add(welcome);
-        subPanel.add(empty);
-        subPanel.add(uploadBtn);
-
-        return subPanel;
+        // Add components to panel
+        add(Box.createVerticalStrut(150));
+        add(welcome);
+        add(Box.createVerticalStrut(50));
+        add(description1);
+        add(description2);
+        add(Box.createVerticalStrut(50));
+        add(uploadBtn);
     }
+
 }
