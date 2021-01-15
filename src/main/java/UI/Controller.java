@@ -133,115 +133,122 @@ public class Controller {
     // Update panel displayed
     public static void setDisplay(){
         // Allows switching between panels
-        if(display.equals("home")){
-            interframe.setContentPane(home);
-            interframe.invalidate();
-            interframe.validate();
-            lastDisplay = "home";
-        }
-        else if(display.equals("Upload")){
-            interframe.setContentPane(upload);
-            upload.updatePanel();
-            interframe.invalidate();
-            interframe.validate();
-            lastDisplay = "Upload";
-        }
-        else if(display.equals("ROIs")){
-            if (analysedImg){
-                rois.updatePanel();
-                interframe.setContentPane(rois);
+        switch(display){
+            case "home":
+                interframe.setContentPane(home);
                 interframe.invalidate();
                 interframe.validate();
-                lastDisplay="ROIs";
-            } else{
-                popupNoFileAnalysed();
-            }
-        }
-        else if(display.equals("MCVideoPlanar")){
-            if (analysedImg) {
-                interframe.setContentPane(mcvidPlanar);
-                mcvidPlanar.updatePanel();
-                interframe.invalidate();
-                interframe.validate();
-                lastDisplay="MCVideoPlanar";
-            } else{
-                popupNoFileAnalysed();
-            }
-        }
-        else if(display.equals("MCVideoDepth")){
-            if (analysedImg) {
-                interframe.setContentPane(mcvidDepth);
-                mcvidDepth.updatePanel();
-                interframe.invalidate();
-                interframe.validate();
-                lastDisplay="MCVideoDepth";
-            } else{
-                popupNoFileAnalysed();
-            }
-        }
-        else if(display.equals("Results")){
-            if (analysedImg) {
-                results = new Results(meanIntensityMeasured);
-                results.showResults();
-                interframe.setContentPane(results);
-                interframe.invalidate();
-                interframe.validate();
-                lastDisplay="Results";
-            } else{
-                popupNoFileAnalysed();
-            }
-        }
-        else if(display.equals("SaveROIs")){
-            if(reshaping==true){
-                setDisplay(lastDisplay);
-            }
-            else if (analysedImg ) {
-                saverois.save();
-            } else{
-                popupNoFileAnalysed();
-            }
-        }
-        else if(display.equals("SaveData")){
-            if(reshaping==true){
-                setDisplay(lastDisplay);
-            }
-            else if (analysedImg ) {
-                savedata.save();
+                lastDisplay = "home";
+                break;
 
-            } else{
-                popupNoFileAnalysed();
-            }
-        }
-        else if(display.equals("SaveAll")){
-            if(reshaping==true){
-                setDisplay(lastDisplay);
-            }
-            else if (analysedImg) {
-                saveall.save();
+            case "Upload":
+                interframe.setContentPane(upload);
+                upload.updatePanel();
+                interframe.invalidate();
+                interframe.validate();
+                lastDisplay = "Upload";
+                break;
 
-            } else{
-                popupNoFileAnalysed();
-            }
-        }
-        else if(display.equals("SaveDepthVideo")){
-            if(reshaping==true){
-                setDisplay(lastDisplay);
-            }
-            else if (analysedImg) {
-                saveDepthVideo.save();
-            } else{
-                popupNoFileAnalysed();
-            }
-        }
-        else if(display.equals("SavePlanarVideo")){
-            if(reshaping==true){
-                setDisplay(lastDisplay);
-            }
-            else if (analysedImg ) {
-                saveplanarvideo.save();
-            } else{
-                popupNoFileAnalysed();
-            }
+            case "ROIs":
+                if (analysedImg){
+                    rois.updatePanel();
+                    interframe.setContentPane(rois);
+                    interframe.invalidate();
+                    interframe.validate();
+                    lastDisplay="ROIs";
+                }
+                else popupNoFileAnalysed();
+                break;
+
+            case "MCVideoPlanar":
+                if (analysedImg) {
+                    interframe.setContentPane(mcvidPlanar);
+                    mcvidPlanar.updatePanel();
+                    interframe.invalidate();
+                    interframe.validate();
+                    lastDisplay="MCVideoPlanar";
+                }
+                else popupNoFileAnalysed();
+                break;
+
+            case "MCVideoDepth":
+                if (analysedImg) {
+                    interframe.setContentPane(mcvidDepth);
+                    mcvidDepth.updatePanel();
+                    interframe.invalidate();
+                    interframe.validate();
+                    lastDisplay="MCVideoDepth";
+                }
+                else popupNoFileAnalysed();
+                break;
+
+            case "Results":
+                if (analysedImg) {
+                    results = new Results(meanIntensityMeasured);
+                    results.showResults();
+                    interframe.setContentPane(results);
+                    interframe.invalidate();
+                    interframe.validate();
+                    lastDisplay="Results";
+                }
+                else popupNoFileAnalysed();
+                break;
+
+            case "SaveROIs":
+                if(reshaping==true){
+                    setDisplay(lastDisplay);
+                }
+                else if (analysedImg ) {
+                    saverois.save();
+                }
+                else popupNoFileAnalysed();
+                break;
+
+            case "SaveData":
+                if(reshaping==true){
+                    setDisplay(lastDisplay);
+                }
+                else if (analysedImg ) {
+                    savedata.save();
+
+                }
+                else popupNoFileAnalysed();
+                break;
+
+            case "SaveAll":
+                if(reshaping==true){
+                    setDisplay(lastDisplay);
+                }
+                else if (analysedImg) {
+                    saveall.save();
+
+                }
+                else popupNoFileAnalysed();
+                break;
+
+            case "SaveDepthVideo":
+                if(reshaping==true){
+                    setDisplay(lastDisplay);
+                }
+                else if (analysedImg) {
+                    saveDepthVideo.save();
+                }
+                else popupNoFileAnalysed();
+                break;
+
+            case "SavePlanarVideo":
+                if(reshaping==true){
+                    setDisplay(lastDisplay);
+                }
+                else if (analysedImg ) {
+                    saveplanarvideo.save();
+                }
+                else popupNoFileAnalysed();
+                break;
+
+            default:
+                // Null
+
         }
     }
 
