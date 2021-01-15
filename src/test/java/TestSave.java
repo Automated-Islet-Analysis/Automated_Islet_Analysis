@@ -31,6 +31,7 @@ public class TestSave {
         VideoProcessor videoProcessor = new VideoProcessor(video);
 
         videoProcessor.process(10, true, true, true);
+        videoProcessor.analyseCells();
 
         Home.setVideoProcessor(videoProcessor);
 
@@ -58,13 +59,14 @@ public class TestSave {
         controller.menuItem("save").click();
         TimeUnit.SECONDS.sleep(1);
         controller.menuItem("saveResults").click();
-        JFileChooserFixture fileChooser1 = JFileChooserFinder.findFileChooser().withTimeout(10000).using(robotf);
-        fileChooser1.setCurrentDirectory(new File(System.getProperty("user.dir")));
-        controller.fileChooser().cancelButton().click();
+//        JFileChooserFixture fileChooser1 = JFileChooserFinder.findFileChooser().withTimeout(10000).using(robotf);
+//        fileChooser1.setCurrentDirectory(new File(System.getProperty("user.dir")));
+//        controller.fileChooser().cancelButton().click();
+        controller.dialog().close();
         TimeUnit.SECONDS.sleep(1);
         controller.menuItem("save").click();
         TimeUnit.SECONDS.sleep(1);
-        controller.menuItem("saveMCPlanar").click();
+        controller.menuItem("SaveMCPlanar").click();
         JFileChooserFixture fileChooser2 = JFileChooserFinder.findFileChooser().withTimeout(10000).using(robotf);
         fileChooser2.setCurrentDirectory(new File(System.getProperty("user.dir")));
         controller.fileChooser().cancelButton().click();
@@ -79,9 +81,10 @@ public class TestSave {
         controller.menuItem("save").click();
         TimeUnit.SECONDS.sleep(1);
         controller.menuItem("saveAll").click();
-        JFileChooserFixture fileChooser4 = JFileChooserFinder.findFileChooser().withTimeout(10000).using(robotf);
-        fileChooser4.setCurrentDirectory(new File(System.getProperty("user.dir")));
-        controller.fileChooser().cancelButton().click();
+//        JFileChooserFixture fileChooser4 = JFileChooserFinder.findFileChooser().withTimeout(10000).using(robotf);
+//        fileChooser4.setCurrentDirectory(new File(System.getProperty("user.dir")));
+//        controller.fileChooser().cancelButton().click();
+        controller.dialog().close();
     }
 }
 
