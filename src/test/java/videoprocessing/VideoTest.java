@@ -14,6 +14,7 @@ import java.util.LinkedList;
 public class VideoTest extends TestCase {
     @Test
     public void testReadingFrames(){
+        //Checks if the frames of the video uploaded are equal to the actual video frames
         String filename=System.getProperty("user.dir")+"/videos/Video_for_Testing_short.tif";
         Video video=new Video(filename);
 
@@ -29,7 +30,8 @@ public class VideoTest extends TestCase {
         LinkedList<ImagePlus> ijFrames;
         SEFrames =video.getSEFrames();
         ijFrames=video.getIjFrames();
-
+        
+        //Comparison by pixel between each frame
         long differenceSE=0;
         long differenceij=0;
         for (int i=0; i<ijFrames.size(); i++) {
