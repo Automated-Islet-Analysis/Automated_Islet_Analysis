@@ -64,7 +64,7 @@ A full description of the installation process can be found at: https://www.jetb
   
 ### Using user interface
   - Load Video_for_Demo that is located in the videos folder of the repository by clicking the "Upload video" button
-  - Process demo video by pressing the "Process video" button and choosing the configuration and the actions to be performed
+  - Process demo video by pressing the "Process video" button and choosing the configuration and the actions to be performed. The processing can take upto a few minutes depending on the size of the video.
   - Visualise the result of the analysis in the data tab. Under data > regions of interest, you can also manually add regions of interest.
   - Compute the mean intensity of the regions of interest in Data > Results
   - Save the results from the different analysis and the mean intensity measurements using Save > Save All, and selecting an existing directory where you want to save the results.
