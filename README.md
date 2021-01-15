@@ -25,7 +25,7 @@ This project is a java based software that can be build and run through IntelliJ
 
 ### 1. Download the main branch of this git repository
 
-Download git repository on your Windows pc.
+Download this git repository on your Windows pc/laptop.
 
 ### 2. Install java
 
