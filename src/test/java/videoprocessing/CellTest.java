@@ -8,10 +8,12 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class CellTest{
+    //Paths for the expected and actual data
     private static String filePath = System.getProperty("user.dir")+"/videos/Video_for_Testing_short.tif";
     private String expectedDataPath=System.getProperty("user.dir")+"/img/Unit_testing/Data/";
     private static Video video;
 
+    //Set up the data for test classes
     @BeforeClass
     public static void setUp(){
         File folder = new File(System.getProperty("user.dir") + "/temp");
@@ -22,17 +24,21 @@ public class CellTest{
         if(folder1.exists())
             folder1.delete();
         folder1.mkdir();
-
+        
+        //Process the video and analyse it
         video=new Video(filePath);
         VideoProcessor videoProcessor=new VideoProcessor(video);
         videoProcessor.process(10,true,true,true);
         videoProcessor.analyseCells();
-
+        
+        //Directory storing the csv files containing results of the analysis
         videoProcessor.saveCellsMeanIntensity(System.getProperty("user.dir") + "/temp/MI_data"); //is a folder
     }
 
+    //Delete files after testing
     @AfterClass
     public static void tearDown(){
+        //Deleting data from the video analysis
         File directory=new File(System.getProperty("user.dir") + "/temp/MI_data");
         for(File f: directory.listFiles())
             f.delete();
@@ -60,6 +66,7 @@ public class CellTest{
     }
     @Test
     public void testSettingRoiIntracellular() throws IOException{
+        //Testing for the ROI coordinates
         BufferedReader readerExpected=new BufferedReader(new FileReader(expectedDataPath+"Analysis_recap.csv"));
         readerExpected.readLine();
         for(Cell cell:video.getCells()){
