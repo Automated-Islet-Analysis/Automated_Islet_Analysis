@@ -21,7 +21,7 @@ This project is a java based software that can be build and run through IntelliJ
 ### Requirements
 - Windows 64-bit version
 - 1GB of free disk space
-- 8GB of RAM recommended
+- at least 8GB of RAM recommended
 
 ### 1. Download the main branch of this git repository
 
