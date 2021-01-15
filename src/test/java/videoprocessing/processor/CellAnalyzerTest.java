@@ -1,3 +1,10 @@
+/**
+ * Test of CellAnalyzer class
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
 package videoprocessing.processor;
 
 import org.junit.Assert;
@@ -23,6 +30,7 @@ public class CellAnalyzerTest {
     }
 
     @Test
+    //Given a non-corrupted file, the run() method is tested by assessing the right ProcessorError output
     public void testRunning(){
         Assert.assertEquals(ProcessorError.PROCESSOR_SUCCESS,cellAnalyzer.run());
     }
