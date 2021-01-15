@@ -12,8 +12,10 @@ import UI.Controller;
 import ij.ImagePlus;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.geom.Path2D;
 import java.awt.image.BufferedImage;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -22,6 +24,9 @@ public abstract class VideoPanel extends DynamicPanel {
     // Create components
     protected JLabel vidDisp;
     protected ImagePlus video;
+
+    // Variable for display of play button
+    protected Polygon arrow = new Polygon();
 
     // Play video when image is pressed
     MouseListener mouseListener = new MouseListener() {
@@ -51,6 +56,8 @@ public abstract class VideoPanel extends DynamicPanel {
         // Empty img panel
         vidDisp = new JLabel();
         vidDisp.addMouseListener(mouseListener);
+
+        arrow.npoints=3;
     }
 
     // Play video
@@ -74,6 +81,7 @@ public abstract class VideoPanel extends DynamicPanel {
                     frame[0]++;
                 }else{
                     timer.cancel();
+                    Controller.setDisplay();
                 }
             }
         };
@@ -81,4 +89,17 @@ public abstract class VideoPanel extends DynamicPanel {
     }
 
     public abstract void updatePanel();
+
+
+    protected void drawPlay(Graphics g){
+        double w = (double)video.getWidth()*scalingOfImg ;
+        double h = (double)video.getHeight()*scalingOfImg;
+
+        arrow.xpoints = new int[]{(int)w/2-20,(int)w/2-20,(int)w/2+30};
+        arrow.ypoints = new int[]{(int)h/2 +25,(int)h/2-25,(int)h/2};
+
+        g.setColor(Color.BLACK);
+        g.drawPolygon(arrow);
+        g.fillPolygon(arrow);
+    }
 }

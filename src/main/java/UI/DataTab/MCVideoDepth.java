@@ -55,6 +55,7 @@ public class MCVideoDepth extends VideoPanel {
         else {
             BufferedImage img = video.getBufferedImage();
             img = resizeImage(img,Controller.getInterframe());
+            drawPlay(img.getGraphics());
             vidDisp.setIcon(new ImageIcon(img));
             vidDisp.setVisible(true);
         }

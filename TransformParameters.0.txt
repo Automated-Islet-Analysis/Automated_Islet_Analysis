@@ -1,6 +1,6 @@
 (Transform "TranslationTransform")
 (NumberOfParameters 2)
-(TransformParameters 9.726749 -11.342276)
+(TransformParameters 16.906170 -27.276653)
 (InitialTransformParametersFileName "NoInitialTransform")
 (UseBinaryFormatForTransformationParameters "false")
 (HowToCombineTransforms "Compose")
