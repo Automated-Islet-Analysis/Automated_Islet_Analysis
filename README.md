@@ -60,7 +60,7 @@ A full description of the installation process can be found at: https://www.jetb
 ### Launching user interface
   - Open the command prompt
   - Navigate to your local repository of this project
-  - Launch software with java -jar Automated_Analysis_Islet.jar
+  - Launch software with java -jar Automated_Islet_Analysis-1.0.jar
   
 ### Using user interface
   - Load Video_for_Demo that is located in the videos folder of the repository by clicking the "Upload video" button
