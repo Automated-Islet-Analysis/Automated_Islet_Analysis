@@ -1,10 +1,10 @@
-package videoprocessing;
+package videoprocessing.processor;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import videoprocessing.processor.DepthMotionCorrector;
-import videoprocessing.processor.ProcessorError;
+import videoprocessing.Video;
+import videoprocessing.VideoProcessor;
 
 public class DepthMotionCorrectorTest {
     private String filePath;
@@ -18,7 +18,6 @@ public class DepthMotionCorrectorTest {
         video=new Video(filePath);
         videoProcessor = new VideoProcessor(video);
         depthMotionCorrector = new DepthMotionCorrector(video, 10);
-        videoProcessor.process(10,false,true,false);
     }
 
     @Test

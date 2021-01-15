@@ -1,10 +1,10 @@
-package videoprocessing;
+package videoprocessing.processor;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import videoprocessing.processor.CellFinder;
-import videoprocessing.processor.ProcessorError;
+import videoprocessing.Video;
+import videoprocessing.VideoProcessor;
 
 public class CellFinderTest {
     private String filePath;
