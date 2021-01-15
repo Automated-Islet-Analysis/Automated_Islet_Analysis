@@ -27,16 +27,19 @@ public class CombinerTest {
         combiner.combine(leftImg,rightImg);
         //Getter for combined video frames
         combinedVid=combiner.getCombVidFrames();
-
+        
+        //Save the combined video to user directory
         MakeImage makeImage=new MakeImage(combinedVid);
         ImagePlus combVidOut=makeImage.getImgOut();
 
         FileSaver fileSaver=new FileSaver(combVidOut);
         String actualFile=System.getProperty("user.dir")+"/img/actualCombVid.tif";
         fileSaver.saveAsTiff(actualFile);
-
+        
+        //Path of expected combined video
         String expectedFile=System.getProperty("user.dir")+"/img/Unit_testing/ExpectedCombinedVid.tif";
-
+        
+        //Compare the two combined videos
         CompareImages compareImages=new CompareImages(expectedFile,actualFile);
 
         long differenceImg= compareImages.getDifferenceImg();
