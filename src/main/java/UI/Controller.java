@@ -86,7 +86,7 @@ public class Controller {
 
         // Set-up main frame of user-interface
         interframe = new JFrame("Automated analysis of Islet in eye");
-        interframe.setSize(700, 700);
+        interframe.setSize(800, 800);
         interframe.addWindowListener(new WindowAdapter() {// Closes the program if close window clicked
             public void windowClosing(WindowEvent e) {
                 interframe.dispose();
@@ -257,7 +257,7 @@ public class Controller {
         JOptionPane.showMessageDialog(interframe,
                 "No file has been analysed yet. \n" +
                         "Please choose a file for upload and \n" +
-                        "click on the 'Analyse' button",
+                        "click on the 'Process Video' button",
                 "alert", JOptionPane.ERROR_MESSAGE);
     }
 
