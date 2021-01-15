@@ -1,3 +1,10 @@
+/**
+ * Test of Video class
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
 package videoprocessing;
 
 import ij.ImagePlus;
