@@ -1,3 +1,11 @@
+/**
+ * Test of CellFinder
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package videoprocessing.processor;
 
 import org.junit.Assert;
@@ -23,6 +31,7 @@ public class CellFinderTest {
     }
 
     @Test
+    //given a non corrupted video, the run() method is tested by assessing the correct return of ProcessorError
     public void testRunning(){
         Assert.assertEquals(ProcessorError.PROCESSOR_SUCCESS,cellFinder.run());
     }
