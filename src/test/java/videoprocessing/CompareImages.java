@@ -34,11 +34,13 @@ public class CompareImages {
 
         int width=expectedImg.getWidth();
         int height=expectedImg.getHeight();
-
+        //Compare the images pixel by pixel by taking the absolute value of the difference between the pixel intensity
         for(int y=0; y<height;y++) {
             for(int x=0;x<width;x++) {
                 int grayImg1= (int) imgProcessor1.getf(x,y);
                 int grayImg2= (int) imgProcessor2.getf(x,y);
+                //variable storing the cumulative difference between pixel
+                //if differenceImg=0, then the two images are considered equal
                 differenceImg+=Math.abs(grayImg1-grayImg2);
             }
         }
