@@ -1,61 +1,64 @@
+/**
+ * Pop-up for saving the depth corrected video.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 14/01/2021
+ */
 package UI.SaveTab;
-
 import UI.Controller;
-import videoprocessing.VideoProcessor;
-
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
-public class SaveVideo extends JPanel implements ActionListener {
 
-    JButton saveButton;
-    JTextArea log;
-    JFileChooser chooser;
+public class SaveDepthVideo extends JFileChooser {
 
-    public SaveVideo(){
-        //create the file chooser
-        chooser= new JFileChooser();
+    // Constructor
+    public SaveDepthVideo(){
+        setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 
-        chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-
+        //Allow tif extensions only
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
                 "TIFF Images", "tif", "tiff");
-        chooser.setFileFilter(filter);
-        //Save button
-        saveButton=new JButton("Save Depth Corrected Video");
-        saveButton.addActionListener(this);
-        JPanel panel=new JPanel();
-        panel.add(saveButton);
-
-        add(panel, BorderLayout.CENTER);
+        setFileFilter(filter);
     }
 
-    @Override
+    public void save(){
+        // Create save pop-up
+        int userSelection= showSaveDialog(SaveDepthVideo.this);
 
-    public void actionPerformed(ActionEvent e) {
-        int userSelection= chooser.showSaveDialog(SaveVideo.this);
+        if(userSelection==1)return;
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {
-            File fileToSave = chooser.getSelectedFile();
-            log.append("Saving: "+ fileToSave.getName());
-            System.out.println("Save as file: " + fileToSave.getAbsolutePath());
+            File fileToSave = getSelectedFile();
+            File fileWithExt = new File(fileToSave.getAbsolutePath()+".tif");
+
+            //Check if the file already exists and let the user choose whether to overwrite it or cancel
+            if(fileWithExt.exists() && !fileToSave.isDirectory()) {
+                JCheckBox check = new JCheckBox("Warning");
+                Object[] options = {"Yes", "No, overwrite"};
+                int x = JOptionPane.showOptionDialog(null, "This file already exist. Do you want to change its name?",
+                        "Warning",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+
+                //If decide to overwrite it
+                if (x ==1) {
+                    fileWithExt.delete();
+                    Controller.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath());
+                //If decide not to overwrite it, pop up again
+                }else{
+                    new SaveDepthVideo().save();
+                }
+
+
+
+                //If cancelled previous operation or if the file did not exist
+            }else {
+                Controller.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath());
+            }
         }
-
     }
-    //cite here for this part: https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/uiswing/examples/components/FileChooserDemoProject/src/components/FileChooserDemo.java
-    protected static ImageIcon createImageIcon(String path){
-        java.net.URL imgURL= SaveVideo.class.getResource(path);
-        if (imgURL != null) {
-            return new ImageIcon(imgURL);
-        } else {
-            System.err.println("Couldn't find file: " + path);
-            return null;
-        }
-    }
-
-
 }
+
+

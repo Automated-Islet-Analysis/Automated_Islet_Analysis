@@ -1,10 +1,14 @@
 package videoprocessing;
 
 import ij.ImagePlus;
+import ij.ImageStack;
+import ij.io.FileSaver;
 import ij.process.ImageProcessor;
+import org.itk.simple.Image;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.File;
 import java.util.LinkedList;
 
 public class CombinerTest {
@@ -12,8 +16,6 @@ public class CombinerTest {
     public void testCombining(){
         //List storing all frames of the combined video from Combiner
         LinkedList<ImagePlus> combinedVid;
-        //List storing the expected frames of the combined video
-        ImagePlus expectedCombinedVid;
 
         //Input for Combiner method combine
         ImagePlus leftImg=new ImagePlus(System.getProperty("user.dir") + "/img/Unit_testing/1.tif");
@@ -26,31 +28,24 @@ public class CombinerTest {
         //Getter for combined video frames
         combinedVid=combiner.getCombVidFrames();
 
-        //Frames of the combinedVid and expectedCombinedVid are compared by taking the
-        //difference of their intensity stored in pixelDiff
-        long pixelDiff=0;
-        for(int i=0;i<combinedVid.size();i++){
-            expectedCombinedVid=new ImagePlus(System.getProperty("user.dir") + "/img/Unit_testing/combinedVid"+Integer.toString(i+1)+".tif");
-            ImageProcessor imageProcessor=expectedCombinedVid.getProcessor();
-            ImageProcessor imageProcessor1=combinedVid.get(i).getProcessor();
+        MakeImage makeImage=new MakeImage(combinedVid);
+        ImagePlus combVidOut=makeImage.getImgOut();
 
-            int width=expectedCombinedVid.getWidth();
-            int height=expectedCombinedVid.getHeight();
+        FileSaver fileSaver=new FileSaver(combVidOut);
+        String actualFile=System.getProperty("user.dir")+"/img/actualCombVid.tif";
+        fileSaver.saveAsTiff(actualFile);
 
-            for(int x=0;x<height;x++){
-                for(int y=0;x<width;x++){
-                    int grayIP=(int) imageProcessor.getf(x,y);
-                    int grayIP1=(int) imageProcessor1.getf(x,y);
-                    pixelDiff+=Math.abs(grayIP-grayIP1);
-                }
-            }
-        }
+        String expectedFile=System.getProperty("user.dir")+"/img/Unit_testing/expectedCombVid.tif";
 
-        //If pixelDiff is not equal to zero, the two video are not the same and the test
-        //is failed
-        if (pixelDiff!=0) {
+        CompareImages compareImages=new CompareImages(expectedFile,actualFile);
+
+        long differenceImg= compareImages.getDifferenceImg();
+
+        if (differenceImg!=0)
             Assert.fail();
-        }
+
+        File file=new File(actualFile);
+        file.delete();
     }
 
 }

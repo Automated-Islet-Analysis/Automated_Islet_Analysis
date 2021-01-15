@@ -11,14 +11,11 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
-    maven{
-        url "http://repository.springsource.com/maven/bundles/external"
-    }
 }
 
 dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group:'javax.media.jai', name: 'com.springsource.javax.media.jai.core' , version: '1.1.3'
-
 }

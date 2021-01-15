@@ -1,3 +1,13 @@
+/**
+ * Class that deals with individual cells with for each cell 1 ROI.
+ * Contains the variables describing the cell/ROI.
+ * Contains also the methods to find and analyse ROI in cell and save the results of analysis
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package videoprocessing;
 
 import ij.IJ;
@@ -32,17 +42,8 @@ public class Cell {
     private Roi roiIntracellular;
     // Cell size, equivalent of cellSize in VideoProcessor class, (cellSize x cellSize)
     private final int cellSize;
-    //
+    // Pixel values of the ROI for the different frames without depth motion
     private LinkedList<double[]> pixROI = new LinkedList<>();
-
-    // Constructor
-    public Cell(int[] coorCell, int cellNum, int frameNum, int cellSize ){
-        this.coorCell=coorCell; // Coordinate of the center of the cell
-        this.cellNum=cellNum;
-        this.frameNum=frameNum;
-        this.cellSize=cellSize;
-        this.roiExtracellular= new Roi(coorCell[0]-Math.floor(cellSize/2),coorCell[1]-Math.floor(cellSize/2),cellSize,cellSize);
-    }
 
     // Getters
     public int getCellNum() {
@@ -82,7 +83,7 @@ public class Cell {
         convolveOp.filter(bI,bIOut);
 
         // Find center of square with greatest average intensity
-        // Next 12 lines adapted from https://imagejdocu.tudor.lu/plugin/analysis/find_min_max/start
+        /* Reference 1 - taken from https://imagejdocu.tudor.lu/plugin/analysis/find_min_max/start*/
         double pixMax = Double.NEGATIVE_INFINITY;
         int xMax = 0;
         int yMax = 0;
@@ -95,6 +96,7 @@ public class Cell {
                 }
             }
         }
+        /* end of reference 1 */
 
         // Set coordinates of found ROI
         coorRoi[0] = coorCell[0]-Math.round(cellSize/2) + xMax;
@@ -102,6 +104,15 @@ public class Cell {
 
         //Create ROI at the square with greatest intensity
         roiIntracellular = IJ.Roi(xMax-Math.floor(roiSize /2),yMax-Math.floor(roiSize /2), roiSize, roiSize);
+    }
+
+    // Constructor
+    public Cell(int[] coorCell, int cellNum, int frameNum, int cellSize ){
+        this.coorCell=coorCell; // Coordinate of the center of the cell
+        this.cellNum=cellNum;
+        this.frameNum=frameNum;
+        this.cellSize=cellSize;
+        this.roiExtracellular= new Roi(coorCell[0]-Math.floor(cellSize/2),coorCell[1]-Math.floor(cellSize/2),cellSize,cellSize);
     }
 
     // Save ROI as video so that it can be used later on to compute the mean intensity
@@ -131,7 +142,7 @@ public class Cell {
     }
 
     // Compute mean intensity of ROI from saved video
-    public CellError computeMeanIntensity(boolean smooth){
+    public CellError computeMeanIntensity(){
         if(pixROI.get(0).length==0) return CellError.CELL_NO_ROI_ERROR;
         int nPix = pixROI.get(0).length;
         meanIntensity = new double[pixROI.size()];

@@ -1,39 +1,43 @@
-// Source https://coderanch.com/t/492739/java/mouse-click-image-draw-point
-// Modified on 22/12/2020
+/**
+ * Class that is used to show a pop-up where you can manually select ROIs. After confirming the new ROIs,
+ * these are added to the cells of the videoProcessor.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
 
 package UI.DataTab;
 
 import UI.Controller;
-import UI.UserInterface;
+import UI.Panel.ImagePanel;
 import videoprocessing.Cell;
 import videoprocessing.VideoProcessor;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 import javax.swing.*;
 
 
-public class ManualROISelection extends JPanel{
-    // Image for display
-    BufferedImage image;
+public class ManualROISelection extends ImagePanel {
     // Stores number of ROI/cells shown on display
     private int numROI=0;
     private int cellSize;
-    // Dimensions of video
-    Dimension size = new Dimension();
-    // Scaling of video used for display so that it fits on screen
-    private double scalingOfImg = 0.65;
+
     // Stores coordinates of selected ROIs
     private LinkedList<Cell> newCells = new LinkedList<>();
-    // Hold image for display
-    private JLabel img;
 
-    // Mouse listeners that lisstend to mousePressed on JLabel img only
+    // variable for display
+    JDialog dialog=new JDialog();
+    JPanel buttonPanel = new JPanel();
+    JButton jButton = new JButton("Confirm");
+    JButton jButton1 = new JButton("Cancel");
+
+    // Mouse listeners that listens to mousePressed on JLabel imgDisp only
+    // Source https://coderanch.com/t/492739/java/mouse-click-image-draw-point
+    // Modified on 22/12/2020
     private MouseListener mouseListener = new MouseListener() {
         @Override
         public void mousePressed(MouseEvent e) {
@@ -41,18 +45,14 @@ public class ManualROISelection extends JPanel{
             int  x,y;
             x = e.getX();
             y = e.getY();
-            Graphics g = img.getGraphics();
-
-            // Draw number of selected new ROI
-            g.setColor(Color.blue);
-            g.setFont(new Font(g.getFont().getFontName(), Font.PLAIN, 12));
-            drawCenteredString(Integer.toString(numROI++ + 1),x,y,g);
 
             // Add coordinates of new ROI
             int[] coor = new int[2];
             coor[0]= (int) Math.floor(x/scalingOfImg);
             coor[1]= (int) Math.floor(y/scalingOfImg);
-            newCells.add(new Cell(coor,numROI,0,cellSize));
+            newCells.add(new Cell(coor,numROI+newCells.size()+1,0,cellSize));
+
+            updatePanel();
         }
         @Override
         public void mouseClicked(MouseEvent e  ) {}
@@ -64,36 +64,45 @@ public class ManualROISelection extends JPanel{
         public void mouseExited(MouseEvent e) {}
     };
 
+    // Window listener to updatePanel image when window changes size
+    private ComponentListener componentListener = new ComponentListener() {
+        @Override
+        public void componentResized(ComponentEvent e) {
+            updatePanel();
+        }
+        @Override
+        public void componentMoved(ComponentEvent e) { }
+        @Override
+        public void componentShown(ComponentEvent e) { }
+        @Override
+        public void componentHidden(ComponentEvent e) { }
+    };
+
     // Constructor
     public ManualROISelection(BufferedImage image, int numROI,int cellSize) {
+        super(15,90);
+
         // Set variables needed for display
+        this.image = new BufferedImage(image.getWidth(),image.getHeight(),BufferedImage.TYPE_INT_RGB);
+        Graphics g = this.image.getGraphics();
+        g.setColor(Color.BLUE);
+        g.drawImage(image,0,0,null);
         this.numROI = numROI;
-        this.image = image;
         this.cellSize=cellSize;
-        size.setSize(image.getWidth()*scalingOfImg, image.getHeight()*scalingOfImg);
 
-        // Resize image otherwise img is too big
-        image = resizeImage(image,size.width,size.height);
-        img = new JLabel(new ImageIcon(image));
-        // Add Mouse listener to img
-        img.addMouseListener(mouseListener);
-    }
+        // Define pop-up window
+        dialog = new JDialog(Controller.getInterframe(),"Select new ROIs by clicking on the image!",true);
+        dialog.setSize(Controller.getInterframe().getSize());
+        dialog.setLocationRelativeTo(Controller.getInterframe());
+        dialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-    // Open pop up and allow selection of new ROI and save them or disregard the changes
-    public LinkedList<Cell> run() {
-        // Pop-up window
-        JDialog dialog = new JDialog(Controller.interframe,"Select new ROIs",true);
-//        JFrame f = new JFrame(null,"Select new ROIs");
-        setLayout(new FlowLayout(FlowLayout.LEFT));
+        // Set panel layout
+        setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 
-        // Add JFrame that hold image
-        add(img,BorderLayout.PAGE_START);
-
-        // Create JPanel to hold buttons in gridlayout
-        JPanel jPanel = new JPanel(new GridLayout(1,2));
-
+        // Setup buttons and button pane
+        buttonPanel.setLayout(new FlowLayout());
+        buttonPanel.setAlignmentX(JComponent.CENTER_ALIGNMENT);
         // Button to confirm the newly added ROI/Cells
-        JButton jButton = new JButton("Confirm");
         // Add action listener
         jButton.addActionListener(new ActionListener() {
             @Override
@@ -105,7 +114,7 @@ public class ManualROISelection extends JPanel{
         });
         jButton.setSize(100,30);
         // Button to cancel the addition of new ROIs/cells
-        JButton jButton1 = new JButton("Cancel");
+        // Add action listener to close pop-up
         jButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -113,54 +122,78 @@ public class ManualROISelection extends JPanel{
             }
         });
         jButton1.setSize(100,30);
-        jPanel.add(jButton);
-        jPanel.add(jButton1);
-        add(jPanel);
 
-        setSize(size.width+30,size.height+90);
+        imgDisp.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+
+        // Resize image otherwise img is too big
+        image = resizeImage(image,dialog);
+        imgDisp.setIcon(new ImageIcon(image));
+
+        // Add Listeners
+        imgDisp.addMouseListener(mouseListener);
+        dialog.addComponentListener(componentListener);
+    }
+
+    // Open pop up and allow selection of new ROI and save them or disregard the changes
+    public LinkedList<Cell> run() {
+        // Add JLabel that hold image
+        add(imgDisp,BorderLayout.WEST);
+
+        // Add buttons
+        buttonPanel.add(jButton);
+        buttonPanel.add(jButton1);
+        add(buttonPanel);
+
+        // Show dialog
         dialog.setContentPane(this);
-        dialog.setSize(this.getSize());
-        dialog.setLocationRelativeTo(Controller.interframe);
-        dialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        dialog.setResizable(false);
         dialog.setVisible(true);
-
         return newCells;
     }
 
-    // Resize image to fit on display
-    private BufferedImage resizeImage(BufferedImage imgIn,int w,int h){
-        BufferedImage resizedImg = new BufferedImage(w,h,BufferedImage.TYPE_BYTE_GRAY);
-        Graphics2D g2 = resizedImg.createGraphics();
-        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        g2.drawImage(imgIn, 0, 0, w,h, null);
-        g2.dispose();
-        return resizedImg;
+    @Override
+    // Make component in frame visible
+    public void updatePanel() {
+        // Reset displayed image to original image
+        BufferedImage image_ = resizeImage(this.image,dialog);
+
+        BufferedImage image = new BufferedImage(image_.getWidth(),image_.getHeight(),BufferedImage.TYPE_INT_RGB);
+        Graphics g = image.getGraphics();
+        g.setFont(new Font(this.image.getGraphics().getFont().getFontName(),Font.BOLD,12));
+        g.setColor(Color.BLUE);
+        g.drawImage(image_,0,0,null);
+
+        int n=0;
+        for(Cell cell : newCells) {
+            int coor[] = cell.getCoor();
+            drawCenteredString(Integer.toString(numROI+n+1), (int) Math.round(coor[0] * scalingOfImg), (int) Math.round(coor[1] * scalingOfImg), g);
+            n++;
+        }
+        imgIcon = new ImageIcon(image);
+        imgDisp.setIcon(imgIcon);
     }
+
 
     // Draw cell numbers on GUI
     // Adapted From http://www.java2s.com/Tutorial/Java/0261__2D-Graphics/Centertext.html
     public void drawCenteredString(String s, int x, int y, Graphics g) {
         FontMetrics fm = g.getFontMetrics();
         x = x - fm.stringWidth(s) / 2;
-        y = y + fm.getAscent()/2;//  (fm.getAscent() + (h - (fm.getAscent() + fm.getDescent())) / 2);
-        g.drawString(s, x, y);
+        y = y + fm.getAscent()/2;
+        g.drawString(s,x, y);
     }
-
-
 
     // Add manually selected ROI to VideoProcessor
     private void addNewROIS(){
-        VideoProcessor videoProcessor= UserInterface.getVideoProcessor();
+        VideoProcessor videoProcessor= Controller.getVideoProcessor();
         videoProcessor.addCells(newCells);
         videoProcessor.createROIImage();
-        UserInterface.setVideoProcessor(videoProcessor);
+        Controller.setVideoProcessor(videoProcessor);
 
         ROIs rois = new ROIs();
         rois.updatePanel();
-        Controller.interframe.setContentPane(rois);
-        Controller.interframe.invalidate();
-        Controller.interframe.validate();
-        if(newCells.size()>0)Controller.meanIntensityMeasured=false;
+        Controller.getInterframe().setContentPane(rois);
+        Controller.getInterframe().invalidate();
+        Controller.getInterframe().validate();
+        if(newCells.size()>0)Controller.setMeanIntensityMeasured(false);
     }
 }

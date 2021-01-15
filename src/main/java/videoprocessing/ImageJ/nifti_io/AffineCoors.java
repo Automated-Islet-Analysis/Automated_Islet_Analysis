@@ -1,7 +1,15 @@
-package ImageJ.nifti_io;
+/**
+ * This class implements an affine coordinate mapping
+ *
+ * @author Rasband, W.S., ImageJ, U. S. National Institutes of Health, Bethesda, Maryland, USA, https://imagej.nih.gov/ij/
+ *
+ * Modified by Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
 
+package videoprocessing.ImageJ.nifti_io;
 
-/** This class implements an affine coordinate mapping */
 
 public class AffineCoors extends CoordinateMapper {
 

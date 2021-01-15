@@ -1,106 +1,62 @@
+/**
+ * Panel used for display of the results of the planar motion correction.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI.DataTab;
 
-import UI.UserInterface;
-import ij.ImagePlus;
-import videoprocessing.VideoProcessor;
+import UI.Controller;
+import UI.Panel.VideoPanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import java.util.TimerTask;
-import java.util.Timer;
 
-public class MCVideoPlanar extends JPanel {
+public class MCVideoPlanar extends VideoPanel {
     private static JLabel msg;
-    private JLabel vid;
 
+    // Constructor. Create all components
     public MCVideoPlanar(){
-        msg = new JLabel("This is the planar motion corrected video");
-        msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,20));
-        msg.setHorizontalAlignment(JLabel.CENTER);
-        add(msg);
+        super(null,20,100);
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        // Empty img panel
-        vid = new JLabel();
-        vid.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {}
+        // Title
+        msg = new JLabel("Original video(left) and video with planar motion correction(right).");
+        msg.setFont(new Font(msg.getFont().getFontName(),Font.BOLD,18));
+        msg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+        add(Box.createVerticalStrut(25));
+        add(msg,BorderLayout.CENTER);
+        add(Box.createVerticalStrut(25));
 
-            @Override
-            public void mousePressed(MouseEvent e) {
-                playVideo();
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {}
-
-            @Override
-            public void mouseEntered(MouseEvent e) {}
-            @Override
-            public void mouseExited(MouseEvent e) {}
-        });
-
-        add(vid);
+        vidDisp.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+        add(vidDisp);
     }
 
-    public void update(){
-        VideoProcessor videoProcessor = UserInterface.getVideoProcessor();
-        ImagePlus video = videoProcessor.getPlanarCorrectionVid();
+    @Override
+    // Display video if planar motion correction has been executed
+    public void updatePanel(){
+        this.video = Controller.getVideoProcessor().getPlanarCorrectionVid();
 
+        //Check if the video has already been analyzed
         if(video==null){
-            remove(msg);
+            removeAll();
+            // Prompt the user if no video was uploaded
             msg = new JLabel("The video was not corrected for planar motion, no preview available!");
-            msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,20));
-            add(msg,BorderLayout.CENTER);
-            setSize(700,700);
+            msg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+            msg.setFont(new Font(msg.getFont().getFontName(),Font.PLAIN,18));
+            add(Box.createVerticalStrut(50));
+            add(msg);
         }
+        //Display the video if already analyzed
         else{
             BufferedImage img = video.getBufferedImage();
-            img = resizeImage(img,(int)Math.round(img.getWidth()*0.3),(int)Math.round(img.getHeight()*0.3));
-            vid.setIcon(new ImageIcon(img));
-            vid.setVisible(true);
-            setSize(vid.getIcon().getIconWidth()+100,vid.getIcon().getIconHeight()+130);
+            img = resizeImage(img,Controller.getInterframe());
+            drawPlay(img.getGraphics());
+            vidDisp.setIcon(new ImageIcon(img));
+            vidDisp.setVisible(true);
         }
-    }
-
-    private void playVideo(){
-        VideoProcessor videoProcessor = UserInterface.getVideoProcessor();
-        ImagePlus video = videoProcessor.getPlanarCorrectionVid();
-
-        int speed = 1000/18; // 18 frames per second
-        int finalNumImages = video.getNSlices();
-        final int[] frame = {0};
-        Timer timer = new Timer();
-
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                System.out.println("done");
-                if(frame[0] <finalNumImages){
-                    System.out.println("test");
-                    video.setSlice(frame[0]);
-                    BufferedImage img = video.getBufferedImage();
-                    img = resizeImage(img,(int)Math.round(img.getWidth()*0.3),(int)Math.round(img.getHeight()*0.3));
-                    vid.setIcon(new ImageIcon(img));
-                    vid.setVisible(true);
-                    frame[0]++;
-                }else{
-                    timer.cancel();
-                }
-            }
-        };
-        timer.scheduleAtFixedRate(task,0,speed);
-    }
-
-    // Resize image to fit on display
-    private BufferedImage resizeImage(BufferedImage imgIn, int w, int h){
-        BufferedImage resizedImg = new BufferedImage(w,h,BufferedImage.TYPE_BYTE_GRAY);
-        Graphics2D g2 = resizedImg.createGraphics();
-        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        g2.drawImage(imgIn, 0, 0, w,h, null);
-        g2.dispose();
-        return resizedImg;
     }
 }

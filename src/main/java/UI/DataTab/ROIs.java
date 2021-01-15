@@ -1,79 +1,85 @@
+/**
+ * ImagePanel used for display of the analysed islet with its regions of interest shown with numbers.
+ *
+ * @author Team Automated analysis of "islet in eye", Bioengineering department, Imperial College London
+ *
+ * Last modified: 11/01/2021
+ */
+
 package UI.DataTab;
 
-
-
-
-//import com.sun.media.controls.VFlowLayout;
-
 import UI.Controller;
-import UI.UserInterface;
+import UI.Panel.ImagePanel;
 import videoprocessing.VideoProcessor;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 
-public class ROIs extends JPanel {
+public class ROIs extends ImagePanel {
     private JButton addROI;
-    private JPanel subPanel;
-    private JLabel text, image;
-    private ImageIcon imgIcon;
+    private JLabel text;
 
     private int numROI;
-    private BufferedImage imageROI;
     private int cellSize;
     private VideoProcessor videoProcessor;
 
+    // Constructor
     public ROIs(){
+        super(15,145);
+
         // Create elements
         addROI = new JButton("Add ROIs");
         addROI.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ManualROISelection select = new ManualROISelection(videoProcessor.getRoiImage().getBufferedImage(),numROI,cellSize);
-                select.run();
-                videoProcessor = UserInterface.getVideoProcessor();
+                // Add cells manually
+                ManualROISelection addROI = new ManualROISelection(videoProcessor.getRoiImage().getBufferedImage(),numROI,cellSize);
+                addROI.run();
+                // Update VideoProcessor after adding cells
+                videoProcessor = Controller.getVideoProcessor();
             }
         });
-        subPanel = new JPanel(new FlowLayout());
     }
 
+    @Override
+    // Display elements on frame
     public void updatePanel(){
-        videoProcessor = UserInterface.getVideoProcessor();
+        // Get image from video
+        videoProcessor = Controller.getVideoProcessor();
         numROI = videoProcessor.getVideo().getCells().size();
-        imageROI = videoProcessor.getRoiImage().getBufferedImage();
-        if(! (imageROI==null))
-            imageROI = resizeImage(imageROI,(int)Math.round(imageROI.getWidth()*0.65),(int)Math.round(imageROI.getHeight()*0.65));
+        image = videoProcessor.getRoiImage().getBufferedImage();
+
+        if(! (image ==null))
+            image = resizeImage(image, Controller.getInterframe());
+
         cellSize = videoProcessor.getCellSize();
 
+        // Create label to display number of ROIs
         text = new JLabel("Number of ROIs: " + numROI);
-        imgIcon = new ImageIcon(imageROI);
-        image = new JLabel(imgIcon);
+        Font font =new Font(text.getFont().getFontName(),Font.PLAIN,15);
+        text.setFont(font);
+        addROI.setFont(font);
+
+        // Create image label to display image
+        imgIcon = new ImageIcon(image);
+        imgDisp = new JLabel(imgIcon);
 
         removeAll();
-        subPanel.removeAll();
-        setLayout(new FlowLayout(FlowLayout.LEFT));
 
-        // Add JFrame that hold image
-        add(image,BorderLayout.PAGE_START);
-        setSize(imageROI.getWidth()+30,imageROI.getHeight()+130);
-        // Create JPanel to hold buttons in gridlayout
-        subPanel.setLayout(new GridLayout(2,1));
-        subPanel.add(text);
-        subPanel.add(addROI);
-        add(subPanel,BorderLayout.PAGE_END);
-    }
+        // Add components to the panel and center-align them
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-    // Resize image to fit on display
-    private BufferedImage resizeImage(BufferedImage imgIn,int w,int h){
-        BufferedImage resizedImg = new BufferedImage(w,h,BufferedImage.TYPE_BYTE_GRAY);
-        Graphics2D g2 = resizedImg.createGraphics();
-        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        g2.drawImage(imgIn, 0, 0, w,h, null);
-        g2.dispose();
-        return resizedImg;
+        imgDisp.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(imgDisp);
+        setSize(imgDisp.getWidth()+15,imgDisp.getHeight()+145);
+        add(Box.createVerticalStrut(10));
+
+        text.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(text);
+        add(Box.createVerticalStrut(10));
+        addROI.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(addROI);
     }
 }
