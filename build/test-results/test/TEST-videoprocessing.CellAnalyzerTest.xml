@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="videoprocessing.CellAnalyzerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-15T03:22:12" hostname="DESKTOP-867OUMT" time="4.681">
+  <properties/>
+  <testcase name="testRunning" classname="videoprocessing.CellAnalyzerTest" time="4.681"/>
+  <system-out><![CDATA[Searching for Beta-cells
+Done, found 30 cells
+Analysis Beta-cells
+Done
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
