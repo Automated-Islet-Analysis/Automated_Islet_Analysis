@@ -9,14 +9,17 @@ public class MakeImage {
 
     private LinkedList<ImagePlus> frames;
     private ImagePlus imgOut;
-
+    
+    //Constructor
     public MakeImage(LinkedList<ImagePlus> frames){
         this.frames=frames;
         makeImg();
     }
-
+    
+    //getters
     public ImagePlus getImgOut(){return imgOut;}
 
+    //makes an image out of a stack of ImagePlus frames
     public void makeImg(){
         ImageStack stackOut = new ImageStack();
         for(ImagePlus ip:frames)
