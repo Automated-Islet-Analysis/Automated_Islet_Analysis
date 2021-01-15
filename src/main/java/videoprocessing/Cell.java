@@ -115,7 +115,7 @@ public class Cell {
         this.roiExtracellular= new Roi(coorCell[0]-Math.floor(cellSize/2),coorCell[1]-Math.floor(cellSize/2),cellSize,cellSize);
     }
 
-    // Save ROI as video so that it can be used later on to compute the mean intensity
+    // Store pixel values in array for later processing
     public CellError setPixROI(LinkedList<ImagePlus>ijFrames, LinkedList<Integer> idxFramesInFocus){
         // Crop cell and ROI from full frames
         // Variable for temporary processing
@@ -141,19 +141,20 @@ public class Cell {
         return CellError.CELL_SUCCESS;
     }
 
-    // Compute mean intensity of ROI from saved video
+    // Compute mean intensity of ROI from pixel values
     public CellError computeMeanIntensity(){
         if(pixROI.get(0).length==0) return CellError.CELL_NO_ROI_ERROR;
         int nPix = pixROI.get(0).length;
         meanIntensity = new double[pixROI.size()];
         // Find mean intensity of each frame
         for(int i=0;i< pixROI.size();i++)
+
             meanIntensity[i]= DoubleStream.of(pixROI.get(i)).sum() /nPix ;
         return CellError.CELL_SUCCESS;
     }
 
     // Save mean intensity measurements to .cvs file
-    public void saveMeanIntensityFile(LinkedList<Integer> idxFramesInFocus,String pathToDir){
+    public SaveError saveMeanIntensityFile(LinkedList<Integer> idxFramesInFocus,String pathToDir){
         // Only save measurements if it was compute beforehand
         if(meanIntensity.length==0){
             System.out.println("ERROR : mean intensity is not computed yet");
@@ -193,8 +194,9 @@ public class Cell {
                 br.write(sb.toString());
                 br.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                return SaveError.SAVE_WRITE_ERROR;
             }
         }
+        return SaveError.SAVE_SUCCESS;
     }
 }

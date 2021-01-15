@@ -7,6 +7,8 @@
  */
 package UI.SaveTab;
 import UI.Controller;
+import videoprocessing.SaveError;
+
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
@@ -25,11 +27,25 @@ public class SaveDepthVideo extends JFileChooser {
     }
 
     public void save(){
+        // Variable to access if save is successful
+        SaveError saveError;
+
+        // Check if video exists
+        if(Controller.getVideoProcessor().getDepthCorrectionVid()==null){
+            Object[] options = {"Ok"};
+            JOptionPane.showOptionDialog(Controller.getInterframe(), "Depth motion correction was not applied to video. " +
+                            "Please first select depth motion correction during processing.",
+                    "Warning",
+                    JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+        }
+
         // Create save pop-up
         int userSelection= showSaveDialog(SaveDepthVideo.this);
 
+        // Cancel save
         if(userSelection==1)return;
 
+        // Save file
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = getSelectedFile();
             File fileWithExt = new File(fileToSave.getAbsolutePath()+".tif");
@@ -45,18 +61,25 @@ public class SaveDepthVideo extends JFileChooser {
                 //If decide to overwrite it
                 if (x ==1) {
                     fileWithExt.delete();
-                    Controller.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath());
+                    saveError = Controller.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath());
                 //If decide not to overwrite it, pop up again
                 }else{
                     new SaveDepthVideo().save();
+                    return;
                 }
-
-
-
-                //If cancelled previous operation or if the file did not exist
             }else {
-                Controller.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath());
+                saveError = Controller.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath());
             }
+            // Check that save was successful
+            String msg = "Unexpected error during save, try again.";
+            if(saveError == SaveError.SAVE_SUCCESS)return;
+            else if(saveError == SaveError.SAVE_TYPE_ERROR) msg="ERROR, wrong file extension. Should be .tif or .tiff";
+            else if(saveError==SaveError.SAVE_WRITE_ERROR) msg="ERROR, unexpected write error. Close files with filename" +
+                    " you are saving depth motion correction as or check that you have writing permissions for the path you specify.";
+            Object[] options = {"Ok"};
+            JOptionPane.showOptionDialog(Controller.getInterframe(), msg,
+                    "Warning",
+                    JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
         }
     }
 }

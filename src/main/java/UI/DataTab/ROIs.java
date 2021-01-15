@@ -30,7 +30,7 @@ public class ROIs extends ImagePanel {
         super(15,145);
 
         // Create elements
-        addROI = new JButton("Add ROIs");
+        addROI = new JButton("Add a region of interest");
         addROI.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,7 +57,7 @@ public class ROIs extends ImagePanel {
         cellSize = videoProcessor.getCellSize();
 
         // Create label to display number of ROIs
-        text = new JLabel("Number of ROIs: " + numROI);
+        text = new JLabel("Number of regions of interest: " + numROI);
         Font font =new Font(text.getFont().getFontName(),Font.PLAIN,15);
         text.setFont(font);
         addROI.setFont(font);

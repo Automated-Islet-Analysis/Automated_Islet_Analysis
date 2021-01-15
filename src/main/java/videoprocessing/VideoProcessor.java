@@ -19,8 +19,10 @@ import videoprocessing.processor.*;
 
 import java.awt.*;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.LinkedList;
 
 public class VideoProcessor{
@@ -250,13 +252,20 @@ public class VideoProcessor{
     }
 
     // Save Mean intensity measurements
-    public void saveCellsMeanIntensity(String pathToDir){
-        for(Cell cell:video.getCells())
-            cell.saveMeanIntensityFile(video.getIdxFramesInFocus(),pathToDir);
+    public SaveError saveCellsMeanIntensity(String pathToDir){
+        for(Cell cell:video.getCells()) {
+            SaveError saveError =cell.saveMeanIntensityFile(video.getIdxFramesInFocus(), pathToDir);
+            if(saveError==SaveError.SAVE_WRITE_ERROR) return saveError;
+        }
+        return SaveError.SAVE_SUCCESS;
     }
 
     // Save a summary of the results of the processing
     public SaveError saveSummary(String path){
+        int i = path.lastIndexOf('.');
+        String pathExtension = path.substring(i);
+        if( !".csv".equals(pathExtension)){ return SaveError.SAVE_TYPE_ERROR;}
+
         if(video.getCells().size()==0)
             return SaveError.SAVE_NO_DATA_ERROR;
 

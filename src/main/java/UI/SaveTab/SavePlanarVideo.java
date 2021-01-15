@@ -7,6 +7,8 @@
  */
 package UI.SaveTab;
 import UI.Controller;
+import videoprocessing.SaveError;
+
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
@@ -25,11 +27,25 @@ public class SavePlanarVideo extends JFileChooser {
     }
 
     public void save(){
+        // Variable to access if save is successful
+        SaveError saveError;
+
+        // Check if video exists
+        if(Controller.getVideoProcessor().getPlanarCorrectionVid()==null){
+            Object[] options = {"Ok"};
+            JOptionPane.showOptionDialog(Controller.getInterframe(), "Planar motion correction was not applied to video. " +
+                            "Please first select planar motion correction during processing.",
+                    "Warning",
+                    JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+        }
+
         // Create save pop-up
         int userSelection= showSaveDialog(SavePlanarVideo.this);
 
+        // Cancel save
         if(userSelection==1)return;
 
+        // Save video
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = getSelectedFile();
             File fileWithExt = new File(fileToSave.getAbsolutePath()+".tif");
@@ -46,14 +62,26 @@ public class SavePlanarVideo extends JFileChooser {
                     //delete the existing file
                     fileWithExt.delete();
                     //Create a new one
-                    Controller.getVideoProcessor().savePlanarCorrectionVid(fileWithExt.getPath());
+                    saveError = Controller.getVideoProcessor().savePlanarCorrectionVid(fileWithExt.getPath());
                 }else{
                     new SavePlanarVideo().save();
+                    return;
                 }
                 //If cancelled previous operation or i the file did not exist
             }else {
-                Controller.getVideoProcessor().savePlanarCorrectionVid(fileWithExt.getPath());
+                saveError =Controller.getVideoProcessor().savePlanarCorrectionVid(fileWithExt.getPath());
             }
+
+            // Check that save was successful
+            String msg = "Unexpected error during save, try again.";
+            if(saveError == SaveError.SAVE_SUCCESS)return;
+            else if(saveError == SaveError.SAVE_TYPE_ERROR) msg="ERROR, wrong file extension. Should be .tif or .tiff";
+            else if(saveError==SaveError.SAVE_WRITE_ERROR) msg="ERROR, unexpected write error. Close files with filename" +
+                    " you are saving planar motion correction as or check that you have writing permissions for the path you specify.";
+            Object[] options = {"Ok"};
+            JOptionPane.showOptionDialog(Controller.getInterframe(), msg,
+                    "Warning",
+                    JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
         }
     }
 }

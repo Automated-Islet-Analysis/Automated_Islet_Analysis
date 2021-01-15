@@ -9,6 +9,8 @@
 package UI.SaveTab;
 
 import UI.Controller;
+import videoprocessing.SaveError;
+
 import javax.swing.*;
 import java.io.File;
 
@@ -21,7 +23,6 @@ public class SaveAll extends JFileChooser {
     }
 
     public void save(){
-        // Create save pop-up
 
         //Make sure the Mean Intensity has been measured
         if(!Controller.isMeanIntensityMeasured()){
@@ -31,9 +32,13 @@ public class SaveAll extends JFileChooser {
                     JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
             return;
         }
+        // Show pop-up
         int userSelection= showSaveDialog(SaveAll.this);
+
+        // Cancel save
         if (userSelection==1)return;
 
+        // Folder for save
         File folderToSave = getSelectedFile();
 
         if(folderToSave.listFiles().length!=0){
@@ -66,11 +71,22 @@ public class SaveAll extends JFileChooser {
                 }
             }
     }
+
     public void callSavers(File directory){
+        SaveError saveError1=null;
+        SaveError saveError2=null;
+        SaveError saveError3=null;
+        SaveError saveError4=null;
+        SaveError saveError5=null;
+
         //Save the videos and ROIs
-        Controller.getVideoProcessor().savePlanarCorrectionVid(directory.getPath()+"/planar_video_corrected.tif");
-        Controller.getVideoProcessor().saveDepthCorrectionVid(directory.getPath()+"/depth_video_corrected.tif");
-        Controller.getVideoProcessor().saveRoiImage(directory.getPath()+"/ROIs.jpg");
+        if(Controller.getVideoProcessor().getPlanarCorrectionVid()!=null)
+            saveError1=Controller.getVideoProcessor().savePlanarCorrectionVid(directory.getPath()+"/planar_video_corrected.tif");
+        else saveError1=SaveError.SAVE_SUCCESS;
+        if(Controller.getVideoProcessor().getDepthCorrectionVid()!=null)
+            saveError2 = Controller.getVideoProcessor().saveDepthCorrectionVid(directory.getPath() + "/depth_video_corrected.tif");
+        else saveError2 = SaveError.SAVE_SUCCESS;
+        saveError3=Controller.getVideoProcessor().saveRoiImage(directory.getPath()+"/ROIs.jpg");
 
         //Sub folder for SaveData
         File saveDataFolder= new File(directory.getPath()+"/data_folder");
@@ -80,12 +96,22 @@ public class SaveAll extends JFileChooser {
         if(saveDataFolder.exists())
             saveDataFolder.delete();
         saveDataFolder.mkdir();
-        if(MIFolder.exists())
-            MIFolder.delete();
         MIFolder.mkdir();
 
         //Save the Data in a sub folder
-        Controller.getVideoProcessor().saveCellsMeanIntensity(MIFolder.getAbsolutePath());
-        Controller.getVideoProcessor().saveSummary(saveDataFolder.getPath()+"/data_summary.csv");
+        saveError4=Controller.getVideoProcessor().saveCellsMeanIntensity(MIFolder.getAbsolutePath());
+        saveError5=Controller.getVideoProcessor().saveSummary(saveDataFolder.getPath()+"/data_summary.csv");
+
+        // Check that save was successful
+        String msg = "Unexpected error during save, try again.";
+        if(saveError1 == SaveError.SAVE_SUCCESS && saveError2 == SaveError.SAVE_SUCCESS && saveError3 == SaveError.SAVE_SUCCESS
+            && saveError4 == SaveError.SAVE_SUCCESS &&saveError5 == SaveError.SAVE_SUCCESS)return;
+        else if(saveError1 == SaveError.SAVE_WRITE_ERROR || saveError2 == SaveError.SAVE_WRITE_ERROR || saveError3 == SaveError.SAVE_WRITE_ERROR
+                || saveError4 == SaveError.SAVE_WRITE_ERROR ||saveError5 == SaveError.SAVE_WRITE_ERROR) msg="ERROR, unexpected write error. Close files from the folder you are saving to" +
+                " and check that you have writing permissions for the path you specify.";
+        Object[] options = {"Ok"};
+        JOptionPane.showOptionDialog(Controller.getInterframe(), msg,
+                "Warning",
+                JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
     }
 }
