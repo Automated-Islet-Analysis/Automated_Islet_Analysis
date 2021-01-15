@@ -82,7 +82,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\CLAHE-1.0-SNAPSHOT.jar;%APP_HOME%\lib\ij.jar;%APP_HOME%\lib\simplelastix_2.jar;%APP_HOME%\lib\junit-jupiter-5.4.2.jar;%APP_HOME%\lib\junit-jupiter-params-5.4.2.jar;%APP_HOME%\lib\junit-jupiter-engine-5.4.2.jar;%APP_HOME%\lib\junit-jupiter-api-5.4.2.jar;%APP_HOME%\lib\junit-platform-engine-1.4.2.jar;%APP_HOME%\lib\junit-platform-commons-1.4.2.jar;%APP_HOME%\lib\apiguardian-api-1.0.0.jar;%APP_HOME%\lib\opentest4j-1.1.1.jar
+set CLASSPATH=%APP_HOME%\lib\CLAHE-1.0-SNAPSHOT.jar;%APP_HOME%\lib\ij.jar;%APP_HOME%\lib\simplelastix_3.jar;%APP_HOME%\lib\junit-jupiter-5.4.2.jar;%APP_HOME%\lib\junit-jupiter-params-5.4.2.jar;%APP_HOME%\lib\junit-jupiter-engine-5.4.2.jar;%APP_HOME%\lib\junit-jupiter-api-5.4.2.jar;%APP_HOME%\lib\junit-platform-engine-1.4.2.jar;%APP_HOME%\lib\junit-platform-commons-1.4.2.jar;%APP_HOME%\lib\apiguardian-api-1.0.0.jar;%APP_HOME%\lib\opentest4j-1.1.1.jar
 
 
 @rem Execute CLAHE

@@ -37,6 +37,7 @@ public class SavePlanarVideo extends JFileChooser {
                             "Please first select planar motion correction during processing.",
                     "Warning",
                     JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+            return;
         }
 
         // Create save pop-up
