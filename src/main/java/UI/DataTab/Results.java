@@ -34,6 +34,7 @@ public class Results extends JPanel{
         this.meanIntensityMeasured = meanIntensityMeasured;
         // Create button
         measureBtn = new JButton("Measure intensity");
+        measureBtn.setName("measure");
         measureBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,6 +92,7 @@ public class Results extends JPanel{
         bodyDisc2.setFont(fontBody);
         bodyROI1.setFont(fontBody);
         bodyInt.setFont(fontBody);
+        bodyInt.setName("labelCheck");
         measureBtn.setFont(fontBody);
 
         // Add elements to sub-panels

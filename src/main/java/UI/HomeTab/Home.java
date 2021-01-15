@@ -26,8 +26,6 @@ public class Home extends JPanel {
     static JButton uploadBtn;
     static JPanel subPanel, uploadBtnPanel,welcomePanel;
 
-
-
     // Stores which panel is being displayed
     private static String display;
     private static String lastDisplay;
@@ -89,18 +87,20 @@ public class Home extends JPanel {
         saveall=new SaveAll();
         saverois=new SaveROIs();
         saveplanarvideo=new SavePlanarVideo();
+        saveDepthVideo=new SaveDepthVideo();
 
         welcome = new JLabel("Welcome!");
         welcome.setFont(new Font(welcome.getFont().getName(), Font.PLAIN, 30));
         welcome.setHorizontalAlignment(SwingConstants.CENTER);
 
         uploadBtn = new JButton("Upload");
+        uploadBtn.setSize(100,30);
         uploadBtn.addActionListener(new UploadListener());
 
         empty = new JLabel("");
 
         welcome.setName("welcomeLabel");
-        uploadBtn.setName("button");
+        uploadBtn.setName("UploadButton");
 
         welcomePanel=new JPanel();
         welcomePanel.add(welcome);
@@ -113,38 +113,8 @@ public class Home extends JPanel {
         setLayout(new BorderLayout());
         setDisplay();
 
-
         add(subPanel,BorderLayout.CENTER);
     }
-
-    // Create sub-panel
-//    private static JPanel getSubPanel(){
-//        // Create a welcome text
-//        welcome = new JLabel("Welcome!");
-//        welcome.setFont(new Font(welcome.getFont().getName(), Font.PLAIN, 30));
-//        welcome.setHorizontalAlignment(SwingConstants.CENTER);
-//
-//        // Upload file for analysis
-//        uploadBtn = new JButton("Upload video");
-//        uploadBtn.addActionListener(new UploadListener());
-//
-//        // Spacing
-//        empty = new JLabel("");
-//
-//
-//        JPanel welcomePanel=new JPanel();
-//        welcomePanel.add(welcome);
-//        JPanel uploadBtnPanel=new JPanel();
-//        uploadBtnPanel.add(uploadBtn);
-//
-//        // Add components to sub-panel
-////        subPanel = new JPanel(new GridLayout(3,1));
-////        subPanel.add(welcomePanel);
-////        subPanel.add(empty);
-////        subPanel.add(uploadBtnPanel);
-//
-//        return subPanel;
-//    }
 
     public static void setDisplay(){
         // Allows switching between panels

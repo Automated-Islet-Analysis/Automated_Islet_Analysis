@@ -115,6 +115,7 @@ public class ManualROISelection extends ImagePanel {
             }
         });
         jButton.setSize(100,30);
+        jButton.setName("confirm");
         // Button to cancel the addition of new ROIs/cells
         // Add action listener to close pop-up
         jButton1.addActionListener(new ActionListener() {

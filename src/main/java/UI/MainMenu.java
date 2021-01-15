@@ -125,14 +125,20 @@ public class MainMenu extends JMenuBar implements ActionListener {
     // Create data tab
     private JMenu getMenuData(){
         menuData = new JMenu("Data          ");
+        menuData.setName("Data");
         menuData.setFont(new Font(menuData.getFont().getName(), Font.BOLD, 15));
 
         // Data Dropdown
         dataROI = new JMenuItem("Regions of interest");
+        dataROI.setName("ROIs");
         subMenuMCVid = new JMenu("Motion corrected videos");
+        subMenuMCVid.setName("MCVideo");
         MCVidPlanar = new JMenuItem("Planar motion");
+        MCVidPlanar.setName("MCPlanar");
         MCVidDepth = new JMenuItem("Depth motion");
+        MCVidDepth.setName("MCDepth");
         dataData = new JMenuItem("Results");
+        dataData.setName("Results");
 
         // ActionListeners
         dataROI.addActionListener(this);

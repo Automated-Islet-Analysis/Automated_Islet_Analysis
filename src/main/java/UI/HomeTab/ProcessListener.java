@@ -46,6 +46,12 @@ public class ProcessListener implements ActionListener {
         mainPanel.add(checkROI);
         mainPanel.add(checkDepth);
 
+        error.setName("errorLabel");
+        perError.setName("perError");
+        checkPlanar.setName("checkPlanar");
+        checkROI.setName("checkROI");
+        checkDepth.setName("checkDepth");
+
         pop_up();
     }
 

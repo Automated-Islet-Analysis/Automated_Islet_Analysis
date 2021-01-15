@@ -32,6 +32,7 @@ public class ROIs extends ImagePanel {
 
         // Create elements
         addROI = new JButton("Add a region of interest");
+        addROI.setName("addROI");
         addROI.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

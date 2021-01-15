@@ -1,5 +1,4 @@
 import UI.Controller;
-import UI.HomeTab.Home;
 import org.fest.swing.core.*;
 import org.fest.swing.core.Robot;
 import org.fest.swing.finder.JFileChooserFinder;
@@ -10,8 +9,6 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import videoprocessing.Video;
-import videoprocessing.VideoProcessor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,13 +39,14 @@ public class TestHome {
         String label=controller.label("welcomeLabel").text();
         Assert.assertEquals("Welcome!",label);
         TimeUnit.SECONDS.sleep(1);
-        controller.button("button").click();
-
+        controller.button("UploadButton").click();
 
         JFileChooserFixture fileChooser = JFileChooserFinder.findFileChooser().withTimeout(10000).using(robotf);
         fileChooser.selectFiles(new File(System.getProperty("user.dir")+"/Video_for_Testing_short.tif"));
         TimeUnit.SECONDS.sleep(1);
         fileChooser.cancelButton().click();
+        controller.robot.click(controller.target,new Point(300,300));
+        Pause.pause(1000);
         TimeUnit.SECONDS.sleep(1);
         controller.button("analyse").click();
         TimeUnit.SECONDS.sleep(1);

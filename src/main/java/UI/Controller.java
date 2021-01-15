@@ -26,27 +26,16 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class Controller extends JFrame{
-    // Frame that hold UI
-//    private static JFrame interframe;
     private static Home home;
-
-
     private static boolean reshaping;
-
-
 
     // Constructor
     public Controller() {
         // Set default panel
         home=new Home();
 
-        // Set no actions performed
-//        fileUploaded=false;
-//        analysedImg = false;
-//        meanIntensityMeasured = false;
         reshaping=false;
 
-        // Set-up main frame of user-interface
         // Set-up main frame of user-interface
         this.setTitle("Automated analysis of Islet in eye");
         this.setSize(700, 700);
@@ -75,23 +64,9 @@ public class Controller extends JFrame{
         MainMenu mainMenu = new MainMenu();
         this.setJMenuBar(mainMenu);
 
-        // Create all the panel views
-//        rois = new ROIs();
-//        mcvidPlanar = new MCVideoPlanar();
-//        mcvidDepth = new MCVideoDepth();
-//        upload = new Uploaded();
-//        saveDepthVideo = new SaveDepthVideo();
-//        savedata=new SaveData();
-//        saveall=new SaveAll();
-//        saverois=new SaveROIs();
-//        saveplanarvideo=new SavePlanarVideo();
-
         // Set user interface visible
         this.setContentPane(home);
         this.setVisible(true);
     }
-
-    // Update panel displayed
-
 }
 
