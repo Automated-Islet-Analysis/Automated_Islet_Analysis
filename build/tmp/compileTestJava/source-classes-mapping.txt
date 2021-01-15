@@ -1,0 +1,6 @@
+videoprocessing/CompareImages.java
+ videoprocessing.CompareImages
+videoprocessing/MakeImage.java
+ videoprocessing.MakeImage
+videoprocessing/CombinerTest.java
+ videoprocessing.CombinerTest
