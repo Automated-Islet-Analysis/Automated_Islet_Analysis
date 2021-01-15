@@ -80,5 +80,5 @@ public abstract class VideoPanel extends DynamicPanel {
         timer.scheduleAtFixedRate(task,0,speed);
     }
 
-    public abstract void update();
+    public abstract void updatePanel();
 }

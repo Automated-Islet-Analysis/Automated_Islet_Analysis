@@ -73,7 +73,7 @@ public class Uploaded extends VideoPanel {
 
     @Override
     // Display components on frame
-    public void update() {
+    public void updatePanel() {
         if (video==null)
             this.video = new ImagePlus(filePath);
         BufferedImage img = video.getBufferedImage();

@@ -23,8 +23,8 @@ public class MCVideoDepth extends VideoPanel {
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        //Message pop
-        msg = new JLabel("Depth motion corrected video");
+        //Message
+        msg = new JLabel("Original video(left) and video with depth motion correction(right).");
         msg.setFont(new Font(msg.getFont().getFontName(),Font.BOLD,18));
         msg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
         add(Box.createVerticalStrut(25));
@@ -37,7 +37,7 @@ public class MCVideoDepth extends VideoPanel {
 
     @Override
     // Display video if depth motion correction has been executed
-    public void update(){
+    public void updatePanel(){
         this.video = Controller.getVideoProcessor().getDepthCorrectionVid();
 
         //Check if the video has already been analyzed

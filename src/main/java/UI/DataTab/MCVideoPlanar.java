@@ -24,7 +24,7 @@ public class MCVideoPlanar extends VideoPanel {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         // Title
-        msg = new JLabel("Planar motion corrected video");
+        msg = new JLabel("Original video(left) and video with planar motion correction(right).");
         msg.setFont(new Font(msg.getFont().getFontName(),Font.BOLD,18));
         msg.setAlignmentX(JComponent.CENTER_ALIGNMENT);
         add(Box.createVerticalStrut(25));
@@ -37,7 +37,7 @@ public class MCVideoPlanar extends VideoPanel {
 
     @Override
     // Display video if planar motion correction has been executed
-    public void update(){
+    public void updatePanel(){
         this.video = Controller.getVideoProcessor().getPlanarCorrectionVid();
 
         //Check if the video has already been analyzed

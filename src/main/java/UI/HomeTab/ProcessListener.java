@@ -116,7 +116,8 @@ public class ProcessListener implements ActionListener {
                 dialog.setVisible(false);
                 if(videoProcessorError[0]==VideoProcessorError.VIDEO_PROCESSOR_SUCCESS){
                     System.out.println("Processing done");
-                    JOptionPane.showMessageDialog(Controller.getInterframe(),"The processing is finished");
+                    JOptionPane.showMessageDialog(Controller.getInterframe(),"The processing is finished.\n" +
+                            " You can find the different results of the processing in the data tab.\n These results can be saved in the save tab.");
                 }else if (videoProcessorError[0]==VideoProcessorError.VIDEO_PROCESSOR_NOT_VIDEO_ERROR) {
                     System.out.println(videoProcessorError[0]);
                     JOptionPane.showOptionDialog(Controller.getInterframe(), "ERROR, the processing failed because the video is either corrupt or the video has only one frame!",

@@ -64,7 +64,7 @@ public class ManualROISelection extends ImagePanel {
         public void mouseExited(MouseEvent e) {}
     };
 
-    // Window listener to update image when window changes size
+    // Window listener to updatePanel image when window changes size
     private ComponentListener componentListener = new ComponentListener() {
         @Override
         public void componentResized(ComponentEvent e) {
@@ -158,7 +158,7 @@ public class ManualROISelection extends ImagePanel {
 
         BufferedImage image = new BufferedImage(image_.getWidth(),image_.getHeight(),BufferedImage.TYPE_INT_RGB);
         Graphics g = image.getGraphics();
-        g.setFont(new Font(this.image.getGraphics().getFont().getFontName(),Font.BOLD,14));
+        g.setFont(new Font(this.image.getGraphics().getFont().getFontName(),Font.BOLD,12));
         g.setColor(Color.BLUE);
         g.drawImage(image_,0,0,null);
 

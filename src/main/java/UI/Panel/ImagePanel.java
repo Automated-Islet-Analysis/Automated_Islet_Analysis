@@ -27,7 +27,7 @@ public abstract class ImagePanel extends DynamicPanel {
         imgDisp = new JLabel();
     }
 
-    // Function to update panel if needed
+    // Function to updatePanel panel if needed
     public abstract void updatePanel();
 
 }

@@ -15,6 +15,7 @@ import UI.DataTab.ROIs;
 import UI.DataTab.Results;
 import UI.HomeTab.Home;
 import UI.HomeTab.Uploaded;
+import UI.Panel.DynamicPanel;
 import UI.SaveTab.*;
 import videoprocessing.VideoProcessor;
 
@@ -30,6 +31,7 @@ public class Controller {
 
     // Stores which panel is being displayed
     private static String display;
+    private static String lastDisplay;
 
     // Panels of each part of menu
     private static Home home;
@@ -48,6 +50,7 @@ public class Controller {
     private static boolean fileUploaded;
     private static boolean analysedImg;
     private static  boolean meanIntensityMeasured;
+    private static boolean reshaping;
 
     // Stores backend
     private static VideoProcessor videoProcessor = new VideoProcessor(null);
@@ -80,6 +83,7 @@ public class Controller {
         fileUploaded=false;
         analysedImg = false;
         meanIntensityMeasured = false;
+        reshaping=false;
 
         // Set-up main frame of user-interface
         interframe = new JFrame("Automated analysis of Islet in eye");
@@ -93,7 +97,9 @@ public class Controller {
             // Update display if the window size changes
             @Override
             public void componentResized(ComponentEvent e) {
+                reshaping=true;
                 setDisplay();
+                reshaping=false;
             }
             @Override
             public void componentMoved(ComponentEvent e) {}
@@ -131,12 +137,14 @@ public class Controller {
             interframe.setContentPane(home);
             interframe.invalidate();
             interframe.validate();
+            lastDisplay = "home";
         }
         else if(display.equals("Upload")){
             interframe.setContentPane(upload);
-            upload.update();
+            upload.updatePanel();
             interframe.invalidate();
             interframe.validate();
+            lastDisplay = "Upload";
         }
         else if(display.equals("ROIs")){
             if (analysedImg){
@@ -144,6 +152,7 @@ public class Controller {
                 interframe.setContentPane(rois);
                 interframe.invalidate();
                 interframe.validate();
+                lastDisplay="ROIs";
             } else{
                 popupNoFileAnalysed();
             }
@@ -151,9 +160,10 @@ public class Controller {
         else if(display.equals("MCVideoPlanar")){
             if (analysedImg) {
                 interframe.setContentPane(mcvidPlanar);
-                mcvidPlanar.update();
+                mcvidPlanar.updatePanel();
                 interframe.invalidate();
                 interframe.validate();
+                lastDisplay="MCVideoPlanar";
             } else{
                 popupNoFileAnalysed();
             }
@@ -161,9 +171,10 @@ public class Controller {
         else if(display.equals("MCVideoDepth")){
             if (analysedImg) {
                 interframe.setContentPane(mcvidDepth);
-                mcvidDepth.update();
+                mcvidDepth.updatePanel();
                 interframe.invalidate();
                 interframe.validate();
+                lastDisplay="MCVideoDepth";
             } else{
                 popupNoFileAnalysed();
             }
@@ -175,20 +186,26 @@ public class Controller {
                 interframe.setContentPane(results);
                 interframe.invalidate();
                 interframe.validate();
+                lastDisplay="Results";
             } else{
                 popupNoFileAnalysed();
             }
         }
         else if(display.equals("SaveROIs")){
-            if (analysedImg) {
+            if(reshaping==true){
+                setDisplay(lastDisplay);
+            }
+            else if (analysedImg ) {
                 saverois.save();
-
             } else{
                 popupNoFileAnalysed();
             }
         }
         else if(display.equals("SaveData")){
-            if (analysedImg) {
+            if(reshaping==true){
+                setDisplay(lastDisplay);
+            }
+            else if (analysedImg ) {
                 savedata.save();
 
             } else{
@@ -196,7 +213,10 @@ public class Controller {
             }
         }
         else if(display.equals("SaveAll")){
-            if (analysedImg) {
+            if(reshaping==true){
+                setDisplay(lastDisplay);
+            }
+            else if (analysedImg) {
                 saveall.save();
 
             } else{
@@ -204,21 +224,25 @@ public class Controller {
             }
         }
         else if(display.equals("SaveDepthVideo")){
-            if (analysedImg) {
+            if(reshaping==true){
+                setDisplay(lastDisplay);
+            }
+            else if (analysedImg) {
                 saveDepthVideo.save();
             } else{
                 popupNoFileAnalysed();
             }
         }
         else if(display.equals("SavePlanarVideo")){
-            if (analysedImg) {
+            if(reshaping==true){
+                setDisplay(lastDisplay);
+            }
+            else if (analysedImg ) {
                 saveplanarvideo.save();
-
             } else{
                 popupNoFileAnalysed();
             }
         }
-
     }
 
     // Pop-up to prevent being able to see data or save results before they are generated

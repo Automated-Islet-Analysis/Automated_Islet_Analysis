@@ -24,8 +24,6 @@ public class DynamicPanel extends JPanel {
     // Constructor
     public DynamicPanel(){}
 
-
-
     // Resize image to fit on display - JFrame input
     protected BufferedImage resizeImage(BufferedImage imgIn, JFrame frame){
         int w,h;

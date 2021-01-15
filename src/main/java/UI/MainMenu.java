@@ -45,7 +45,7 @@ public class MainMenu extends JMenuBar implements ActionListener {
         String tabClicked = e.getActionCommand();
         // Changes display according to clicked menu item
         switch (tabClicked){
-            case "ROIs":
+            case "Regions of interest":
                 Controller.setDisplay("ROIs");
                 Controller.setDisplay();
                 break;
@@ -60,27 +60,27 @@ public class MainMenu extends JMenuBar implements ActionListener {
                 Controller.setDisplay();
                 break;
 
-            case "Save Data":
+            case "Save results":
                 Controller.setDisplay("SaveData") ;
                 Controller.setDisplay();
                 break;
 
-            case "Save ROIs":
+            case "Save regions of interest":
                 Controller.setDisplay("SaveROIs") ;
                 Controller.setDisplay();
                 break;
 
-            case "Save Planar Corrected Video":
+            case "Save video of planar motion correction":
                 Controller.setDisplay("SavePlanarVideo");
                 Controller.setDisplay();
                 break;
 
-            case "Save Depth Corrected Video":
+            case "Save video of depth motion correction":
                 Controller.setDisplay("SaveDepthVideo");
                 Controller.setDisplay();
                 break;
 
-            case "Save All":
+            case "Save all":
                 Controller.setDisplay("SaveAll");
                 Controller.setDisplay();
                 break;
@@ -126,8 +126,8 @@ public class MainMenu extends JMenuBar implements ActionListener {
         menuData.setFont(new Font(menuData.getFont().getName(), Font.BOLD, 15));
 
         // Data Dropdown
-        dataROI = new JMenuItem("Regions of Interest");
-        subMenuMCVid = new JMenu("Motion Corrected Videos");
+        dataROI = new JMenuItem("Regions of interest");
+        subMenuMCVid = new JMenu("Motion corrected videos");
         MCVidPlanar = new JMenuItem("Planar motion");
         MCVidDepth = new JMenuItem("Depth motion");
         dataData = new JMenuItem("Results");
