@@ -15,7 +15,6 @@ import UI.DataTab.ROIs;
 import UI.DataTab.Results;
 import UI.HomeTab.Home;
 import UI.HomeTab.Uploaded;
-import UI.Panel.DynamicPanel;
 import UI.SaveTab.*;
 import videoprocessing.VideoProcessor;
 
