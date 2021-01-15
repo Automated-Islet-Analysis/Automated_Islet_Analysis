@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="videoprocessing.CellTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-01-15T15:32:03" hostname="DESKTOP-HF1TTVU" time="0.008">
+  <properties/>
+  <testcase name="testSettingRoiIntracellular" classname="videoprocessing.CellTest" time="0.001"/>
+  <testcase name="testSavingMeanIntensityFile" classname="videoprocessing.CellTest" time="0.007"/>
+  <system-out><![CDATA[Planar Motion correction in progress
+Done
+Depth Motion correction in progress
+Done
+Searching for Beta-cells
+Done, found 27 cells
+Analysis Beta-cells
+Done
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

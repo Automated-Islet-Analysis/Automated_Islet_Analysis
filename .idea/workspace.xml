@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="450e1eba-0615-46d4-8cd7-6b46d25a3d50" name="Default Changelist" comment="Modified displays MCVideoDepth and MCVideoPlanar">
+      <change afterPath="$PROJECT_DIR$/Automate_Islet_Analysis-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_01_2021_21_08__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_01_2021_21_08__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransformParameters.0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TransformParameters.0.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoDepth.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoDepth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoPlanar.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/DataTab/MCVideoPlanar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/HomeTab/Home.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/HomeTab/Home.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/HomeTab/ProcessListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/HomeTab/ProcessListener$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/HomeTab/ProcessListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/HomeTab/ProcessListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/Panel/VideoPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/Panel/VideoPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveAll.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveAll.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveData.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveDepthVideo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveDepthVideo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SavePlanarVideo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SavePlanarVideo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveROIs.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UI/SaveTab/SaveROIs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/VideoProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/videoprocessing/VideoProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/CellAnalyzerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/CellFinderTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/CellTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/CellTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/DepthMotionCorrectorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/PlanarMotionCorrectorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/VideoProcessorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/videoprocessing/VideoProcessorTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT.tar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT/bin/CLAHE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT/bin/CLAHE.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT/lib/CLAHE-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT/lib/SimpleITKJava.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT/lib/apiguardian-api-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT/lib/ij.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT/lib/junit-jupiter-5.4.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT/lib/junit-jupiter-api-5.4.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT/lib/junit-jupiter-engine-5.4.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT/lib/junit-jupiter-params-5.4.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT/lib/junit-platform-commons-1.4.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT/lib/junit-platform-engine-1.4.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT/lib/opentest4j-1.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/CLAHE-1.0-SNAPSHOT/lib/simplelastix_2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/CLAHE-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/TransformParameters.0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/videoprocessing.CellAnalyzerTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/videoprocessing.CellFinderTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/videoprocessing.CellTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/videoprocessing.CellTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/videoprocessing.CombinerTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/videoprocessing.CombinerTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/videoprocessing.DepthMotionCorrectorTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/videoprocessing.PlanarMotionCorrectorTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/videoprocessing.VideoProcessorTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/videoprocessing.VideoProcessorTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/videoprocessing.VideoTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/videoprocessing.VideoTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/videoprocessing.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/videoprocessing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/CLAHE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/CLAHE.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-videoprocessing.CellAnalyzerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-videoprocessing.CellFinderTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-videoprocessing.CellTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-videoprocessing.CellTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-videoprocessing.CombinerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-videoprocessing.CombinerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-videoprocessing.DepthMotionCorrectorTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-videoprocessing.PlanarMotionCorrectorTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-videoprocessing.VideoProcessorTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-videoprocessing.VideoProcessorTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-videoprocessing.VideoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-videoprocessing.VideoTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/NewTiffReader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/TiffListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/10.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/11.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/12.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/13.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/14.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/15.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/16.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/17.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/18.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/19.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/20.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/21.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/22.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/23.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/24.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/25.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/26.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/27.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/28.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/30.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/31.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/32.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/33.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/34.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/35.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/36.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/37.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/38.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/39.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/4.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/40.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/41.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/42.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/43.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/44.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/45.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/46.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/47.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/48.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/49.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/5.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/50.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/51.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/52.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/53.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/54.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/55.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/56.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/57.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/58.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/59.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/6.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/60.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/61.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/62.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/63.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/64.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/65.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/66.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/67.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/7.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/8.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/MI_data/9.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/out1.avi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/out1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/out100.avi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/out100.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/out2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/test.asv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/test.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/test_motion_correct_1.avi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/img/test_motion_correct_100.avi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/libs/SimpleITKJava.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/libs/jai_codec-1.1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/libs/jai_core-1.1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/libs/jmf-2.1.1e.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/libs/nifti_io.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/libs/simpleitk-2.0.0rc2.dev908-g8244e.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/libs/simplelastix.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/libs/simplelastix_2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old/libs/sun-jai_codec.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoDepth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoDepth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoPlanar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/DataTab/MCVideoPlanar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/videoprocessing/CellTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/videoprocessing/CellTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/videoprocessing/VideoProcessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/videoprocessing/VideoProcessorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/10.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/11.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/12.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/13.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/14.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/15.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/16.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/17.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/18.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/19.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/20.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/21.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/22.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/23.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/24.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/25.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/26.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/4.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/5.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/6.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/7.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/8.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/MI_data/9.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/videos/Unit_testing/Video_for_Demo.tif" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Automate_Islet_Analysis" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Automate_Islet_Analysis" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Automate_Islet_Analysis" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Automate_Islet_Analysis" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Video_Processing" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1mO3JDUiwF1l7xOS4yQg5M0WyzL" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.47471264" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\olivi\OneDrive - Imperial College London\Year 3\Programming 3\Project\New_Image_treatment\Automated_Islet_Analysis" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\olivi\OneDrive - Imperial College London\Year 3\Programming 3\Project\New_Image_treatment\Image_treatment-\old" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.Image_treatment- [build]">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Image_treatment- [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Image_treatment- [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Image_treatment- [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--scan --scan" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Image_treatment- [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="VideoTest.testReadingFrames" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;videoprocessing.VideoTest.testReadingFrames&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Automate_Islet_Analysis" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Automate_Islet_Analysis" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.Image_treatment- [build]" />
+      <item itemvalue="Gradle.Image_treatment- [run]" />
+      <item itemvalue="Gradle.VideoTest.testReadingFrames" />
+      <item itemvalue="Gradle.Image_treatment- [clean]" />
+      <item itemvalue="Gradle.Image_treatment- [test]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Image_treatment- [build]" />
+        <item itemvalue="Gradle.Image_treatment- [clean]" />
+        <item itemvalue="Gradle.Image_treatment- [run]" />
+        <item itemvalue="Gradle.Image_treatment- [test]" />
+        <item itemvalue="Gradle.VideoTest.testReadingFrames" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="450e1eba-0615-46d4-8cd7-6b46d25a3d50" name="Default Changelist" comment="" />
+      <created>1609350738480</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609350738480</updated>
+      <workItem from="1609350740030" duration="668000" />
+      <workItem from="1609351423967" duration="9512000" />
+      <workItem from="1609599441574" duration="1231000" />
+      <workItem from="1609676008686" duration="1032000" />
+      <workItem from="1609888231176" duration="777000" />
+      <workItem from="1609969026094" duration="955000" />
+      <workItem from="1610030123638" duration="11455000" />
+      <workItem from="1610041858129" duration="4803000" />
+      <workItem from="1610099584170" duration="4489000" />
+      <workItem from="1610125607996" duration="14521000" />
+      <workItem from="1610276016197" duration="966000" />
+      <workItem from="1610368146406" duration="149000" />
+      <workItem from="1610375431002" duration="4518000" />
+      <workItem from="1610380136895" duration="7651000" />
+      <workItem from="1610400426076" duration="292000" />
+      <workItem from="1610400857670" duration="1745000" />
+      <workItem from="1610464186440" duration="374000" />
+      <workItem from="1610641563040" duration="10629000" />
+      <workItem from="1610667586770" duration="2013000" />
+      <workItem from="1610721356815" duration="3611000" />
+    </task>
+    <task id="LOCAL-00001" summary="CombinerTest added">
+      <created>1609532012958</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609532012958</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Encapsulation of Home">
+      <created>1609599547966</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609599547966</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Help Message in AnalyseListener">
+      <created>1609600474959</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609600474959</updated>
+    </task>
+    <task id="LOCAL-00004" summary="CellTest added">
+      <created>1610057327794</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610057327794</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added files for testing">
+      <created>1610058256578</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1610058256578</updated>
+    </task>
+    <task id="LOCAL-00006" summary="VideoProcessorTest added">
+      <created>1610060227386</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610060227386</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Modified Controller for constant frame size. Fixed Results display">
+      <created>1610101805850</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610101805850</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Modified displays MCVideoDepth and MCVideoPlanar">
+      <created>1610103281771</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610103281772</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="CombinerTest added" />
+    <MESSAGE value="encapsulation Home" />
+    <MESSAGE value="Encapsulation of Home" />
+    <MESSAGE value="Help Message in AnalyseListener" />
+    <MESSAGE value="CellTest added" />
+    <MESSAGE value="Added files for testing" />
+    <MESSAGE value="VideoProcessorTest added" />
+    <MESSAGE value="Modified Controller for constant frame size. Fixed Results display" />
+    <MESSAGE value="Modified displays MCVideoDepth and MCVideoPlanar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified displays MCVideoDepth and MCVideoPlanar" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1492" height="204" key="GridCell.Tab.0.bottom" timestamp="1610724972437">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="204" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1610724972437" />
+    <state width="1492" height="204" key="GridCell.Tab.0.center" timestamp="1610724972437">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="204" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1610724972437" />
+    <state width="1492" height="204" key="GridCell.Tab.0.left" timestamp="1610724972437">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="204" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1610724972437" />
+    <state width="1492" height="204" key="GridCell.Tab.0.right" timestamp="1610724972437">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="204" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1610724972437" />
+    <state x="249" y="7" width="1154" height="850" key="SettingsEditor" timestamp="1610721712524">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="249" y="7" width="1154" height="850" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1610721712524" />
+    <state x="267" y="43" key="new project wizard" timestamp="1610721652820">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="267" y="43" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1610721652820" />
+  </component>
+</project>

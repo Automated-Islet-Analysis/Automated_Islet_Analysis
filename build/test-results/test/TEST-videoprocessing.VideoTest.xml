@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="videoprocessing.VideoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-15T15:32:27" hostname="DESKTOP-HF1TTVU" time="0.722">
+  <properties/>
+  <testcase name="testReadingFrames" classname="videoprocessing.VideoTest" time="0.722"/>
+  <system-out><![CDATA[C:\Users\olivi\OneDrive - Imperial College London\Year 3\Programming 3\Project\New_Image_treatment\Automated_Islet_Analysis\videos
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

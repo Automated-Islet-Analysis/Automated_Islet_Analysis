@@ -1,9 +1,26 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
-version '1.0-SNAPSHOT'
+jar {
+    manifest {
+        attributes "Main-Class": "Main"
+    }
 
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+
+application{
+    mainClassName='Main'
+}
+
+
+version '1.0-SNAPSHOT'
+group 'org.example'
 sourceCompatibility = 1.8
 
 repositories {
@@ -11,5 +28,8 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

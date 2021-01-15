@@ -1,0 +1,837 @@
+Index: src/test/java/TestHome.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import UI.Controller;\r\nimport UI.HomeTab.Home;\r\nimport org.fest.swing.core.*;\r\nimport org.fest.swing.core.Robot;\r\nimport org.fest.swing.finder.JFileChooserFinder;\r\nimport org.fest.swing.fixture.*;\r\nimport org.fest.swing.timing.Condition;\r\nimport org.fest.swing.timing.Pause;\r\nimport org.junit.After;\r\nimport org.junit.Assert;\r\nimport org.junit.Before;\r\nimport org.junit.Test;\r\nimport videoprocessing.Video;\r\nimport videoprocessing.VideoProcessor;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.io.*;\r\nimport java.util.Collection;\r\nimport java.util.concurrent.TimeUnit;\r\n\r\n\r\npublic class TestHome {\r\n    static private FrameFixture controller;\r\n    static private Robot robotf=BasicRobot.robotWithNewAwtHierarchy();\r\n    private volatile ByteArrayOutputStream outputStreamCaptor=new ByteArrayOutputStream();\r\n\r\n    @Before\r\n    public void setUp() throws InterruptedException {\r\n        controller=new FrameFixture(robotf,new Controller());\r\n        System.setOut(new PrintStream(outputStreamCaptor));\r\n    }\r\n\r\n    @After\r\n    public void tearDown(){\r\n        controller.cleanUp();\r\n        robotf.cleanUp();\r\n    }\r\n\r\n    @Test\r\n    public void testController() throws InterruptedException {\r\n        String label=controller.label(\"welcomeLabel\").text();\r\n        Assert.assertEquals(\"Welcome!\",label);\r\n        TimeUnit.SECONDS.sleep(1);\r\n        controller.button(\"button\").click();\r\n\r\n\r\n        JFileChooserFixture fileChooser = JFileChooserFinder.findFileChooser().withTimeout(10000).using(robotf);\r\n        fileChooser.selectFiles(new File(System.getProperty(\"user.dir\")+\"/img/TestFrame.tif\"));\r\n        TimeUnit.SECONDS.sleep(1);\r\n        fileChooser.cancelButton().click();\r\n        TimeUnit.SECONDS.sleep(1);\r\n        controller.button(\"analyse\").click();\r\n        TimeUnit.SECONDS.sleep(1);\r\n        controller.optionPane().textBox(\"perError\").selectText(0,2);\r\n        controller.optionPane().textBox(\"perError\").enterText(\"10\");\r\n        TimeUnit.SECONDS.sleep(1);\r\n        controller.optionPane().checkBox(\"checkPlanar\").click();\r\n        TimeUnit.SECONDS.sleep(1);\r\n        controller.optionPane().checkBox(\"checkDepth\").click();\r\n        TimeUnit.SECONDS.sleep(1);\r\n        controller.optionPane().checkBox(\"checkROI\").click();\r\n\r\n        TimeUnit.SECONDS.sleep(1);\r\n        controller.optionPane().buttonWithText(\"Ok\").click();\r\n\r\n        final ComponentMatcher matcher=new TypeMatcher(JOptionPane.class);\r\n        Pause.pause(new Condition(\"Waiting for processing\") {\r\n            @Override\r\n            public boolean test() {\r\n                Collection<Component> list=\r\n                        controller.robot.finder().findAll(controller.target,matcher);\r\n                return list.size()>0;\r\n            }\r\n        },100000);\r\n\r\n        controller.optionPane().dialog().close();\r\n\r\n        controller.button(\"analyse\").click();\r\n        TimeUnit.SECONDS.sleep(1);\r\n        controller.optionPane().buttonWithText(\"Help\").click();\r\n        TimeUnit.SECONDS.sleep(1);\r\n\r\n        controller.optionPane().dialog().close();\r\n\r\n        controller.button(\"analyse\").click();\r\n        TimeUnit.SECONDS.sleep(1);\r\n        controller.optionPane().buttonWithText(\"Cancel\").click();\r\n        TimeUnit.SECONDS.sleep(1);\r\n        }\r\n    }\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/TestHome.java b/src/test/java/TestHome.java
+--- a/src/test/java/TestHome.java	(revision 1cf309e361c795027aaaf629f8b5ff94598039cb)
++++ b/src/test/java/TestHome.java	(date 1610658459607)
+@@ -46,7 +46,7 @@
+ 
+ 
+         JFileChooserFixture fileChooser = JFileChooserFinder.findFileChooser().withTimeout(10000).using(robotf);
+-        fileChooser.selectFiles(new File(System.getProperty("user.dir")+"/img/TestFrame.tif"));
++        fileChooser.selectFiles(new File(System.getProperty("user.dir")+"/Video_for_Demo.tif"));
+         TimeUnit.SECONDS.sleep(1);
+         fileChooser.cancelButton().click();
+         TimeUnit.SECONDS.sleep(1);
+Index: src/test/java/TestData.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import UI.Controller;\r\nimport UI.HomeTab.Home;\r\nimport org.fest.swing.core.BasicRobot;\r\nimport org.fest.swing.core.Robot;\r\nimport org.fest.swing.fixture.FrameFixture;\r\nimport org.junit.After;\r\nimport org.junit.Before;\r\nimport org.junit.Test;\r\nimport videoprocessing.Video;\r\nimport videoprocessing.VideoProcessor;\r\n\r\nimport java.io.ByteArrayOutputStream;\r\nimport java.io.IOException;\r\nimport java.io.PrintStream;\r\nimport java.util.concurrent.TimeUnit;\r\n\r\n    public class TestData {\r\n        static private Robot robotf=BasicRobot.robotWithNewAwtHierarchy();\r\n        static private FrameFixture controller;\r\n\r\n        private final ByteArrayOutputStream outputStreamCaptor=new ByteArrayOutputStream();\r\n\r\n\r\n\r\n        @Before\r\n        public void setUp(){\r\n            String filepath=System.getProperty(\"user.dir\")+\"/Video_for_Demo.tif\";\r\n            Video video =new Video(filepath);\r\n            VideoProcessor videoProcessor=new VideoProcessor(video);\r\n\r\n            videoProcessor.process(10,true,true,true);\r\n\r\n            Home.setVideoProcessor(videoProcessor);\r\n\r\n            controller=new FrameFixture(robotf,new Controller());\r\n            System.setOut(new PrintStream(outputStreamCaptor));\r\n        }\r\n\r\n        @After\r\n        public void tearDown(){\r\n            robotf.cleanUp();\r\n            controller.cleanUp();\r\n\r\n\r\n        }\r\n\r\n        @Test\r\n        public void testController() throws InterruptedException, IOException {\r\n            Home.setFileUploaded(true);\r\n            Home.setAnalysedImg(true);\r\n\r\n            controller.menuItem(\"Data\").click();\r\n            TimeUnit.SECONDS.sleep(1);\r\n            controller.menuItem(\"ROIs\").click();\r\n            TimeUnit.SECONDS.sleep(1);\r\n\r\n            controller.menuItem(\"Data\").click();\r\n            controller.menuItem(\"Results\").click();\r\n            TimeUnit.SECONDS.sleep(1);\r\n\r\n            controller.menuItem(\"Data\").click();\r\n            controller.menuItem(\"MCVideo\").click();\r\n            TimeUnit.SECONDS.sleep(1);\r\n            controller.menuItem(\"MCPlanar\").click();\r\n\r\n            controller.menuItem(\"Data\").click();\r\n            controller.menuItem(\"MCVideo\").click();\r\n            TimeUnit.SECONDS.sleep(1);\r\n            controller.menuItem(\"MCDepth\").click();\r\n\r\n        }\r\n    }\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/TestData.java b/src/test/java/TestData.java
+--- a/src/test/java/TestData.java	(revision 1cf309e361c795027aaaf629f8b5ff94598039cb)
++++ b/src/test/java/TestData.java	(date 1610658346583)
+@@ -14,59 +14,59 @@
+ import java.io.PrintStream;
+ import java.util.concurrent.TimeUnit;
+ 
+-    public class TestData {
+-        static private Robot robotf=BasicRobot.robotWithNewAwtHierarchy();
+-        static private FrameFixture controller;
+-
+-        private final ByteArrayOutputStream outputStreamCaptor=new ByteArrayOutputStream();
+-
+-
+-
+-        @Before
+-        public void setUp(){
+-            String filepath=System.getProperty("user.dir")+"/Video_for_Demo.tif";
+-            Video video =new Video(filepath);
+-            VideoProcessor videoProcessor=new VideoProcessor(video);
+-
+-            videoProcessor.process(10,true,true,true);
+-
+-            Home.setVideoProcessor(videoProcessor);
+-
+-            controller=new FrameFixture(robotf,new Controller());
+-            System.setOut(new PrintStream(outputStreamCaptor));
+-        }
+-
+-        @After
+-        public void tearDown(){
+-            robotf.cleanUp();
+-            controller.cleanUp();
+-
+-
+-        }
+-
+-        @Test
+-        public void testController() throws InterruptedException, IOException {
+-            Home.setFileUploaded(true);
+-            Home.setAnalysedImg(true);
+-
+-            controller.menuItem("Data").click();
+-            TimeUnit.SECONDS.sleep(1);
+-            controller.menuItem("ROIs").click();
+-            TimeUnit.SECONDS.sleep(1);
+-
+-            controller.menuItem("Data").click();
+-            controller.menuItem("Results").click();
+-            TimeUnit.SECONDS.sleep(1);
+-
+-            controller.menuItem("Data").click();
+-            controller.menuItem("MCVideo").click();
+-            TimeUnit.SECONDS.sleep(1);
+-            controller.menuItem("MCPlanar").click();
+-
+-            controller.menuItem("Data").click();
+-            controller.menuItem("MCVideo").click();
+-            TimeUnit.SECONDS.sleep(1);
+-            controller.menuItem("MCDepth").click();
+-
+-        }
+-    }
++//    public class TestData {
++//        static private Robot robotf=BasicRobot.robotWithNewAwtHierarchy();
++//        static private FrameFixture controller;
++//
++//        private final ByteArrayOutputStream outputStreamCaptor=new ByteArrayOutputStream();
++//
++//
++//
++//        @Before
++//        public void setUp(){
++//            String filepath=System.getProperty("user.dir")+"/Video_for_Demo.tif";
++//            Video video =new Video(filepath);
++//            VideoProcessor videoProcessor=new VideoProcessor(video);
++//
++//            videoProcessor.process(10,true,true,true);
++//
++//            Home.setVideoProcessor(videoProcessor);
++//
++//            controller=new FrameFixture(robotf,new Controller());
++//            System.setOut(new PrintStream(outputStreamCaptor));
++//        }
++//
++//        @After
++//        public void tearDown(){
++//            robotf.cleanUp();
++//            controller.cleanUp();
++//
++//
++//        }
++//
++//        @Test
++//        public void testController() throws InterruptedException, IOException {
++//            Home.setFileUploaded(true);
++//            Home.setAnalysedImg(true);
++//
++//            controller.menuItem("Data").click();
++//            TimeUnit.SECONDS.sleep(1);
++//            controller.menuItem("ROIs").click();
++//            TimeUnit.SECONDS.sleep(1);
++//
++//            controller.menuItem("Data").click();
++//            controller.menuItem("Results").click();
++//            TimeUnit.SECONDS.sleep(1);
++//
++//            controller.menuItem("Data").click();
++//            controller.menuItem("MCVideo").click();
++//            TimeUnit.SECONDS.sleep(1);
++//            controller.menuItem("MCPlanar").click();
++//
++//            controller.menuItem("Data").click();
++//            controller.menuItem("MCVideo").click();
++//            TimeUnit.SECONDS.sleep(1);
++//            controller.menuItem("MCDepth").click();
++//
++//        }
++//    }
+Index: build/test-results/test/TEST-TestData.xml
+===================================================================
+diff --git a/build/test-results/test/TEST-TestData.xml b/build/test-results/test/TEST-TestData.xml
+deleted file mode 100644
+--- a/build/test-results/test/TEST-TestData.xml	(revision 1cf309e361c795027aaaf629f8b5ff94598039cb)
++++ /dev/null	(revision 1cf309e361c795027aaaf629f8b5ff94598039cb)
+@@ -1,13 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="TestData" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-14T19:15:01" hostname="DESKTOP-867OUMT" time="103.743">
+-  <properties/>
+-  <testcase name="testController" classname="TestData" time="103.743"/>
+-  <system-out><![CDATA[Planar Motion correction in progress
+-Done
+-Depth Motion correction in progress
+-Done
+-Searching for Beta-cells
+-Done, found 48 cells
+-]]></system-out>
+-  <system-err><![CDATA[]]></system-err>
+-</testsuite>
+Index: build/reports/tests/test/classes/TestData.html
+===================================================================
+diff --git a/build/reports/tests/test/classes/TestData.html b/build/reports/tests/test/classes/TestData.html
+deleted file mode 100644
+--- a/build/reports/tests/test/classes/TestData.html	(revision 1cf309e361c795027aaaf629f8b5ff94598039cb)
++++ /dev/null	(revision 1cf309e361c795027aaaf629f8b5ff94598039cb)
+@@ -1,111 +0,0 @@
+-<!DOCTYPE html>
+-<html>
+-<head>
+-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+-<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+-<title>Test results - Class TestData</title>
+-<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+-<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+-<script src="../js/report.js" type="text/javascript"></script>
+-</head>
+-<body>
+-<div id="content">
+-<h1>Class TestData</h1>
+-<div class="breadcrumbs">
+-<a href="../index.html">all</a> &gt; 
+-<a href="../packages/default-package.html">default-package</a> &gt; TestData</div>
+-<div id="summary">
+-<table>
+-<tr>
+-<td>
+-<div class="summaryGroup">
+-<table>
+-<tr>
+-<td>
+-<div class="infoBox" id="tests">
+-<div class="counter">1</div>
+-<p>tests</p>
+-</div>
+-</td>
+-<td>
+-<div class="infoBox" id="failures">
+-<div class="counter">0</div>
+-<p>failures</p>
+-</div>
+-</td>
+-<td>
+-<div class="infoBox" id="ignored">
+-<div class="counter">0</div>
+-<p>ignored</p>
+-</div>
+-</td>
+-<td>
+-<div class="infoBox" id="duration">
+-<div class="counter">1m43.74s</div>
+-<p>duration</p>
+-</div>
+-</td>
+-</tr>
+-</table>
+-</div>
+-</td>
+-<td>
+-<div class="infoBox success" id="successRate">
+-<div class="percent">100%</div>
+-<p>successful</p>
+-</div>
+-</td>
+-</tr>
+-</table>
+-</div>
+-<div id="tabs">
+-<ul class="tabLinks">
+-<li>
+-<a href="#tab0">Tests</a>
+-</li>
+-<li>
+-<a href="#tab1">Standard output</a>
+-</li>
+-</ul>
+-<div id="tab0" class="tab">
+-<h2>Tests</h2>
+-<table>
+-<thead>
+-<tr>
+-<th>Test</th>
+-<th>Duration</th>
+-<th>Result</th>
+-</tr>
+-</thead>
+-<tr>
+-<td class="success">testController</td>
+-<td class="success">1m43.74s</td>
+-<td class="success">passed</td>
+-</tr>
+-</table>
+-</div>
+-<div id="tab1" class="tab">
+-<h2>Standard output</h2>
+-<span class="code">
+-<pre>Planar Motion correction in progress
+-Done
+-Depth Motion correction in progress
+-Done
+-Searching for Beta-cells
+-Done, found 48 cells
+-</pre>
+-</span>
+-</div>
+-</div>
+-<div id="footer">
+-<p>
+-<div>
+-<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+-<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+-</label>
+-</div>Generated by 
+-<a href="http://www.gradle.org">Gradle 6.3</a> at 14 Jan 2021, 19:17:04</p>
+-</div>
+-</div>
+-</body>
+-</html>
+Index: build/test-results/test/TEST-TestHome.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<testsuite name=\"TestHome\" tests=\"1\" skipped=\"0\" failures=\"0\" errors=\"0\" timestamp=\"2021-01-14T19:16:46\" hostname=\"DESKTOP-867OUMT\" time=\"18.046\">\r\n  <properties/>\r\n  <testcase name=\"testController\" classname=\"TestHome\" time=\"18.046\"/>\r\n  <system-out><![CDATA[]]></system-out>\r\n  <system-err><![CDATA[]]></system-err>\r\n</testsuite>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build/test-results/test/TEST-TestHome.xml b/build/test-results/test/TEST-TestHome.xml
+--- a/build/test-results/test/TEST-TestHome.xml	(revision 1cf309e361c795027aaaf629f8b5ff94598039cb)
++++ b/build/test-results/test/TEST-TestHome.xml	(date 1610658476557)
+@@ -1,7 +1,102 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="TestHome" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-14T19:16:46" hostname="DESKTOP-867OUMT" time="18.046">
++<testsuite name="TestHome" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-01-14T21:07:43" hostname="DESKTOP-867OUMT" time="13.116">
+   <properties/>
+-  <testcase name="testController" classname="TestHome" time="18.046"/>
++  <testcase name="testController" classname="TestHome" time="13.116">
++    <failure message="org.fest.swing.exception.WaitTimedOutError: Timed out waiting for option pane to be found using matcher org.fest.swing.core.TypeMatcher[type=javax.swing.JOptionPane, requireShowing=true]&#13;&#10;Unable to find component using matcher org.fest.swing.core.TypeMatcher[type=javax.swing.JOptionPane, requireShowing=true].&#13;&#10;&#13;&#10;Component hierarchy:&#13;&#10;UI.Controller[name='frame0', title='Automated analysis of Islet in eye', enabled=true, visible=true, showing=true]&#13;&#10;  javax.swing.JRootPane[]&#13;&#10;    javax.swing.JPanel[name='null.glassPane']&#13;&#10;    javax.swing.JLayeredPane[]&#13;&#10;      UI.HomeTab.MainMenu[]&#13;&#10;        javax.swing.JMenu[name='Home', text='Home          ', selected=false, enabled=true, visible=true, showing=true]&#13;&#10;          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]&#13;&#10;        javax.swing.JMenu[name='Data', text='Data          ', selected=false, enabled=true, visible=true, showing=true]&#13;&#10;          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]&#13;&#10;            javax.swing.JMenuItem[name='ROIs', text='ROIs', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;            javax.swing.JMenu[name='MCVideo', text='Motion Corrected Video', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;              javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]&#13;&#10;                javax.swing.JMenuItem[name='MCPlanar', text='Planar motion', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;                javax.swing.JMenuItem[name='MCDepth', text='Depth motion', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;            javax.swing.JMenuItem[name='Results', text='Results', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;        javax.swing.JMenu[name=null, text='Save          ', selected=false, enabled=true, visible=true, showing=true]&#13;&#10;          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]&#13;&#10;            javax.swing.JMenuItem[name=null, text='Save ROIs', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;            javax.swing.JMenuItem[name=null, text='Save Planar Corrected Video', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;            javax.swing.JMenuItem[name=null, text='Save Depth Corrected Video', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;            javax.swing.JMenuItem[name=null, text='Save Results', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;            javax.swing.JMenuItem[name=null, text='Save All', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;      UI.HomeTab.Home[name=null]&#13;&#10;        javax.swing.JPanel[name=null]&#13;&#10;          UI.HomeTab.Uploaded[name=null]&#13;&#10;            javax.swing.JLabel[name=null, text='', enabled=true, visible=true, showing=true]&#13;&#10;            javax.swing.JLabel[name=null, text='Video_for_Demo.tif', enabled=true, visible=true, showing=true]&#13;&#10;            javax.swing.Box$Filler[,0,510,684x10,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=java.awt.Dimension[width=32767,height=10],minimumSize=java.awt.Dimension[width=0,height=10],preferredSize=java.awt.Dimension[width=0,height=10]]&#13;&#10;            javax.swing.JPanel[name=null]&#13;&#10;              javax.swing.JPanel[name=null]&#13;&#10;                javax.swing.JButton[name=null, text='Upload', enabled=true, visible=true, showing=true]&#13;&#10;                javax.swing.JButton[name='analyse', text='Analyse', enabled=true, visible=true, showing=true]&#13;&#10;            javax.swing.Box$Filler[,0,624,684x10,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=java.awt.Dimension[width=32767,height=10],minimumSize=java.awt.Dimension[width=0,height=10],preferredSize=java.awt.Dimension[width=0,height=10]]&#13;&#10;" type="org.fest.swing.exception.WaitTimedOutError">org.fest.swing.exception.WaitTimedOutError: Timed out waiting for option pane to be found using matcher org.fest.swing.core.TypeMatcher[type=javax.swing.JOptionPane, requireShowing=true]
++Unable to find component using matcher org.fest.swing.core.TypeMatcher[type=javax.swing.JOptionPane, requireShowing=true].
++
++Component hierarchy:
++UI.Controller[name='frame0', title='Automated analysis of Islet in eye', enabled=true, visible=true, showing=true]
++  javax.swing.JRootPane[]
++    javax.swing.JPanel[name='null.glassPane']
++    javax.swing.JLayeredPane[]
++      UI.HomeTab.MainMenu[]
++        javax.swing.JMenu[name='Home', text='Home          ', selected=false, enabled=true, visible=true, showing=true]
++          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]
++        javax.swing.JMenu[name='Data', text='Data          ', selected=false, enabled=true, visible=true, showing=true]
++          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]
++            javax.swing.JMenuItem[name='ROIs', text='ROIs', selected=false, enabled=true, visible=true, showing=false]
++            javax.swing.JMenu[name='MCVideo', text='Motion Corrected Video', selected=false, enabled=true, visible=true, showing=false]
++              javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]
++                javax.swing.JMenuItem[name='MCPlanar', text='Planar motion', selected=false, enabled=true, visible=true, showing=false]
++                javax.swing.JMenuItem[name='MCDepth', text='Depth motion', selected=false, enabled=true, visible=true, showing=false]
++            javax.swing.JMenuItem[name='Results', text='Results', selected=false, enabled=true, visible=true, showing=false]
++        javax.swing.JMenu[name=null, text='Save          ', selected=false, enabled=true, visible=true, showing=true]
++          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]
++            javax.swing.JMenuItem[name=null, text='Save ROIs', selected=false, enabled=true, visible=true, showing=false]
++            javax.swing.JMenuItem[name=null, text='Save Planar Corrected Video', selected=false, enabled=true, visible=true, showing=false]
++            javax.swing.JMenuItem[name=null, text='Save Depth Corrected Video', selected=false, enabled=true, visible=true, showing=false]
++            javax.swing.JMenuItem[name=null, text='Save Results', selected=false, enabled=true, visible=true, showing=false]
++            javax.swing.JMenuItem[name=null, text='Save All', selected=false, enabled=true, visible=true, showing=false]
++      UI.HomeTab.Home[name=null]
++        javax.swing.JPanel[name=null]
++          UI.HomeTab.Uploaded[name=null]
++            javax.swing.JLabel[name=null, text='', enabled=true, visible=true, showing=true]
++            javax.swing.JLabel[name=null, text='Video_for_Demo.tif', enabled=true, visible=true, showing=true]
++            javax.swing.Box$Filler[,0,510,684x10,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=java.awt.Dimension[width=32767,height=10],minimumSize=java.awt.Dimension[width=0,height=10],preferredSize=java.awt.Dimension[width=0,height=10]]
++            javax.swing.JPanel[name=null]
++              javax.swing.JPanel[name=null]
++                javax.swing.JButton[name=null, text='Upload', enabled=true, visible=true, showing=true]
++                javax.swing.JButton[name='analyse', text='Analyse', enabled=true, visible=true, showing=true]
++            javax.swing.Box$Filler[,0,624,684x10,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=java.awt.Dimension[width=32767,height=10],minimumSize=java.awt.Dimension[width=0,height=10],preferredSize=java.awt.Dimension[width=0,height=10]]
++
++	at org.fest.swing.timing.Pause.timeoutExpired(Pause.java:83)
++	at org.fest.swing.timing.Pause.pause(Pause.java:75)
++	at org.fest.swing.timing.Pause.pause(Pause.java:59)
++	at org.fest.swing.fixture.ContainerFixture.optionPane(ContainerFixture.java:291)
++	at org.fest.swing.fixture.ContainerFixture.optionPane(ContainerFixture.java:283)
++	at TestHome.testController(TestHome.java:62)
++	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
++	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
++	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
++	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
++	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
++	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
++	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
++	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
++	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
++	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
++	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
++	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
++	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
++	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
++	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
++	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
++	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
++	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
++	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
++	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
++	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
++	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
++	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
++	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
++	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
++	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
++	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
++	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
++	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
++	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
++	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
++	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
++	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
++	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:118)
++	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
++	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
++	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
++	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
++	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
++	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
++	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
++	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
++	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:412)
++	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
++	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
++	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
++	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
++	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
++	at java.base/java.lang.Thread.run(Thread.java:832)
++</failure>
++  </testcase>
+   <system-out><![CDATA[]]></system-out>
+   <system-err><![CDATA[]]></system-err>
+ </testsuite>
+Index: build/reports/tests/test/packages/default-package.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\r\n<meta http-equiv=\"x-ua-compatible\" content=\"IE=edge\"/>\r\n<title>Test results - Default package</title>\r\n<link href=\"../css/base-style.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n<link href=\"../css/style.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n<script src=\"../js/report.js\" type=\"text/javascript\"></script>\r\n</head>\r\n<body>\r\n<div id=\"content\">\r\n<h1>Default package</h1>\r\n<div class=\"breadcrumbs\">\r\n<a href=\"../index.html\">all</a> &gt; default-package</div>\r\n<div id=\"summary\">\r\n<table>\r\n<tr>\r\n<td>\r\n<div class=\"summaryGroup\">\r\n<table>\r\n<tr>\r\n<td>\r\n<div class=\"infoBox\" id=\"tests\">\r\n<div class=\"counter\">2</div>\r\n<p>tests</p>\r\n</div>\r\n</td>\r\n<td>\r\n<div class=\"infoBox\" id=\"failures\">\r\n<div class=\"counter\">0</div>\r\n<p>failures</p>\r\n</div>\r\n</td>\r\n<td>\r\n<div class=\"infoBox\" id=\"ignored\">\r\n<div class=\"counter\">0</div>\r\n<p>ignored</p>\r\n</div>\r\n</td>\r\n<td>\r\n<div class=\"infoBox\" id=\"duration\">\r\n<div class=\"counter\">2m1.79s</div>\r\n<p>duration</p>\r\n</div>\r\n</td>\r\n</tr>\r\n</table>\r\n</div>\r\n</td>\r\n<td>\r\n<div class=\"infoBox success\" id=\"successRate\">\r\n<div class=\"percent\">100%</div>\r\n<p>successful</p>\r\n</div>\r\n</td>\r\n</tr>\r\n</table>\r\n</div>\r\n<div id=\"tabs\">\r\n<ul class=\"tabLinks\">\r\n<li>\r\n<a href=\"#tab0\">Classes</a>\r\n</li>\r\n</ul>\r\n<div id=\"tab0\" class=\"tab\">\r\n<h2>Classes</h2>\r\n<table>\r\n<thread>\r\n<tr>\r\n<th>Class</th>\r\n<th>Tests</th>\r\n<th>Failures</th>\r\n<th>Ignored</th>\r\n<th>Duration</th>\r\n<th>Success rate</th>\r\n</tr>\r\n</thread>\r\n<tr>\r\n<td class=\"success\">\r\n<a href=\"../classes/TestData.html\">TestData</a>\r\n</td>\r\n<td>1</td>\r\n<td>0</td>\r\n<td>0</td>\r\n<td>1m43.74s</td>\r\n<td class=\"success\">100%</td>\r\n</tr>\r\n<tr>\r\n<td class=\"success\">\r\n<a href=\"../classes/TestHome.html\">TestHome</a>\r\n</td>\r\n<td>1</td>\r\n<td>0</td>\r\n<td>0</td>\r\n<td>18.046s</td>\r\n<td class=\"success\">100%</td>\r\n</tr>\r\n</table>\r\n</div>\r\n</div>\r\n<div id=\"footer\">\r\n<p>\r\n<div>\r\n<label class=\"hidden\" id=\"label-for-line-wrapping-toggle\" for=\"line-wrapping-toggle\">Wrap lines\r\n<input id=\"line-wrapping-toggle\" type=\"checkbox\" autocomplete=\"off\"/>\r\n</label>\r\n</div>Generated by \r\n<a href=\"http://www.gradle.org\">Gradle 6.3</a> at 14 Jan 2021, 19:17:04</p>\r\n</div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build/reports/tests/test/packages/default-package.html b/build/reports/tests/test/packages/default-package.html
+--- a/build/reports/tests/test/packages/default-package.html	(revision 1cf309e361c795027aaaf629f8b5ff94598039cb)
++++ b/build/reports/tests/test/packages/default-package.html	(date 1610658476568)
+@@ -22,13 +22,13 @@
+ <tr>
+ <td>
+ <div class="infoBox" id="tests">
+-<div class="counter">2</div>
++<div class="counter">1</div>
+ <p>tests</p>
+ </div>
+ </td>
+ <td>
+ <div class="infoBox" id="failures">
+-<div class="counter">0</div>
++<div class="counter">1</div>
+ <p>failures</p>
+ </div>
+ </td>
+@@ -40,7 +40,7 @@
+ </td>
+ <td>
+ <div class="infoBox" id="duration">
+-<div class="counter">2m1.79s</div>
++<div class="counter">13.116s</div>
+ <p>duration</p>
+ </div>
+ </td>
+@@ -49,8 +49,8 @@
+ </div>
+ </td>
+ <td>
+-<div class="infoBox success" id="successRate">
+-<div class="percent">100%</div>
++<div class="infoBox failures" id="successRate">
++<div class="percent">0%</div>
+ <p>successful</p>
+ </div>
+ </td>
+@@ -60,10 +60,22 @@
+ <div id="tabs">
+ <ul class="tabLinks">
+ <li>
+-<a href="#tab0">Classes</a>
++<a href="#tab0">Failed tests</a>
++</li>
++<li>
++<a href="#tab1">Classes</a>
+ </li>
+ </ul>
+ <div id="tab0" class="tab">
++<h2>Failed tests</h2>
++<ul class="linkList">
++<li>
++<a href="../classes/TestHome.html">TestHome</a>.
++<a href="../classes/TestHome.html#testController">testController</a>
++</li>
++</ul>
++</div>
++<div id="tab1" class="tab">
+ <h2>Classes</h2>
+ <table>
+ <thread>
+@@ -77,24 +89,14 @@
+ </tr>
+ </thread>
+ <tr>
+-<td class="success">
+-<a href="../classes/TestData.html">TestData</a>
++<td class="failures">
++<a href="../classes/TestHome.html">TestHome</a>
+ </td>
+ <td>1</td>
+-<td>0</td>
+-<td>0</td>
+-<td>1m43.74s</td>
+-<td class="success">100%</td>
+-</tr>
+-<tr>
+-<td class="success">
+-<a href="../classes/TestHome.html">TestHome</a>
+-</td>
+ <td>1</td>
+ <td>0</td>
+-<td>0</td>
+-<td>18.046s</td>
+-<td class="success">100%</td>
++<td>13.116s</td>
++<td class="failures">0%</td>
+ </tr>
+ </table>
+ </div>
+@@ -106,7 +108,7 @@
+ <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+ </label>
+ </div>Generated by 
+-<a href="http://www.gradle.org">Gradle 6.3</a> at 14 Jan 2021, 19:17:04</p>
++<a href="http://www.gradle.org">Gradle 6.3</a> at 14 Jan 2021, 21:07:56</p>
+ </div>
+ </div>
+ </body>
+Index: build/reports/tests/test/classes/TestHome.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\r\n<meta http-equiv=\"x-ua-compatible\" content=\"IE=edge\"/>\r\n<title>Test results - Class TestHome</title>\r\n<link href=\"../css/base-style.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n<link href=\"../css/style.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n<script src=\"../js/report.js\" type=\"text/javascript\"></script>\r\n</head>\r\n<body>\r\n<div id=\"content\">\r\n<h1>Class TestHome</h1>\r\n<div class=\"breadcrumbs\">\r\n<a href=\"../index.html\">all</a> &gt; \r\n<a href=\"../packages/default-package.html\">default-package</a> &gt; TestHome</div>\r\n<div id=\"summary\">\r\n<table>\r\n<tr>\r\n<td>\r\n<div class=\"summaryGroup\">\r\n<table>\r\n<tr>\r\n<td>\r\n<div class=\"infoBox\" id=\"tests\">\r\n<div class=\"counter\">1</div>\r\n<p>tests</p>\r\n</div>\r\n</td>\r\n<td>\r\n<div class=\"infoBox\" id=\"failures\">\r\n<div class=\"counter\">0</div>\r\n<p>failures</p>\r\n</div>\r\n</td>\r\n<td>\r\n<div class=\"infoBox\" id=\"ignored\">\r\n<div class=\"counter\">0</div>\r\n<p>ignored</p>\r\n</div>\r\n</td>\r\n<td>\r\n<div class=\"infoBox\" id=\"duration\">\r\n<div class=\"counter\">18.046s</div>\r\n<p>duration</p>\r\n</div>\r\n</td>\r\n</tr>\r\n</table>\r\n</div>\r\n</td>\r\n<td>\r\n<div class=\"infoBox success\" id=\"successRate\">\r\n<div class=\"percent\">100%</div>\r\n<p>successful</p>\r\n</div>\r\n</td>\r\n</tr>\r\n</table>\r\n</div>\r\n<div id=\"tabs\">\r\n<ul class=\"tabLinks\">\r\n<li>\r\n<a href=\"#tab0\">Tests</a>\r\n</li>\r\n</ul>\r\n<div id=\"tab0\" class=\"tab\">\r\n<h2>Tests</h2>\r\n<table>\r\n<thead>\r\n<tr>\r\n<th>Test</th>\r\n<th>Duration</th>\r\n<th>Result</th>\r\n</tr>\r\n</thead>\r\n<tr>\r\n<td class=\"success\">testController</td>\r\n<td class=\"success\">18.046s</td>\r\n<td class=\"success\">passed</td>\r\n</tr>\r\n</table>\r\n</div>\r\n</div>\r\n<div id=\"footer\">\r\n<p>\r\n<div>\r\n<label class=\"hidden\" id=\"label-for-line-wrapping-toggle\" for=\"line-wrapping-toggle\">Wrap lines\r\n<input id=\"line-wrapping-toggle\" type=\"checkbox\" autocomplete=\"off\"/>\r\n</label>\r\n</div>Generated by \r\n<a href=\"http://www.gradle.org\">Gradle 6.3</a> at 14 Jan 2021, 19:17:04</p>\r\n</div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build/reports/tests/test/classes/TestHome.html b/build/reports/tests/test/classes/TestHome.html
+--- a/build/reports/tests/test/classes/TestHome.html	(revision 1cf309e361c795027aaaf629f8b5ff94598039cb)
++++ b/build/reports/tests/test/classes/TestHome.html	(date 1610658476570)
+@@ -29,7 +29,7 @@
+ </td>
+ <td>
+ <div class="infoBox" id="failures">
+-<div class="counter">0</div>
++<div class="counter">1</div>
+ <p>failures</p>
+ </div>
+ </td>
+@@ -41,7 +41,7 @@
+ </td>
+ <td>
+ <div class="infoBox" id="duration">
+-<div class="counter">18.046s</div>
++<div class="counter">13.116s</div>
+ <p>duration</p>
+ </div>
+ </td>
+@@ -50,8 +50,8 @@
+ </div>
+ </td>
+ <td>
+-<div class="infoBox success" id="successRate">
+-<div class="percent">100%</div>
++<div class="infoBox failures" id="successRate">
++<div class="percent">0%</div>
+ <p>successful</p>
+ </div>
+ </td>
+@@ -61,10 +61,116 @@
+ <div id="tabs">
+ <ul class="tabLinks">
+ <li>
+-<a href="#tab0">Tests</a>
++<a href="#tab0">Failed tests</a>
++</li>
++<li>
++<a href="#tab1">Tests</a>
+ </li>
+ </ul>
+ <div id="tab0" class="tab">
++<h2>Failed tests</h2>
++<div class="test">
++<a name="testController"></a>
++<h3 class="failures">testController</h3>
++<span class="code">
++<pre>org.fest.swing.exception.WaitTimedOutError: Timed out waiting for option pane to be found using matcher org.fest.swing.core.TypeMatcher[type=javax.swing.JOptionPane, requireShowing=true]
++Unable to find component using matcher org.fest.swing.core.TypeMatcher[type=javax.swing.JOptionPane, requireShowing=true].
++
++Component hierarchy:
++UI.Controller[name='frame0', title='Automated analysis of Islet in eye', enabled=true, visible=true, showing=true]
++  javax.swing.JRootPane[]
++    javax.swing.JPanel[name='null.glassPane']
++    javax.swing.JLayeredPane[]
++      UI.HomeTab.MainMenu[]
++        javax.swing.JMenu[name='Home', text='Home          ', selected=false, enabled=true, visible=true, showing=true]
++          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]
++        javax.swing.JMenu[name='Data', text='Data          ', selected=false, enabled=true, visible=true, showing=true]
++          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]
++            javax.swing.JMenuItem[name='ROIs', text='ROIs', selected=false, enabled=true, visible=true, showing=false]
++            javax.swing.JMenu[name='MCVideo', text='Motion Corrected Video', selected=false, enabled=true, visible=true, showing=false]
++              javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]
++                javax.swing.JMenuItem[name='MCPlanar', text='Planar motion', selected=false, enabled=true, visible=true, showing=false]
++                javax.swing.JMenuItem[name='MCDepth', text='Depth motion', selected=false, enabled=true, visible=true, showing=false]
++            javax.swing.JMenuItem[name='Results', text='Results', selected=false, enabled=true, visible=true, showing=false]
++        javax.swing.JMenu[name=null, text='Save          ', selected=false, enabled=true, visible=true, showing=true]
++          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]
++            javax.swing.JMenuItem[name=null, text='Save ROIs', selected=false, enabled=true, visible=true, showing=false]
++            javax.swing.JMenuItem[name=null, text='Save Planar Corrected Video', selected=false, enabled=true, visible=true, showing=false]
++            javax.swing.JMenuItem[name=null, text='Save Depth Corrected Video', selected=false, enabled=true, visible=true, showing=false]
++            javax.swing.JMenuItem[name=null, text='Save Results', selected=false, enabled=true, visible=true, showing=false]
++            javax.swing.JMenuItem[name=null, text='Save All', selected=false, enabled=true, visible=true, showing=false]
++      UI.HomeTab.Home[name=null]
++        javax.swing.JPanel[name=null]
++          UI.HomeTab.Uploaded[name=null]
++            javax.swing.JLabel[name=null, text='', enabled=true, visible=true, showing=true]
++            javax.swing.JLabel[name=null, text='Video_for_Demo.tif', enabled=true, visible=true, showing=true]
++            javax.swing.Box$Filler[,0,510,684x10,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=java.awt.Dimension[width=32767,height=10],minimumSize=java.awt.Dimension[width=0,height=10],preferredSize=java.awt.Dimension[width=0,height=10]]
++            javax.swing.JPanel[name=null]
++              javax.swing.JPanel[name=null]
++                javax.swing.JButton[name=null, text='Upload', enabled=true, visible=true, showing=true]
++                javax.swing.JButton[name='analyse', text='Analyse', enabled=true, visible=true, showing=true]
++            javax.swing.Box$Filler[,0,624,684x10,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=java.awt.Dimension[width=32767,height=10],minimumSize=java.awt.Dimension[width=0,height=10],preferredSize=java.awt.Dimension[width=0,height=10]]
++
++	at org.fest.swing.timing.Pause.timeoutExpired(Pause.java:83)
++	at org.fest.swing.timing.Pause.pause(Pause.java:75)
++	at org.fest.swing.timing.Pause.pause(Pause.java:59)
++	at org.fest.swing.fixture.ContainerFixture.optionPane(ContainerFixture.java:291)
++	at org.fest.swing.fixture.ContainerFixture.optionPane(ContainerFixture.java:283)
++	at TestHome.testController(TestHome.java:62)
++	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
++	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
++	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
++	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
++	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
++	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
++	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
++	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
++	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
++	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
++	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
++	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
++	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
++	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
++	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
++	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
++	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
++	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
++	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
++	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
++	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
++	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
++	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
++	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
++	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
++	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
++	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
++	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
++	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
++	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
++	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
++	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
++	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
++	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:118)
++	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
++	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
++	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
++	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
++	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
++	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
++	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
++	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
++	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:412)
++	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
++	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
++	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
++	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
++	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
++	at java.base/java.lang.Thread.run(Thread.java:832)
++</pre>
++</span>
++</div>
++</div>
++<div id="tab1" class="tab">
+ <h2>Tests</h2>
+ <table>
+ <thead>
+@@ -75,9 +181,9 @@
+ </tr>
+ </thead>
+ <tr>
+-<td class="success">testController</td>
+-<td class="success">18.046s</td>
+-<td class="success">passed</td>
++<td class="failures">testController</td>
++<td class="failures">13.116s</td>
++<td class="failures">failed</td>
+ </tr>
+ </table>
+ </div>
+@@ -89,7 +195,7 @@
+ <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+ </label>
+ </div>Generated by 
+-<a href="http://www.gradle.org">Gradle 6.3</a> at 14 Jan 2021, 19:17:04</p>
++<a href="http://www.gradle.org">Gradle 6.3</a> at 14 Jan 2021, 21:07:56</p>
+ </div>
+ </div>
+ </body>
+Index: build/reports/tests/test/index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\r\n<meta http-equiv=\"x-ua-compatible\" content=\"IE=edge\"/>\r\n<title>Test results - Test Summary</title>\r\n<link href=\"css/base-style.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n<link href=\"css/style.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n<script src=\"js/report.js\" type=\"text/javascript\"></script>\r\n</head>\r\n<body>\r\n<div id=\"content\">\r\n<h1>Test Summary</h1>\r\n<div id=\"summary\">\r\n<table>\r\n<tr>\r\n<td>\r\n<div class=\"summaryGroup\">\r\n<table>\r\n<tr>\r\n<td>\r\n<div class=\"infoBox\" id=\"tests\">\r\n<div class=\"counter\">2</div>\r\n<p>tests</p>\r\n</div>\r\n</td>\r\n<td>\r\n<div class=\"infoBox\" id=\"failures\">\r\n<div class=\"counter\">0</div>\r\n<p>failures</p>\r\n</div>\r\n</td>\r\n<td>\r\n<div class=\"infoBox\" id=\"ignored\">\r\n<div class=\"counter\">0</div>\r\n<p>ignored</p>\r\n</div>\r\n</td>\r\n<td>\r\n<div class=\"infoBox\" id=\"duration\">\r\n<div class=\"counter\">2m1.79s</div>\r\n<p>duration</p>\r\n</div>\r\n</td>\r\n</tr>\r\n</table>\r\n</div>\r\n</td>\r\n<td>\r\n<div class=\"infoBox success\" id=\"successRate\">\r\n<div class=\"percent\">100%</div>\r\n<p>successful</p>\r\n</div>\r\n</td>\r\n</tr>\r\n</table>\r\n</div>\r\n<div id=\"tabs\">\r\n<ul class=\"tabLinks\">\r\n<li>\r\n<a href=\"#tab0\">Packages</a>\r\n</li>\r\n<li>\r\n<a href=\"#tab1\">Classes</a>\r\n</li>\r\n</ul>\r\n<div id=\"tab0\" class=\"tab\">\r\n<h2>Packages</h2>\r\n<table>\r\n<thead>\r\n<tr>\r\n<th>Package</th>\r\n<th>Tests</th>\r\n<th>Failures</th>\r\n<th>Ignored</th>\r\n<th>Duration</th>\r\n<th>Success rate</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td class=\"success\">\r\n<a href=\"packages/default-package.html\">default-package</a>\r\n</td>\r\n<td>2</td>\r\n<td>0</td>\r\n<td>0</td>\r\n<td>2m1.79s</td>\r\n<td class=\"success\">100%</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n<div id=\"tab1\" class=\"tab\">\r\n<h2>Classes</h2>\r\n<table>\r\n<thead>\r\n<tr>\r\n<th>Class</th>\r\n<th>Tests</th>\r\n<th>Failures</th>\r\n<th>Ignored</th>\r\n<th>Duration</th>\r\n<th>Success rate</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td class=\"success\">\r\n<a href=\"classes/TestData.html\">TestData</a>\r\n</td>\r\n<td>1</td>\r\n<td>0</td>\r\n<td>0</td>\r\n<td>1m43.74s</td>\r\n<td class=\"success\">100%</td>\r\n</tr>\r\n<tr>\r\n<td class=\"success\">\r\n<a href=\"classes/TestHome.html\">TestHome</a>\r\n</td>\r\n<td>1</td>\r\n<td>0</td>\r\n<td>0</td>\r\n<td>18.046s</td>\r\n<td class=\"success\">100%</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n<div id=\"footer\">\r\n<p>\r\n<div>\r\n<label class=\"hidden\" id=\"label-for-line-wrapping-toggle\" for=\"line-wrapping-toggle\">Wrap lines\r\n<input id=\"line-wrapping-toggle\" type=\"checkbox\" autocomplete=\"off\"/>\r\n</label>\r\n</div>Generated by \r\n<a href=\"http://www.gradle.org\">Gradle 6.3</a> at 14 Jan 2021, 19:17:04</p>\r\n</div>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build/reports/tests/test/index.html b/build/reports/tests/test/index.html
+--- a/build/reports/tests/test/index.html	(revision 1cf309e361c795027aaaf629f8b5ff94598039cb)
++++ b/build/reports/tests/test/index.html	(date 1610658476567)
+@@ -20,13 +20,13 @@
+ <tr>
+ <td>
+ <div class="infoBox" id="tests">
+-<div class="counter">2</div>
++<div class="counter">1</div>
+ <p>tests</p>
+ </div>
+ </td>
+ <td>
+ <div class="infoBox" id="failures">
+-<div class="counter">0</div>
++<div class="counter">1</div>
+ <p>failures</p>
+ </div>
+ </td>
+@@ -38,7 +38,7 @@
+ </td>
+ <td>
+ <div class="infoBox" id="duration">
+-<div class="counter">2m1.79s</div>
++<div class="counter">13.116s</div>
+ <p>duration</p>
+ </div>
+ </td>
+@@ -47,8 +47,8 @@
+ </div>
+ </td>
+ <td>
+-<div class="infoBox success" id="successRate">
+-<div class="percent">100%</div>
++<div class="infoBox failures" id="successRate">
++<div class="percent">0%</div>
+ <p>successful</p>
+ </div>
+ </td>
+@@ -58,13 +58,25 @@
+ <div id="tabs">
+ <ul class="tabLinks">
+ <li>
+-<a href="#tab0">Packages</a>
++<a href="#tab0">Failed tests</a>
+ </li>
+ <li>
+-<a href="#tab1">Classes</a>
++<a href="#tab1">Packages</a>
++</li>
++<li>
++<a href="#tab2">Classes</a>
+ </li>
+ </ul>
+ <div id="tab0" class="tab">
++<h2>Failed tests</h2>
++<ul class="linkList">
++<li>
++<a href="classes/TestHome.html">TestHome</a>.
++<a href="classes/TestHome.html#testController">testController</a>
++</li>
++</ul>
++</div>
++<div id="tab1" class="tab">
+ <h2>Packages</h2>
+ <table>
+ <thead>
+@@ -79,19 +91,19 @@
+ </thead>
+ <tbody>
+ <tr>
+-<td class="success">
++<td class="failures">
+ <a href="packages/default-package.html">default-package</a>
+ </td>
+-<td>2</td>
+-<td>0</td>
++<td>1</td>
++<td>1</td>
+ <td>0</td>
+-<td>2m1.79s</td>
+-<td class="success">100%</td>
++<td>13.116s</td>
++<td class="failures">0%</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+-<div id="tab1" class="tab">
++<div id="tab2" class="tab">
+ <h2>Classes</h2>
+ <table>
+ <thead>
+@@ -106,24 +118,14 @@
+ </thead>
+ <tbody>
+ <tr>
+-<td class="success">
+-<a href="classes/TestData.html">TestData</a>
+-</td>
+-<td>1</td>
+-<td>0</td>
+-<td>0</td>
+-<td>1m43.74s</td>
+-<td class="success">100%</td>
+-</tr>
+-<tr>
+-<td class="success">
++<td class="failures">
+ <a href="classes/TestHome.html">TestHome</a>
+ </td>
+ <td>1</td>
+-<td>0</td>
++<td>1</td>
+ <td>0</td>
+-<td>18.046s</td>
+-<td class="success">100%</td>
++<td>13.116s</td>
++<td class="failures">0%</td>
+ </tr>
+ </tbody>
+ </table>
+@@ -136,7 +138,7 @@
+ <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+ </label>
+ </div>Generated by 
+-<a href="http://www.gradle.org">Gradle 6.3</a> at 14 Jan 2021, 19:17:04</p>
++<a href="http://www.gradle.org">Gradle 6.3</a> at 14 Jan 2021, 21:07:56</p>
+ </div>
+ </div>
+ </body>
+Index: .gradle/buildOutputCleanup/cache.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Fri Jan 08 19:47:43 GMT 2021\r\ngradle.version=6.3\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+diff --git a/.gradle/buildOutputCleanup/cache.properties b/.gradle/buildOutputCleanup/cache.properties
+--- a/.gradle/buildOutputCleanup/cache.properties	(revision 1cf309e361c795027aaaf629f8b5ff94598039cb)
++++ b/.gradle/buildOutputCleanup/cache.properties	(date 1610658051767)
+@@ -1,2 +1,2 @@
+-#Fri Jan 08 19:47:43 GMT 2021
++#Thu Jan 14 21:00:51 GMT 2021
+ gradle.version=6.3
