@@ -2,7 +2,7 @@
 # 
 =======
 # Automated analysis of islet in eye
-**Version 0.1**
+**Version 1.0**
 
 Diabetes affects 1 out of 8 adults in our modern society. Diabetes is caused by a deficit in Insulin secretion of pancreatic Beta-cells.
 
@@ -10,32 +10,31 @@ Understanding the electrical coupling of Beta-cells could help understand the ca
 
 This project automates the measurement of the electrical activity of Beta-cells from fluorescence microscopy recordings. It is a java desktop app that relies on image processing techniques such as registration, filtering, and thresholding to identify Beta-cells and measure their electrical activity (mean intensity in recordings) through time.
 
-To achieve this, we provide 5 tools, Planar motion correction performed with the SimpleElastix registration toolkit, depth motion correction, automated search of beta cells, manual selection of beta cells and measurements of mean intensity.
+To achieve this, we provide 5 tools, (1) planar motion correction implemented with the SimpleElastix registration toolkit, (2) depth motion correction,(3) automated identification of beta cells, (4) manual selection of beta cells and (5) measurements of mean intensity of regions of interest in beta-cells.
 
-The ouput files that can be saved for further anaylis are the motion corrected videos for both planar and depth motion, an image of the Islet with all the identified cells are shown, a .cvs with all the coordinates of cells and a .cvs file with mean intensity measurements of a region of intrest (ROI) for each cell.
+The ouputs of the program that can be saved for further analysis are the motion corrected videos for both planar and depth motion, an image of the Islet where all the identified cells are shown with cell numbers, a .cvs with all the coordinates in pixels of the cells and a .cvs file with mean intensity measurements of a region of intrest (ROI) for each cell.
 
 ---
 ## Installation
-This is a java based software that can be build and run through IntelliJ and relies on the java ImageJ library and SimpleElastix toolkit on top of common java libraries.
+This project is a java based software that can be build and run through IntelliJ or directly run from the command prompt.
 
 ### Requirements
-Windows 64-bit version
+- Windows 64-bit version
+- 8GB of RAM recommended
+- 1GB of free disk space
 
-(min 3GB of free disk space + size of file + size of cmake + SimpleElastix)
+### 1. Download the main branch of this git repository
 
-### 1. Download this git repository, main branch
-
-Download git repository on your pc by downloading it as a zip and extracting it, using the just doanloaded git command from the command line, or any git GUI Clients.
+Download git repository on your Windows pc.
 
 ### 2. Install java
 
-This software was coded with the Java Development Kit(JDK) - 15.0.1.
+This software was coded with the Java Development Kit(JDK) - 15.0.1 and this JDK is therefore recommendeded. However, this software was tested and should be compatible with JDK 11.0, 13.0 and 14.0. 
 
 #### Download jdk-15.0.1 from: https://www.oracle.com/java/technologies/javase-jdk15-downloads.html
   - Select Windows x64 Installer
   - Accept the License Agreement
   - Press green 'Download jdk-15.0.1_windows-x64_bin.exe' button and follow the instructions without changing default configurations
-
 
 #### Run the executable (jdk-15.0.1_windows-x64_bin.exe) by double-clicking on it and follow the instructions
 
@@ -59,18 +58,16 @@ A full description of the installation process can be found at: https://www.jetb
 ## Demo
 
 ### Launching user interface
-  - Open IntelliJ
-  - Open this project with File > Open and then select this project
-  - Set the Project SDK with File > Project Structure > Project, set 15, check that 15's path corresponds to the JDK that was installed earlier. You can see the path by clicking on edit.
-  - Build project by clicking on gradle on the top right of in IntelliJ then selecting Tasks > build > build
-  - Run project by clicking on gradle on the top right of in IntelliJ then selecting Tasks > application > run
-
+  - Open the command prompt
+  - Navigate to your local repository of this project
+  - Launch software with java -jar Automated_Analysis_Islet.jar
+  
 ### Using user interface
-  - Load Video_for_Demo that is located in the video folder of the project by pressing load button
-  - Analyse demo video by pressing the analyse button and chooseing the configuration and the actions to be performed
-  - Visualise the result of the analysis in the data tab. Under data > ROIs, you can also add ROIs manually
-  - Compute the mean intensity of the ROIs in Data > Results
-  - Save the results from the different analysis and the mean intensity measurements
+  - Load Video_for_Demo that is located in the videos folder of the repository by clicking the "Upload video" button
+  - Process demo video by pressing the "Process video" button and choosing the configuration and the actions to be performed
+  - Visualise the result of the analysis in the data tab. Under data > regions of interest, you can also manually add regions of interest.
+  - Compute the mean intensity of the regions of interest in Data > Results
+  - Save the results from the different analysis and the mean intensity measurements using Save > Save All, and selecting an existing directory where you want to save the results.
 
 
 ---
