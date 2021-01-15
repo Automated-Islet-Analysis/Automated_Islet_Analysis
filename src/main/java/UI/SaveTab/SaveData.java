@@ -29,31 +29,52 @@ public class SaveData extends JFileChooser {
             return;
         }else if(Controller.getVideoProcessor().getVideo().getCells().size()==0){
             Object[] options = {"Ok"};
-            JOptionPane.showOptionDialog(Controller.getInterframe(), "No ROIs present, please manually add ROIs.",
+            JOptionPane.showOptionDialog(Controller.getInterframe(), "No regions of interest present, please add them.",
                     "Warning",
                     JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
             return;
         }
 
         int userSelection= showSaveDialog(SaveData.this);
+        if(userSelection==1)return;
+
+        File folder = getSelectedFile();
+        File MIFolder = new File(folder.getAbsoluteFile()+"/mean_intensity_measurements");
+        File summaryFile = new File(folder.getPath()+"/data_summary.csv");
+
+        if(summaryFile.exists() || MIFolder.listFiles().length!=0){
+            JCheckBox check = new JCheckBox("Warning");
+            Object[] options = {"Yes", "No, overwrite"};
+            int x = JOptionPane.showOptionDialog(null, "This directory is not empty, some files might be overwritten." +
+                            "Do you want to change directory?",
+                    "Warning",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+
+            //If decide to overwrite it
+            if (x ==0) {
+                new SaveData().save();
+                return;
+            }
+        }
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {
-            File folder = getSelectedFile();
-            //Check if the file already exists and let the user choose whether to overwrite it or cancel
+            //Check if the summaryFile already exists and let the user choose whether to overwrite it or cancel
             if(!folder.isDirectory()) {
                 Object[] options = {"Ok"};
-                JOptionPane.showOptionDialog(Controller.getInterframe(), "Please input an existing directory file name!",
+                JOptionPane.showOptionDialog(Controller.getInterframe(), "Please input an existing directory summaryFile name!",
                         "Warning",
                         JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
             }else {
                 // Create or empty measurements folder
-                File MIFolder = new File(folder.getAbsoluteFile()+"/mean_intensity_measurements");
                 if(MIFolder.exists())
                     MIFolder.delete();
                 MIFolder.mkdir();
                 // Save files
                 Controller.getVideoProcessor().saveCellsMeanIntensity(MIFolder.getAbsolutePath());
-                Controller.getVideoProcessor().saveSummary(folder.getPath()+"/Summary.csv");
+
+                if (summaryFile.exists())
+                    summaryFile.delete();
+                Controller.getVideoProcessor().saveSummary(summaryFile.getPath());
             }
         }
     }

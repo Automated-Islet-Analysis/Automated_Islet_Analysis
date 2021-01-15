@@ -7,11 +7,10 @@
  */
 
 package UI.SaveTab;
+
 import UI.Controller;
 import javax.swing.*;
 import java.io.File;
-
-import static sun.security.util.KnownOIDs.Data;
 
 public class SaveAll extends JFileChooser {
 
@@ -33,10 +32,28 @@ public class SaveAll extends JFileChooser {
             return;
         }
         int userSelection= showSaveDialog(SaveAll.this);
+        if (userSelection==1)return;
+
+        File folderToSave = getSelectedFile();
+
+        if(folderToSave.listFiles().length!=0){
+            JCheckBox check = new JCheckBox("Warning");
+            Object[] options = {"Yes", "No, overwrite"};
+            int x = JOptionPane.showOptionDialog(null, "This directory is not empty, some files might be overwritten." +
+                            "Do you want to change directory?",
+                    "Warning",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+
+            //If decide to overwrite it
+            if (x ==0) {
+                new SaveAll().save();
+                return;
+            }
+        }
+
         if (userSelection == JFileChooser.APPROVE_OPTION) {
-            File fileToSave = getSelectedFile();
                 //Create a folder to store everything
-                File theDir = new File(fileToSave.getPath());
+                File theDir = new File(folderToSave.getPath());
                 //Check if already exists
                 if (!theDir.exists()){
                     //Create the non-existing directory
@@ -51,12 +68,12 @@ public class SaveAll extends JFileChooser {
     }
     public void callSavers(File directory){
         //Save the videos and ROIs
-        Controller.getVideoProcessor().savePlanarCorrectionVid(directory.getPath()+"\\_PlanarVideoCorrected.tif");
-        Controller.getVideoProcessor().saveDepthCorrectionVid(directory.getPath()+"\\_DepthVideoCorrected.tif");
-        Controller.getVideoProcessor().saveRoiImage(directory.getPath()+"\\_ROIs.jpg");
+        Controller.getVideoProcessor().savePlanarCorrectionVid(directory.getPath()+"/planar_video_corrected.tif");
+        Controller.getVideoProcessor().saveDepthCorrectionVid(directory.getPath()+"/depth_video_corrected.tif");
+        Controller.getVideoProcessor().saveRoiImage(directory.getPath()+"/ROIs.jpg");
 
         //Sub folder for SaveData
-        File saveDataFolder= new File(directory.getPath()+"\\DataFolder");
+        File saveDataFolder= new File(directory.getPath()+"/data_folder");
         File MIFolder  = new File(saveDataFolder+"/mean_intensity_measurements");
 
         // Make sure all necessary folders are present and empty
@@ -69,6 +86,6 @@ public class SaveAll extends JFileChooser {
 
         //Save the Data in a sub folder
         Controller.getVideoProcessor().saveCellsMeanIntensity(MIFolder.getAbsolutePath());
-        Controller.getVideoProcessor().saveSummary(saveDataFolder.getPath()+"\\Data_Summary.csv");
+        Controller.getVideoProcessor().saveSummary(saveDataFolder.getPath()+"/data_summary.csv");
     }
 }

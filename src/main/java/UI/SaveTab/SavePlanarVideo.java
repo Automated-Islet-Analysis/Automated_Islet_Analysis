@@ -28,6 +28,8 @@ public class SavePlanarVideo extends JFileChooser {
         // Create save pop-up
         int userSelection= showSaveDialog(SavePlanarVideo.this);
 
+        if(userSelection==1)return;
+
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = getSelectedFile();
             File fileWithExt = new File(fileToSave.getAbsolutePath()+".tif");
@@ -46,14 +48,7 @@ public class SavePlanarVideo extends JFileChooser {
                     //Create a new one
                     Controller.getVideoProcessor().savePlanarCorrectionVid(fileWithExt.getPath());
                 }else{
-                    userSelection= showSaveDialog(SavePlanarVideo.this);
-
-                    if (userSelection == JFileChooser.APPROVE_OPTION) {
-                        fileToSave = getSelectedFile();
-                        fileWithExt = new File(fileToSave.getAbsolutePath()+".tif");
-                        Controller.getVideoProcessor().savePlanarCorrectionVid(fileWithExt.getPath());
-                    }
-
+                    new SavePlanarVideo().save();
                 }
                 //If cancelled previous operation or i the file did not exist
             }else {

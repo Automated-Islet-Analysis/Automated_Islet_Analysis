@@ -28,6 +28,8 @@ public class SaveDepthVideo extends JFileChooser {
         // Create save pop-up
         int userSelection= showSaveDialog(SaveDepthVideo.this);
 
+        if(userSelection==1)return;
+
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = getSelectedFile();
             File fileWithExt = new File(fileToSave.getAbsolutePath()+".tif");
@@ -46,15 +48,11 @@ public class SaveDepthVideo extends JFileChooser {
                     Controller.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath());
                 //If decide not to overwrite it, pop up again
                 }else{
-                    userSelection= showSaveDialog(SaveDepthVideo.this);
-
-                    if (userSelection == JFileChooser.APPROVE_OPTION) {
-                        fileToSave = getSelectedFile();
-                        fileWithExt = new File(fileToSave.getAbsolutePath()+".tif");
-                        Controller.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath());
-                    }
-
+                    new SaveDepthVideo().save();
                 }
+
+
+
                 //If cancelled previous operation or if the file did not exist
             }else {
                 Controller.getVideoProcessor().saveDepthCorrectionVid(fileWithExt.getPath());
