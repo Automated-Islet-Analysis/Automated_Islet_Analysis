@@ -16,7 +16,6 @@
 
 
 import UI.Controller;
-
 import java.awt.*;
 
 public class Main extends Frame {

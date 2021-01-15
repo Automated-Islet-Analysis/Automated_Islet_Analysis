@@ -96,9 +96,9 @@ public class CellFinder extends Processor {
             convolveOp.filter(bI,bIOut);
 
             // Find nPeaksPerFrame maxima per frame
-            // Next 12 lines adapted from https://imagejdocu.tudor.lu/plugin/analysis/find_min_max/start
             for (int z = 0; z< nPeaksPerFrame; z++){
                 // Find maximum
+                /* Reference 1 - taken from https://imagejdocu.tudor.lu/plugin/analysis/find_min_max/start*/
                 double max = Double.NEGATIVE_INFINITY;
                 int xMax = 0;
                 int yMax = 0;
@@ -111,6 +111,8 @@ public class CellFinder extends Processor {
                         }
                     }
                 }
+                /* end of reference 1 */
+
                 int[] c=new int[3];
                 c[0]=xMax;
                 c[1]=yMax;

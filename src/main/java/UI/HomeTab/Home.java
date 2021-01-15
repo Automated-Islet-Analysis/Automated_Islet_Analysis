@@ -32,7 +32,7 @@ public class Home extends JPanel {
         welcome.setHorizontalAlignment(SwingConstants.CENTER);
 
         // Upload file for analysis
-        uploadBtn = new JButton("Upload");
+        uploadBtn = new JButton("Upload video");
         uploadBtn.addActionListener(new UploadListener());
 
         // Spacing

@@ -90,17 +90,15 @@ public class Controller {
             }
         });
         interframe.addComponentListener(new ComponentListener() {
-            // Update display if the window size changed
+            // Update display if the window size changes
             @Override
             public void componentResized(ComponentEvent e) {
                 setDisplay();
             }
             @Override
             public void componentMoved(ComponentEvent e) {}
-
             @Override
             public void componentShown(ComponentEvent e) {}
-
             @Override
             public void componentHidden(ComponentEvent e){}
         });
