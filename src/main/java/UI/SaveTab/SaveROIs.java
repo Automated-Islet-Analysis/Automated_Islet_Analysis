@@ -45,6 +45,15 @@ public class SaveROIs extends JFileChooser {
                     fileWithExt.delete();
                     //Replace it with a new one
                     Controller.getVideoProcessor().saveRoiImage(fileWithExt.getPath());
+                }else{
+                    userSelection= showSaveDialog(SaveROIs.this);
+
+                    if (userSelection == JFileChooser.APPROVE_OPTION) {
+                        fileToSave = getSelectedFile();
+                        fileWithExt = new File(fileToSave.getAbsolutePath()+".tif");
+                        Controller.getVideoProcessor().saveRoiImage(fileWithExt.getPath());
+                    }
+
                 }
             }else {
                 //If doesn't want to overwrite or the file didn't exist
