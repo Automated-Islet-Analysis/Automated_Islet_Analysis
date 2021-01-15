@@ -31,8 +31,8 @@ public class Home extends JPanel {
         welcome.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 
         // Brief description of software functionality
-        description1 = new JLabel("Upload a TIFF video to correct depth and planar motion,");
-        description2 = new JLabel("identify regions of interest (ROIs) and track their intensity.");
+        description1 = new JLabel("Upload a TIFF video and start processing an islet.");
+        description2 = new JLabel("You can motion correct the video, identify regions of interest and measure their intensity.");
         description1.setFont(new Font(description1.getFont().getName(), Font.PLAIN, 18));
         description2.setFont(new Font(description2.getFont().getName(), Font.PLAIN, 18));
         description1.setAlignmentX(JComponent.CENTER_ALIGNMENT);
@@ -40,6 +40,7 @@ public class Home extends JPanel {
 
         // Upload file for analysis
         uploadBtn = new JButton("Upload video");
+        uploadBtn.setFont(new Font(description1.getFont().getName(), Font.PLAIN, 18));
         uploadBtn.addActionListener(new UploadListener());
         uploadBtn.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 
