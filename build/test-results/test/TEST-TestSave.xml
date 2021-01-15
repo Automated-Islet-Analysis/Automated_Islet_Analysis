@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestSave" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-01-15T07:24:22" hostname="DESKTOP-867OUMT" time="39.943">
+  <properties/>
+  <testcase name="testController" classname="TestSave" time="39.943">
+    <failure message="org.fest.swing.exception.WaitTimedOutError: Timed out waiting for component to be found using matcher org.fest.swing.core.TypeMatcher[type=javax.swing.JFileChooser, requireShowing=true]&#13;&#10;Unable to find component using matcher org.fest.swing.core.TypeMatcher[type=javax.swing.JFileChooser, requireShowing=true].&#13;&#10;&#13;&#10;Component hierarchy:&#13;&#10;UI.Controller[name='frame0', title='Automated analysis of Islet in eye', enabled=true, visible=true, showing=true]&#13;&#10;  javax.swing.JRootPane[]&#13;&#10;    javax.swing.JPanel[name='null.glassPane']&#13;&#10;    javax.swing.JLayeredPane[]&#13;&#10;      UI.MainMenu[]&#13;&#10;        javax.swing.JMenu[name=null, text='Home          ', selected=false, enabled=true, visible=true, showing=true]&#13;&#10;          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]&#13;&#10;        javax.swing.JMenu[name='Data', text='Data          ', selected=false, enabled=true, visible=true, showing=true]&#13;&#10;          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]&#13;&#10;            javax.swing.JMenuItem[name='ROIs', text='Regions of interest', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;            javax.swing.JMenu[name='MCVideo', text='Motion corrected videos', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;              javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]&#13;&#10;                javax.swing.JMenuItem[name='MCPlanar', text='Planar motion', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;                javax.swing.JMenuItem[name='MCDepth', text='Depth motion', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;            javax.swing.JMenuItem[name='Results', text='Results', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;        javax.swing.JMenu[name='save', text='Save          ', selected=false, enabled=true, visible=true, showing=true]&#13;&#10;          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]&#13;&#10;            javax.swing.JMenuItem[name='saveROI', text='Save regions of interest', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;            javax.swing.JMenuItem[name='SaveMCPlanar', text='Save video of planar motion correction', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;            javax.swing.JMenuItem[name='saveMCDepth', text='Save video of depth motion correction', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;            javax.swing.JMenuItem[name='saveResults', text='Save results', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;            javax.swing.JMenuItem[name='saveAll', text='Save all', selected=false, enabled=true, visible=true, showing=false]&#13;&#10;      UI.HomeTab.Home[name=null]&#13;&#10;        javax.swing.JPanel[name=null]&#13;&#10;          javax.swing.JLabel[name=null, text='', enabled=true, visible=true, showing=true]&#13;&#10;          javax.swing.JPanel[name=null]&#13;&#10;            javax.swing.JLabel[name='welcomeLabel', text='Welcome!', enabled=true, visible=true, showing=true]&#13;&#10;          javax.swing.JPanel[name=null]&#13;&#10;            javax.swing.JButton[name='UploadButton', text='Upload', enabled=true, visible=true, showing=true]&#13;&#10;  javax.swing.JDialog[name='dialog0', title='Warning', enabled=true, modal=true, visible=true, showing=true]&#13;&#10;    javax.swing.JRootPane[]&#13;&#10;      javax.swing.JPanel[name='null.glassPane']&#13;&#10;      javax.swing.JLayeredPane[]&#13;&#10;        javax.swing.JPanel[name='null.contentPane']&#13;&#10;          javax.swing.JOptionPane[message='Please measure the mean intensity of the ROIs first with the Measure intensity button in Data &gt; Results!', messageType=ERROR_MESSAGE, optionType=YES_NO_OPTION, enabled=true, visible=true, showing=true]&#13;&#10;            javax.swing.JPanel[name=null]&#13;&#10;              javax.swing.JPanel[name='OptionPane.realBody']&#13;&#10;                javax.swing.JPanel[name='OptionPane.separator']&#13;&#10;                javax.swing.JPanel[name='OptionPane.body']&#13;&#10;                  javax.swing.JLabel[name='OptionPane.label', text='Please measure the mean intensity of the ROIs first with the Measure intensity button in Data &gt; Results!', enabled=true, visible=true, showing=true]&#13;&#10;              javax.swing.JLabel[name='OptionPane.iconLabel', text=null, enabled=true, visible=true, showing=true]&#13;&#10;            javax.swing.JPanel[name='OptionPane.buttonArea']&#13;&#10;              javax.swing.JButton[name='OptionPane.button', text='Ok', enabled=true, visible=true, showing=true]&#13;&#10;javax.swing.SwingUtilities$SharedOwnerFrame[name='frame1', title='', enabled=true, visible=false, showing=false]&#13;&#10;" type="org.fest.swing.exception.WaitTimedOutError">org.fest.swing.exception.WaitTimedOutError: Timed out waiting for component to be found using matcher org.fest.swing.core.TypeMatcher[type=javax.swing.JFileChooser, requireShowing=true]
+Unable to find component using matcher org.fest.swing.core.TypeMatcher[type=javax.swing.JFileChooser, requireShowing=true].
+
+Component hierarchy:
+UI.Controller[name='frame0', title='Automated analysis of Islet in eye', enabled=true, visible=true, showing=true]
+  javax.swing.JRootPane[]
+    javax.swing.JPanel[name='null.glassPane']
+    javax.swing.JLayeredPane[]
+      UI.MainMenu[]
+        javax.swing.JMenu[name=null, text='Home          ', selected=false, enabled=true, visible=true, showing=true]
+          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]
+        javax.swing.JMenu[name='Data', text='Data          ', selected=false, enabled=true, visible=true, showing=true]
+          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]
+            javax.swing.JMenuItem[name='ROIs', text='Regions of interest', selected=false, enabled=true, visible=true, showing=false]
+            javax.swing.JMenu[name='MCVideo', text='Motion corrected videos', selected=false, enabled=true, visible=true, showing=false]
+              javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]
+                javax.swing.JMenuItem[name='MCPlanar', text='Planar motion', selected=false, enabled=true, visible=true, showing=false]
+                javax.swing.JMenuItem[name='MCDepth', text='Depth motion', selected=false, enabled=true, visible=true, showing=false]
+            javax.swing.JMenuItem[name='Results', text='Results', selected=false, enabled=true, visible=true, showing=false]
+        javax.swing.JMenu[name='save', text='Save          ', selected=false, enabled=true, visible=true, showing=true]
+          javax.swing.JPopupMenu[name=null, label=null, enabled=true, visible=false, showing=false]
+            javax.swing.JMenuItem[name='saveROI', text='Save regions of interest', selected=false, enabled=true, visible=true, showing=false]
+            javax.swing.JMenuItem[name='SaveMCPlanar', text='Save video of planar motion correction', selected=false, enabled=true, visible=true, showing=false]
+            javax.swing.JMenuItem[name='saveMCDepth', text='Save video of depth motion correction', selected=false, enabled=true, visible=true, showing=false]
+            javax.swing.JMenuItem[name='saveResults', text='Save results', selected=false, enabled=true, visible=true, showing=false]
+            javax.swing.JMenuItem[name='saveAll', text='Save all', selected=false, enabled=true, visible=true, showing=false]
+      UI.HomeTab.Home[name=null]
+        javax.swing.JPanel[name=null]
+          javax.swing.JLabel[name=null, text='', enabled=true, visible=true, showing=true]
+          javax.swing.JPanel[name=null]
+            javax.swing.JLabel[name='welcomeLabel', text='Welcome!', enabled=true, visible=true, showing=true]
+          javax.swing.JPanel[name=null]
+            javax.swing.JButton[name='UploadButton', text='Upload', enabled=true, visible=true, showing=true]
+  javax.swing.JDialog[name='dialog0', title='Warning', enabled=true, modal=true, visible=true, showing=true]
+    javax.swing.JRootPane[]
+      javax.swing.JPanel[name='null.glassPane']
+      javax.swing.JLayeredPane[]
+        javax.swing.JPanel[name='null.contentPane']
+          javax.swing.JOptionPane[message='Please measure the mean intensity of the ROIs first with the Measure intensity button in Data &gt; Results!', messageType=ERROR_MESSAGE, optionType=YES_NO_OPTION, enabled=true, visible=true, showing=true]
+            javax.swing.JPanel[name=null]
+              javax.swing.JPanel[name='OptionPane.realBody']
+                javax.swing.JPanel[name='OptionPane.separator']
+                javax.swing.JPanel[name='OptionPane.body']
+                  javax.swing.JLabel[name='OptionPane.label', text='Please measure the mean intensity of the ROIs first with the Measure intensity button in Data &gt; Results!', enabled=true, visible=true, showing=true]
+              javax.swing.JLabel[name='OptionPane.iconLabel', text=null, enabled=true, visible=true, showing=true]
+            javax.swing.JPanel[name='OptionPane.buttonArea']
+              javax.swing.JButton[name='OptionPane.button', text='Ok', enabled=true, visible=true, showing=true]
+javax.swing.SwingUtilities$SharedOwnerFrame[name='frame1', title='', enabled=true, visible=false, showing=false]
+
+	at org.fest.swing.timing.Pause.timeoutExpired(Pause.java:83)
+	at org.fest.swing.timing.Pause.pause(Pause.java:75)
+	at org.fest.swing.finder.ComponentFinderTemplate.findComponentWith(ComponentFinderTemplate.java:116)
+	at org.fest.swing.finder.JFileChooserFinder.using(JFileChooserFinder.java:134)
+	at TestSave.testController(TestSave.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:412)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</failure>
+  </testcase>
+  <system-out><![CDATA[Planar Motion correction in progress
+Done
+Depth Motion correction in progress
+Done
+Searching for Beta-cells
+Done, found 27 cells
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

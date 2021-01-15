@@ -158,15 +158,21 @@ public class MainMenu extends JMenuBar implements ActionListener {
     // Create save tab
     private JMenu getMenuSave(){
         menuSave = new JMenu("Save          ");
+        menuSave.setName("save");
         menuSave.setFont(new Font(menuSave.getFont().getName(), Font.BOLD, 15));
 
         // Save Dropdown
         saveROI = new JMenuItem("Save regions of interest");
+        saveROI.setName("saveROI");
         saveMCVidPlanar = new JMenuItem("Save video of planar motion correction");
+        saveMCVidPlanar.setName("SaveMCPlanar");
         saveMCVidDepth=new JMenuItem("Save video of depth motion correction");
+        saveMCVidDepth.setName("saveMCDepth");
 
         saveData = new JMenuItem("Save results");
+        saveData.setName("saveResults");
         saveAll = new JMenuItem("Save all");
+        saveAll.setName("saveAll");
 
         // ActionListeners
         saveROI.addActionListener(this);
