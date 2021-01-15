@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="videoprocessing.VideoProcessorTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-01-15T03:23:09" hostname="DESKTOP-867OUMT" time="0.761">
+  <properties/>
+  <testcase name="testCreatingRoiImage" classname="videoprocessing.VideoProcessorTest" time="0.313"/>
+  <testcase name="testSavingSummary" classname="videoprocessing.VideoProcessorTest" time="0.004"/>
+  <testcase name="testCreatingPlanarCorrectionVid" classname="videoprocessing.VideoProcessorTest" time="0.1"/>
+  <testcase name="testCreatingDepthCorrectionVid" classname="videoprocessing.VideoProcessorTest" time="0.341"/>
+  <system-out><![CDATA[Planar Motion correction in progress
+Done
+Depth Motion correction in progress
+Done
+Searching for Beta-cells
+Done, found 27 cells
+Analysis Beta-cells
+Done
+Unsupported format or file not found:
+C:\Users\fo1318\Desktop\project\Image_treatment-/img/Unit_testing/Data/Planar_motion_correction.tif
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

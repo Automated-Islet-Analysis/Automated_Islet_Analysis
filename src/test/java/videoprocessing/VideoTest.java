@@ -1,8 +1,6 @@
 package videoprocessing;
 
 import ij.ImagePlus;
-import ij.ImageStack;
-import ij.io.FileSaver;
 import ij.process.ImageProcessor;
 import junit.framework.TestCase;
 import org.itk.simple.Image;
@@ -11,17 +9,16 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.FileDescriptor;
 import java.util.LinkedList;
 
 public class VideoTest extends TestCase {
     @Test
     public void testReadingFrames(){
-        String filename=System.getProperty("user.dir")+"/videos/Unit_testing/Video_for_Demo.tif";
+        String filename=System.getProperty("user.dir")+"/videos/Video_for_Testing_short.tif";
         Video video=new Video(filename);
 
-        String expectedName="Video_for_Demo.tif";
-        String expectedDirName=System.getProperty("user.dir")+"\\videos\\Unit_testing";
+        String expectedName="Video_for_Testing_short.tif";
+        String expectedDirName=System.getProperty("user.dir")+"\\videos";
 
         Assert.assertEquals(video.getFilename(),filename);
         Assert.assertEquals(video.getName(),expectedName);

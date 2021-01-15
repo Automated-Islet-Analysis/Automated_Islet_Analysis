@@ -1,26 +1,37 @@
 package videoprocessing;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class CellTest {
-    private String filePath = System.getProperty("user.dir")+"/videos/Video_forDemo.tif";
+public class CellTest{
+    private static String filePath = System.getProperty("user.dir")+"/videos/Video_for_Testing_short.tif";
     private String expectedDataPath=System.getProperty("user.dir")+"/img/Unit_testing/Data/";
     private static Video video;
 
-    @Before
-    public void setUp(){
+    @BeforeClass
+    public static void setUp(){
         video=new Video(filePath);
         VideoProcessor videoProcessor=new VideoProcessor(video);
         videoProcessor.process(10,true,true,true);
+        videoProcessor.analyseCells();
+
+        videoProcessor.saveCellsMeanIntensity(System.getProperty("user.dir") + "/temp/MI_data"); //is a folder
     }
+
+    @AfterClass
+    public static void tearDown(){
+        File directory=new File(System.getProperty("user.dir") + "/temp/MI_data");
+        for(File f: directory.listFiles())
+            f.delete();
+    }
+
     @Test
     public void testSavingMeanIntensityFile() throws IOException {
+
         for(int i=1;i<video.getCells().size();i++){
             //Read expected and output csv files (1 file for each Region of interest)
             BufferedReader readerExpected=new BufferedReader(new FileReader(expectedDataPath+"MI_data/"+i+".csv"));

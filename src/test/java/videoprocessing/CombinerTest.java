@@ -35,7 +35,7 @@ public class CombinerTest {
         String actualFile=System.getProperty("user.dir")+"/img/actualCombVid.tif";
         fileSaver.saveAsTiff(actualFile);
 
-        String expectedFile=System.getProperty("user.dir")+"/img/Unit_testing/expectedCombVid.tif";
+        String expectedFile=System.getProperty("user.dir")+"/img/Unit_testing/ExpectedCombinedVid.tif";
 
         CompareImages compareImages=new CompareImages(expectedFile,actualFile);
 

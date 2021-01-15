@@ -12,6 +12,7 @@ public class MakeImage {
 
     public MakeImage(LinkedList<ImagePlus> frames){
         this.frames=frames;
+        makeImg();
     }
 
     public ImagePlus getImgOut(){return imgOut;}
