@@ -40,7 +40,7 @@ This software was coded with the Java Development Kit(JDK) - 15.0.1 and this JDK
 
 A full description of the installation process can be found at https://bit.ly/2L0bHaY
 
-### 3. Install IntelliJ
+<!-- ### 3. Install IntelliJ
 
 IntelliJ Ultimate is not free however you can get free Educational licenses if applicable. 
 IntelliJ Community is free on the other hand. 
@@ -53,7 +53,7 @@ Both are compatible with this project.
 #### Run the just downloaded executable by double-clicking it and follow the instructions without changing the default settings 
 
 A full description of the installation process can be found at: https://www.jetbrains.com/help/idea/installation-guide.html#silent
-
+ -->
 ---
 ## Demo
 
