@@ -4,7 +4,7 @@
 # Automated analysis of islet in eye
 **Version 1.0**
 
-Diabetes affects 1 out of 8 adults in our modern society. Diabetes is caused by a deficit in Insulin secretion of pancreatic Beta-cells.
+Diabetes affects 1 out of 8 adults in our modern society and is caused by a deficit in Insulin secretion of pancreatic Beta-cells.
 
 Understanding the electrical coupling of Beta-cells could help understand the causes of insulin deficits in diabetic patients and help cure diabetes.
 
